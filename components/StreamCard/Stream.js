@@ -15,21 +15,21 @@ const Stream = () => {
         
     }
   return (
-    <div className='max-w-6xl md:max-w-full  bg-[#EEEEEE] pb-[4rem]  pt-[5rem] pr-[4rem]'>
-        <div className='max-w-6xl bg-[#D9D9D9] mx-auto h-[35rem] flex'>
-            <div className='items-start w-[30rem]'>
+    <div className='max-w-6xl md:max-w-full  bg-[#EEEEEE] pb-[2rem]   pr-0 md:pr-[4rem]'>
+        <div className='max-w-5xl bg-[#D9D9D9] mx-auto  md:h-[35rem]  flex flex-col md:flex-row overflow-scroll'>
+            <div className='items-start w-[30rem] hidden md:block'>
                 .
             </div>
-                <div className='w-[60%] flex flex-col' >
-                 <div className='w-[25rem]'>
+                <div className='w-[100%] md:w-[60%] flex flex-col' >
+                 <div className='w-fit md:w-[30rem]'>
                     <ul className='flex justify-between font-bold text-xl'>
                      {streamData.map(i => (<li className={ `cursor-pointer  w-full p-7 ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
                     </ul>
                  </div>
-                 <div className=' relative bg-[#201F54] p-[2rem] flex flex-col text-white h-full gap-5'>
+                 <div className=' relative bg-[#201F54] p-[2rem] h-[110%] flex flex-col text-white h-full gap-5'>
                     <h1 className='text-2xl font-bold'>{updatedItem.title}</h1>
-                    <p className='max-w-[692px]' >{updatedItem.desc}</p>
-                 <button className="absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] py-3 px-5 rounded-lg  bottom-10">See more</button>
+                    <p className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</p>
+                 <button className="absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button>
                  </div>
  
                 </div>

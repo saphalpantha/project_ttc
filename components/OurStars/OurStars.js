@@ -2,9 +2,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
+import { useWindowSize } from 'usehooks-ts';
 
 const starsData = [
   {id:'st1', nameofstar:'Sulav Bhandari', typeofscholarship:'SII', img:'dummy_user'},
@@ -37,20 +38,21 @@ export const Star = ({nameofstar, typeofscholarship, img}) => {
   
 
 const OurStars = () => {
+  const {width} = useWindowSize()
   return (
-    <div className='max-w-6xl md:max-w-full h-[30rem] gap-3 bg-white   p-[3rem]'>
-            <div className='flex flex-col h-[27rem] bg-white drop-shadow-xl '><h1 className='text-5xl text-[#FF9900] font-bold pl-[7rem]'>Our Stars</h1>
+    <div className='max-w-6xl md:max-w-full h-[30rem] gap-3 bg-white p-[3rem]'>
+            <div className='flex flex-col h-[27rem] bg-white drop-shadow-xl '><h1 className='text-5xl text-[#FF9900] font-bold  text-center'>Our Stars</h1>
             <div className='flex flex-row justify-around'>
 
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={100}
-      slidesPerView={5}
+      slidesPerView={width > 768 ? 5 : 1}
       navigation
       style={{display:'flex' , justifyContent:'space-around', padding:'4rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSwiper={(swiper) => console.log('')}
       onSlideChange={() => console.log('slide change')}
       >
           {starsData.map(star => {
@@ -67,4 +69,4 @@ const OurStars = () => {
   )
 }
 
-export default OurStars
+export default OurStars;

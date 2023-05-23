@@ -2,8 +2,8 @@ import React from 'react'
 
 const Card = ({img, title, admission_status}) => {
   return (
-    <div className='w-[382px] h-[216px] shadow-md bg-[#FFFFFF] flex  items-center justify-center flex-col '>
-        <div className='w-1/9'>
+    <div className='w-[20rem] h-[10rem] md:w-[25rem] md:h-[15rem] shadow-md bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>
+        <div className='w-[2rem] h-[2rem] md:w-[4rem] md:h-[4rem] '>
              <img className='w-[100%] h-[100%] text-black' src={`/images/${img}.svg`} alt={title} />
         </div>
         <h1 className='text-gray-400 font-light text-xl' >{`${title}`} <span className='text-red-500 font-bold text-2xs'>{admission_status && `(${admission_status})`}</span></h1>
@@ -12,3 +12,4 @@ const Card = ({img, title, admission_status}) => {
 }
 
 export default Card
+
