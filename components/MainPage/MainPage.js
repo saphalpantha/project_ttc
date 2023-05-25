@@ -8,9 +8,11 @@ import OurStars from '../OurStars/OurStars'
 const MainPage = () => {
   return (
     <Fragment>
+        
         <Hero/>
           <WhyTtc/>
           <Stream/>
+
           <OurStars/>
     </Fragment>
   )

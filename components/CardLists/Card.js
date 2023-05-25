@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = ({img, title, admission_status}) => {
   return (
-    <div className='w-[20rem] h-[10rem] md:w-[25rem] md:h-[15rem] shadow-md bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>
+    <div className='w-[20rem] h-[10rem] md:w-[24rem] md:h-[13.5rem] shadow-md bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>
         <div className='w-[2rem] h-[2rem] md:w-[4rem] md:h-[4rem] '>
              <img className='w-[100%] h-[100%] text-black' src={`/images/${img}.svg`} alt={title} />
         </div>

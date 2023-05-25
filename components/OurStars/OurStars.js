@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
 import { useWindowSize } from 'usehooks-ts';
+import Container from '../Container/Container';
 
 const starsData = [
   {id:'st1', nameofstar:'Sulav Bhandari', typeofscholarship:'SII', img:'dummy_user'},
@@ -40,9 +41,11 @@ export const Star = ({nameofstar, typeofscholarship, img}) => {
 const OurStars = () => {
   const {width} = useWindowSize()
   return (
-    <div className='max-w-6xl md:max-w-full h-[30rem] gap-3 bg-white p-[3rem]'>
-            <div className='flex flex-col h-[27rem] bg-white drop-shadow-xl '><h1 className='text-5xl text-[#FF9900] font-bold  text-center'>Our Stars</h1>
-            <div className='flex flex-row justify-around'>
+    <Container>
+
+    <div className='max-w-6xl md:max-w-full h-[30rem] gap-10 bg-white'>
+            <div className='flex flex-col h-[27rem] bg-white drop-shadow-xl justify-center mx-auto '><h1 className='text-5xl text-[#FF9900] font-bold  text-center'>Our Stars</h1>
+            <div className='flex flex-row justify-around px-[1rem]'>
 
     <Swiper
       // install Swiper modules
@@ -66,6 +69,7 @@ const OurStars = () => {
       </div>
             </div>
     </div>
+            </Container>
   )
 }
 

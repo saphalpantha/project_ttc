@@ -1,8 +1,11 @@
 import React from 'react'
 import NavLinks from './Nav/NavLinks'
+import Container from '../Container/Container'
 
 const Header = () => {  
   return ( 
+    <Container>
+
     <div className='relative max-w-6xl md:max-w-full text-center flex flex-col space-y-10'>
         <section className=" w-full bg-[rgb(32,31,84)] h-[32px] absolute top-0 left-0">
             {/* logo */}
@@ -18,6 +21,7 @@ const Header = () => {
             <NavLinks/>
         </section>
     </div>
+    </Container>
   )
 }
 

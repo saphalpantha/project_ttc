@@ -1,7 +1,7 @@
 import React from 'react'
-import StreamDetailLayout from '../../components/StreamDetail/StreamDetailLayout'
+import StreamDetailLayout from '../../../components/StreamDetail/StreamDetailLayout'
 import { useRouter } from 'next/router'
-import BbaStream from '../../components/StreamDetail/BbaStream';
+import BbaStream from '../../../components/StreamDetail/BbaStream';
 
 
 
