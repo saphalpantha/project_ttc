@@ -3,6 +3,11 @@ import React from "react";
 const ResultDetail = () => {
   return (
     <div>
+      {/* <section className="h-[10rem]">
+        <div className="">
+          <img className="w-[100vw]" src="/images/stream/science/sci_stream_cover.svg"></img>
+        </div>
+      </section> */}
       <section className="max-w-6xl md:max-w-full container h-[100vh]">
         <div className="max-w-6xl mx-auto px-0 flex flex-col justify-between space-y-5 py-[3rem]">
           <div className="pb-[1rem]">
@@ -15,7 +20,7 @@ const ResultDetail = () => {
                 <label className="text-xl text-[#201F54]">Choose Stream</label>
                 <select className="w-[20rem] h-[3.5rem] border-2 border-[#201F54] text-black pl-[0.5rem]" value="Science">
                     <option>Science</option>
-                    <option>Mgmt</option>
+                    <option>Mgmt</option> 
                 </select>
                 </div>
                 <div className="flex flex-col space-y-3">

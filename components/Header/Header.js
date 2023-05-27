@@ -6,7 +6,7 @@ const Header = () => {
   return ( 
     <Container>
 
-    <div className='relative max-w-6xl md:max-w-full text-center flex flex-col space-y-10'>
+    <div className='relative max-w-6xl md:max-w-full text-center flex flex-col space-y-10 relative'>
         <section className=" w-full bg-[rgb(32,31,84)] h-[32px] absolute top-0 left-0">
             {/* logo */}
         </section>
