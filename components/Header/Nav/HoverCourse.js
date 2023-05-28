@@ -14,7 +14,9 @@ const HoverCourse = () => {
             <li >Admission Procedure</li>
             </Link>
             <li>Schoolarship and Fee Structure</li>
+            <Link href={"/faculty/#faculty_science"}>
             <li>Faculty Members</li>
+            </Link>
         </ul>
         <ul className={classes.inside_links}>
            <span>Management </span>
@@ -25,7 +27,9 @@ const HoverCourse = () => {
             <li >Admission Procedure</li>
             </Link>
             <li>Schoolarship and Fee Structure</li>
+            <Link href={"/faculty/#faculty_management"}>
             <li>Faculty Members</li>
+            </Link>
         </ul>
         <ul className={classes.inside_links}>
             <span>BBA </span>
@@ -36,7 +40,9 @@ const HoverCourse = () => {
             <li >Admission Procedure</li>
             </Link>
             <li>Schoolarship and Fee Structure</li>
+            <Link href={"/faculty/#faculty_science"}>
             <li>Faculty Members</li>
+            </Link>
 
         </ul>
         </div>

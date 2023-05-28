@@ -10,13 +10,15 @@ module.exports = {
   ],
   theme: {
     screens:{
-      sm:'480px',
+      sm:'640px',
       md:'768px',
       lg:'992px',
-      xl:'1440px'
+      xl:'1440px',
     },
     extend: {
     },
   },
   plugins: [],
 }
+
+

@@ -1,0 +1,16 @@
+.clip{
+    background-repeat: no-repeat;
+    background-attachment: fixed !important;
+    background: linear-gradient(181.79deg, rgba(0, 0, 0, 0) 4.24%, #181751 85.44%), url('../../public/images/hero_pic.png');
+    background-size: no-repeat !important;
+    clip-path: polygon(0 0, 100% 0, 100% 76vh , 0 100%);
+}
+
+
+.clip2{
+    background-repeat: no-repeat;
+    background-attachment: fixed !important;
+    background: linear-gradient(181.79deg, rgba(0, 0, 0, 0) 4.24%, #181751 85.44%), url('../../public/images/hero_pic.png');
+    background-size: no-repeat !important;
+    clip-path: polygon(0 36vh, 100% 0, 100% 100%, 0 100%);
+}

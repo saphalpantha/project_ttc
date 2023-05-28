@@ -57,8 +57,10 @@ const ResultForInt = () => {
         </div>
       </section>
       <section className="w-[80%] mx-auto pt-5 pb-[10rem]">
-      <div className="bg-[#E4E3E3] py-10 font-bold text-xl md:text-2xl text-center text-black rounded-full">
-              Result of NEB Exam  Grade XI
+      <div className="bg-[#E4E3E3] flex justify-center items-center  py-10 md:py-14  px-5 md:px-2 font-bold text-2xs  md:text-xl text-center text-black rounded-full">
+             <p className="max-w-6xl md:max-w-5xl text-center text-2xs">
+              If you are having problem to view you result feel free to contact at info@tilottama.edu.np or admin@tilottama.edu.np.
+              </p>
             </div>
       </section>
     </div>

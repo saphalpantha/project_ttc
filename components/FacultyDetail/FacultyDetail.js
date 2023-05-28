@@ -42,19 +42,19 @@ const FacultyDetail = () => {
           ></img>
         </div>
       </section>
-      <section className="max-w-[60.313] mx-auto py-[1rem]">
+      <section className="md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl">
         <div className="flex flex-col justify-between space-y-10 ">
           <h1 className="text-[#FF9900] font-semibold text-3xl text-center ">
             BOARD MEMBERS
           </h1>
-          <div className="grid grid-cols-4 justify-between items-center mx-auto gap-10">
+          <div className="grid grid-cols-1 px-4  md:grid-cols-4 justify-between items-center mx-auto gap-10">
             {users.map((i) => (
               <FacultyCard isBig={true} />
             ))}
           </div>
         </div>
       </section>
-      <section className="max-w-[60.313] mx-auto py-[1rem]">
+      <section id="faculty_science" className="max-w-[60.313] mx-auto py-[1rem] justify-center items-center">
         <div className="flex flex-col justify-between space-y-[2rem]">
           <h1 className="text-[#FF9900] font-semibold text-3xl text-center ">
             Science Faculty
@@ -62,7 +62,7 @@ const FacultyDetail = () => {
           <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
             Department of Physics
           </h1>
-          <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+          <div className="grid grid-cols-1 px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
             {users.map((i) => (
               <FacultyCard isBig={false} />
             ))}
@@ -72,7 +72,7 @@ const FacultyDetail = () => {
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Chemistry
             </h1>
-            <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1 px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
@@ -83,7 +83,7 @@ const FacultyDetail = () => {
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Biology
             </h1>
-            <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1 px-4 md:p-0 md:grid-cols-4  justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
@@ -94,7 +94,7 @@ const FacultyDetail = () => {
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Computer
             </h1>
-            <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1  px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
@@ -103,7 +103,7 @@ const FacultyDetail = () => {
         </div>
       </section>
 
-      <section className="max-w-[77.313] mx-auto py-[1rem] pb-[4rem] pt-[2rem] flex flex-col space-y-4">
+      <section id="faculty_management" className="max-w-[60.313] mx-auto py-[1rem] justify-center items-center pb-[4rem]">
         <div className="flex flex-col justify-between space-y-10">
           <h1 className="text-[#FF9900] font-semibold text-3xl text-center ">
             Management Faculty
@@ -111,7 +111,7 @@ const FacultyDetail = () => {
           <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
             Department of Economics
           </h1>
-          <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+          <div className="grid grid-cols-1  px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
             {users.map((i) => (
               <FacultyCard isBig={false} />
             ))}
@@ -121,7 +121,7 @@ const FacultyDetail = () => {
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Economics
             </h1>
-            <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1  px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
@@ -132,18 +132,18 @@ const FacultyDetail = () => {
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Economics
             </h1>
-            <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1 px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col justify-between space-y-10">
+          <div className="flex flex-col justify-between space-y-10 ">
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Economics
             </h1>
-            <div className="grid grid-cols-4 justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1  px-4 md:grid-cols-4justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
