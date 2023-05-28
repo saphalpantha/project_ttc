@@ -143,7 +143,7 @@ const FacultyDetail = () => {
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Economics
             </h1>
-            <div className="grid grid-cols-1  px-4 md:grid-cols-4justify-between items-center mx-auto gap-20">
+            <div className="grid grid-cols-1   px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
               {users.map((i) => (
                 <FacultyCard isBig={false} />
               ))}
