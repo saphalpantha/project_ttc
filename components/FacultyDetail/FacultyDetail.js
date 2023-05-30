@@ -42,7 +42,7 @@ const FacultyDetail = () => {
           ></img>
         </div>
       </section>
-      <section className="md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl">
+      <section id="board_members" className="md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl">
         <div className="flex flex-col justify-between space-y-10 ">
           <h1 className="text-[#FF9900] font-semibold text-3xl text-center ">
             BOARD MEMBERS

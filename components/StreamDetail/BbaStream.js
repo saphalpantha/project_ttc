@@ -59,9 +59,9 @@ const BbaStream = () => {
         </div>
       </section>
 
-      <section className="flex flex-col pb-[5rem] w-[1278px] mx-auto">
-        <div className="max-w-6xl mx-auto bg-white flex justify-around  pb-[5rem] pt-[5rem] justify-center items-center">
-          <div className="flex flex-col justify-center space-y-5">
+      <section className="flex flex-col pb-[5rem] w-[100%] md:w-[1278px] justify-center  mx-auto">
+        <div className="max-w-6xl mx-auto bg-white flex flex-col md:flex-row space-y-5 md:space-y-10 justify-around  pb-[5rem] pt-[5rem] justify-center items-center">
+          <div className="flex flex-col justify-center space-y-5 px-[2rem]">
             <h1 className="text-5xl text-[#FF9900] font-bold">
               Department of Science
             </h1>
@@ -113,12 +113,12 @@ const BbaStream = () => {
         </div>
         <StreamCardList />
       </section>
-      <section className="max-w-6xl md:max-w-full pb-[5rem]">
-        <div className="mx-auto max-w-5xl space-y-[5rem]">
-          <h1 className="text-5xl text-[#FF9900] font-bold text-center">
+      <section className="max-w-6xl md:max-w-full pb-[5rem] px-[4ren] md:px-0">
+        <div className="mx-auto max-w-6xl space-y-[5rem]">
+          <h1 className="text-5xl text-[#FF9900] py-3 font-bold text-center">
             Course Strucutre
           </h1>
-          <div className="grid mx-auto gap-32 justify-center items-center grid-flow-col-1 md:grid-cols-2 md:p-[1rem]">
+          <div className="grid mx-auto gap-32 justify-center items-center grid-flow-col-1 md:grid-cols-2 ">
 
           {streamSubjectBBA.map((sub) => {
             return (
@@ -127,7 +127,7 @@ const BbaStream = () => {
             })}
         </div>
 
-          <div className="text-center mx-auto font-semibold text-[#201F54] text-2xl w-[80%] border-4 border-[#201F54] py-2 ">
+          <div className="text-center mx-auto font-semibold text-[#201F54] text-2xl w-[100%] border-4 border-[#201F54] py-2 ">
             Faculty Members Detail
           </div>
         </div>

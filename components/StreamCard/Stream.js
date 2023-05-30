@@ -19,20 +19,20 @@ const Stream = () => {
     <Container>
         <div className=' bg-[#EEEEEE] flex flex-col md:flex-row  mx-auto  pb-[5rem] pt-[2rem] md:pt-[2rem] justify-center items-center'>
 
-    <div className='max-w-6xl w-[90%]  pb-[2rem] py-[5rem]  space-y-5 pr-0 md:mx-auto'>
-        <h1 className='font-bold text-[#FF9900] text-5xl'>COURSE OFFERRED</h1>
+    <div className='max-w-6xl w-[100%] px-2 md:px-0  pb-[2rem] py-[5rem]  space-y-5 pr-0 md:mx-auto'>
+        <h1 className='font-bold text-[#FF9900] text-3xl md:text-5xl'>COURSE OFFERRED</h1>
         <div className='w-[100%] bg-[#D9D9D9] mx-auto md:h-[35rem]  flex flex-col md:flex-row overflow-scroll'>
             <div className='items-start w-[30rem] hidden md:block'>
                 .
             </div>
                 <div className='w-[100%] md:w-[60%] flex flex-col' >
-                 <div className='w-fit md:w-[30rem]'>
-                    <ul className='flex justify-between font-bold text-xl'>
-                     {streamData.map(i => (<li className={ `cursor-pointer  w-full p-7 ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
+                 <div className='w-[8rem] md:w-[30rem]'>
+                    <ul className='flex justify-between font-bold '>
+                     {streamData.map(i => (<li className={ ` cursor-pointer   w-full p-5 md:p-7 md:text-xl  text-2xs  ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
                     </ul>
                  </div>
                  <div className=' relative bg-[#201F54] p-[2rem] h-[110%] flex flex-col text-white h-full gap-5'>
-                    <h1 className='text-2xl font-bold'>{updatedItem.title}</h1>
+                    <h1 className='text-2xs md:text-2xl  font-bold'>{updatedItem.title}</h1>
                     <p className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</p>
                  <button className="absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button>
                  </div>

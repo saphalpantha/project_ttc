@@ -48,7 +48,7 @@ const StreamDetailLayout = () => {
             ></img>
         </div>
       </section>
-      <section className="flex flex-col pb-[5rem] w-[100%] md:w-[1278px]  mx-auto">
+      <section className="flex flex-col pb-[5rem] w-[100%] md:w-[1278px] justify-center  mx-auto">
         <div className="max-w-6xl mx-auto bg-white flex flex-col md:flex-row space-y-5 md:space-y-10 justify-around  pb-[5rem] pt-[5rem] justify-center items-center">
           <div className="flex flex-col justify-center space-y-5 px-[2rem]">
             <h1 className="text-5xl text-[#FF9900] font-bold">
@@ -113,7 +113,7 @@ const StreamDetailLayout = () => {
                 <div className="bg-[#201F54] py-2 font-bold text-2xl text-center text-white">
                   {sub.grade}
                 </div>
-                <div className="flex flex-col gap-3 justify-between pb-[1rem] md:flex-row md:gap-5">
+                <div className="flex flex-col gap-10 justify-between pb-[1rem] md:flex-row md:gap-20">
                   <SubjectListCardForplus2
                     isOptional={false}
                     subjectLists={sub.compSubjectLists}

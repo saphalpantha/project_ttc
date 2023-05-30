@@ -1,15 +1,18 @@
 
+
 .container{
     margin: 1rem 2rem;
+    color: black !important;
     
 }
 .links{
     display: flex;
     justify-content: space-between;
-    /* width: 20vw; */
+    width: 20vw;
     justify-items: center;
     align-items: center;
 }
+
 
 
 
@@ -29,7 +32,7 @@ color: #868686;
 }
 
 .links span{
-    /* margin-top: 1rem; */
+    margin-top: 1rem;
 
 font-weight: 800;
 font-size: 16px;
@@ -47,3 +50,9 @@ color: #454A6D;
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+
+
+
+
