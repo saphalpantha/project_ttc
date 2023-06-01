@@ -1,0 +1,16 @@
+.gridlayout{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: 442px  482px 312px;
+    grid-auto-rows: 20px;
+    
+    height: 100vh;
+    gap: 1rem;
+    /* align-items: center; */
+    
+    justify-content: center;
+
+
+    
+}   
+

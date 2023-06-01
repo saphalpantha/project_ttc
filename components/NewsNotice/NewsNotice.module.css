@@ -1,0 +1,7 @@
+.main{
+    background: url('../../public/images/cover_newsnotice.png');
+    /* background-repeat: no-repeat; */
+    object-fit: contain;
+    width: 100vw;
+    height: 50vh;
+}

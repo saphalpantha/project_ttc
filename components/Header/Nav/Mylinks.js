@@ -1,20 +1,16 @@
 export const links = [
 
     {
-      name: "About",
-      submenu: true,
       sublinks: [
-        {
-          Head: "About",
-          sublink: [
+        
             { name: "About Tilottama", link: "/about" },
             { name: "Board Members", link: "/faculty/#board_members" },
             { name: "Faculty & staff", link: "/" },
             { name: "Gallary", link: "/" },
           ],
-        },
         
-      ],
+        
+    
     },
     {
       name: "Courses",
@@ -64,3 +60,23 @@ export const links = [
       ],
     },
   ];
+
+
+
+
+
+
+
+
+
+
+
+const aboutLinks = {
+  name: "About",
+  subLinks: [
+    { name: "About Tilottama", link: "/about" },
+    { name: "Board Members", link: "/faculty/#board_members" },
+    { name: "Faculty & staff", link: "/" },
+    { name: "Gallary", link: "/" },
+  ],
+};
