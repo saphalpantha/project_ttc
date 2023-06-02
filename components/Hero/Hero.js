@@ -3,13 +3,16 @@ import Image from 'next/image'
 import CardLists from '../CardLists/CardLists'
 import Container from '../Container/Container'
 import HeroSlider from '../Carousel/Carousel'
+import StyleCover from '../StyleCover/StyleCover'
 const Hero = () => {
   return (
     
     <Container>
-    <div className='max-w-full   relative'>
+          <div className='max-w-full   relative'>
       <Image  className='w-[100%] h-[100%] object-contain' src="/images/hero_pic.png" width={500} height={500} ></Image>
     </div>
+
+
       <div className='flex'>
         
       {/* <HeroSlider/> */}

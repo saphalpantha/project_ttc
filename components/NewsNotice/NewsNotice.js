@@ -1,27 +1,28 @@
-import React from 'react'
-import NewsCardList from './NewsCardList'
-import Container from '../Container/Container'
-import classes from './NewsNotice.module.css'
+import React from "react";
+// import ''
+import Container from "../Container/Container";
+import NewsCardList from "./NewsCardList";
+
 const NewsNotice = () => {
   return (
+    <Container>
+      <div className="max-w-6xl pb-[32rem] md:pb-[2rem]  md:max-w-full">
+        <section className={`relative min-h-min md:min-h-screen`}>
+          <div className="">
+            <h1 className="text-5xl relative md:absolute text-[#FF9900] md:top-[10%] z-[100] left-[5%] ]">NEWS AND NOTICE</h1>
+            <img
+              className="w-[100vw] object-contain opacity-80  "
+              src="/images/cover_newsnotice.png"
+            ></img>
+            <div className="relative md:absolute top-[30vh] mx-auto w-[100%] px-2 md:px-20 ">
+          <NewsCardList/>
+            </div>
+          
+          </div>
+        </section>
+      </div>
+    </Container>
+  );
+};
 
-
-
-    <div className='md:h-[100vh] flex-col  justify-center  relative  z-30 '>
-            <h1 className=' top-[10%] z-[100] text-[#FF9900] left-[5%] md:absolute text-5xl font-bold '>NEWS AND NOTICE</h1>
-        <div className={`${classes.main} `}>
-            <div className=' h-[10vh] md:h-[100vh]   flex flex-col gap-132 justify-center items-center pt-[5rem] '>
-
-            <NewsCardList/>
-        </div>
-
-
-        </div>
-
-
-    </div>
-
-  )
-}
-
-export default NewsNotice
+export default NewsNotice;

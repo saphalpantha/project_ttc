@@ -6,7 +6,7 @@ const About = () => {
   return (
     <Container>
       <div className={`min-h-screen  bg-fixed ${classes.clip} `}></div>
-      <section className=" flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center">
+      <section className="flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center">
         <h1 className="text-[#FF9900] text-5xl font-semibold">About Tilottama</h1>
         <p className="text-xl max-w-5xl tracking-wide">
           Tilottama Campus was established in 1996 as the first private college
@@ -24,15 +24,15 @@ const About = () => {
           Administration (MBA) in the near future.{" "}
         </p>
       </section>
-      <section className={`min-h-screen  flex flex-col space-y-5 md:space-y-0 md:flex-row justify-center pt-[17rem] md:pt-[12rem] items-center bg-fixed ${classes.clip2} `}>
-      <div className="flex p-10 rounded-l-[4rem]  bg-[#FF9900]">
+      <section className={` relative min-h-screen  flex flex-col space-y-5 md:space-y-0 md:flex-row justify-center pt-[17rem] md:pt-[12rem] items-center bg-fixed ${classes.clip2} `}>
+      <div className="flex p-10 pb-[4rem]  rounded-l-[4rem]  bg-[#FF9900]">
         <p className="leading-5 md:leading-7  max-w-sm md:max-w-lg  text-white font-bold text-2xs md:text-3xs ">
         The college has been imparting quality and practical education. The final results published by NEB Nepal in the past 27 years have proved that Tilottama Secondary School (TSS) has become a home for quality education. It has already been awarded time and again by NEB for its academic excellence. 
 In 2078 and 2079 the school stood in the first position throughout Nepal . We are proud to look at our students getting opportunities to study abroad under various full and partial scholarships as well as for their appropriate placement throughout the nation and abroad after their academic goal.
         </p>
 
       </div>
-      <div><img className="w-[100%] h-[100%]" src={"/images/certificate.png"}></img></div>
+      <div className="pb-[4rem]"><img className="w-[100%] h-[100%]" src={"/images/certificate.png"}></img></div>
       </section>
 
       <section className="flex flex-col md:flex-row space-y-5 md:space-y-0 px-5 py-4 justify-evenly   md:px-32 md:py-10 bg-scroll">
@@ -50,8 +50,8 @@ In 2078 and 2079 the school stood in the first position throughout Nepal . We ar
 
         
       </div>
-        <div className="">
-            <img className="w-[100%] h-[100%]" src="/images/location.png"/>
+        <div className="w-[50%]">
+        <iframe src={"https://maps.app.goo.gl/r2ZgcwyJX7usCxrr5"} width={600} height={450}  allowfullscreen={false} loading={"lazy"}></iframe>
         </div>
       </section>
       <section className="flex flex-col space-y-5 md:space-y-10 px-5 py-4 justify-evenly   md:px-32 md:py-10 bg-scroll">

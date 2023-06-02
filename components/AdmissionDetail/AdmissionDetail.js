@@ -1,20 +1,17 @@
 import React from "react";
 import Container from "../Container/Container";
-
+import StyleCover from "../StyleCover/StyleCover";
 const AdmissionDetail = () => {
   return (
-
     <Container>
-
       <section>
-        <div className="">
-          <img
-            className="w-[100%] h-[100%]"
-            src={`/images/stream/science/sci_stream_cover.svg`}
-          ></img>
-        </div>
+        <StyleCover
+          isLeft={false}
+          src={"/images/stream/science/sci_stream_cover.png"}
+          title={"Admission procedure (Science)"}
+        />
       </section>
-      <section className="max-w-6xl md:max-w-full  mx-5">
+      <section className="max-w-6xl md:max-w-full  mx-5 pb-10">
         <div className="max-w-6xl mx-auto px-0 flex flex-col justify-between space-y-5 py-[3rem]">
           <div className="pb-[1rem]">
             <h1 className="text-4xl text-[#FF9900] font-bold">
@@ -39,37 +36,58 @@ const AdmissionDetail = () => {
           </div>
         </div>
 
-        <div className="mx-auto flex flex-col justify-center  space-y-5 pb-[5rem]">
-        <div className="bg-[#201F54] py-2 font-bold text-2xl text-center text-white">
-        Entrance Exam Syallbus</div>
+        <div className="mx-auto px-2 md:px-32 mx-2 md:mx-10  flex flex-col md:flex-row justify-evenly gap-2 md:gap-32 p-10  justify-center  pb-[5rem]">
+          <div className=" w-[100%] md:w-[60%] flex flex-col spac-y-4 gap-2">
 
-                <div className=" h-[15rem] bg-[#F4F4F4] flex flex-col justify-center items-center">
-                    <ul className="flex flex-col justify-between space-y-3 text-center">
-                        <li>English</li>
-                        <li>Science</li>
-                        <li>Compulsory & Opt.Mathematics</li>
-                        <li>General knowledge</li>
-                    </ul>
-                </div>
-                
+          <div className="bg-[#201F54] py-2 flex-col font-bold text-2xl text-center text-white">
+            Entrance Exam Syallbus
+          </div>
 
-        <div className="bg-[#201F54] py-2 font-bold text-2xl text-center text-white">
-        Duration of Exam : 2 hours</div>
-        <div className="border-[4px] border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54]">
-        Download Entrance Preparation material</div>
-        <p className="text-2xs tracking-widest leading-8  ">The question format for the entrance examination will include multiple choice questions and some structured based questions. Entrance questions will be based on the secondary level curriculum with minor changes.</p>
-        <div className="py-[1rem] flex flex-col space-y-10">
-        <h1 className="text-4xl text-[#FF9900] font-bold">
-        Pedagogy
-            </h1>
-            <p className="text-2xs leading-8 tracking-wide">Students must have passed SEE examination or equivalent, as the faculty members of Tilottama use modern teaching methodology to deliver their lectures by using multimedia and audio visual aids in addition to white boards in the classrooms. Teaching methodology will be balanced between the oratory method as well as the participatory method.</p>
-            <div className="bg-[#FF9900] py-2 font-bold text-2xl text-center text-white">
-        Apply Now</div>
+          <div className=" h-[15rem]  bg-[#F4F4F4] flex flex-col justify-center items-center">
+            <ul className="flex  flex-col justify-between space-y-3 text-center">
+              <li>English</li>
+              <li>Science</li>
+              <li>Compulsory & Opt.Mathematics</li>
+              <li>General knowledge</li>
+            </ul>
+          </div>
+
+          <div className="bg-[#201F54] py-2 font-bold text-2xl text-center text-white">
+            Duration of Exam : 2 hours
+          </div>
+          <div className="border-[4px] border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54]">
+            Download Entrance Preparation material
+          </div>
+          <p className="text-2xs tracking-widest leading-8  ">
+            The question format for the entrance examination will include
+            multiple choice questions and some structured based questions.
+            Entrance questions will be based on the secondary level curriculum
+            with minor changes.
+          </p>
+      </div>
+          <div className="py-[1rem] flex flex-col space-y-5 md:space-y-10 w-[100%] md:w-[75%] ">
+            <h1 className="text-4xl text-[#FF9900] font-bold">Pedagogy</h1>
+            <p className="text-2xs leading-8 tracking-wide">
+              Students must have passed SEE examination or equivalent, as the
+              faculty members of Tilottama use modern teaching methodology to
+              deliver their lectures by using multimedia and audio visual aids
+              in addition to white boards in the classrooms. Teaching
+              methodology will be balanced between the oratory method as well as
+              the participatory method.
+            </p>
+          </div>
         </div>
-        </div>
+              <div className="flex flex-col space-y-5">
 
+            <div className="border-4  border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54] w-[80%] mx-auto ">
+            Download Entrance Preparation material
+            </div>
+            <div className="bg-[#FF9900] py-2 font-bold text-2xl text-center text-white w-[80%] mx-auto ">
+              Apply Now
+            </div>
+              </div>
       </section>
-  </Container>
+    </Container>
   );
 };
 

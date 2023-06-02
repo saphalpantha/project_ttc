@@ -5,6 +5,7 @@ import SubjectListCard from "./SubjectListCard";
 import SubjectListCardForplus2 from "./SubjectListCard";
 import SubjectListCardForBba from "./SubjectListCardForBba";
 import Container from '../Container/Container'
+import StyleCover from "../StyleCover/StyleCover";
 const streamSubject = [
   {
     grade: "GRADE XI",
@@ -51,12 +52,7 @@ const BbaStream = () => {
   return (
     <Container>
       <section>
-        <div className="">
-          <img
-            className="w-[100%] h-[100%]"
-            src={`/images/stream/science/sci_stream_cover.svg`}
-            ></img>
-        </div>
+      <StyleCover isLeft={true} src={"/images/stream/science/sci_stream_cover.png"} title={"BBA Faculty"}/>
       </section>
 
       <section className="flex flex-col pb-[5rem] w-[100%] md:w-[1278px] justify-center  mx-auto">

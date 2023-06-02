@@ -4,7 +4,7 @@ import StreamCardList from "./StreamCardList";
 import SubjectListCard from "./SubjectListCard";
 import SubjectListCardForplus2 from "./SubjectListCard";
 import Container from "../Container/Container";
-
+import StyleCover from "../StyleCover/StyleCover";
 const streamSubject = [
   {
     grade: "GRADE XI",
@@ -41,12 +41,7 @@ const StreamDetailLayout = () => {
     <Container>
 
       <section className="">
-        <div className="">
-          <img
-            className="w-[100%] h-[100%]"
-            src={`/images/stream/science/sci_stream_cover.svg`}
-            ></img>
-        </div>
+      <StyleCover isLeft={true} src={"/images/stream/science/sci_stream_cover.png"} title={"Science Faculty"}/>
       </section>
       <section className="flex flex-col pb-[5rem] w-[100%] md:w-[1278px] justify-center  mx-auto">
         <div className="max-w-6xl mx-auto bg-white flex flex-col md:flex-row space-y-5 md:space-y-10 justify-around  pb-[5rem] pt-[5rem] justify-center items-center">
