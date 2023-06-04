@@ -1,0 +1,40 @@
+/* NavBar.module.css */
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdownLink {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdownLink:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .dropdownButton {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .dropdownButton:hover {
+    color: #000;
+  }
+  

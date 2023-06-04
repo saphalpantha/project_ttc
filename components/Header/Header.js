@@ -1,5 +1,5 @@
 import React from 'react'
-import NavLinks from './Nav/NavLinks'
+import Navbar from './Nav/NavBar'
 import Container from '../Container/Container'
 import Link from 'next/link'
 
@@ -40,10 +40,10 @@ const Header = () => {
     <Container>
     <div className='relative max-w-6xl md:max-w-full text-center flex flex-col space-y-10   '>
        <div className='w-full bg-[#201F54] h-5'></div>
-        <div className=' absolute top-[-2.6rem] right-[2.4rem] bg-[#FF9900] w-[247px] h-[64px] rounded-b-[15px]  md:block'>
-           <Link href="/admissions"> <h1 className='font-bold tracking-wider text-2xl mx-auto mt-3 text-white  '>Admission Open</h1></Link>
+        <div className=' absolute top-[-2.6rem] right-[50%]  translate-x-[50%] md:translate-x-0  md:right-[2.4rem] bg-[#FF9900] w-[200px] h-[64px] rounded-b-[15px]  md:block'>
+           <Link href="/admissions"> <h1 className='font-bold tracking-wider text-xl mx-auto mt-3 text-white  '>Admission Open</h1></Link>
         </div>
-            <NavLinks/>
+            <Navbar/>
         {/* </section> */}
     </div>
     </Container>
