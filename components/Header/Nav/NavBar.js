@@ -5,14 +5,77 @@ import React from "react";
 
 function NavLink({ to, children }) {
   return (
-    <Link className={`block py-2 px-7 ${styles.navLink}`} href={to}>
+    <Link className={` hover:border-b-4 hover:border-[#201F54] block py-2 px-7  transition-all duration-200  ${styles.navLink}`} href={to}>
       {children}
     </Link>
   );
 }
 
+// function DropdownMenu({ title, links }) {
+//   const [openMenus, setOpenMenus] = useState([]);
+
+//   const toggleDropdown = (itemId) => {
+//     if (openMenus.includes(itemId)) {
+//       setOpenMenus(openMenus.filter((menuId) => menuId !== itemId));
+//     } else {
+//       setOpenMenus([...openMenus, itemId]);
+//     }
+//   };
+
+//   const isDropdownOpen = (itemId) => {
+//     return openMenus.includes(itemId);
+//   };
+
+//   return (
+//     <div className={`relative ${styles.dropdownMenu}`}>
+//       <button
+//         className={`block py-2 px-6 ${styles.navLink} ${styles.dropdownButton}`}
+//         onClick={() => toggleDropdown(title)}
+//       >
+//         {title}
+//       </button>
+//       {isDropdownOpen(title) && (
+//         <div className={`dropdown border-t-2 border-blue-800 ${styles.dropdown}`}>
+//           {links.map((link) => (
+//             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
+//               {link.sublinks ? (
+//                 <>
+//                   <button
+//                     className={` py-2 px-4 ${styles.dropdownButton} ${isDropdownOpen(link.id) ? styles.active : ''}`}
+//                     onClick={() => toggleDropdown(link.id)}
+//                   >
+//                     {link.name}
+//                   </button>
+//                   {isDropdownOpen(link.id) && (
+//                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
+//                       {link.sublinks.map((sublink) => (
+//                         <Link className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`} key={sublink.id} href={sublink.link}>
+//                           {sublink.name}
+//                         </Link>
+//                       ))}
+//                     </div>
+//                   )}
+//                 </>
+//               ) : (
+//                 <Link className={`dropdown-item ${styles.dropdownLink}`} key={link.id} href={link.link}>
+//                   {link.name}
+//                 </Link>
+//               )}
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+
+
+import { useEffect, useRef } from "react";
+
 function DropdownMenu({ title, links }) {
   const [openMenus, setOpenMenus] = useState([]);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = (itemId) => {
     if (openMenus.includes(itemId)) {
@@ -26,10 +89,23 @@ function DropdownMenu({ title, links }) {
     return openMenus.includes(itemId);
   };
 
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setOpenMenus([]);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={`relative ${styles.dropdownMenu}`}>
+    <div className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
       <button
-        className={`block py-2 px-6 ${styles.navLink} ${styles.dropdownButton}`}
+        className={`block  py-2 px-6 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
         onClick={() => toggleDropdown(title)}
       >
         {title}
@@ -41,7 +117,9 @@ function DropdownMenu({ title, links }) {
               {link.sublinks ? (
                 <>
                   <button
-                    className={` py-2 px-4 ${styles.dropdownButton} ${isDropdownOpen(link.id) ? styles.active : ''}`}
+                    className={` py-2 px-4 ${styles.dropdownButton} ${
+                      isDropdownOpen(link.id) ? styles.active : ""
+                    }`}
                     onClick={() => toggleDropdown(link.id)}
                   >
                     {link.name}
@@ -49,7 +127,11 @@ function DropdownMenu({ title, links }) {
                   {isDropdownOpen(link.id) && (
                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
                       {link.sublinks.map((sublink) => (
-                        <Link className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`} key={sublink.id} href={sublink.link}>
+                        <Link
+                          className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`}
+                          key={sublink.id}
+                          href={sublink.link}
+                        >
                           {sublink.name}
                         </Link>
                       ))}
@@ -57,7 +139,11 @@ function DropdownMenu({ title, links }) {
                   )}
                 </>
               ) : (
-                <Link className={`dropdown-item ${styles.dropdownLink}`} key={link.id} href={link.link}>
+                <Link
+                  className={`dropdown-item ${styles.dropdownLink}`}
+                  key={link.id}
+                  href={link.link}
+                >
                   {link.name}
                 </Link>
               )}
@@ -211,7 +297,7 @@ export default function Navbar() {
           />
         </div>
         <div className={`hidden md:flex ${styles.desktopMenu}`}>
-          <NavLink to="/">Home</NavLink>
+          <NavLink  to="/">Home</NavLink>
           {/* <NavLink to="/about" >About</NavLink> */}
           <DropdownMenu title="About" links={aboutDropdownLinks} />
           <DropdownMenu title="Courses" links={coursesDropdownLinks} />

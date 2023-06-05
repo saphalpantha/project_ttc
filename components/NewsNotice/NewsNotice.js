@@ -6,10 +6,10 @@ import NewsCardList from "./NewsCardList";
 const NewsNotice = () => {
   return (
     <Container>
-      <div className="flex flex-col md:flex-row  mx-auto  pb-[5rem] pt-[2rem] md:pt-[2rem] justify-center items-center">
+      <div className="flex flex-col md:flex-row  mx-auto  pb-[5rem] pt-[2rem] md:pt-[2rem] pb-[4rem] justify-center items-center">
         <section className={` min-h-screen`}>
           <div className="relative">
-            <h1 className="text-3xl md:text-5xl relative md:absolute text-[#FF9900] md:top-[10%] z-[100] w-fit left-[5%] ]">NEWS AND NOTICE</h1>
+            <h1 className="text-3xl md:text-5xl relative md:absolute text-[#FF9900] md:top-[10%] font-bold z-[100] w-fit left-[5%] ]">NEWS AND NOTICE</h1>
             <img
               className="object-contain bg-contain opacity-80 "
               src="/images/cover_newsnotice.png"

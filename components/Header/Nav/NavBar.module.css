@@ -15,6 +15,7 @@
   } 
   
   .dropdownLink {
+    white-space: nowrap;
     display: block;
     padding: 0.5rem 2rem;
     font-size: 0.9rem !important;
@@ -25,21 +26,21 @@
   }
   
   .dropdownLink:hover {
-    background-color: #f7f7f7;
+    background-color: rgb(208, 208, 208);
   }
   
   .dropdownButton {
-    
     display: block;
     background-color: transparent;
-    border: none;
+    /* border: none; */
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   .dropdownButton:hover {
-    color: #000;
+    color: #201F54;
+  
   }
   
 

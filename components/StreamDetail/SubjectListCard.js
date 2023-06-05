@@ -14,7 +14,7 @@ const SubjectListCardForplus2 = ({isOptional, subjectLists}) => {
         <ul className='flex flex-col space-y-4 '>
             {subjectLists.map(sub =>(
               
-              <li className='font-light'>{sub}</li>
+              <li className='font-light text-center' >{sub}</li>
               ))}
         </ul>
     </div>

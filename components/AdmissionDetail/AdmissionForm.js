@@ -26,7 +26,7 @@ const AdmissionForm = () => {
                     Choose Stream
                   </label>
                   <select
-                    className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -38,7 +38,7 @@ const AdmissionForm = () => {
                     Choose Stream
                   </label>
                   <select
-                    className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -50,7 +50,7 @@ const AdmissionForm = () => {
                     Choose Stream
                   </label>
                   <select
-                    className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -262,13 +262,13 @@ const AdmissionForm = () => {
                 Bus Faculty
               </h1>
 
-              <div className="flex flex-col md:flex-row gap-3 md:gap-x-32 gap-y-3">
+              <div className="flex flex-col md:flex-row gap-3   md:gap-x-32 gap-y-3">
                 <div className="flex flex-col space-y-2">
                   <label className="text-xl pl-3  text-[#201F54]">
                     Bus faculty
                   </label>
                   <select
-                    className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -340,7 +340,7 @@ const AdmissionForm = () => {
                       English
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -349,7 +349,7 @@ const AdmissionForm = () => {
                       C.Maths
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -358,7 +358,7 @@ const AdmissionForm = () => {
                       Opt.Maths
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -367,7 +367,7 @@ const AdmissionForm = () => {
                       Science
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -376,7 +376,7 @@ const AdmissionForm = () => {
                       Account
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -388,7 +388,7 @@ const AdmissionForm = () => {
                       English
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -397,7 +397,7 @@ const AdmissionForm = () => {
                       C.MATHS
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -406,7 +406,7 @@ const AdmissionForm = () => {
                       Opt.Maths
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -415,7 +415,7 @@ const AdmissionForm = () => {
                       Science
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -424,7 +424,7 @@ const AdmissionForm = () => {
                       Account
                     </label>
                     <input
-                      className="w-[119px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -440,14 +440,14 @@ const AdmissionForm = () => {
                 <div className="flex flex-col space-y-2 text-center">
                   <lablel className={"font-bold"}>Valid Photo</lablel>
                   <input
-                    className="  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className=" py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
-                <div className="flex flex-col space-y-2 text-center">
+                <div className="flex  flex-col space-y-2 text-center">
                   <lablel className={"font-bold"}>SEE marksheet</lablel>
                   <input
-                    className="  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
@@ -456,7 +456,7 @@ const AdmissionForm = () => {
                     See transfer Certificate
                   </lablel>
                   <input
-                    className="  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className=" py-4  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
@@ -465,7 +465,7 @@ const AdmissionForm = () => {
                     SEE Character Certificate
                   </lablel>
                   <input
-                    className="  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className=" py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>

@@ -51,7 +51,7 @@ const OurStars = () => {
       // install Swiper modules
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={100}
-      slidesPerView={width > 768 ? 5 : 1}
+      slidesPerView={width > 768 ? 4 : 1}
       navigation
       style={{display:'flex' , justifyContent:'space-around', padding:'4rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
