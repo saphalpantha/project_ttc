@@ -5,7 +5,7 @@ import React from "react";
 
 function NavLink({ to, children }) {
   return (
-    <Link className={`block py-2 px-4 ${styles.navLink}`} href={to}>
+    <Link className={`block py-2 px-7 ${styles.navLink}`} href={to}>
       {children}
     </Link>
   );
@@ -29,7 +29,7 @@ function DropdownMenu({ title, links }) {
   return (
     <div className={`relative ${styles.dropdownMenu}`}>
       <button
-        className={`block py-2 px-4 ${styles.navLink} ${styles.dropdownButton}`}
+        className={`block py-2 px-6 ${styles.navLink} ${styles.dropdownButton}`}
         onClick={() => toggleDropdown(title)}
       >
         {title}
@@ -41,15 +41,15 @@ function DropdownMenu({ title, links }) {
               {link.sublinks ? (
                 <>
                   <button
-                    className={`block py-2 px-4 ${styles.dropdownButton} ${isDropdownOpen(link.id) ? styles.active : ''}`}
+                    className={` py-2 px-4 ${styles.dropdownButton} ${isDropdownOpen(link.id) ? styles.active : ''}`}
                     onClick={() => toggleDropdown(link.id)}
                   >
                     {link.name}
                   </button>
                   {isDropdownOpen(link.id) && (
-                    <div className={`dropdown-menu ${styles.subDropdownMenu}`}>
+                    <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
                       {link.sublinks.map((sublink) => (
-                        <Link className={`dropdown-item ${styles.dropdownLink}`} key={sublink.id} href={sublink.link}>
+                        <Link className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`} key={sublink.id} href={sublink.link}>
                           {sublink.name}
                         </Link>
                       ))}

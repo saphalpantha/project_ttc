@@ -6,7 +6,7 @@ import Container from "../Container/Container";
 const AdmissionForm = () => {
   return (
     <Container>
-      <div className="max-w-6xl   md:max-w-full">
+      <div className="max-w-6xl md:max-w-full">
         <section className={` relative ${classes.main}`}>
           <div className="">
             <img
@@ -14,7 +14,7 @@ const AdmissionForm = () => {
               src="/images/stream/science/sci_stream_cover.png"
             ></img>
           </div>
-          <div className="  left-[50%] mx-auto w-[80%] bg-[#FF9900] py-2 font-bold text-2xl text-center text-white rounded-full">
+          <div className="left-[50%] mx-auto w-[80%] bg-[#FF9900] py-2 font-bold text-2xl text-center text-white rounded-full">
             Admission Form
           </div>
 
@@ -67,14 +67,14 @@ const AdmissionForm = () => {
                   <label className="text-[#201F54] pl-3 tracking-wide">
                     Name in Block Letter:*
                   </label>
-                  <input className="rounded-3xl pl-3 py-3 w-full border-2 border-[#201F54]"></input>
+                  <input className="rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"></input>
                 </div>
 
                 <div>
                   <label className="text-[#201F54] pl-3 tracking-wide">
                     Name in Devanagari:
                   </label>
-                  <input className="rounded-3xl pl-3 py-3 w-full border-2 border-[#201F54]"></input>
+                  <input className="rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"></input>
                 </div>
 
                 <div className="grid   grid-cols-1 md:mx-0 mx-auto md:grid-cols-3 gap-2  md:gap-10 md:grid-row-2">
@@ -83,7 +83,7 @@ const AdmissionForm = () => {
                       Date of Birth (B.S)
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="date"
                     ></input>
                   </div>
@@ -92,7 +92,7 @@ const AdmissionForm = () => {
                       Date of Birth (A.D)
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="date"
                     ></input>
                   </div>
@@ -102,7 +102,7 @@ const AdmissionForm = () => {
                       Choose Stream
                     </label>
                     <select
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                       value="Science"
                     >
                       <option>Male</option>
@@ -114,7 +114,7 @@ const AdmissionForm = () => {
                       Telephone No
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="tel"
                     ></input>
                   </div>
@@ -123,14 +123,14 @@ const AdmissionForm = () => {
                       Phone No
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="number"
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
                     <label className="text-xl pl-3 text-[#201F54]">Email</label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -147,7 +147,7 @@ const AdmissionForm = () => {
                     Ward Number:
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -156,7 +156,7 @@ const AdmissionForm = () => {
                     VDC/Municipality
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -165,7 +165,7 @@ const AdmissionForm = () => {
                     District
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -180,7 +180,7 @@ const AdmissionForm = () => {
                     Fathers Name
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -190,7 +190,7 @@ const AdmissionForm = () => {
                     Occupation Name
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -198,7 +198,7 @@ const AdmissionForm = () => {
                 <div className="flex flex-col space-y-1">
                   <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
@@ -208,7 +208,7 @@ const AdmissionForm = () => {
                     Mothers Name
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -218,14 +218,14 @@ const AdmissionForm = () => {
                     Occupation
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
                 <div className="flex flex-col space-y-1">
                   <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
@@ -235,7 +235,7 @@ const AdmissionForm = () => {
                     Local Gurdain's Name
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -245,14 +245,14 @@ const AdmissionForm = () => {
                     Occupation
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
                 <div className="flex flex-col space-y-1">
                   <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
@@ -281,7 +281,7 @@ const AdmissionForm = () => {
                     Bus Stop
                   </label>{" "}
                   <input
-                    className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
@@ -296,7 +296,7 @@ const AdmissionForm = () => {
                     <label className="text-[#201F54] pl-3 tracking-wide">
                       Name of Previous School
                     </label>
-                    <input className="rounded-3xl pl-3 py-3 w-full border-2 border-[#201F54]"></input>
+                    <input className="rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"></input>
                   </div>
                 </div>
 
@@ -308,7 +308,7 @@ const AdmissionForm = () => {
                       Send-up CGPA
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -317,7 +317,7 @@ const AdmissionForm = () => {
                       SEE Board CGPA
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -326,7 +326,7 @@ const AdmissionForm = () => {
                       Grade letter/Division:
                     </label>{" "}
                     <input
-                      className="w-[243px] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
