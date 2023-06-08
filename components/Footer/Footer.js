@@ -74,12 +74,12 @@ const Footer = () => {
 
         <div className="flex flex-col justify-between items-center space-y-2">
           <h1 className="text-3xl font-bold text-white">Social Media</h1>
-          <ul className="text-center flex gap-2 mx-auto">
-            <li className="w-[2rem] h-[2rem] bg-white text-black rounded-full p-1">
-              F
+          <ul className="text-center flex gap-2 mx-auto justify-center items-center flex">
+            <li className="w-[2rem] h-[2rem] bg-transparent text-white rounded-full p-1">
+              <img className="w-[100%] h-[100%]" src="/images/sl_1.svg"></img>
             </li>
-            <li className="w-[2rem] h-[2rem] bg-white text-black rounded-full p-1">
-              T
+            <li className="w-[2rem] h-[2rem] bg-transparent text-white rounded-full p-1">
+              <img className="w-[100%] h-[100%]" src="/images/sl_2.svg"></img>
             </li>
           </ul>
         </div>
