@@ -72,11 +72,13 @@ function NavLink({ to, children }) {
 
 
 import { useEffect, useRef } from "react";
+import Sidebar from "./SideBar";
+import Logo from "../../Logo/Logo";
+
 
 function DropdownMenu({ title, links }) {
   const [openMenus, setOpenMenus] = useState([]);
   const dropdownRef = useRef(null);
-
   const toggleDropdown = (itemId) => {
     if (openMenus.includes(itemId)) {
       setOpenMenus(openMenus.filter((menuId) => menuId !== itemId));
@@ -111,7 +113,7 @@ function DropdownMenu({ title, links }) {
         {title}
       </button>
       {isDropdownOpen(title) && (
-        <div className={`dropdown border-t-2 border-blue-800 ${styles.dropdown}`}>
+        <div className={`dropdown  md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
           {links.map((link) => (
             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
               {link.sublinks ? (
@@ -158,6 +160,7 @@ function DropdownMenu({ title, links }) {
 
 
 export default function Navbar() {
+
   const [open, setOpen] = useState(false);
   const [isSciOpen, setIsSciOpen] = useState(false);
   const [isMgmtOpen, setIsMgmtOpen] = useState(false);
@@ -165,19 +168,19 @@ export default function Navbar() {
 
   const aboutDropdownLinks = [
     { id: "a1", link: "/about", name: "About Tilottama" },
-    { id: "a2", link: "/board", name: "Board Members" },
+    { id: "a2", link: "/faculty/board", name: "Board Members" },
     { id: "a3", link: "/faculty", name: "Faculty & Staffs" },
     { id: "a4", link: "/gallary", name: "Gallery" },
   ];
   const resultsDropdownLinks = [
-    { id: "a1", link: "/", name: "Internal Exam Result" },
+    { id: "a1", link: "/results", name: "Internal Exam Result" },
     { id: "a2", link: "/", name: "NEB Grade XI Result" },
     { id: "a3", link: "/", name: "NEB Grade XII Result" },
     { id: "a4", link: "/", name: "Entrance Exam Result" },
   ];
   const othersDropdownLinks = [
-    { id: "a1", link: "/", name: "Prepation Materials" },
-    { id: "a2", link: "/", name: "Gallary" },
+    { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
+    { id: "a2", link: "/gallery", name: "Gallary" },
     { id: "a3", link: "/", name: "Item-3" },
   ];
 
@@ -216,23 +219,23 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex filter drop-shadow-md bg-white px-4 py-4 h-20 items-center z-50 ${styles.navbar}`}
+      className={`flex filter  relative  drop-shadow-md bg-white px-4 py-4 h-20 items-center z-50 ${styles.navbar}`}
     >
       <div
-        className={`fixed top-0 left-0 h-screen w-64 bg-white transform ${
+        className={`fixed top-0 md:hidden left-0 h-screen w-64 bg-white transform ${
           open ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out filter drop-shadow-md ${
           styles.mobileNav
         }`}
       >
         <div
-          className={`flex items-center justify-center filter drop-shadow-md bg-white h-20 ${styles.mobileNavHeader}`}
+          className={`flex md:hidden items-center justify-center filter drop-shadow-md bg-white h-20 ${styles.mobileNavHeader}`}
         >
           <a className="text-xl font-semibold" href="/">
-            TTC
+              <Logo/>
           </a>
         </div>
-        <div className={`flex flex-col mt-8 ${styles.mobileNavLinks}`}>
+        <div className={`flex  md:hidden  justify-center items-center flex-col mt-8 ${styles.mobileNavLinks}`}>
           <NavLink
             to="/about"
             onClick={() => setTimeout(() => setOpen(!open), 100)}
@@ -257,7 +260,7 @@ export default function Navbar() {
             Result
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/newsnotice"
             onClick={() => setTimeout(() => setOpen(!open), 100)}
           >
             Notice
@@ -272,7 +275,7 @@ export default function Navbar() {
       </div>
       <div className={`w-3/12 flex items-center ${styles.logo}`}>
         <a className="text-2xl font-semibold" href="/">
-          TTC
+        <Logo/>
         </a>
       </div>
       <div className={`w-9/12 flex md:justify-start justify-end items-center ${styles.menu}`}>
@@ -303,10 +306,11 @@ export default function Navbar() {
           <DropdownMenu title="Courses" links={coursesDropdownLinks} />
           <NavLink to="/admissions" >Admission</NavLink>
           <DropdownMenu title="Results" links={resultsDropdownLinks} />
-          <NavLink to="/about">Notice</NavLink>
+          <NavLink to="/newsnotice">Notice</NavLink>
           <DropdownMenu title="Others" links={othersDropdownLinks} />
         </div>
       </div>
+      {/* <Sidebar links={aboutDropdownLinks} isSidebarActive={isSidebar}/> */}
     </nav>
   );
 }

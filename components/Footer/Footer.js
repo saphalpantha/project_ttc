@@ -4,8 +4,8 @@ import Container from "../Container/Container";
 const Footer = () => {
   return (
     <Container>
-      <div className="max-w-6xl md:max-w-full bg-[#201F54] pb-[2rem] pt-[2rem]">
-        <div className="md:max-w-full bg-[#201F54] flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2 md:py-[4rem] md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
+      <div className="max-w-6xl flex flex-col md:max-w-full bg-[#201F54] items-center justify-center  pb-[2rem] pt-[2rem]">
+        <div className="md:max-w-full bg-[#201F54] flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
           <div className="max-w-sm flex justify-center items-center flex-col gap-4">
             <h1 className="text-3xl font-bold text-white">About us</h1>
             <p className="w-[100%] text-2xs text-white">
