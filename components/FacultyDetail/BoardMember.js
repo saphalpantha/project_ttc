@@ -4,7 +4,7 @@ import FacultyCard from './FacultyCard'
 const users = [
     {
       id: "i1",
-      name: "Ananta  Panthi",
+      name: "Ananta Panthi",
       phoneNo: "+977-9812367458",
       post: "Member Secratery",
     },

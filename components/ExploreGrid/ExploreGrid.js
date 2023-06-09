@@ -52,11 +52,6 @@ const ExploreGrid = () => {
       <div className="w-[100%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3 text-center">Explore More</div>
       </section>
 
-
-
-
-
-
     </Container>
   );
 };
