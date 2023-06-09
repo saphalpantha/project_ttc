@@ -5,7 +5,7 @@ import React from "react";
 
 function NavLink({ to, children }) {
   return (
-    <Link className={` hover:border-b-4 hover:border-[#201F54] block py-2 px-7  transition-all duration-200  ${styles.navLink}`} href={to}>
+    <Link className={` hover:border-b-4 pl-[1rem] hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to}>
       {children}
     </Link>
   );
@@ -173,15 +173,14 @@ export default function Navbar() {
     { id: "a4", link: "/gallary", name: "Gallery" },
   ];
   const resultsDropdownLinks = [
-    { id: "a1", link: "/results", name: "Internal Exam Result" },
-    { id: "a2", link: "/", name: "NEB Grade XI Result" },
-    { id: "a3", link: "/", name: "NEB Grade XII Result" },
-    { id: "a4", link: "/", name: "Entrance Exam Result" },
+    { id: "a1", link: "/results/grade11-result", name: "Internal Exam Result" },
+    { id: "a2", link: "/results/internal-result", name: "NEB Grade XI Result" },
+    { id: "a3", link: "/results/", name: "NEB Grade XII Result" },
+    { id: "a4", link: "/results/entrance-result", name: "Entrance Exam Result" },
   ];
   const othersDropdownLinks = [
     { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
-    { id: "a2", link: "/gallery", name: "Gallary" },
-    { id: "a3", link: "/", name: "Item-3" },
+    { id: "a2", link: "/", name: "Item-3" },
   ];
 
   const coursesDropdownLinks = [
@@ -219,10 +218,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex filter  relative  drop-shadow-md bg-white px-4 py-4 h-20 items-center z-50 ${styles.navbar}`}
+      className={`flex  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${styles.navbar}`}
     >
       <div
-        className={`fixed top-0 md:hidden left-0 h-screen w-64 bg-white transform ${
+        className={`fixed top-0 md:hidden  left-0 h-screen  bg-white transform ${
           open ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out filter drop-shadow-md ${
           styles.mobileNav
@@ -231,7 +230,7 @@ export default function Navbar() {
         <div
           className={`flex md:hidden items-center justify-center filter drop-shadow-md bg-white h-20 ${styles.mobileNavHeader}`}
         >
-          <a className="text-xl font-semibold" href="/">
+          <a className="text-xl  font-semibold" href="/">
               <Logo/>
           </a>
         </div>
@@ -266,6 +265,12 @@ export default function Navbar() {
             Notice
           </NavLink>
           <NavLink
+            to="/gallery"
+            onClick={() => setTimeout(() => setOpen(!open), 100)}
+          >
+            Gallery
+          </NavLink>
+          <NavLink
             to="/contact"
             onClick={() => setTimeout(() => setOpen(!open), 100)}
           >
@@ -273,7 +278,7 @@ export default function Navbar() {
           </NavLink>
         </div>
       </div>
-      <div className={`w-3/12 flex items-center ${styles.logo}`}>
+      <div className={`w-3/12  flex items-center ${styles.logo}`}>
         <a className="text-2xl font-semibold" href="/">
         <Logo/>
         </a>
@@ -299,7 +304,7 @@ export default function Navbar() {
             }`}
           />
         </div>
-        <div className={`hidden md:flex ${styles.desktopMenu}`}>
+        <div className={`hidden md:flex  pl-[6rem]  gap-2 ${styles.desktopMenu}`}>
           <NavLink  to="/">Home</NavLink>
           {/* <NavLink to="/about" >About</NavLink> */}
           <DropdownMenu title="About" links={aboutDropdownLinks} />
@@ -307,6 +312,7 @@ export default function Navbar() {
           <NavLink to="/admissions" >Admission</NavLink>
           <DropdownMenu title="Results" links={resultsDropdownLinks} />
           <NavLink to="/newsnotice">Notice</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
           <DropdownMenu title="Others" links={othersDropdownLinks} />
         </div>
       </div>

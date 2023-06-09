@@ -45,7 +45,7 @@ const Footer = () => {
             </h1>
             <div className="flex md:flex-row space-x-5 p-2">
               <div>
-                <ul className="flex flex-col py-5 space-y-6 justify-between  items-center">
+                <ul className="flex flex-col py-4 space-y-7 justify-between  items-center">
                   <li>
                     <img src="/images/map_logo.svg" />
                   </li>
@@ -58,7 +58,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <ul className="flex flex-col justify-between py-3 space-y-7 text-white items-center">
+                <ul className="flex flex-col justify-between  py-3 space-y-7 text-white items-center">
                   <li className="max-w-sm">
                     Tilottama-2,Yogikuti Rupendehi Nepal
                   </li>

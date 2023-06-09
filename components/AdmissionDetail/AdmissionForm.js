@@ -555,6 +555,8 @@ const AdmissionForm = () => {
                     ></input>
                     <label className={"font-bold"}>I hereby declare that above provided data is correct. Form Cannot be edited after submission*.</label>
                   </div>
+
+                <button className="py-3 px-8 bg-[#201F54] font-bold text-white rounded-3xl hover:bg-[#201E22] transition-all duration-150">Submit</button>
             </form>
           </div>
         </section>
