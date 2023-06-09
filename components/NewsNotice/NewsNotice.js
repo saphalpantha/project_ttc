@@ -7,7 +7,7 @@ const NewsNotice = () => {
   return (
     <Container>
       <div className="flex flex-col md:flex-row  mx-auto  pb-[5rem] pt-[2rem] md:pt-[2rem] pb-[4rem] justify-center items-center">
-        <section className={` min-h-screen`}>
+        <section className={`py-[10rem]`}>
           <div className="relative">
             <h1 className="text-3xl md:text-5xl relative md:absolute text-[#FF9900] md:top-[10%] font-bold z-[100] w-fit left-[5%] ]">NEWS AND NOTICE</h1>
             <img

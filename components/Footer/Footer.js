@@ -40,12 +40,12 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col justify-between items-center space-y-2">
-            <h1 className="text-white font-bold text-3xl pl-0 md:pl-[0.5rem]">
+            <h1 className="text-white font-bold text-3xl pl-0">
               Contact Us
             </h1>
-            <div className="flex md:flex-row space-x-5 p-2">
+            <div className="flex justify-center items-center md:flex-row space-x-5 p-2">
               <div>
-                <ul className="flex flex-col py-4 space-y-7 justify-between  items-center">
+                <ul className="flex flex-col  md:py-0 space-y-7 justify-between  items-center">
                   <li>
                     <img src="/images/map_logo.svg" />
                   </li>
@@ -58,7 +58,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <ul className="flex flex-col justify-between  py-3 space-y-7 text-white items-center">
+                <ul className="flex flex-col justify-between justify-center py-2 space-y-7 text-white items-center">
                   <li className="max-w-sm">
                     Tilottama-2,Yogikuti Rupendehi Nepal
                   </li>

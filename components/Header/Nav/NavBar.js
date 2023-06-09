@@ -105,24 +105,24 @@ function DropdownMenu({ title, links }) {
   }, []);
 
   return (
-    <div className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
+    <div    className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
       <button
-        className={`block  py-2 px-6 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
-        onClick={() => toggleDropdown(title)}
+        className={`block  py-2 px-4 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
+         onClick={() => toggleDropdown(title)}
       >
         {title}
       </button>
       {isDropdownOpen(title) && (
-        <div className={`dropdown  md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
+        <div className={`dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
           {links.map((link) => (
             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
               {link.sublinks ? (
                 <>
                   <button
-                    className={` py-2 px-4 ${styles.dropdownButton} ${
+                    className={` py-2 text-left ${styles.dropdownButton} ${
                       isDropdownOpen(link.id) ? styles.active : ""
                     }`}
-                    onClick={() => toggleDropdown(link.id)}
+                    onMouseOver={() => toggleDropdown(link.id)}
                   >
                     {link.name}
                   </button>
@@ -130,7 +130,7 @@ function DropdownMenu({ title, links }) {
                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
                       {link.sublinks.map((sublink) => (
                         <Link
-                          className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`}
+                          className={`dropdown-item text-left  tracking-widest text-2xs ${styles.dropdownLink}`}
                           key={sublink.id}
                           href={sublink.link}
                         >
@@ -142,7 +142,7 @@ function DropdownMenu({ title, links }) {
                 </>
               ) : (
                 <Link
-                  className={`dropdown-item ${styles.dropdownLink}`}
+                  className={`dropdown-item text-left ${styles.dropdownLink}`}
                   key={link.id}
                   href={link.link}
                 >
@@ -156,6 +156,8 @@ function DropdownMenu({ title, links }) {
     </div>
   );
 }
+
+
 
 
 
