@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Container from "../Container/Container";
+import classes from './Footer.module.css'
 const Footer = () => {
   return (
     <Container>
-      <div className="max-w-6xl flex flex-col md:max-w-full bg-[#201F54] items-center justify-center  pb-[2rem] pt-[2rem]">
-        <div className="md:max-w-full bg-[#201F54] flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
+      <div className={`max-w-6xl flex flex-col md:max-w-full  items-center justify-center  pb-[2rem] pt-[2rem] ${classes.footer}`}>
+        <div className="md:max-w-full  flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
           <div className="max-w-sm flex justify-center items-center flex-col gap-4">
             <h1 className="text-3xl font-bold text-white">About us</h1>
             <p className="w-[100%] text-2xs text-white">
@@ -18,7 +19,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col justify-between items-center space-y-3 md:space-y-2 ">
-            <h1 className="text-white font-bold text-3xl max-w-md">
+            <h1 className="text-white font-bold text-3xl max-w-md whitespace-nowrap ">
               Quick Links
             </h1>
             <div>
@@ -38,38 +39,15 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-
-          <div className="flex flex-col justify-between items-center space-y-6">
-            <h1 className="text-white font-bold text-3xl pl-0">
-              Contact Us
-            </h1>
-            <div className="flex">
-              <div>
-                <ul className="flex flex-col gap-y-11  md:gap-8 pr-[2rem]">
-                  <li>
-                    <img src="/images/map_logo.svg" />
-                  </li>
-                  <li>
-                    <img src="/images/phone_logo.svg" />
-                  </li>
-                  <li>
-                    <img src="/images/mail_logo.svg" />
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <ul className="flex flex-col text-white gap-7">
-                  <li className="">
-                    Tilottama-2,Yogikuti Rupendehi Nepal
-                  </li>
-                  <li className="">
-                    +977-00071-437659, +977-071-438559
-                  </li>
-                  <li className="">info@tilottama.edu.np</li>
-                </ul>
-              </div>
+          
+            <div className="text-white flex flex-col gap-y-2 md:gap-y-4 pt-[2rem] justify-center items-center">
+              <h1 className="text-3xl font-bold text-white ">Contact Us</h1>
+              <span className="flex gap-5"> <img src="/images/phone_logo.svg"></img> +977-00071-437659</span>
+              <span className="flex gap-5 pt-2"> <img src="/images/phone_logo.svg"></img> +977-071-438559</span>
+              <span className="flex gap-5 pt-2"> <img src="/images/mail_logo.svg"></img> info@tilottama.edu.np</span>
+              <span className="flex gap-5 pt-2"> <img src="/images/map_logo.svg"></img> Tilottama-2, Yogikuti Rupandehi Nepal</span>
             </div>
-          </div>
+          
         </div>
 
         <div className="flex flex-col justify-between items-center space-y-2">

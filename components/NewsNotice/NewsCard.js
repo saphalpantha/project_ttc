@@ -2,10 +2,10 @@ import React from "react";
 import Link from "next/link";
 const NewsCard = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-2 p-5 border-5 bg-white  w-[24rem] h-[492px] shadow-2xl relative ">
+    <div className="flex flex-col justify-center  gap-2 p-5 border-5 bg-white  w-[24rem] h-[492px] shadow-2xl relative ">
       <div className="bg-black w-[359px] h-[210px]"></div>
-      <h1 className="text-2xl">Heading</h1>
-      <h1 className="text-3xl font-light">Description</h1>
+      <h1 className="  text-2xl md:text-3xl">Heading</h1>
+      <h1 className=" text-xl md:text-2xl font-light">Description</h1>
       <p className="text-2xs font-light overflow-clip w-[359px] h-[149px]">
         Amet voluptate cupidatat ea magna. Fugiat non est aliquip consectetur.
         Ea nulla incididunt cillum non cupidatat aliquip velit ut officia.

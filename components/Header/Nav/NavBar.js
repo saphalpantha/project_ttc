@@ -5,7 +5,7 @@ import React from "react";
 
 function NavLink({ to, children }) {
   return (
-    <Link className={` hover:border-b-4 pl-[1rem] hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to}>
+    <Link className={` hover:border-b-4 px-4 hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to}>
       {children}
     </Link>
   );
