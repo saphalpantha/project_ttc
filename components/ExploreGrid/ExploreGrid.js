@@ -52,12 +52,12 @@ const ExploreGrid = () => {
     <Container>
       <section className="mx-auto  items-center flex flex-col py-[5rem]   justify-between space-y-5 z-10 "> 
 
-      <h1 className=" text-3xl md:text-5xl font-bold text-start tracking-wider  px-1 md:px-[10rem] py-10 text-[#FF9900]">Explore Tilottama Campus</h1>
+      <h1 className=" text-3xl md:text-5xl font-bold text-start tracking-wider px-1 md:px-[10rem] py-2 md:py-10 text-[#FF9900]">Explore Tilottama Campus</h1>
          
       </section>
       <section className=' px-2 md:px-32 pb-[4rem]'>
 
-      <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-1">
       {images.map((image, index) => (
         <div key={index} className={`relative z-[100] hover:bg-[#201F54] overflow-hidden ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
           <Image

@@ -53,14 +53,14 @@ const OurStars = () => {
       spaceBetween={100}
       slidesPerView={width > 768 ? 4 : 1}
       navigation
-      style={{display:'flex' , justifyContent:'space-around', padding:'4rem', justifyItems:'center', alignItems:'center'}}
+      style={{display:'flex' , justifyContent:'space-between', padding:'2rem 5rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log('')}
-      onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log('')}
+      // onSlideChange={() => console.log('slide change')}
       >
           {starsData.map(star => {
             return(
-              <SwiperSlide>
+              <SwiperSlide className=''>
                 <Star key={star.id} typeofscholarship={star.typeofscholarship} nameofstar={star.nameofstar} img={star.img}/>
               </SwiperSlide>
             )
