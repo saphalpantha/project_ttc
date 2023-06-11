@@ -5,7 +5,7 @@ import Image from "next/image";
 const About = () => {
   return (
     <Container>
-      <div className={`min-h-screen  max-w-6xl md:max-w-max bg-fixed ${classes.clip} `}></div>
+      <div className={`min-h-screen  max-w-6xl md:max-w-full bg-fixed ${classes.clip} `}></div>
       <section className="flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center">
         <h1 className="text-[#FF9900] text-5xl font-semibold">About Tilottama</h1>
         <p className="text-xl max-w-5xl tracking-wide">
