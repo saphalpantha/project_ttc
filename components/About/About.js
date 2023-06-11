@@ -5,7 +5,7 @@ import Image from "next/image";
 const About = () => {
   return (
     <Container>
-      <div className={`min-h-screen  bg-fixed ${classes.clip} `}></div>
+      <div className={`min-h-screen  max-w-6xl md:max-w-max bg-fixed ${classes.clip} `}></div>
       <section className="flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center">
         <h1 className="text-[#FF9900] text-5xl font-semibold">About Tilottama</h1>
         <p className="text-xl max-w-5xl tracking-wide">
@@ -50,8 +50,8 @@ In 2078 and 2079 the school stood in the first position throughout Nepal . We ar
 
         
       </div>
-        <div className="w-[50%]">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.6408565137244!2d83.46777767389456!3d27.66658122729113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3996864275d9755f%3A0xa2f9cb36d45e590b!2sTilottama%20Campus!5e0!3m2!1sen!2sin!4v1685969417463!5m2!1sen!2sin" width={600} height={450}  allowfullscreen="" loading="lazy"></iframe>
+        <div className="">
+        <iframe className="w-[400px] md:w-[35rem]" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.6408565137244!2d83.46777767389456!3d27.66658122729113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3996864275d9755f%3A0xa2f9cb36d45e590b!2sTilottama%20Campus!5e0!3m2!1sen!2sin!4v1685969417463!5m2!1sen!2sin" width={400} height={450}  allowfullscreen="" loading="lazy"></iframe>
         </div>
       </section>
       <section className="flex flex-col space-y-5 md:space-y-10 px-5 py-4 justify-evenly   md:px-32 md:py-10 bg-scroll">

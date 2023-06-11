@@ -11,63 +11,63 @@ function NavLink({ to, children }) {
   );
 }
 
-// function DropdownMenu({ title, links }) {
-//   const [openMenus, setOpenMenus] = useState([]);
+// // function DropdownMenu({ title, links }) {
+// //   const [openMenus, setOpenMenus] = useState([]);
 
-//   const toggleDropdown = (itemId) => {
-//     if (openMenus.includes(itemId)) {
-//       setOpenMenus(openMenus.filter((menuId) => menuId !== itemId));
-//     } else {
-//       setOpenMenus([...openMenus, itemId]);
-//     }
-//   };
+// //   const toggleDropdown = (itemId) => {
+// //     if (openMenus.includes(itemId)) {
+// //       setOpenMenus(openMenus.filter((menuId) => menuId !== itemId));
+// //     } else {
+// //       setOpenMenus([...openMenus, itemId]);
+// //     }
+// //   };
 
-//   const isDropdownOpen = (itemId) => {
-//     return openMenus.includes(itemId);
-//   };
+// //   const isDropdownOpen = (itemId) => {
+// //     return openMenus.includes(itemId);
+// //   };
 
-//   return (
-//     <div className={`relative ${styles.dropdownMenu}`}>
-//       <button
-//         className={`block py-2 px-6 ${styles.navLink} ${styles.dropdownButton}`}
-//         onClick={() => toggleDropdown(title)}
-//       >
-//         {title}
-//       </button>
-//       {isDropdownOpen(title) && (
-//         <div className={`dropdown border-t-2 border-blue-800 ${styles.dropdown}`}>
-//           {links.map((link) => (
-//             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
-//               {link.sublinks ? (
-//                 <>
-//                   <button
-//                     className={` py-2 px-4 ${styles.dropdownButton} ${isDropdownOpen(link.id) ? styles.active : ''}`}
-//                     onClick={() => toggleDropdown(link.id)}
-//                   >
-//                     {link.name}
-//                   </button>
-//                   {isDropdownOpen(link.id) && (
-//                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
-//                       {link.sublinks.map((sublink) => (
-//                         <Link className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`} key={sublink.id} href={sublink.link}>
-//                           {sublink.name}
-//                         </Link>
-//                       ))}
-//                     </div>
-//                   )}
-//                 </>
-//               ) : (
-//                 <Link className={`dropdown-item ${styles.dropdownLink}`} key={link.id} href={link.link}>
-//                   {link.name}
-//                 </Link>
-//               )}
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
+// //   return (
+// //     <div className={`relative ${styles.dropdownMenu}`}>
+// //       <button
+// //         className={`block py-2 px-6 ${styles.navLink} ${styles.dropdownButton}`}
+// //         onClick={() => toggleDropdown(title)}
+// //       >
+// //         {title}
+// //       </button>
+// //       {isDropdownOpen(title) && (
+// //         <div className={`dropdown border-t-2 border-blue-800 ${styles.dropdown}`}>
+// //           {links.map((link) => (
+// //             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
+// //               {link.sublinks ? (
+// //                 <>
+// //                   <button
+// //                     className={` py-2 px-4 ${styles.dropdownButton} ${isDropdownOpen(link.id) ? styles.active : ''}`}
+// //                     onClick={() => toggleDropdown(link.id)}
+// //                   >
+// //                     {link.name}
+// //                   </button>
+// //                   {isDropdownOpen(link.id) && (
+// //                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
+// //                       {link.sublinks.map((sublink) => (
+// //                         <Link className={`dropdown-item  px-10 tracking-widest text-2xs ${styles.dropdownLink}`} key={sublink.id} href={sublink.link}>
+// //                           {sublink.name}
+// //                         </Link>
+// //                       ))}
+// //                     </div>
+// //                   )}
+// //                 </>
+// //               ) : (
+// //                 <Link className={`dropdown-item ${styles.dropdownLink}`} key={link.id} href={link.link}>
+// //                   {link.name}
+// //                 </Link>
+// //               )}
+// //             </div>
+// //           ))}
+// //         </div>
+// //       )}
+// //     </div>
+// //   );
+// // }
 
 
 
@@ -105,7 +105,9 @@ function DropdownMenu({ title, links }) {
   }, []);
 
   return (
-    <div    className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
+    <div className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
+
+
       <button
         className={`block  py-2 px-4 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
          onClick={() => toggleDropdown(title)}
@@ -113,7 +115,13 @@ function DropdownMenu({ title, links }) {
         {title}
       </button>
       {isDropdownOpen(title) && (
-        <div className={`dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
+        <div className={`relative  min-h-screen  md:min-h-0 shadow-none  md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
+        {/* <div className="min-h-screenabsolute left-0 top-0" >
+        <li>Helo</li>
+        <li>Helo</li>
+        <li>Helo</li>
+        <li>Helo</li>
+      </div> */}
           {links.map((link) => (
             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
               {link.sublinks ? (
@@ -220,7 +228,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${styles.navbar}`}
+      className={`flex ${ open && 'z-[200]'}  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${styles.navbar}`}
     >
       <div
         className={`fixed top-0 md:hidden  left-0 h-screen  bg-white transform ${
@@ -280,8 +288,8 @@ export default function Navbar() {
           </NavLink>
         </div>
       </div>
-      <div className={`w-3/12  flex items-center ${styles.logo}`}>
-        <a className="text-2xl font-semibold" href="/">
+      <div className={` ${open && 'hidden'} w-3/12  flex items-center ${styles.logo}`}>
+        <a className="text-2xl  font-semibold" href="/">
         <Logo/>
         </a>
       </div>
@@ -324,3 +332,237 @@ export default function Navbar() {
 }
 
 // ===================================================================================================================================
+
+
+
+
+
+
+
+// import { useState, useEffect, useRef } from "react";
+// import { FaBars, FaTimes } from "react-icons/fa";
+// import { Link } from "next/link";
+// import Logo from "../../Logo/Logo";
+
+
+// const aboutDropdownLinks = [
+//   { id: "a1", link: "/about", name: "About Tilottama" },
+//   { id: "a2", link: "/faculty/board", name: "Board Members" },
+//   { id: "a3", link: "/faculty", name: "Faculty & Staffs" },
+//   { id: "a4", link: "/gallary", name: "Photo Gallery" },
+// ];
+
+// const academicDropdownLinks = [
+//   { id: "a5", link: "/programs", name: "Programs" },
+//   { id: "a6", link: "/academic-calendar", name: "Academic Calendar" },
+//   {
+//     id: "a7",
+//     link: "/scholarship-and-awards",
+//     name: "Scholarship & Awards",
+//   },
+// ];
+
+// const admissionsDropdownLinks = [
+//   { id: "a8", link: "/admission-process", name: "Admission Process" },
+//   { id: "a9", link: "/fee-structure", name: "Fee Structure" },
+//   { id: "a10", link: "/apply-online", name: "Apply Online" },
+//   { id: "a11", link: "/merit-list", name: "Merit List" },
+//   { id: "a12", link: "/admission-form", name: "Admission Form" },
+// ];
+
+// const contactDropdownLinks = [
+//   { id: "a13", link: "/contact-us", name: "Contact Us" },
+//   { id: "a14", link: "/feedback", name: "Feedback" },
+//   { id: "a15", link: "/reach-us", name: "How to Reach Us" },
+// ];
+
+
+
+// function NavLink({ to, children, onClick }) {
+//   return (
+//     <Link
+//       href={to}
+//       onClick={onClick}
+//       className="py-2 px-4 hover:border-b-4 hover:border-[#201F54] transition-all duration-200 block"
+//     >
+//       {children}
+//     </Link>
+//   );
+// }
+
+// export function DropdownMenu({ title, links }) {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const dropdownRef = useRef();
+
+//   const toggleDropdown = () => {
+//     setIsOpen((prevState) => !prevState);
+//   };
+
+//   const handleClickOutside = (event) => {
+//     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+//       setIsOpen(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => {
+//       document.removeEventListener("mousedown", handleClickOutside);
+//     };
+//   }, []);
+
+//   return (
+//     <div ref={dropdownRef} className="relative">
+//       <button
+//         className="block py-2 px-4 hover:border-b-4 hover:border-[#201F54] transition-all duration-200"
+//         onClick={toggleDropdown}
+//       >
+//         {title}
+//       </button>
+//       {isOpen && (
+//         <div className="dropdown border-t-4 border-blue-800">
+//           {links.map((link) => (
+//             <div key={link.id} className="dropdownLink">
+//               {link.sublinks ? (
+//                 <div>
+
+//                   <button
+//                     className={`py-2 text-left ${
+//                       isOpen ? "active" : ""
+//                     }`}
+//                     onClick={toggleDropdown}
+//                     >
+//                     {link.name}
+//                   </button>
+//                   {isOpen && (
+//                     <div className="dropdown-menu">
+//                       {link.sublinks.map((sublink) => (
+//                         <Link
+//                         className="dropdown-item text-left tracking-widest text-2xs"
+//                         key={sublink.id}
+//                         href={sublink.link}
+//                         >
+//                           {sublink.name}
+//                         </Link>
+//                       ))}
+//                     </div>
+//                   )}
+//                 </div>
+//               ) : (
+//                 <Link
+//                   className="dropdown-item text-left"
+//                   key={link.id}
+//                   href={link.link}
+//                 >
+//                   {link.name}
+//                 </Link>
+//               )}
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// const  Navbar = () =>  {
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const mobileMenuRef = useRef(null);
+
+//   const toggleMobileMenu = () => {
+//     setIsMobileMenuOpen((prevState) => !prevState);
+//   };
+
+//   const handleClickOutside = (event) => {
+//     if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+//       setIsMobileMenuOpen(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => {
+//       document.removeEventListener("mousedown", handleClickOutside);
+//     };
+//   }, []);
+
+
+
+//   const mobileMenuIcon = isMobileMenuOpen ? <FaTimes /> : <FaBars />;
+
+//   return (
+//     <>
+//       <nav className="bg-white shadow-md">
+//         <div className="container mx-auto">
+//           <div className="md:flex justify-between items-center py-2">
+//             <div className="flex justify-between items-center">
+//               <div className="flex-shrink-0">
+//                 <Logo />
+//               </div>
+//               <div className="hidden md:block">
+//                 <div className="flex space-x-4">
+//                   <NavLink to="/">Home</NavLink>
+//                   <DropdownMenu title="About" links={aboutDropdownLinks} />
+//                   <DropdownMenu title="Academic" links={academicDropdownLinks} />
+//                   <DropdownMenu title="Admissions" links={admissionsDropdownLinks} />
+//                   <NavLink to="/blog">Blog</NavLink>
+//                   <DropdownMenu title="Contact" links={contactDropdownLinks} />
+//                 </div>
+//               </div>
+//             </div>
+//             <div className="md:hidden" onClick={toggleMobileMenu}>
+//               {mobileMenuIcon}
+//             </div>
+//           </div>
+//         </div>
+//       </nav>
+//       {isMobileMenuOpen && (
+//         <div
+//           ref={mobileMenuRef}
+//           className="fixed top-0 left-0 h-screen bg-white transform translate-x-0 transition-transform duration-300 ease-in-out"
+//         >
+//           <div className="flex justify-center items-center bg-white h-20">
+//             <Logo />
+//           </div>
+//           <div className="flex flex-col mt-8">
+//             <NavLink to="/" onClick={toggleMobileMenu}>
+//               Home
+//             </NavLink>
+//             <div className="mt-4">
+//               <DropdownMenu
+//                 title="About"
+//                 links={aboutDropdownLinks}
+//                 onClick={toggleMobileMenu}
+//               />
+//             </div>
+//             <div className="mt-4">
+//               <DropdownMenu
+//                 title="Academic"
+//                 links={academicDropdownLinks}
+//                 onClick={toggleMobileMenu}
+//               />
+//             </div>
+//             <div className="mt-4">
+//               <DropdownMenu
+//                 title="Admissions"
+//                 links={admissionsDropdownLinks}
+//                 onClick={toggleMobileMenu}
+//               />
+//             </div>
+//             <NavLink to="/blog" onClick={toggleMobileMenu}>
+//               Blog
+//             </NavLink>
+//             <div className="mt-4">
+//               <DropdownMenu
+//                 title="Contact"
+//                 links={contactDropdownLinks}
+//                 onClick={toggleMobileMenu}
+//               />
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </>
+//   );
+// }
+// export default Navbar

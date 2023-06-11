@@ -22,7 +22,7 @@ const Footer = () => {
               Quick Links
             </h1>
             <div>
-              <ul className="flex flex-col list-none py-2 space-y-3 font-light list-disc   text-white justify-center items-start text-2xs">
+              <ul className="flex flex-col list-none py-2 space-y-3 font-light list-disc   text-white justify-center text-2xs">
                 <li className="max-w-md w-[100%]">
                   <Link href={"/"}>About Tilottama</Link>
                 </li>
@@ -39,13 +39,13 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-between items-center space-y-2">
+          <div className="flex flex-col justify-between items-center space-y-6">
             <h1 className="text-white font-bold text-3xl pl-0">
               Contact Us
             </h1>
-            <div className="flex justify-center items-center md:flex-row space-x-5 p-2">
+            <div className="flex">
               <div>
-                <ul className="flex flex-col  md:py-0 space-y-7 justify-between  items-center">
+                <ul className="flex flex-col gap-y-11  md:gap-8 pr-[2rem]">
                   <li>
                     <img src="/images/map_logo.svg" />
                   </li>
@@ -58,14 +58,14 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <ul className="flex flex-col justify-between justify-center py-2 space-y-7 text-white items-center">
-                  <li className="max-w-sm">
+                <ul className="flex flex-col text-white gap-7">
+                  <li className="">
                     Tilottama-2,Yogikuti Rupendehi Nepal
                   </li>
-                  <li className="max-w-sm">
+                  <li className="">
                     +977-00071-437659, +977-071-438559
                   </li>
-                  <li className="max-w-sm">info@tilottama.edu.np</li>
+                  <li className="">info@tilottama.edu.np</li>
                 </ul>
               </div>
             </div>

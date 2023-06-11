@@ -54,24 +54,24 @@ const ExploreGrid = () => {
 
       <h1 className=" text-3xl md:text-5xl font-bold text-start tracking-wider  px-1 md:px-[10rem] py-10 text-[#FF9900]">Explore Tilottama Campus</h1>
          
-      <div className="w-[90%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3 text-center">Explore More</div>
       </section>
       <section className=' px-2 md:px-32 pb-[4rem]'>
 
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-2">
       {images.map((image, index) => (
-        <div key={index} className={`relative overflow-hidden ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
+        <div key={index} className={`relative z-[100] hover:bg-[#201F54] overflow-hidden ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
           <Image
             src={"/images/the_img.jpg"}
             alt={`Image ${index + 1}`}
             width={image.width}
             height={image.height}
-            className=" object-center w-full h-full w-[100%] h-[100%] hover:bg-[#201F54] hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
+            className=" object-center w-full h-full w-[100%] h-[100%] z-[200] hover:bg-[#201F54] hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
           />
         </div>
       ))}
     </div>
       </section>
+      <div className="w-[90%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3 text-center">Explore More</div>
 
 
     </Container>
