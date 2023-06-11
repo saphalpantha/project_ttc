@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="md:max-w-full  flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
           <div className="max-w-sm flex justify-center items-center flex-col gap-4">
             <h1 className="text-3xl font-bold text-white">About us</h1>
-            <p className="w-[100%] text-2xs text-white">
+            <p className="w-[100%] text-2xs text-white text-center md:text-start">
               Tilottama Campus was established in 1996 as the first private
               college in Rupandehi by a team of dedicated, experienced and
               enterprising academicians to cater for the growing demands of
