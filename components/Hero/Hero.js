@@ -13,7 +13,7 @@ const Hero = () => {
     </div>
 
 
-      <div className='flex px-[20rem] justify-center items-center flex-col'>
+      <div className='flex  justify-center items-center flex-col'>
         <CardLists/>
         
       {/* <HeroSlider/> */}
