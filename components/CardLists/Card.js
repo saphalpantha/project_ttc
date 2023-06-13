@@ -66,11 +66,11 @@ import Card from 'react-bootstrap/Card';
 
 const SingleCard = ({img, title, admission_status , link}) =>  {
   return (
-    <Card style={{ width: '23rem' , height:'13.5rem' }}>
+    <Card className='' style={{ width: '23rem' , height:'13.5rem' }}>
       <Link href={link}>
       <Card.Body>
        
-      <div className=' w-[23rem] h-[13.5rem] shadow-md bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>
+      <div className=' w-[23rem] h-[13.5rem] shadow-md hover:bg-gray-200 bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>
          <div className='w-[2rem] h-[2rem] md:w-[4rem] md:h-[4rem] '>
               <img className='w-[100%] h-[100%] text-black' src={`/images/${img}.svg`} alt={title} />
          </div>
