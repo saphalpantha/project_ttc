@@ -17,7 +17,7 @@ const Stream = () => {
     }
   return (
     <Container>
-        <div className=' bg-[#EEEEEE] flex flex-col md:flex-row  mx-auto  pb-[5rem] pt-[2rem] md:pt-[2rem] justify-center items-center'>
+        <div className=' bg-[#EEEEEE] flex flex-col md:flex-row  mx-auto pt-[2rem] md:pt-[2rem] justify-center items-center'>
 
     <div className='max-w-6xl w-[100%] px-2 md:px-0  pb-[2rem] py-[5rem]  space-y-5 pr-0 md:mx-auto'>
         <h1 className='font-bold text-[#FF9900] text-3xl md:text-5xl'>COURSE OFFERRED</h1>

@@ -38,7 +38,7 @@ const NewsNoticePage = ({newsData}) => {
           <div className="left-[50%] font-bold mx-auto w-[80%] bg-[#FF9900] py-2 font-bold text-2xl text-center text-white rounded-full">
             News And Notice
           </div>
-          <div className=" mx-auto flex flex-col gap-2 md:gap-10 py-[5rem]">
+          <div className=" mx-auto flex flex-col gap-2 md:gap-10">
             {currentItems.map((i) => (
               <NewsNoticePageCard para={i.para} id={i.id} heading={i.heading} img={i.img} />
             ))}
