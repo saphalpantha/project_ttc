@@ -3,9 +3,9 @@ import Card from './Card'
 import SingleCard from './Card'
 
 const card_data = [
-    {id:'c1' ,title:'Take Tour', img:'take_tour_card'},
-    {id:'c2' ,title:'Admission', img:'admission_card', admission_status:'OPEN'},
-    {id:'c3' ,title:'Results', img:'result_card'},
+    {id:'c1' ,title:'Take Tour', img:'take_tour_card', link:'http://tour.virtualedufairnepal.com/tilottamacampus/'},
+    {id:'c2' ,title:'Admission', img:'admission_card', admission_status:'OPEN', link:'/admissions'},
+    {id:'c3' ,title:'Results', img:'result_card' , link:'/results'},
 ]
 const CardLists = () => {
   return (
@@ -13,7 +13,7 @@ const CardLists = () => {
 
     <div className='mx-auto  text-black flex flex-col md:flex-row space-y-5 py-2 md:py-0  px-2 m items-center md:items-baseline justify-center items-center md:gap-[50px]'>
         {card_data.map(item => (
-          <SingleCard key={item.id} title={item.title} admission_status={item.admission_status} img={item.img}/>
+          <SingleCard link={item.link} key={item.id} title={item.title} admission_status={item.admission_status} img={item.img}/>
           ))}
     </div>  
           </div>

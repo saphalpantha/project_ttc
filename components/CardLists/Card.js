@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 // const Card = ({img, title, admission_status}) => {
@@ -63,9 +64,10 @@ import React from 'react'
 
 import Card from 'react-bootstrap/Card';
 
-const SingleCard = ({img, title, admission_status}) =>  {
+const SingleCard = ({img, title, admission_status , link}) =>  {
   return (
     <Card style={{ width: '23rem' , height:'13.5rem' }}>
+      <Link href={link}>
       <Card.Body>
        
       <div className=' w-[23rem] h-[13.5rem] shadow-md bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>
@@ -75,6 +77,7 @@ const SingleCard = ({img, title, admission_status}) =>  {
          <Card.Title className='text-gray-400 font-light text-xl' >{`${title}`} <span className='text-red-500 font-bold text-2xs'>{admission_status && `(${admission_status})`}</span></Card.Title>
      </div>
       </Card.Body>
+      </Link>
     </Card>
   );
 }

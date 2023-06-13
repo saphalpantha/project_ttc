@@ -50,7 +50,7 @@ const ExploreGrid = () => {
 
   return (
     <Container>
-      <section className="mx-auto  items-center flex flex-col py-[5rem]   justify-between space-y-5 z-10 "> 
+      <section className="mx-auto  items-center flex flex-col py-1 md:py-[5rem]   justify-between space-y-5 z-10 "> 
 
       <h1 className=" text-3xl md:text-5xl font-bold text-start tracking-wider px-1 md:px-[10rem] py-2 md:py-10 text-[#FF9900]">Explore Tilottama Campus</h1>
          
