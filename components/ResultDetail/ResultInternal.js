@@ -5,7 +5,7 @@ const ResultForInt = () => {
     <div  className="flex flex-col justify-center items-center">
       <section className=" h-[10rem]">
         <div className="">
-          <img className="w-[100vw] h-[30vh] bg-cover opacity-80  " src="/images/stream/science/sci_stream_cover.png"></img>
+          <img className="w-[100vw] object-contain h-[30vh]  opacity-80  " src="/images/result_cover.svg"></img>
         </div>
       </section>
       
