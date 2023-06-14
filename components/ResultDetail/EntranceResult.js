@@ -3,9 +3,9 @@ import React from "react";
 const EntranceResult = () => {
   return (
     <div  className="flex flex-col">
-    <section className=" h-[10rem]">
-      <div className="">
-        <img className="w-[100%]  h-[30vh] object-contain opacity-80  " src="/images/result_cover.svg"></img>
+    <section className=" h-[18rem]">
+      <div className="w-[100%]">
+        <img className="w-[100vw] h-[50vh] bg-contain opacity-80  " src="/images/result_cover.svg"></img>
       </div>
     </section>
     

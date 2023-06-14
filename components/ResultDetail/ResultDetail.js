@@ -3,11 +3,11 @@ import React from "react";
 const ResultDetail = () => {
   return (
     <div>
-      {/* <section className="h-[10rem]">
-        <div className="">
-          <img className="w-[100vw]" src="/images/stream/science/sci_stream_cover.svg"></img>
-        </div>
-      </section> */}
+    <section className=" h-[18rem]">
+      <div className="w-[100%]">
+        <img className="w-[100vw] h-[50vh] bg-contain opacity-80  " src="/images/result_cover.svg"></img>
+      </div>
+    </section>
       <section className="max-w-6xl md:max-w-full container h-[100vh]">
         <div className="max-w-6xl mx-auto px-0 flex flex-col justify-between space-y-5 py-[3rem]">
           <div className="pb-[1rem]">

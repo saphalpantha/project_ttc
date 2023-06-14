@@ -3,11 +3,11 @@ import React from "react";
 const ResultForInt = () => {
   return (
     <div  className="flex flex-col justify-center items-center">
-      <section className=" h-[10rem]">
-        <div className="">
-          <img className="w-[100vw] object-contain h-[30vh]  opacity-80  " src="/images/result_cover.svg"></img>
-        </div>
-      </section>
+    <section className=" h-[18rem]">
+      <div className="w-[100%]">
+        <img className="w-[100vw] h-[50vh] bg-contain opacity-80  " src="/images/result_cover.svg"></img>
+      </div>
+    </section>
       
       <section className="max-w-6xl md:max-w-full container max-h-fit sticky fixed mx-auto justify-center" >
         <div className="mx-auto px-0 flex flex-col justify-between space-y-5 py-[3rem] items-center justify-center items-center ">
