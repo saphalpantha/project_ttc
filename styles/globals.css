@@ -2,11 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@200;300;400;500;600;800&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
 
 html{
+  font-family: 'Inter', sans-serif;
+}
+
+h1{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+article{
+  font-family: 'Great Vibes', cursive;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+
+p{
   font-family: 'Inter', sans-serif;
 }
 

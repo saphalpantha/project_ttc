@@ -3,6 +3,59 @@ import Link from "next/link";
 import styles from "./NavBar.module.css";
 import React from "react";
 
+
+const aboutDropdownLinks = [
+  { id: "a1", link: "/about", name: "About Tilottama" },
+  { id: "a2", link: "/faculty/board", name: "Board Members" },
+  { id: "a3", link: "/faculty", name: "Faculty & Staffs" },
+  { id: "a4", link: "/gallary", name: "Gallery" },
+];
+const resultsDropdownLinks = [
+  { id: "a1", link: "/results/grade11-result", name: "Internal Exam Result" },
+  { id: "a2", link: "/results/internal-result", name: "NEB Grade XI Result" },
+  { id: "a3", link: "/results/", name: "NEB Grade XII Result" },
+  { id: "a4", link: "/results/entrance-result", name: "Entrance Exam Result" },
+];
+const othersDropdownLinks = [
+  { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
+  { id: "a2", link: "/", name: "Item-3" },
+];
+
+const coursesDropdownLinks = [
+  {
+    id: "a1",
+    name: "Science",
+    sublinks: [
+      { id: "s1", link: "/courses/science/introduction/", name: "Introduction" },
+      { id: "s2", link: "/courses/science/admission/", name: "Admission Procedure" },
+      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      { id: "s4", link: "/faculty/#faculty_science/", name: "Faculty Members" },
+    ],
+  },
+  {
+    id: "a2",
+    name: "Management",
+    sublinks: [
+      { id: "s1", link: "/courses/management/introduction", name: "Introduction" },
+      { id: "s2", link: "/courses/management/admission", name: "Admission Procedure" },
+      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      { id: "s4", link: "faculty/#faculty_management", name: "Faculty Members" },
+    ],
+  },
+  {
+    id: "a3",
+    name: "BBA",
+    sublinks: [
+      { id: "s1", link: "/courses/bba/introduction", name: "Introduction" },
+      { id: "s2", link: "/courses/bba/admission", name: "Admission Procedure" },
+      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      { id: "s4", link: "/faculty/#faculty_bba", name: "Faculty Members" },
+    ],
+  },
+];
+
+
+
 function NavLink({ to, children }) {
   return (
     <Link className={` hover:border-b-4 px-4 hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to}>
@@ -176,55 +229,6 @@ export default function Navbar() {
   const [isMgmtOpen, setIsMgmtOpen] = useState(false);
   const [isBBAOpen, setIsBBAOpen] = useState(false);
 
-  const aboutDropdownLinks = [
-    { id: "a1", link: "/about", name: "About Tilottama" },
-    { id: "a2", link: "/faculty/board", name: "Board Members" },
-    { id: "a3", link: "/faculty", name: "Faculty & Staffs" },
-    { id: "a4", link: "/gallary", name: "Gallery" },
-  ];
-  const resultsDropdownLinks = [
-    { id: "a1", link: "/results/grade11-result", name: "Internal Exam Result" },
-    { id: "a2", link: "/results/internal-result", name: "NEB Grade XI Result" },
-    { id: "a3", link: "/results/", name: "NEB Grade XII Result" },
-    { id: "a4", link: "/results/entrance-result", name: "Entrance Exam Result" },
-  ];
-  const othersDropdownLinks = [
-    { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
-    { id: "a2", link: "/", name: "Item-3" },
-  ];
-
-  const coursesDropdownLinks = [
-    {
-      id: "a1",
-      name: "Science",
-      sublinks: [
-        { id: "s1", link: "/courses/science/introduction", name: "Introduction" },
-        { id: "s2", link: "/courses/science/admission", name: "Admission Procedure" },
-        { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
-        { id: "s4", link: "/faculty/#faculty_science", name: "Faculty Members" },
-      ],
-    },
-    {
-      id: "a2",
-      name: "Management",
-      sublinks: [
-        { id: "s1", link: "/courses/management/introduction", name: "Introduction" },
-        { id: "s2", link: "/courses/management/admission", name: "Admission Procedure" },
-        { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
-        { id: "s4", link: "/faculty/#faculty_management", name: "Faculty Members" },
-      ],
-    },
-    {
-      id: "a3",
-      name: "BBA",
-      sublinks: [
-        { id: "s1", link: "/courses/bba/introduction", name: "Introduction" },
-        { id: "s2", link: "/courses/bba/admission", name: "Admission Procedure" },
-        { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
-        { id: "s4", link: "/faculty/#faculty_bba", name: "Faculty Members" },
-      ],
-    },
-  ];
 
   return (
     <nav

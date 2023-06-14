@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <Container>
       <div className={`max-w-6xl flex flex-col md:max-w-full  items-center justify-center gap-10  pb-[4rem] md:pb-[4rem] pt-[2rem] ${classes.footer}`}>
-        <div className="md:max-w-full  flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
+        <div className="flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
           <div className="max-w-sm flex justify-center items-center flex-col gap-4">
             <h1 className="text-3xl font-bold text-white">About us</h1>
-            <p className="w-[100%] text-2xs text-white text-center md:text-start">
+            <p className="w-[100%] text-2xs text-white text-start">
               Tilottama Campus was established in 1996 as the first private
               college in Rupandehi by a team of dedicated, experienced and
               enterprising academicians to cater for the growing demands of
@@ -23,29 +23,29 @@ const Footer = () => {
               Quick Links
             </h1>
             <div>
-              <ul className="flex flex-col  py-2 space-y-3 font-light list-disc   text-white justify-center text-2xs">
-                <li className="max-w-md w-[100%]">
+              <ul className="flex flex-col  text-start py-2 space-y-3 font-light list-disc   text-white  text-2xs">
+                <li className="max-w-md text-left w-[100%]">
                   <Link href={"/"}>About Tilottama</Link>
                 </li>
-                <li className="max-w-md">
+                <li className="max-w-md text-left">
                   <Link href={"/"}>Entrance Exam</Link>
                 </li>
-                <li className="max-w-md">
+                <li className="max-w-md text-left">
                   <Link href={"/"}>Courses</Link>
                 </li>
-                <li className="max-w-md">
+                <li className="max-w-md text-left">
                   <Link href={"/"}>Contact</Link>
                 </li>
               </ul>
             </div>
           </div>
           
-            <div className="text-white flex flex-col gap-y-2 md:gap-y-4 pt-[2rem] justify-center items-center">
+            <div className="text-white flex flex-col gap-y-4 md:gap-y-4 pt-[2rem] justify-center items-start text-start">
               <h1 className="text-3xl font-bold text-white ">Contact Us</h1>
-              <span className="flex gap-5"> <img src="/images/phone_logo.svg"></img> +977-00071-437659</span>
-              <span className="flex gap-5 pt-2"> <img src="/images/phone_logo.svg"></img> +977-071-438559</span>
-              <span className="flex gap-5 pt-2"> <img src="/images/mail_logo.svg"></img> info@tilottama.edu.np</span>
-              <span className="flex gap-5 pt-2"> <img src="/images/map_logo.svg"></img> Tilottama-2, Yogikuti Rupandehi Nepal</span>
+              <span className="flex gap-2 text-left"> <img src="/images/phone_logo.svg"></img> +977-00071-437659</span>
+              <span className="flex gap-2 text-left pt-2"> <img src="/images/phone_logo.svg"></img> +977-071-438559</span>
+              <span className="flex gap-2 text-left pt-2"> <img src="/images/mail_logo.svg"></img> info@tilottama.edu.np</span>
+              <span className="flex gap-2 text-left pt-2"> <img src="/images/map_logo.svg"></img> Tilottama-2, Yogikuti Rupandehi Nepal</span>
             </div>
           
         </div>

@@ -51,14 +51,14 @@ const ExploreGrid = () => {
 
   return (
     <Container>
-      <section className="mx-auto  flex flex-col py-1 md:py-[5rem]   justify-between space-y-5 z-10 "> 
+      <section className="mx-auto flex flex-col   justify-between  z-10 "> 
 
-      <h1 className=" text-3xl md:text-5xl font-bold  tracking-wider pt-2 px-36  text-[#FF9900]">Explore Tilottama Campus</h1>
+      <h1 className=" text-3xl md:text-5xl font-bold  tracking-wider px-10 py-8  text-[#FF9900]">Explore Tilottama Campus</h1>
          
       </section>
-      <section className=' px-2 md:px-32 pb-[2rem]'>
+      <section className=' flex flex-col justify-center gap-5 px-2 md:px-10 pb-[1.5rem]'>
 
-      <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-1">
+      <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-5">
       {images.map((image, index) => (
         <div key={index} className={` relative   ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
           <img
@@ -72,8 +72,8 @@ const ExploreGrid = () => {
         </div>
       ))}
     </div>
+     <a href='http://tour.virtualedufairnepal.com/tilottamacampus/'> <div className="w-[100%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3  text-center">Explore More</div></a>
       </section>
-     <a href='http://tour.virtualedufairnepal.com/tilottamacampus/'> <div className="w-[90%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3 text-center">Explore More</div></a>
 
 
     </Container>

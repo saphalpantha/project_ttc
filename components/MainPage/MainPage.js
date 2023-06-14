@@ -14,8 +14,8 @@ const MainPage = () => {
           <WhyTtc/>
           <Stream/>
           <NewsNotice/>
-          <ExploreGrid/>
           <OurStars/>
+          <ExploreGrid/>
     </Fragment>
   )
 }

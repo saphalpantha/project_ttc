@@ -28,7 +28,7 @@ const Stream = () => {
                 <div className='w-[100%] md:w-[60%] flex flex-col' >
                  <div className='w-[8rem] md:w-[30rem]'>
                     <ul className='flex justify-between font-bold '>
-                     {streamData.map(i => (<li className={ ` cursor-pointer   w-full p-5 md:p-7 md:text-xl  text-2xs  ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
+                     {streamData.map(i => (<li className={ ` text-center cursor-pointer   w-full p-5 md:p-7 md:text-xl  text-2xs  ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
                     </ul>
                  </div>
                  <div className=' relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full  flex flex-col text-white h-full gap-y-5'>
