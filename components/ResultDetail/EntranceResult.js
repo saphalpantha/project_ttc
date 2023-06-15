@@ -2,8 +2,8 @@ import React from "react";
 
 const EntranceResult = () => {
   return (
-    <div  className="flex flex-col">
-    <section className=" h-[18rem]">
+    <div  className="flex flex-col relative">
+    <section className="h-[15rem]">
       <div className="w-[100%]">
         <img className="w-[100vw] h-[50vh] bg-contain opacity-80  " src="/images/result_cover.svg"></img>
       </div>
@@ -18,7 +18,7 @@ const EntranceResult = () => {
     <form className="flex pt-10 flex-col justify-center items-center gap-10 ">
         <div className="flex flex-col space-y-3 ">
             <label className="text-xl text-[#201F54]">Entrance Roll No</label>
-            <input type="number" className="w-[20rem] h-[3rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
+            <input type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
         </div>
         <button className="py-3 w-fit px-10 bg-[#201F54] text-white rounded-3xl font-bold" >Check Result</button>
     </form>

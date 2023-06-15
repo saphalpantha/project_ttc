@@ -2,11 +2,12 @@ import React from "react";
 import Container from "../Container/Container";
 import classes from "./About.module.css";
 import Image from "next/image";
+import Link from "next/link";
 const About = () => {
   return (
     <Container>
-      <div className={`min-h-screen  max-w-6xl md:max-w-full bg-fixed ${classes.clip} `}></div>
-      <section className="flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center">
+      <div className={`max-w-6xl md:max-w-full bg-fixed md:h-[110vh] ${classes.clip} h-[70vh] `}></div>
+      <section className={`flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center ${classes.stylee}`}>
         <h1 className="text-[#FF9900] text-5xl font-semibold">About Tilottama</h1>
         <p className="text-xl max-w-5xl tracking-wide">
           Tilottama Campus was established in 1996 as the first private college
@@ -35,7 +36,7 @@ In 2078 and 2079 the school stood in the first position throughout Nepal . We ar
       <div className="pb-[4rem]"><img className="w-[100%] h-[100%]" src={"/images/certificate.png"}></img></div>
       </section>
 
-      <section className="flex flex-col md:flex-row space-y-5 md:space-y-0 px-5 py-4 justify-evenly   md:px-32 md:py-10 bg-scroll">
+      <section className="flex flex-col md:flex-row space-y-20 md:space-y-0 px-5 py-4 justify-between md:px-36 md:py-10 bg-scroll">
       
       <div className="flex flex-col space-y-5">
 
@@ -59,8 +60,12 @@ In 2078 and 2079 the school stood in the first position throughout Nepal . We ar
         <p className="max-w-screen leading-9 font-bold text-xl font-light " >
         The school has luring physical infrastructures with spacious ground, garden and international standard basket ball and volley ball court. It has got Well equipped science laboratory, computer labs, hygenic cafteria library furnished with ample text books, research journal and reference materials, which provide the students with secured and effective setting for their learning. 
         </p>
+
         <div className="border-4 border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54]">
-        See Photos and Videos of College</div>
+          <a href="http://tour.virtualedufairnepal.com/tilottamacampus/">
+        See Photos and Videos of College
+          </a>
+        </div>
       </section>
     </Container>
   );

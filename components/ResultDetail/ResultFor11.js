@@ -3,7 +3,7 @@ import React from "react";
 const ResultFor11 = () => {
   return (
     <div  className="flex flex-col">
-    <section className=" h-[18rem]">
+    <section className=" h-[15rem]">
       <div className="w-[100%]">
         <img className="w-[100vw] h-[50vh] bg-contain opacity-80  " src="/images/result_cover.svg"></img>
       </div>
@@ -11,28 +11,28 @@ const ResultFor11 = () => {
       
       <section className="max-w-6xl md:max-w-full container max-h-fit sticky fixed">
         <div className="max-w-6xl mx-auto px-0 flex flex-col justify-between space-y-5 py-[3rem]">
-          <div className="pb-[1rem]">
+          <div className="">
             <div className="bg-[#FF9900] py-2 font-bold text-2xl text-center text-white rounded-full">
               Result of NEB Exam  Grade XI
             </div>
             <form className="flex flex-col justify-center items-center">
                 <div className="px-[2rem] py-[5rem] grid gap-10 grid-cols-1 md:grid-cols-3">
 
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2 justify-center items-center">
 
                 <label className="text-xl text-center  text-[#201F54]">Choose Stream</label>
-                <select className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full" value="Science">
+                <select className="w-[18rem] h-[2.5rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full" value="Science">
                     <option>Science</option>
                     <option>Mgmt</option> 
                 </select>
                 </div>
                 <div className="flex flex-col space-y-3">
                     <label className="text-xl text-center text-[#201F54]">Date of Birth</label>
-                    <input type="date" className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-full"></input>
+                    <input type="date" className="w-[18rem] h-[2.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-full"></input>
                 </div>
                 <div className="flex flex-col space-y-3">
                     <label className="text-xl text-center text-[#201F54]">Registration No</label>
-                    <input type="number" className="w-[18rem] h-[3.5rem] border-2 border-[#201F54] text-xl text-black px-[1rem] rounded-full"></input>
+                    <input type="number" className="w-[18rem] h-[2.5rem] border-2 border-[#201F54] text-xl text-black px-[1rem] rounded-full"></input>
                 </div>
                 </div>
                 <div className="py-3  bg-[#201F54] rounded-full text-center  px-8 text-white text-xl font-semibold">Check Results</div>

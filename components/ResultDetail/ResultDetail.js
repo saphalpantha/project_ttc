@@ -18,18 +18,18 @@ const ResultDetail = () => {
                 <div className="flex flex-col space-y-2">
 
                 <label className="text-xl text-[#201F54]">Choose Stream</label>
-                <select className="w-[20rem] h-[3.5rem] border-2 border-[#201F54] text-black pl-[0.5rem]" value="Science">
+                <select className="w-[20rem] h-[2.5rem] border-2 border-[#201F54] text-black pl-[0.5rem]" value="Science">
                     <option>Science</option>
                     <option>Mgmt</option> 
                 </select>
                 </div>
                 <div className="flex flex-col space-y-3">
                     <label className="text-xl text-[#201F54]">Date of Birth</label>
-                    <input type="date" className="w-[20rem] h-[3.5rem] border-2 border-[#201F54] text-black"></input>
+                    <input type="date" className="w-[20rem] h-[2.5rem] border-2 border-[#201F54] text-black"></input>
                 </div>
                 <div className="flex flex-col space-y-3">
                     <label className="text-xl text-[#201F54]">Registration No</label>
-                    <input type="number" className="w-[20rem] h-[3.5rem] border-2 border-[#201F54] text-xl text-black pl-[1rem]"></input>
+                    <input type="number" className="w-[20rem] h-[2.5rem] border-2 border-[#201F54] text-xl text-black pl-[1rem]"></input>
                 </div>
             </form>
           </div>

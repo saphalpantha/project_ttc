@@ -8,7 +8,6 @@ const aboutDropdownLinks = [
   { id: "a1", link: "/about", name: "About Tilottama" },
   { id: "a2", link: "/faculty/board", name: "Board Members" },
   { id: "a3", link: "/faculty", name: "Faculty & Staffs" },
-  { id: "a4", link: "/gallary", name: "Gallery" },
 ];
 const resultsDropdownLinks = [
   { id: "a1", link: "/results/grade11-result", name: "Internal Exam Result" },
