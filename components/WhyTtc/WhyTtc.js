@@ -13,7 +13,7 @@ const WhyTtc = () => {
   return (
     <Container>
       
-    <div className='max-w-6xl bg-white flex flex-col md:flex-row  mx-auto  pb-2  md:pb-[2rem] justify-center items-center'>
+    <div className='max-w-6xl md:gap-2  gap-10 bg-white flex flex-col md:flex-row  mx-auto    md:pb-[3rem] justify-center items-center'>
             <div className='flex flex-col justify-center space-y-4 md:space-y-5  max-w-6xl  md:w-[80rem]  '>
 
     <h1 className=' text-3xl md:text-5xl py-7  text-[#FF9900] font-bold text-center md:text-start'>Why Tilottama?</h1>

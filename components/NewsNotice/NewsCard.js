@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 const NewsCard = () => {
   return (
-    <div className="flex flex-col  justify-center  gap-2 p-3 items-baseline border-5 bg-white  w-[24rem] h-[492px] shadow-2xl relative ">
+    <div className="flex flex-col pb-10  justify-center  gap-4 p-3 items-baseline border-5 bg-white  w-[24rem] h-[495px] shadow-2xl relative ">
       <div className="bg-black w-[359px] h-[210px] "></div>
       <h1 className="  text-2xl md:text-3xl">Heading</h1>
       <h1 className=" text-xl md:text-2xl font-light">Description</h1>
