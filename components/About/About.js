@@ -9,14 +9,14 @@ const About = () => {
       <div className={`max-w-6xl md:max-w-full bg-fixed md:h-[110vh] ${classes.clip} h-[70vh] `}></div>
       <section className={`flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center ${classes.stylee}`}>
         <h1 className="text-[#FF9900] text-5xl font-semibold">About Tilottama</h1>
-        <p className="text-xl max-w-5xl tracking-wide">
+        <p className="text-xl max-w-5xl">
           Tilottama Campus was established in 1996 as the first private college
           in Rupandehi by a team of dedicated, experienced and enterprising
           academicians to cater for the growing demands of parents and students
           in the higher education by providing quality education and
-          guaranteeing top class graduates.{" "}
+          guaranteeing top class graduates.
         </p>
-        <p className="max-w-5xl text-xl tracking-tight">
+        <p className="max-w-5xl text-xl">
           Since its establishment, the college has been running +2 programme in
           science and management stream in affiliation with National Education
           Board Nepal (NEB, Nepal). Similarly, it is also running Bachelor in
@@ -36,7 +36,7 @@ In 2078 and 2079 the school stood in the first position throughout Nepal . We ar
       <div className="pb-[4rem]"><img className="w-[100%] h-[100%]" src={"/images/certificate.png"}></img></div>
       </section>
 
-      <section className="flex flex-col md:flex-row space-y-20 md:space-y-0 px-5 py-4 justify-between md:px-36 md:py-10 bg-scroll">
+      <section className="flex flex-col md:flex-row space-y-20 md:space-y-0 px-5 py-4 justify-between px-20 md:py-10 bg-scroll">
       
       <div className="flex flex-col space-y-5">
 

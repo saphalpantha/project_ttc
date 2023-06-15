@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
 import { useWindowSize } from 'usehooks-ts';
 import Container from '../Container/Container';
+import classes from './OurStar.module.css'
 
 const starsData = [
   {id:'st1', nameofstar:'Sulav Bhandari', typeofscholarship:'SII', img:'dummy_user'},
@@ -27,7 +28,7 @@ const starsData = [
 
 export const Star = ({nameofstar, typeofscholarship, img}) => {
   return(
-      <div className='w-[200px] h-[220px] flex flex-col justify-center items-center'>
+      <div className='w-[200px]  h-[220px] flex flex-col justify-center items-center'>
           <div className='w-[10rem] h-[10rem] border-2 border-[#FF9900] rounded-full flex justify-center items-center p-[2rem]'>
               <img className='w-[1/6]' alt="img" src={`/images/${img}.svg`}></img>
           </div>
@@ -43,8 +44,8 @@ const OurStars = () => {
   return (
     <Container>
 
-    <div className='max-w-6xl md:max-w-full h-[30rem] gap-10 bg-white'>
-            <div className='flex flex-col h-[27rem] bg-white drop-shadow-xl justify-center mx-auto '><h1 className='text-5xl text-[#FF9900] font-bold  text-center'>Our Stars</h1>
+    <div className={`max-w-6xl md:max-w-full h-[30rem]  gap-10 bg-white `}>
+            <div className={` ${classes.star} flex flex-col h-[27rem] bg-white drop-shadow-xl shadow-xl justify-center mx-auto `}><h1 className='text-5xl text-[#FF9900] font-bold  text-left px-20'>Our Stars</h1>
             <div className='flex flex-row justify-around px-[1rem]'>
 
     <Swiper
