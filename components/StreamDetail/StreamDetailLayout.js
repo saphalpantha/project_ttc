@@ -102,7 +102,7 @@ const StreamDetailLayout = () => {
           <h1 className="text-5xl text-[#FF9900] font-bold text-center">
             Course Strucutre
           </h1>
-          {streamSubject.map((sub) => {
+          {streamSubject?.map((sub) => {
             return (
               <div className="flex flex-col space-y-5 mx-auto">
                 <div className="bg-[#201F54] py-2 font-bold text-2xl text-center text-white">

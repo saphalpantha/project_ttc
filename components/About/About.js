@@ -75,7 +75,7 @@ const About = () => {
           ></iframe>
         </div>
       </section>
-      <section className="flex flex-col space-y-5 md:space-y-10 px-5 py-4 justify-evenly md:px-32 md:py-10 bg-scroll">
+      <section className="flex flex-col space-y-5 md:space-y-10 px-5 py-4 justify-evenly max-w-6xl mx-auto md:py-10 bg-scroll">
         <h1 className="text-[#FF9900] text-5xl font-semibold">
           College Infrastructure
         </h1>

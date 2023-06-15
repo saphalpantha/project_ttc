@@ -116,7 +116,7 @@ const BbaStream = () => {
           </h1>
           <div className="grid mx-auto gap-32 justify-center items-center grid-flow-col-1 md:grid-cols-2 ">
 
-          {streamSubjectBBA.map((sub) => {
+          {streamSubjectBBA?.map((sub) => {
             return (
               <SubjectListCardForBba sem={sub.sem} subjectLists={sub.subjects}/>
               );

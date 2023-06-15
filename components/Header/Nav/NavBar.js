@@ -184,17 +184,17 @@ function DropdownMenu({ title, links }) {
                     }`}
                     onMouseOver={() => toggleDropdown(link.id)}
                   >
-                    {link.name}
+                    {link?.name}
                   </button>
                   {isDropdownOpen(link.id) && (
                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
                       {link.sublinks.map((sublink) => (
                         <Link
                           className={`dropdown-item text-left  tracking-widest text-2xs ${styles.dropdownLink}`}
-                          key={sublink.id}
-                          href={sublink.link}
+                          key={sublink?.id}
+                          href={sublink?.link}
                         >
-                          {sublink.name}
+                          {sublink?.name}
                         </Link>
                       ))}
                     </div>
@@ -203,10 +203,10 @@ function DropdownMenu({ title, links }) {
               ) : (
                 <Link
                   className={`dropdown-item text-left ${styles.dropdownLink}`}
-                  key={link.id}
-                  href={link.link}
+                  key={link?.id}
+                  href={link?.name}
                 >
-                  {link.name}
+                  {link?.name}
                 </Link>
               )}
             </div>
@@ -243,9 +243,9 @@ export default function Navbar() {
         <div
           className={`flex md:hidden items-center justify-center filter drop-shadow-md bg-white h-20 ${styles.mobileNavHeader}`}
         >
-          <a className="text-xl  font-semibold" href="/">
+          <Link className="text-xl  font-semibold" href="/">
               <Logo/>
-          </a>
+          </Link>
         </div>
         <div className={`flex  md:hidden  justify-center items-center flex-col mt-8 ${styles.mobileNavLinks}`}>
           <NavLink
@@ -292,9 +292,9 @@ export default function Navbar() {
         </div>
       </div>
       <div className={` ${open && 'hidden'} w-3/12  flex items-center ${styles.logo}`}>
-        <a className="text-2xl  font-semibold" href="/">
+        <Link className="text-2xl  font-semibold" href="/">
         <Logo/>
-        </a>
+        </Link>
       </div>
       <div className={`w-9/12 flex md:justify-start justify-end items-center ${styles.menu}`}>
         <div

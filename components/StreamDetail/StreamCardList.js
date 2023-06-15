@@ -16,7 +16,7 @@ const StreamCardList = () => {
     <div className='w-[100%] bg-[#FFF] '>
 
     <div className=' mx-auto text-black flex flex-col md:flex-row space-y-5 py-2 md:py-0  px-2 mx-5 items-center md:items-baseline justify-center items-center md:gap-[50px]'>
-        {card_data.map(item => (
+        {card_data?.map(item => (
           <SingleCard key={item.id} title={item.title} admission_status={item.admission_status} img={item.img}/>
           ))}
     </div>  
