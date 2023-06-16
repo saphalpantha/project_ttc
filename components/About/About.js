@@ -56,7 +56,7 @@ const About = () => {
       </section>
 
       <section className="flex flex-col md:flex-row space-y-20 md:space-y-0  py-4  justify-center items-center gap-10  md:py-10 bg-scroll">
-        <div className="flex flex-col max-w-lg w-[100%] space-y-5">
+        <div className="flex flex-col max-w-lg w-[100%] px-14 md:px-0 space-y-5">
           <h1 className="text-[#FF9900] text-5xl font-semibold">Location</h1>
           <p className="text-xl   leading-9 font-light">
             Tilottama Campus was established in 1996 as the first private
