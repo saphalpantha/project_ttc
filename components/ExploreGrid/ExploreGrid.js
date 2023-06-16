@@ -60,14 +60,17 @@ const ExploreGrid = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-5">
       {images.map((image, index) => (
-        <div key={index} className={` relative   ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
+        <div key={index} className={` relative bg-slate-500 w-${image.width} h-${image.height}   ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
+          <div className=' transition-all  group duration-200 ease flex hover:bg-[#201F54]  hover:opacity-95  absolute  flex-col w-full justify-center  items-center h-full'>
+            <h1 className='text-3xl  opacity-0 group-hover:opacity-100 text-center text-white'>Album Name</h1>
+          </div>
           <img
-          
+            
             src={"/images/the_img.jpg"}
             alt={`Image ${index + 1}`}
             // width={image.width}
             // height={image.height}
-            className=" object-center cursor-pointer w-full h-full w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
+            className=" object-center hover:border-2  border-red-500 cursor-pointer w-full h-full w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
           />
         </div>
       ))}

@@ -1,8 +1,5 @@
 import React, { Fragment } from "react";
-import CardLists from "../CardLists/CardLists";
 import StreamCardList from "./StreamCardList";
-import SubjectListCard from "./SubjectListCard";
-import SubjectListCardForplus2 from "./SubjectListCard";
 import SubjectListCardForBba from "./SubjectListCardForBba";
 import Container from '../Container/Container'
 import StyleCover from "../StyleCover/StyleCover";

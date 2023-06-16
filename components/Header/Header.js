@@ -44,6 +44,7 @@ const Header = () => {
            <Link href="/admissions"> <h1 className='font-bold tracking-wider text-xl mx-auto mt-3 text-white  '>Admission Open</h1></Link>
         </div>
             <Navbar/>
+            {/* <Drop/> */}
         {/* </section> */}
     </div>
     </Container>

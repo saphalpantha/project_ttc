@@ -111,11 +111,11 @@ const StreamDetailLayout = () => {
                 <div className="flex flex-col gap-10 justify-between pb-[1rem] md:flex-row md:gap-20">
                   <SubjectListCardForplus2
                     isOptional={false}
-                    subjectLists={sub.compSubjectLists}
+                    subjectLists={sub?.compSubjectLists}
                     />
                   <SubjectListCardForplus2
                     isOptional={true}
-                    subjectLists={sub.optionalSubjectLists}
+                    subjectLists={sub?.optionalSubjectLists}
                     />
                 </div>
               </div>

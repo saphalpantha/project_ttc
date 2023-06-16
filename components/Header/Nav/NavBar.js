@@ -57,7 +57,7 @@ const coursesDropdownLinks = [
 
 function NavLink({ to, children }) {
   return (
-    <Link className={` hover:border-b-4 px-4 hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to}>
+    <Link className={` hover:border-b-4 px-4 text-black hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to ? to : "/"}>
       {children}
     </Link>
   );
@@ -168,15 +168,10 @@ function DropdownMenu({ title, links }) {
       </button>
       {isDropdownOpen(title) && (
         <div className={`relative  min-h-screen  md:min-h-0 shadow-none  md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
-        {/* <div className="min-h-screenabsolute left-0 top-0" >
-        <li>Helo</li>
-        <li>Helo</li>
-        <li>Helo</li>
-        <li>Helo</li>
-      </div> */}
+
           {links.map((link) => (
             <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
-              {link.sublinks ? (
+              {link.sublinks ?  (
                 <>
                   <button
                     className={` py-2 text-left ${styles.dropdownButton} ${
@@ -184,17 +179,17 @@ function DropdownMenu({ title, links }) {
                     }`}
                     onMouseOver={() => toggleDropdown(link.id)}
                   >
-                    {link?.name}
+                    {link.name}
                   </button>
                   {isDropdownOpen(link.id) && (
                     <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
                       {link.sublinks.map((sublink) => (
                         <Link
-                          className={`dropdown-item text-left  tracking-widest text-2xs ${styles.dropdownLink}`}
-                          key={sublink?.id}
-                          href={sublink?.link}
+                          className={`dropdown-item text-left  text-black tracking-widest text-2xs ${styles.dropdownLink}`}
+                          key={sublink.id}
+                          href={sublink.link}
                         >
-                          {sublink?.name}
+                          {sublink.name}
                         </Link>
                       ))}
                     </div>
@@ -202,11 +197,11 @@ function DropdownMenu({ title, links }) {
                 </>
               ) : (
                 <Link
-                  className={`dropdown-item text-left ${styles.dropdownLink}`}
+                  className={`dropdown-item  text-left ${styles.dropdownLink}`}
                   key={link?.id}
-                  href={link?.name}
+                  href={link.link}
                 >
-                  {link?.name}
+                  {link.name}s
                 </Link>
               )}
             </div>
@@ -231,7 +226,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex ${ open && 'z-[200]'}  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${styles.navbar}`}
+      className={`flex  tex-black ${ open && 'z-[200]'}  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${styles.navbar}`}
     >
       <div
         className={`fixed top-0 md:hidden  left-0 h-screen  bg-white transform ${
@@ -248,12 +243,12 @@ export default function Navbar() {
           </Link>
         </div>
         <div className={`flex  md:hidden  justify-center items-center flex-col mt-8 ${styles.mobileNavLinks}`}>
-          <NavLink
-            to="/about"
-            onClick={() => setTimeout(() => setOpen(!open), 100)}
+          <Link
+
+            href={"/"}
           >
             Home
-          </NavLink>
+          </Link>
           {/* <NavLink to="/contact" onClick={() => setTimeout(() => setOpen(!open), 100)}>
             About
           </NavLink> */}
