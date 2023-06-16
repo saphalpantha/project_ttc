@@ -53,7 +53,7 @@ const BoardMember = () => {
           </h1>
           <div className='flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3'>
             <div className='bg-slate-300 flex flex-col space-y-2 w-[20rem] h-[20rem] py-2 pt-[3rem]' >
-                <img src="/"></img>
+                <img className='w-[100%] h-[100%]' src="/images/dummy_user.png"></img>
                 <span className='font-bold text-[#201F54] tracking-wide text-center'>Prof. Dr. R.C. Acharya</span>
                 <span className='text-center'>Founder Principal</span>
             </div>
