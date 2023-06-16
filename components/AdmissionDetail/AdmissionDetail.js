@@ -69,7 +69,7 @@ const AdmissionDetail = () => {
       </section>
 
       <div className="flex  flex-col space-y-5 pb-10">
-        <div className="border-4  border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54] w-[80%] mx-auto ">
+        <div className=" transition-all duration-300 ease hover:bg-[#201F54] hover:text-white  border-4  border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54] w-[80%] mx-auto ">
           Download Entrance Preparation material
         </div>
         <div className="bg-[#FF9900] py-2 font-bold text-2xl text-center text-white w-[80%] mx-auto ">

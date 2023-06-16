@@ -75,7 +75,7 @@ const ExploreGrid = () => {
         </div>
       ))}
     </div>
-     <a href='http://tour.virtualedufairnepal.com/tilottamacampus/'> <div className="w-[100%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3  text-center">Explore More</div></a>
+     <a href='http://tour.virtualedufairnepal.com/tilottamacampus/'> <div className=" transition-all duration-300 ease hover:bg-[#201F54] hover:text-white  w-[100%] mx-auto bg-[#D9D9D9] text-[#201F54] font-bold uppercase tracking-wide py-3  text-center">Explore More</div></a>
       </section>
 
 

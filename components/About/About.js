@@ -88,8 +88,8 @@ const About = () => {
           effective setting for their learning.
         </p>
 
-        <div className="border-4 border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54]">
-          <a href="http://tour.virtualedufairnepal.com/tilottamacampus/">
+        <div className="border-4 transition-all duration-300 ease hover:bg-[#201F54] hover:text-white  border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54]">
+          <a className="" href="http://tour.virtualedufairnepal.com/tilottamacampus/">
             See Photos and Videos of College
           </a>
         </div>

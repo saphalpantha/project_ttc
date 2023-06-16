@@ -48,7 +48,7 @@ const BoardMember = () => {
 
       <section className='md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl'>
       <div className="flex flex-col justify-between space-y-10 ">
-          <h1 className=" text-white bg-[#FF9900] font-semibold text-2xl md:text-3xl text-center  ">
+          <h1 className="  text-white bg-[#FF9900]  py-1 font-semibold text-2xl md:text-3xl text-center  ">
           Message From Founder Principal
           </h1>
           <div className='flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3'>
@@ -67,7 +67,7 @@ const BoardMember = () => {
       </section>
       <section className='md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl'>
       <div className="flex flex-col justify-between space-y-10 ">
-          <h1 className=" text-white bg-[#FF9900] font-semibold text-2xl md:text-3xl text-center  ">
+          <h1 className="  text-white bg-[#FF9900]  py-1 font-semibold text-2xl md:text-3xl text-center  ">
           Message From Vice-Principal
           </h1>
           <div className='flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3'>
@@ -86,7 +86,7 @@ const BoardMember = () => {
       </section>
       <section className='md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl'>
       <div className="flex flex-col justify-between space-y-10 ">
-          <h1 className=" text-white bg-[#FF9900] font-semibold text-2xl md:text-3xl text-center  ">
+          <h1 className="  text-white bg-[#FF9900]  py-1 font-semibold text-2xl md:text-3xl text-center  ">
           Message From Vice-Principal
           </h1>
           <div className='flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3'>

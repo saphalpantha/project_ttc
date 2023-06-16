@@ -122,7 +122,7 @@ const StreamDetailLayout = () => {
             );
           })}
 
-          <div className="text-center font-semibold text-[#201F54] text-2xl w-[100%] border-4 border-[#201F54] py-2">
+          <div className=" transition-all duration-300 ease hover:bg-[#201F54] hover:text-white  text-center font-semibold text-[#201F54] text-2xl w-[100%] border-4 border-[#201F54] py-2">
             Faculty Members Detail
           </div>
         </div>
