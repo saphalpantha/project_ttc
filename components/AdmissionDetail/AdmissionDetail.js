@@ -6,7 +6,7 @@ const AdmissionDetail = () => {
     <Container>
       <section>
         <StyleCover
-          isLeft={false}
+          isLeft={true}
           src={"/images/stream/science/sci_stream_cover.png"}
           title={"Admission procedure (Science)"}
         />
@@ -72,7 +72,7 @@ const AdmissionDetail = () => {
         <div className=" transition-all duration-300 ease hover:bg-[#201F54] hover:text-white  border-4  border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54] w-[80%] mx-auto ">
           Download Entrance Preparation material
         </div>
-        <div className="bg-[#FF9900] py-2 font-bold text-2xl text-center text-white w-[80%] mx-auto ">
+        <div className=" hover:bg-[#BB7000] duration-200 ease-in cursor-pointer bg-[#FF9900] py-2 font-bold text-2xl text-center text-white w-[80%] mx-auto ">
           Apply Now
         </div>
       </div>

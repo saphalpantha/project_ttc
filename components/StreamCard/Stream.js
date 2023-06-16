@@ -34,7 +34,7 @@ const Stream = () => {
                  <div className=' relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full  flex flex-col text-white h-full gap-y-5'>
                     <h1 className='text-2xs md:text-2xl  font-bold'>{updatedItem.title}</h1>
                     <p className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</p>
-                 <button className="absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button>
+                 <button className=" hover:bg-[#BB7000] transition-all duration-200 ease-in absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button>
                  </div>
  
                 </div>
