@@ -26,14 +26,14 @@ const WhyTtc = () => {
 
   return (
     <Container>
-      <div className="max-w-6xl md:gap-2 py-4  gap-x-10 bg-white flex flex-col md:flex-row  mx-auto md:pb-[3rem] justify-center  items-center md:items-start ">
-        <div className="flex flex-col  justify-center md:space-y-5  max-w-6xl  md:w-[80rem]  ">
-          <h1 className=" text-3xl md:text-5xl   text-[#FF9900] font-bold text-center md:text-start">
+      <div className="max-w-6xl md:gap-2 py-4 gap-y-10 md:gap-y-0  gap-x-0 bg-white flex flex-col md:flex-row  mx-auto md:pb-[3rem] justify-center  items-center md:items-start ">
+        <div className="flex flex-col  justify-center md:space-y-5  max-w-6xl   ">
+          <h1 className=" text-3xl py-5 md:py-0 md:text-5xl   text-[#FF9900] font-bold text-center md:text-start">
             Why Tilottama?
           </h1>
           <ul className="flex flex-col gap-1 list-disc">
             {whyTTCList.map((i) => (
-              <li className="max-w-md w-fit px-3 text-start  md:w-[90%] lg:w-[100%] md:max-w-[30rem] lg:max-w-[60rem] px-[0.5rem]  md:px-0 leading-7 text-2xs">
+              <li className="w-fit px-3 text-start md:w-[75%] w-[100%]   px-2  md:px-2 leading-7 text-2xs">
                 {i.desc}
               </li>
             ))}
