@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <div id="mymodel"></div>
+      <div id="spotlight"></div>
       <body>
         <Main />
         <NextScript />

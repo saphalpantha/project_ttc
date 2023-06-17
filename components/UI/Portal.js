@@ -1,23 +1,38 @@
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
 import classes from './Portal.module.css'
-import Container from '../Container/Container';
-const Portal = (props) => {
+import CancelIcon from '@mui/icons-material/Cancel';
+const Modal = ({ isOpen, onClose, img }) => {
+  const [isClient, setIsClient] = useState(false);
 
-   const portalRoot = typeof document !== 'undefined' ? document.getElementById('mymodel') : null;
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-  return portalRoot ? (
-    ReactDOM.createPortal(
+  const closeModal = () => {
+    onClose();
+  };
 
-        <Container>
+  if (!isClient || !isOpen) return null;
 
-        <div className={`container flex justify-center items-center ${props.className}`}>
-          {props.children}
-        </div>
-        </Container>
-      ,
-      portalRoot
-    )
-  ) : null;
+  return (
+    <>
+     <div className={classes.backdrop} onClick={closeModal} />
+<div className={classes.modal}>
+  <div className={classes["close-icon"]} onClick={closeModal}>
+    <CancelIcon/>
+  </div>
+  <div className={`${classes["image-container"]} border-2 border-gray-400`}>
+    <div className='w-[100%] h-[100%] px-5 bg-contain object-contain'>
+    <img className='w-[100%] h-[100%]' src={img} alt="first Image" />
+    </div>
+
+  </div>
+</div>
+    </>
+  );
 };
 
-export default Portal;
+export default Modal;
+
+
+

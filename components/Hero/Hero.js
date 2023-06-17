@@ -5,10 +5,14 @@ import Container from '../Container/Container'
 import HeroSlider from '../Carousel/Carousel'
 import StyleCover from '../StyleCover/StyleCover'
 import { motion, useScroll } from 'framer-motion'
+import Modal from '../UI/Portal'
+import { useState } from 'react'
 
 
 const Hero = () => {
 
+  const [isOpen, setIsOpen] = useState(true);
+  
   const textVar  = {
     offscreen: {
       y: 2500
@@ -24,6 +28,10 @@ const Hero = () => {
     }
   };
   const {scrollYProgress} = useScroll()
+
+  const spotlightCloseHandler = () => {
+    setIsOpen(false)
+  }
   return (
     
     <Container>
@@ -33,6 +41,7 @@ const Hero = () => {
           Welcome to Tilottama Campus
       </motion.article> */}
     </motion.div>
+        <Modal isOpen={isOpen} img={"/images/banner.png"} onClose={spotlightCloseHandler} />
         <CardLists/>
 
         

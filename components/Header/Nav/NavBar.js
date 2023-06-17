@@ -161,8 +161,11 @@ function DropdownMenu({ title, links }) {
 
 
       <button
+      onMouseOverCapture={() => toggleDropdown(title)}
         className={`block  py-2 px-4 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
          onClick={() => toggleDropdown(title)}
+
+         
       >
         {title}
       </button>
@@ -170,7 +173,7 @@ function DropdownMenu({ title, links }) {
         <div className={`relative  min-h-screen  md:min-h-0 shadow-none  md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
 
           {links.map((link) => (
-            <div key={link.id} className={`dropdownLink ${styles.dropdownLink}`}>
+            <div key={link.id} onClick={() => toggleDropdown(title)} className={`dropdownLink ${styles.dropdownLink}`}>
               {link.sublinks ?  (
                 <>
                   <button
@@ -182,7 +185,7 @@ function DropdownMenu({ title, links }) {
                     {link.name}
                   </button>
                   {isDropdownOpen(link.id) && (
-                    <div className={`dropdown-menu  ${styles.subDropdownMenu}`}>
+                    <div   className={`dropdown-menu  ${styles.subDropdownMenu}`}>
                       {link.sublinks.map((sublink) => (
                         <Link
                           className={`dropdown-item text-left  text-black tracking-widest text-2xs ${styles.dropdownLink}`}
@@ -201,7 +204,7 @@ function DropdownMenu({ title, links }) {
                   key={link?.id}
                   href={link.link}
                 >
-                  {link.name}s
+                  {link.name}
                 </Link>
               )}
             </div>

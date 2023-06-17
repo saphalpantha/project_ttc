@@ -62,11 +62,11 @@ const AdmissionForm = () => {
                 </div>
               </div>
 
-              <div className="w-full flex  space-y-5  justify-center  md:item-center flex-col space-y-3">
+              <div className="w-full  space-y-5  justify-center  md:item-center flex-col space-y-3">
                 <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
                   Basic Information
                 </h1>
-                <div>
+                <div className="flex flex-col justify-center items-center">
                   <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Name in Block Letter
                   </label>
@@ -76,14 +76,14 @@ const AdmissionForm = () => {
                   ></input>
                 </div>
 
-                <div>
+                <div className="flex flex-col justify-center items-center">
                   <label className="text-[#201F54] pl-3 tracking-wide">
                     Name in Devanagari:
                   </label>
                   <input className="rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"></input>
                 </div>
 
-                <div className="grid   grid-cols-1 md:mx-0 mx-auto md:grid-cols-3 gap-2  md:gap-10 md:grid-row-2">
+                <div className="grid px-16 md:px-32 grid-cols-1 md:mx-0 mx-auto md:grid-cols-3 gap-2  md:gap-10 md:grid-row-2">
                   <div className="flex flex-col space-y-1">
                     <label className="text-xl pl-3 text-[#201F54]">
                       Date of Birth (B.S)
