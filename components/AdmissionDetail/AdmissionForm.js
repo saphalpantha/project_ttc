@@ -1,78 +1,66 @@
 import React from "react";
+import { Fragment } from "react";
 import classes from "./AdmissionDetail.module.css";
-
-import Container from "../Container/Container";
-
 const AdmissionForm = () => {
   return (
-    <Container>
-      <div className="max-w-6xl md:max-w-full">
-        <section className={` relative ${classes.main}`}>
-          <div className="">
-            <img
-              className="w-[100vw] h-[50vh] bg-cover opacity-80  "
-              src="/images/result_cover.svg"
-            ></img>
+    <Fragment>
+      <h1 className="w-[95%]   mx-auto my-4 py-3 rounded-full text-center font-bold bg-[#FF9900] text-white">
+        Admission Form
+      </h1>
+      <div>
+        <div className="flex justify-center py-5 flex-col  md:flex-row gap-2 md:gap-32 items-center">
+          <div className="flex flex-col space-y-2">
+            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+              Choose Stream
+            </label>
+            <select
+              required
+              className=" w-[14rem] h-[2.6rem]  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
+              value="Science"
+            >
+              <option>Science</option>
+              <option>Mgmt</option>
+            </select>
           </div>
-          <div className="left-[50%] mx-auto w-[80%] bg-[#FF9900] py-2 font-bold text-2xl text-center text-white rounded-full">
-            Admission Form
+          <div className="flex flex-col space-y-2">
+            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+              Choose Stream
+            </label>
+            <select
+              required
+              className="w-[14rem] h-[2.6rem]  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
+              value="Science"
+            >
+              <option>Science</option>
+              <option>Mgmt</option>
+            </select>
           </div>
+          <div className="flex flex-col space-y-2">
+            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+              Choose Stream
+            </label>
+            <select
+              required
+              className="  w-[14rem] h-[2.6rem]  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
+              value="Science"
+            >
+              <option>Science</option>
+              <option>Mgmt</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-          <div className="  top-[100%] left-[50%]  flex  flex-col">
-            <form className="flex max-w-[100%] mx-auto w-[80vw] flex-col justify-center items-center space-y-10 pb-[5rem]">
-              <div className="py-[5rem] grid grid-cols-1 gap-x-32 gap-y-3 md:grid-cols-3">
-                <div className="flex flex-col space-y-2">
-                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                    Choose Stream
-                  </label>
-                  <select
-                    required
-                    className="  w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
-                    value="Science"
-                  >
-                    <option>Science</option>
-                    <option>Mgmt</option>
-                  </select>
-                </div>
-                <div className="flex flex-col space-y-2">
-                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                    Choose Stream
-                  </label>
-                  <select
-                    required
-                    className="  w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
-                    value="Science"
-                  >
-                    <option>Science</option>
-                    <option>Mgmt</option>
-                  </select>
-                </div>
-                <div className="flex flex-col space-y-2">
-                  <label className="className={`text-xl pl-3  text-[#201F54] ${classes.req}`}">
-                    Choose Stream
-                  </label>
-                  <select
-                    required
-                    className="  w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
-                    value="Science"
-                  >
-                    <option>Science</option>
-                    <option>Mgmt</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="w-full  space-y-5  justify-center  md:item-center flex-col space-y-3">
-                <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
-                  Basic Information
-                </h1>
-                <div className="flex flex-col justify-center items-center">
+      <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+        Basic Information
+      </h1>
+      <div className="flex flex-col  justify-center items-center">
                   <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Name in Block Letter
                   </label>
                   <input
                     required
-                    className="rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"
+                    className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
                   ></input>
                 </div>
 
@@ -80,17 +68,17 @@ const AdmissionForm = () => {
                   <label className="text-[#201F54] pl-3 tracking-wide">
                     Name in Devanagari:
                   </label>
-                  <input className="rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"></input>
+                  <input className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"></input>
                 </div>
 
-                <div className="grid px-16 md:px-32 grid-cols-1 md:mx-0 mx-auto md:grid-cols-3 gap-2  md:gap-10 md:grid-row-2">
+                <div className="grid justify-center place-items-center px-32  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
                   <div className="flex flex-col space-y-1">
                     <label className="text-xl pl-3 text-[#201F54]">
                       Date of Birth (B.S)
                     </label>{" "}
                     <input
                       required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="date"
                     ></input>
                   </div>
@@ -100,7 +88,7 @@ const AdmissionForm = () => {
                     </label>{" "}
                     <input
                       required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="date"
                     ></input>
                   </div>
@@ -111,7 +99,7 @@ const AdmissionForm = () => {
                     </label>
                     <select
                       required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
                       value="Science"
                     >
                       <option>Male</option>
@@ -123,7 +111,7 @@ const AdmissionForm = () => {
                       Telephone No
                     </label>{" "}
                     <input
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="tel"
                     ></input>
                   </div>
@@ -133,32 +121,29 @@ const AdmissionForm = () => {
                     </label>{" "}
                     <input
                       required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="number"
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
                     <label className="text-xl pl-3 text-[#201F54]">Email</label>{" "}
                     <input
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="text"
                     ></input>
                   </div>
                 </div>
-              </div>
-
-              <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
+                <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
                 Address
               </h1>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-32  mx-auto md:mx-0">
+              <div className="grid justify-center place-items-center px-32  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
                 <div className="flex flex-col space-y-1">
                   <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Ward Number:
                   </label>{" "}
                   <input
                     required
-                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                     type="text"
                   ></input>
                 </div>
@@ -168,7 +153,7 @@ const AdmissionForm = () => {
                   </label>{" "}
                   <input
                     required
-                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                     type="text"
                   ></input>
                 </div>
@@ -178,16 +163,15 @@ const AdmissionForm = () => {
                   </label>{" "}
                   <input
                     required
-                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                     type="text"
                   ></input>
                 </div>
               </div>
-
-              <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
-                Family Information
+              <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+              Family Information
               </h1>
-              <div className="grid grid-cols-1 md:grid-cols-3 grid-row-3  gap-3 md:gap-x-32 gap-y-3 mx-auto md:mx-0">
+              <div className="grid justify-center place-items-center px-32  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
                 <div className="flex flex-col space-y-1">
                   <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Fathers Name
@@ -278,12 +262,11 @@ const AdmissionForm = () => {
                   ></input>
                 </div>
               </div>
-
-              <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
-                Bus Faculty
+              <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+              Bus Faculty
               </h1>
 
-              <div className="flex flex-col md:flex-row gap-3   md:gap-x-32 gap-y-3">
+              <div className="grid justify-center place-items-center px-32  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
                 <div className="flex flex-col space-y-2">
                   <label className="text-xl pl-3  text-[#201F54]">
                     Bus faculty
@@ -307,306 +290,23 @@ const AdmissionForm = () => {
                   ></input>
                 </div>
               </div>
-
               <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
                 Academic Information
               </h1>
-              <div className="flex flex-col gap-10">
-                <div className="flex flex-col">
-                  <div>
-                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+              <div className="flex flex-col justify-center items-center" >
+
+              <div className="flex flex-col">
+                    <label className={`text-xl pl-3   text-[#201F54] ${classes.req}`}>
                       Name of Previous School
                     </label>
                     <input
                       required
-                      className="  rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"
-                    ></input>
-                  </div>
+                      className=" rounded-3xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
+                      ></input>
                 </div>
+                      </div>
 
-                {/* \\\\\ */}
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-32  mx-auto md:mx-0">
-                  <div className="flex flex-col space-y-1">
-                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                      Send-up CGPA
-                    </label>{" "}
-                    <input
-                      required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                      SEE Board CGPA
-                    </label>{" "}
-                    <input
-                      required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                      Grade letter/Division:
-                    </label>{" "}
-                    <input
-                      required
-                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-x-10 gap-y-5  justify-center  items-center pt-[1rem] mx-auto md:mx-0">
-                  <label className="text-xl pl-3 text-[#201F54]">Sendup</label>
-
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      English
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      C.Maths
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      Opt.Maths
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      Science
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      Account
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-
-                  <label className="text-xl pl-3 text-[#201F54]">SEE</label>
-
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      English
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      C.MATHS
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      Opt.Maths
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      Science
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
-                      Account
-                    </label>
-                    <input
-                  
-                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="text"
-                    ></input>
-                  </div>
-                </div>
-
-                {/* \\\\\\\\ */}
-              </div>
-              <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
-                Documents
-              </h1>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-32">
-                <div className="flex flex-col space-y-2 text-center">
-                  <lablel className={"font-bold"}>Valid Photo</lablel>
-                  <input
-                    required
-                    className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                    type="file"
-                  ></input>
-                </div>
-                <div className="flex  flex-col space-y-2 text-center">
-                  <label className={`text-[#201F54] font-bold ${classes.req}`}>SEE marksheet</label>
-                  <input
-                    required
-                    className="    py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                    type="file"
-                  ></input>
-                </div>
-                <div className="flex flex-col space-y-2 text-center">
-                  <label className={`text-[#201F54] font-bold ${classes.req}`}>
-                    See transfer Certificate
-                  </label>
-                  <input
-                    required
-                    className="   py-4  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                    type="file"
-                  ></input>
-                </div>
-                <div className="flex flex-col space-y-2 text-center">
-                  <label className={`text-[#201F54] font-bold ${classes.req}`}>
-                    SEE Character Certificate
-                  </label>
-                  <input
-                    required
-                    className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                    type="file"
-                  ></input>
-                </div>
-              </div>
-
-              <h1 className=" w-[100%] text-center  py-3 bg-[#201F54] text-white font-bold">
-                Interest on Extra Activities
-              </h1>
-
-              <div className="flex flex-col  space-y-3">
-                <div className="grid grid-cols-1 md:grid-cols-4 mx-auto gap-x-20 gap-y-5">
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      required
-                      className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Basketball</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Volley Ball</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Table Tennis</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Football</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      required
-                      className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Quiz</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Speech</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Cricket</label>
-                  </div>
-                  <div className="flex  space-x-3 text-center">
-                    <input
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                      type="checkbox"
-                    ></input>
-                    <label className={"font-bold"}>Chess</label>
-                  </div>
-                </div>
-
-                <div className="flex space-x-3 justify-center items-center">
-                  <label className="text-xl pl-3 text-[#201F54]">Others</label>
-                  <input
-                    className=" w-[100%] h-[3rem] border-2 border-[#000] px-[1rem] text-black rounded-3xl"
-                    type="text"
-                  ></input>
-                </div>
-              </div>
-
-              <div className="flex  space-x-3 text-center">
-                <input
-                  required
-                  className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
-                  type="checkbox"
-                ></input>
-                <label className={`text-[#201F54] font-bold ${classes.req}`}>
-                  I hereby declare that above provided data is correct. Form
-                  Cannot be edited after submission*.
-                </label>
-              </div>
-
-              <button className="py-3 px-8 bg-[#201F54] font-bold text-white rounded-3xl hover:bg-[#201E22] transition-all duration-150">
-                Submit
-              </button>
-            </form>
-          </div>
-        </section>
-      </div>
-    </Container>
+    </Fragment>
   );
 };
 
