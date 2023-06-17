@@ -35,13 +35,13 @@ const ResultFor11 = () => {
                     <input type="number" className="w-[18rem] h-[2.5rem] border-2 border-[#201F54] text-xl text-black px-[1rem] rounded-full"></input>
                 </div>
                 </div>
-                <div className="py-3  bg-[#201F54] rounded-full text-center  px-8 text-white text-xl font-semibold">Check Results</div>
+                <div className="py-3  bg-[#201F54]  hover:bg-[#BB7000] transition-all duration-200 ease-in  cursor-pointer rounded-full text-center  px-8 text-white text-xl font-semibold">Check Results</div>
             </form>
           </div>
         </div>
       </section>
       <section className="w-[80%] mx-auto pt-5 pb-[10rem]">
-      <div className="bg-[#E4E3E3] py-10 md:py-14 px-5 font-bold text-2xs md:text-xl text-center text-black rounded-full flex justify-center items-center">
+      <div className="bg-[#E4E3E3] py-10 md:py-14 px-5  font-bold text-2xs md:text-xl text-center text-black rounded-full flex justify-center items-center">
       <p className="max-w-6xl md:max-w-5xl text-center text-2xs">
               If you are having problem to view you result feel free to contact at info@tilottama.edu.np or admin@tilottama.edu.np.
               </p>

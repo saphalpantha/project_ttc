@@ -20,7 +20,7 @@ const EntranceResult = () => {
             <label className="text-xl text-[#201F54]">Entrance Roll No</label>
             <input type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
         </div>
-        <button className="py-3 w-fit px-10 bg-[#201F54] text-white rounded-3xl font-bold" >Check Result</button>
+        <button className="py-3 w-fit px-10  hover:bg-[#BB7000] cursor-pointer transition-all duration-200 ease-in  bg-[#201F54] text-white rounded-3xl font-bold" >Check Result</button>
     </form>
   </div>
 </div>

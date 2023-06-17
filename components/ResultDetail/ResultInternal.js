@@ -51,7 +51,7 @@ const ResultForInt = () => {
                     <input type="number" className="w-[15rem] h-[2.5rem] border-2 border-[#201F54] text-xl text-black px-[1rem] rounded-full"></input>
                 </div>
                 </div>
-                <div className="py-3  bg-[#201F54] rounded-full text-center  px-8 text-white text-xl font-semibold">Check Results</div>
+                <div className="py-3  bg-[#201F54] rounded-full hover:bg-[#BB7000] transition-all duration-200 cursor-pointer ease-in  text-center  px-8 text-white text-xl font-semibold">Check Results</div>
             </form>
           </div>
         </div>
