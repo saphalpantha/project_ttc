@@ -22,12 +22,12 @@ const AdmissionForm = () => {
             <form className="flex max-w-[100%] mx-auto w-[80vw] flex-col justify-center items-center space-y-10 pb-[5rem]">
               <div className="py-[5rem] grid grid-cols-1 gap-x-32 gap-y-3 md:grid-cols-3">
                 <div className="flex flex-col space-y-2">
-                  <label className="text-xl pl-3  text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Choose Stream
                   </label>
                   <select
                     required
-                    className="w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="  w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -35,12 +35,12 @@ const AdmissionForm = () => {
                   </select>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="text-xl pl-3  text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Choose Stream
                   </label>
                   <select
                     required
-                    className="w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="  w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -48,12 +48,12 @@ const AdmissionForm = () => {
                   </select>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="text-xl pl-3  text-[#201F54]">
+                  <label className="className={`text-xl pl-3  text-[#201F54] ${classes.req}`}">
                     Choose Stream
                   </label>
                   <select
                     required
-                    className="w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                    className="  w-[18rem] h-[3rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                     value="Science"
                   >
                     <option>Science</option>
@@ -67,8 +67,8 @@ const AdmissionForm = () => {
                   Basic Information
                 </h1>
                 <div>
-                  <label className="text-[#201F54] pl-3 tracking-wide">
-                    Name in Block Letter:*
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+                    Name in Block Letter
                   </label>
                   <input
                     required
@@ -90,28 +90,28 @@ const AdmissionForm = () => {
                     </label>{" "}
                     <input
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="date"
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                       Date of Birth (A.D)
                     </label>{" "}
                     <input
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="date"
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
                     {" "}
-                    <label className="text-xl pl-3  text-[#201F54]">
-                      Choose Stream
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+                      Gender
                     </label>
                     <select
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-full"
                       value="Science"
                     >
                       <option>Male</option>
@@ -128,12 +128,12 @@ const AdmissionForm = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                       Phone No
                     </label>{" "}
                     <input
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="number"
                     ></input>
                   </div>
@@ -153,32 +153,32 @@ const AdmissionForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-32  mx-auto md:mx-0">
                 <div className="flex flex-col space-y-1">
-                  <label className="text-xl pl-3 text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Ward Number:
                   </label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
                 <div className="flex flex-col space-y-1">
-                  <label className="text-xl pl-3 text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     VDC/Municipality
                   </label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
                 <div className="flex flex-col space-y-1">
-                  <label className="text-xl pl-3 text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     District
                   </label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -189,12 +189,12 @@ const AdmissionForm = () => {
               </h1>
               <div className="grid grid-cols-1 md:grid-cols-3 grid-row-3  gap-3 md:gap-x-32 gap-y-3 mx-auto md:mx-0">
                 <div className="flex flex-col space-y-1">
-                  <label className="text-xl pl-3 text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Fathers Name
                   </label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -212,19 +212,19 @@ const AdmissionForm = () => {
                 <div className="flex flex-col space-y-1">
                   <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
                   <input
-                    required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
 
                 <div className="flex flex-col space-y-1">
-                  <label className="text-xl pl-3 text-[#201F54]">
+                  <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                     Mothers Name
                   </label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -234,8 +234,8 @@ const AdmissionForm = () => {
                     Occupation
                   </label>{" "}
                   <input
-                    required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -243,7 +243,7 @@ const AdmissionForm = () => {
                   <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
@@ -253,8 +253,8 @@ const AdmissionForm = () => {
                     Local Gurdain's Name
                   </label>{" "}
                   <input
-                    required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -264,8 +264,8 @@ const AdmissionForm = () => {
                     Occupation
                   </label>{" "}
                   <input
-                    required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="text"
                   ></input>
                 </div>
@@ -273,7 +273,7 @@ const AdmissionForm = () => {
                   <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
                   <input
                     required
-                    className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="number"
                   ></input>
                 </div>
@@ -314,12 +314,12 @@ const AdmissionForm = () => {
               <div className="flex flex-col gap-10">
                 <div className="flex flex-col">
                   <div>
-                    <label className="text-[#201F54] pl-3 tracking-wide">
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                       Name of Previous School
                     </label>
                     <input
                       required
-                      className="rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"
+                      className="  rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"
                     ></input>
                   </div>
                 </div>
@@ -328,32 +328,32 @@ const AdmissionForm = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-32  mx-auto md:mx-0">
                   <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                       Send-up CGPA
                     </label>{" "}
                     <input
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                       SEE Board CGPA
                     </label>{" "}
                     <input
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-1">
-                    <label className="text-xl pl-3 text-[#201F54]">
+                    <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                       Grade letter/Division:
                     </label>{" "}
                     <input
                       required
-                      className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -367,8 +367,8 @@ const AdmissionForm = () => {
                       English
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -377,8 +377,8 @@ const AdmissionForm = () => {
                       C.Maths
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -387,8 +387,8 @@ const AdmissionForm = () => {
                       Opt.Maths
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -397,8 +397,8 @@ const AdmissionForm = () => {
                       Science
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -407,8 +407,8 @@ const AdmissionForm = () => {
                       Account
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -420,8 +420,8 @@ const AdmissionForm = () => {
                       English
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -430,8 +430,8 @@ const AdmissionForm = () => {
                       C.MATHS
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -440,8 +440,8 @@ const AdmissionForm = () => {
                       Opt.Maths
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -450,8 +450,8 @@ const AdmissionForm = () => {
                       Science
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -460,8 +460,8 @@ const AdmissionForm = () => {
                       Account
                     </label>
                     <input
-                      required
-                      className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  
+                      className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="text"
                     ></input>
                   </div>
@@ -478,35 +478,35 @@ const AdmissionForm = () => {
                   <lablel className={"font-bold"}>Valid Photo</lablel>
                   <input
                     required
-                    className=" py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
                 <div className="flex  flex-col space-y-2 text-center">
-                  <lablel className={"font-bold"}>SEE marksheet</lablel>
+                  <label className={`text-[#201F54] font-bold ${classes.req}`}>SEE marksheet</label>
                   <input
                     required
-                    className="  py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="    py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
                 <div className="flex flex-col space-y-2 text-center">
-                  <lablel className={"font-bold"}>
+                  <label className={`text-[#201F54] font-bold ${classes.req}`}>
                     See transfer Certificate
-                  </lablel>
+                  </label>
                   <input
                     required
-                    className=" py-4  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="   py-4  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
                 <div className="flex flex-col space-y-2 text-center">
-                  <label className={"font-bold"}>
+                  <label className={`text-[#201F54] font-bold ${classes.req}`}>
                     SEE Character Certificate
                   </label>
                   <input
                     required
-                    className=" py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                    className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                     type="file"
                   ></input>
                 </div>
@@ -521,7 +521,7 @@ const AdmissionForm = () => {
                   <div className="flex  space-x-3 text-center">
                     <input
                       required
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="checkbox"
                     ></input>
                     <label className={"font-bold"}>Basketball</label>
@@ -550,7 +550,7 @@ const AdmissionForm = () => {
                   <div className="flex  space-x-3 text-center">
                     <input
                       required
-                      className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                      className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                       type="checkbox"
                     ></input>
                     <label className={"font-bold"}>Quiz</label>
@@ -590,10 +590,10 @@ const AdmissionForm = () => {
               <div className="flex  space-x-3 text-center">
                 <input
                   required
-                  className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
+                  className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-3xl"
                   type="checkbox"
                 ></input>
-                <label className={"font-bold"}>
+                <label className={`text-[#201F54] font-bold ${classes.req}`}>
                   I hereby declare that above provided data is correct. Form
                   Cannot be edited after submission*.
                 </label>

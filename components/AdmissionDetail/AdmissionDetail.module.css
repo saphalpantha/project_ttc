@@ -6,3 +6,18 @@
     /* background-size: covesr; */
     opacity: 0.9;
 }
+
+
+
+.main label{
+    font-size: 1rem !important;
+}
+
+
+  .req::after{
+    content: '*';
+    color: red;
+    margin-right: 5px;
+    font-size: 1rem !important;
+  }
+
