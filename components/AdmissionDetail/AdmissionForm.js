@@ -72,7 +72,7 @@ const AdmissionForm = () => {
                   </label>
                   <input
                     required
-                    className="rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"
+                    className="rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"
                   ></input>
                 </div>
 
@@ -80,7 +80,7 @@ const AdmissionForm = () => {
                   <label className="text-[#201F54] pl-3 tracking-wide">
                     Name in Devanagari:
                   </label>
-                  <input className="rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"></input>
+                  <input className="rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"></input>
                 </div>
 
                 <div className="grid   grid-cols-1 md:mx-0 mx-auto md:grid-cols-3 gap-2  md:gap-10 md:grid-row-2">
@@ -319,7 +319,7 @@ const AdmissionForm = () => {
                     </label>
                     <input
                       required
-                      className="  rounded-3xl pl-3 py-2 w-full border-2 border-[#201F54]"
+                      className="  rounded-3xl pl-3 py-2 w-[90%] border-2 border-[#201F54]"
                     ></input>
                   </div>
                 </div>
