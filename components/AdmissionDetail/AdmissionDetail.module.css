@@ -17,7 +17,7 @@
   .req::after{
     content: '*';
     color: red;
-    margin-right: 5px;
-    font-size: 1rem !important;
+    margin-left: 5px;
+    font-size: 1.2rem !important;
   }
 
