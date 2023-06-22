@@ -22,7 +22,7 @@ const Modal = ({ isOpen, onClose, img }) => {
     <CancelIcon/>
   </div>
   <div className={`${classes["image-container"]} border-2 border-gray-400`}>
-    <div className='w-[100%] h-[100%] px-5 bg-contain object-contain'>
+    <div className='w-[100%] h-[100%] px-4 bg-contain object-contain'>
     <img className='w-[100%] h-[100%]' src={img} alt="first Image" />
     </div>
 
