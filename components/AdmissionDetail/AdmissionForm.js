@@ -7,6 +7,8 @@ const AdmissionForm = () => {
       <h1 className="w-[95%]   mx-auto my-4 py-3 rounded-full text-center font-bold bg-[#FF9900] text-white">
         Admission Form
       </h1>
+      <form>
+
       <div>
         <div className="flex justify-center py-5 flex-col  md:flex-row gap-2 md:gap-32 items-center">
           <div className="flex flex-col space-y-2">
@@ -91,7 +93,7 @@ const AdmissionForm = () => {
             required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="date"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
@@ -112,7 +114,7 @@ const AdmissionForm = () => {
             required
             className="  w-[14rem] h-[2.6rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-xl"
             value="Science"
-          >
+            >
             <option>Male</option>
             <option>Female</option>
           </select>
@@ -132,7 +134,7 @@ const AdmissionForm = () => {
             required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="number"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className="text-xl pl-3 text-[#201F54]">Email</label>{" "}
@@ -189,7 +191,7 @@ const AdmissionForm = () => {
             required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
 
         <div className="flex flex-col space-y-1">
@@ -197,7 +199,7 @@ const AdmissionForm = () => {
           <input
             className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
 
         <div className="flex flex-col space-y-1">
@@ -205,7 +207,7 @@ const AdmissionForm = () => {
           <input
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="number"
-          ></input>
+            ></input>
         </div>
 
         <div className="flex flex-col space-y-1">
@@ -300,7 +302,7 @@ const AdmissionForm = () => {
           <input
             required
             className=" rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
-          ></input>
+            ></input>
         </div>
       </div>
       <div className="grid justify-center place-items-center px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
@@ -312,7 +314,7 @@ const AdmissionForm = () => {
             required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
@@ -322,7 +324,7 @@ const AdmissionForm = () => {
             required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
@@ -350,7 +352,7 @@ const AdmissionForm = () => {
           <input
             className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className="text-xl pl-3 text-[#201F54]">Opt.Maths</label>
@@ -381,21 +383,21 @@ const AdmissionForm = () => {
           <input
             className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className="text-xl pl-3 text-[#201F54]">C.MATHS</label>
           <input
             className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className="text-xl pl-3 text-[#201F54]">Opt.Maths</label>
           <input
             className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
         <div className="flex flex-col space-y-1">
           <label className="text-xl pl-3 text-[#201F54]">Science</label>
@@ -409,7 +411,7 @@ const AdmissionForm = () => {
           <input
             className="w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="text"
-          ></input>
+            ></input>
         </div>
       </div>
       <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
@@ -465,7 +467,7 @@ const AdmissionForm = () => {
                       required
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
-                    ></input>
+                      ></input>
                     <label className={"font-bold"}>Basketball</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
@@ -486,7 +488,7 @@ const AdmissionForm = () => {
                     <input
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
-                    ></input>
+                      ></input>
                     <label className={"font-bold"}>Football</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
@@ -531,12 +533,16 @@ const AdmissionForm = () => {
                   required
                   className="  w-[24px] h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                   type="checkbox"
-                ></input>
+                  ></input>
                 <label className={`text-[#201F54] tracking-tight md:tracking-widest font-bold ${classes.req}`}>
                   I hereby declare that above provided data is correct. Form
                   Cannot be edited after submission*.
                 </label>
               </div>
+              <div className="w-[100%] flex py-5 flex-col justify-center items-center">
+              <button className="py-3 px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  ">Submit</button>
+              </div>
+                  </form>
               
 
     </Fragment>

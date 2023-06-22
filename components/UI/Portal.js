@@ -19,7 +19,7 @@ const Modal = ({ isOpen, onClose, img }) => {
      <div className={classes.backdrop} onClick={closeModal} />
 <div className={classes.modal}>
   <div className={classes["close-icon"]} onClick={closeModal}>
-    <CancelIcon/>
+    <CancelIcon style={{width:'2rem', height:'2rem'}}/>
   </div>
   <div className={`${classes["image-container"]} border-2 border-gray-400`}>
     <div className='w-[100%] h-[100%] px-4 bg-contain object-contain'>
