@@ -17,7 +17,7 @@ const NewsCard = () => {
         pariatur.
       </p>
 
-      <Link className={'text-[#FF9900] text-2xs absolute bottom-1 right-3'} href="">Read More</Link>
+      <Link className={' text-[#201F54] hover:text-[#FF9900] text-2xs absolute bottom-1 right-3'} href="">Read More</Link>
     </div>
   );
 };

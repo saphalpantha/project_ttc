@@ -54,7 +54,7 @@ const Footer = () => {
           <h1 className="text-3xl font-bold text-white">Social Media</h1>
           <ul className="text-center flex gap-2 mx-auto justify-center items-center flex">
             <li className="w-[2rem] h-[2rem] bg-transparent text-white rounded-full p-1">
-              <img className="w-[100%] h-[100%]" src="/images/sl_1.svg"></img>
+            <a href="https://www.facebook.com/ttcampus">  <img className="w-[100%] h-[100%]" src="/images/sl_1.svg"></img></a>
             </li>
             <li className="w-[2rem] h-[2rem] bg-transparent text-white rounded-full p-1">
               <img className="w-[100%] h-[100%]" src="/images/sl_2.svg"></img>

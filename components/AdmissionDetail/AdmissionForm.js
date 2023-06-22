@@ -54,20 +54,31 @@ const AdmissionForm = () => {
       <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
         Basic Information
       </h1>
-      <div className="flex flex-col justify-center items-center gap-4 pb-2 place-items-center">
-        <label className={`text-xl pl-3 pt-2    text-[#201F54] ${classes.req}`}>
+
+
+      <div className="w-[70%] py-2 mx-auto ">
+        <label className={`text-xl pl-3 pt-2     text-[#201F54] ${classes.req}`}>
           Name in Block Letter
         </label>
+        
+      </div>
+      <div className="flex flex-col justify-center items-center gap-4 pb-2 place-items-center">
         <input
           required
           className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
         ></input>
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-4 pb-2">
-        <label className="text-[#201F54] text-xl pl-3 pt-2 tracking-wide">
-          Name in Devanagari:
+
+    
+      <div className="w-[70%] py-2 mx-auto ">
+        <label className={`text-xl pl-3 pt-2     text-[#201F54] ${classes.req}`}>
+          Name in Devanagari
         </label>
+        
+      </div>
+      <div className="flex flex-col justify-center items-center gap-4 pb-2">
+
         <input className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"></input>
       </div>
 
@@ -278,10 +289,14 @@ const AdmissionForm = () => {
         Academic Information
       </h1>
       <div className="flex flex-col justify-center items-center">
+      <div className="w-[70%] py-2 mx-auto ">
+        <label className={`text-xl pl-3 pt-2     text-[#201F54] ${classes.req}`}>
+          Name of Previous School
+        </label>
+        
+      </div>
         <div className="flex justify-center space-y-2  items-center w-full flex-col">
-          <label className={`text-xl pl-3  pt-2  text-[#201F54] ${classes.req}`}>
-            Name of Previous School
-          </label>
+
           <input
             required
             className=" rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"

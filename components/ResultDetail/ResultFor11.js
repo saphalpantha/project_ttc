@@ -35,7 +35,7 @@ const ResultFor11 = () => {
                     <input type="number" className="w-[18rem] h-[2.5rem] border-2 border-[#201F54] text-xl text-black px-[1rem] rounded-full"></input>
                 </div>
                 </div>
-                <div className="py-3  bg-[#201F54]  hover:bg-[#BB7000] transition-all duration-200 ease-in  cursor-pointer rounded-full text-center  px-8 text-white text-xl font-semibold">Check Results</div>
+                <div className="py-3  bg-[#201F54]  hover:bg-[#FF9900] transition-all duration-200 ease-in  cursor-pointer rounded-full text-center  px-8 text-white text-xl font-semibold">Check Results</div>
             </form>
           </div>
         </div>
