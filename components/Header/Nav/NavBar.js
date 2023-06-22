@@ -317,13 +317,13 @@ export default function Navbar() {
             About
           </NavLink> */}
           <DropdownMenu title="About" links={aboutDropdownLinks} />
-          <DropdownMenu title="Courses" links={coursesDropdownLinks} />
           <NavLink
             to="/contact"
             onClick={() => setTimeout(() => setOpen(!open), 100)}
           >
             Admission
           </NavLink>
+          <DropdownMenu title="Courses" links={coursesDropdownLinks} />
           
           <DropdownMenu title="Results" links={resultsDropdownLinks} />
           
@@ -377,8 +377,8 @@ export default function Navbar() {
           <NavLink  to="/">Home</NavLink>
           {/* <NavLink to="/about" >About</NavLink> */}
           <DropdownMenu title="About" links={aboutDropdownLinks} />
-          <DropdownMenu title="Courses" links={coursesDropdownLinks} />
           <NavLink to="/admissions" >Admission</NavLink>
+          <DropdownMenu title="Courses" links={coursesDropdownLinks} />
           <DropdownMenu title="Results" links={resultsDropdownLinks} />
           <NavLink to="/newsnotice">Notice</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
