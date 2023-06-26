@@ -8,17 +8,18 @@ import { Navigation, Pagination, A11y } from 'swiper';
 import { useWindowSize } from 'usehooks-ts';
 import Container from '../Container/Container';
 import classes from './OurStar.module.css'
+import { data } from 'autoprefixer';
 
-const starsData = [
-  {id:'st1', nameofstar:'Sulav Bhandari', typeofscholarship:'SII', img:'dummy_user'},
-  {id:'st2', nameofstar:'Annup Chhetri', typeofscholarship:'Compex', img:'dummy_user'},
-  {id:'st3', nameofstar:'Akash Thapa', typeofscholarship:'Compex', img:'dummy_user'},
-  {id:'st4', nameofstar:'Akash Thapa', typeofscholarship:'Compex', img:'dummy_user'},
-  {id:'st5', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-  {id:'st6', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-  {id:'st7', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-  {id:'st8', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-]
+// const starsData = [
+//   {id:'st1', nameofstar:'Sulav Bhandari', typeofscholarship:'SII', img:'dummy_user'},
+//   {id:'st2', nameofstar:'Annup Chhetri', typeofscholarship:'Compex', img:'dummy_user'},
+//   {id:'st3', nameofstar:'Akash Thapa', typeofscholarship:'Compex', img:'dummy_user'},
+//   {id:'st4', nameofstar:'Akash Thapa', typeofscholarship:'Compex', img:'dummy_user'},
+//   {id:'st5', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
+//   {id:'st6', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
+//   {id:'st7', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
+//   {id:'st8', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
+// ]
 
 
 
@@ -40,6 +41,12 @@ export const Star = ({nameofstar, typeofscholarship, img}) => {
   
 
 const OurStars = () => {
+  const [starsData, setStarData ] = useState([]);
+  useEffect(() => {
+    fetch('/api/our-stars').then(result => result.json()).then(data => {
+      setStarData(data.msg)
+    }).catch(err => console.log(err))
+  },[data])
   const {width} = useWindowSize()
   return (
     <Container>
@@ -62,7 +69,7 @@ const OurStars = () => {
           {starsData.map(star => {
             return(
               <SwiperSlide className=''>
-                <Star key={star.id} typeofscholarship={star.typeofscholarship} nameofstar={star.nameofstar} img={star.img}/>
+                <Star key={star.id} typeofscholarship={star.scholarship_name} nameofstar={star.name} img={star.photo}/>
               </SwiperSlide>
             )
           })}
