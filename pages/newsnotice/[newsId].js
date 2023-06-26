@@ -4,56 +4,56 @@ import React from "react";
 import { getAllNotice, getSingleNotice } from "../../util";
 
 
-// const newsData = [
-//   {
-//     id: "n1",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n2",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n3",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n4",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n5",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n6",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n7",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-//   {
-//     id: "n8",
-//     img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-//     heading: "Consectetur aliqua cillum",
-//     para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
-//   },
-// ];
+const newsData = [
+  {
+    id: "n1",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n2",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n3",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n4",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n5",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n6",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n7",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+  {
+    id: "n8",
+    img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    heading: "Consectetur aliqua cillum",
+    para: "Enim non enim id commodo eiusmod minim ipsum veniam sit mollit cupidatat.Veniam reprehenderit non aute occaecat enim nostrud aliqua anim labore aliquip eu laboris elit.Aute voluptate excepteur consectetur cupidatat.Quis ea nostrud voluptate excepteur deserunt incididunt duis eu duis pariatur commodo fugiat.Do laboris elit in ipsum exercitation cillum dolore mollit laboris laborum id.Ullamco deserunt id adipisicing eu excepteur.Ex eu pariatur esse occaecat aliquip officia proident non quis esse eiusmod ullamco minim.",
+  },
+];
 
 const NewsDetail = (props) => {
 
@@ -81,8 +81,10 @@ const NewsDetail = (props) => {
 
 
 export const getStaticProps = async (context) => {
-  const id = parseInt(context.params.newsId);
-  const getSingleNotice = await getSingleNotice(id);
+  // const id = parseInt(context.params.newsId);
+  const id = context.params.newsId;
+  // const getSingleNotice = await getSingleNotice(id);
+  const getSingleNotice = newsData.map(i => i.id === id)
     return{ 
     props:{
       singleNews:getSingleNotice,
@@ -92,9 +94,10 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-  const allItems = await getAllNotice();
-  console.log(allItems)
-  console.log('from prevvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv', allItems)
+  // const allItems = await getAllNotice();
+  const allItems = newsData
+  // console.log(allItems)
+  // console.log('from prevvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv', allItems)
   const paths = allItems.map(item => ({params:{newsId:item.id}}));
   return{
     paths:paths,
