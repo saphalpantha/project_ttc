@@ -70,10 +70,10 @@ const handler = async (req, res) => {
     } = req.body;
 
     console.log('this is bodyyyyyyyyyyyyyyyyyyyyyyyyyy',req.body)
-
+    console.log('p_no', p_no)
     const db = await getDb();
     db.query(
-      `INSERT INTO admission_forms VALUES ( ${p_no}, '${faculty}', '${grade}', '${shift}', '${nameinblock}', '${nameindevanagari},' '${dob_bs}', '${dob_ad}', '${gender}', ${t_no}, ${p_no}, '${email}' ,  ${ward_no}, ${vdc_mun}, '${district}',  '${fathers_name}', ${fathers_cellno}, '${fathers_occupation}', '${mothers_name}' , ${mothers_cellno}, '${mothers_occupation}', '${localgurdain_name}', '${localgurdain_occupation}', ${localgurdain_cellno},  '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', ${sendUpGpa}, ${see_cgpa}, ${grade_div}, ${sendup_eng}, ${sendup_optmath}, ${sendup_science} , ${sendup_account}, ${see_eng}, ${see_cmath}, ${see_optmath}, ${see_science}, ${see_account}, ${others}, ${formisChecked}, '${photo}', '${see_cc}', '${see_tc}', '${see_marksheet}', '${sendup_cmath}'  )`
+      `INSERT INTO admission_forms VALUES ( NULL, '${faculty}', ${grade}, '${shift}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', ${t_no}, ${p_no}, '${email}' ,  ${ward_no}, ${vdc_mun}, '${district}',  '${fathers_name}', '${fathers_cellno}', '${fathers_occupation}', '${mothers_name}' , '${mothers_cellno}', '${mothers_occupation}', '${localgurdain_name}', '${localgurdain_occupation}', '${localgurdain_cellno}',  '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', ${sendUpGpa}, ${see_cgpa}, ${grade_div}, ${sendup_eng}, ${sendup_optmath}, ${sendup_science} , ${sendup_account}, ${see_eng}, ${see_cmath}, ${see_optmath}, ${see_science}, ${see_account}, ${1}, '${1}',  '${'hello'}', '${'hiii'}', '${'howru'}', '${'fine'}', '${sendup_cmath}')`
     ).then(result => {
         console.log(result);
         res.status(200).json({msg:'form submitted successfully', data:result});
