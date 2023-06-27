@@ -1,21 +1,32 @@
 import React from "react";
-
+import Link from "next/link";
 const Sidebar = () => {
+
+
+
+  const sidebar_data = [
+    {id:'i1', title:'Dashboard',icon:'dashboard', link:'dashboard'},
+    {id:'i2', title:'Result',icon:'result', link:'result'},
+    {id:'i3', title:'AdmissionForm',icon:'edit_form_sidebar', link:'admission-forms'},
+  ]
   return (
-    <div className="items-center py-3 min-h-screen fixed bg-[#201F54] w-[18%] z-10">
-      <div className="flex flex-col py-10 justify-center justify-between min-h-screen   gap-20 items-center px-2">
-        <img className="w-1/2" src="/images/sidebar_logo.svg"></img>
-        <div className="flex flex-col gap-10 justify-center justify-between items-center">
-            {[1,2,3].map(i => (          <div className="flex gap-2">
-            <img src=""></img>
-            <h1 className="text-white text-xl">Dashboard</h1>
-          </div>))}
+    <div className="items-center justify-center place-items-center flex flex-col justify-between py-5 min-h-screen fixed bg-[#201F54] w-[19%] z-10">
+      <div className="flex flex-col  py-10 justify-center    items-center px-2">
+        <img className="" src="/images/sidebar_logo.svg"></img>
+        <div className="flex flex-col gap-5 pt-[5rem] justify-center justify-between">
+            {sidebar_data.map(i => (  <Link href={`/admin/${i.link}`}>
+            <div className={`flex   py-2 flex-row  gap-5 justify-start px-3  hover:bg-[#576A9E] rounded-sm`}>
+            <img className="w-[1.5rem]  h-[1.5rem]" src={`/images/${i.icon}.svg`}></img>
+            <h1 className="text-white text-xl text-justify ">{i.title}</h1>
+          </div>
+            </Link> 
+          ))}
         </div>
-        <div className="flex gap-2">
-            <img src=""></img>
+      </div>
+        <div className="flex gap-2 z-10">
+            <img className="w-[1.5rem] h-[1.5rem]" src="/images/gear.svg"></img>
             <h1 className="text-white">Setting</h1>
           </div>
-      </div>
     </div>
   );
 };

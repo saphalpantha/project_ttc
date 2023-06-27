@@ -35,55 +35,76 @@ const AdmissionForms = () => {
   }
   
   return (
-    <div className="min-h-screen py-10 flex   w-[100vw] pl-[22%] flex-col  pr-[3rem]">
+    <div className="min-h-screen py-10 flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
       <div className="flex gap-4 ">
         <h1 className="text-[#201F54] font-bold">Admission Forms</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
       </div>
-      <div className="flex gap-14 py-10 group-hover:text-[#FF9900]">
-        <span className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#FF9900]  hover:text-[#FF9900] cursor-pointer">
+      <div className="flex gap-14 py-10 group-hover:text-[#B65E0C]">
+        <span className="text-2xs py-4 tracking-widest font-bold border-b-2 border-[#B65E0C] text-[#B65E0C] cursor-pointer">
           All Forms
         </span>
-        <span className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#FF9900]  hover:text-[#FF9900] cursor-pointer">
+        <span className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#B65E0C]  hover:text-[#B65E0C] cursor-pointer">
           Science Faculty
         </span>
-        <span className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#FF9900]  hover:text-[#FF9900] cursor-pointer">
+        <span className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#B65E0C]  hover:text-[#B65E0C] cursor-pointer">
           Management Faculty
         </span>
       </div>
 
       <div className="flex gap-4  py-5 justify-end">
         <div className="flex w-[20%] justify-center items-center gap-2 shadow-md bg-white rounded-xl py-2 px-8 font-bold tracking-wide">
-          <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
+          <img className="w-[2rem] h-[2rem]" src="/images/download.svg"></img>
           <button>Download</button>
         </div>
         <div className="flex w-[20%] gap-2 shadow-md justify-center items-center bg-white rounded-xl py-2 px-8 font-bold tracking-wide">
-          <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
+          <img className="w-[2rem] h-[2rem]" src="/images/print.svg"></img>
           <button>Print</button>
         </div>
       </div>
-      <table className={`rounded-xl shadow-md h-auto w-[100%] ${classes.sh}`}>
-        <thead>
-          <tr className="flex justify-between justify-center px-[3rem] pt-[2rem]">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <th key={i}>Form No</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="block w-[93%] h-[0.09rem] mx-auto bg-[#D2CCCC] mt-8"></tr>
+      <div className={`rounded-xl bg-white h-auto w-[100%] ${classes.sh}`}>
+        <div className="font-semibold">
+          <div className="flex justify-between justify-center px-[3rem] pt-[2rem]">
+                <div className="flex gap-2">
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/formno.svg"></img>
+                  <h1>Form No</h1>
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/table_icon.svg"></img>
+                </div>
+                <div className="flex gap-2">
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/student_name.svg"></img>
+                  <h1>Student Name</h1>
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/table_icon.svg"></img>
+                </div>
+                <div className="flex gap-2">
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/mbl_no.svg"></img>
+                  <h1>Mobile Number</h1>
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/table_icon.svg"></img>
+                </div>
+                <div className="flex gap-2">
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/faculty.svg"></img>
+                  <h1>Faculty</h1>
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/table_icon.svg"></img>
+                </div>
+                <div className="flex gap-2">
+                  <img className="w-[1.3rem] h-[1.3rem]" src="/images/status.svg"></img>
+                  <h1>Status</h1>
+                </div>
+          </div>
+        </div>
+        <div className="px-[3rem]">
+          <span className="block w-[93%] h-[0.09rem] mx-auto bg-[#D2CCCC] mt-8"></span>
           {admissionResult.map((i) => (
-            <tr key={i.id} className="flex px-[3rem] py-5 justify-between pt-[1rem]">
-              <td className="text-justify">{i.id}</td>
-              <td className="text-justify">{i.nameinblock}</td>
-              <td className="text-justify">{i.p_no}</td>
-              <td className="text-justify">{i.faculty}</td>
-              <td onClick={() => downloadDataHandler(i)} className="text-justify cursor-pointer text-[#FF9900]">Download</td>
+            <div key={i.id} className="flex justify-center justify-between py-5 pt-[1rem]">
+              <span className="">{i.id}</span>
+              <span className="">{i.nameinblock}</span>
+              <span className="">{i.p_no}</span>
+              <span className="">{i.faculty}</span>
+              <span onClick={() => downloadDataHandler(i)} className="text-justify cursor-pointer text-[#B65E0C]">Download</span>
               
-            </tr>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   );
 };
