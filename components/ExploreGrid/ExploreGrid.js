@@ -4,44 +4,54 @@ import Image from "next/image";
 import Link from 'next/link';
 const images = [
   {
-     src: "/images/stream/college_pics/ci_1.jpg",
+     src: "/images/stream/bba/bba_4.jpg",
      width: 442,
      height: 505,
      isSelected: false,
+     alb_name:'BBA Convocation',
      caption: "After Rain (Jeshu John - designerspics.com)",
   },
   {
-    src: "/images/stream/college_pics/ci_2.jpg",
+    src: "/images/stream/college_pics/ci_3.jpg",
      width: 440,
      height: 291,
      alt: "Boats (Jeshu John - designerspics.com)",
+     alb_name:'College Infrastructure',
+
   },
 
   {
     src: "/images/stream/college_pics/ci_5.jpg",
      width: 282,
      height: 291,
+     alb_name:'College Infrastructure',
   },
 
   {
     src: "/images/stream/lab/l_1.jpeg",
      width: 312,
      height: 533,
+     alb_name:'Lab',
+
   },
   {
     src: "/images/stream/lab/l_2.jpeg",
      width: 312,
      height: 533,
+     alb_name:'Lab'
   },
   {
     src: "/images/stream/college_pics/ci_1.jpg",
      width: 312,
      height: 533,
+     alb_name:'College Infrastructure',
+
   },
   {
-    src: "/images/stream/bba/bba_4.jpg",
+    src: "/images/stream/bba/bba_1.jpg",
      width: 312,
      height: 333,
+     alb_name:'BBA Convocation',
   },
 
 ];
@@ -60,9 +70,12 @@ const ExploreGrid = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-5">
       {images.map((image, index) => (
+       
         <div key={index} className={` relative bg-slate-500 w-${image.width} h-${image.height}   ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
           <div className=' transition-all  group duration-200 ease flex hover:bg-[#201F54]  hover:opacity-95  absolute  flex-col w-full justify-center  items-center h-full'>
-            <h1 className='text-3xl  opacity-0 group-hover:opacity-100 text-center text-white'>Album Name</h1>
+          <Link href={`/gallery`}>
+            <h1 className='text-3xl  opacity-0 group-hover:opacity-100 text-center text-white'>{image.alb_name}</h1>
+            </Link>
           </div>
           <img
             
@@ -71,7 +84,7 @@ const ExploreGrid = () => {
             // width={image.width}
             // height={image.height}
             className=" object-center hover:border-2  border-red-500 cursor-pointer w-full h-full w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
-          />
+            />
         </div>
       ))}
     </div>

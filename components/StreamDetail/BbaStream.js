@@ -69,7 +69,7 @@ const BbaStream = ({streamData}) => {
           <h1 className="text-5xl text-[#FF9900] py-3 font-bold text-center">
             Course Strucutre
           </h1>
-          <div className="grid mx-auto gap-32 justify-center items-center grid-flow-col-1 md:grid-cols-2 ">
+          <div className="grid mx-auto gap-32 justify-center items-center grid-flow-col-1 pb-[5rem] md:grid-cols-2 ">
 
           {streamData.streamSubjectBBA?.map((sub) => {
             return (
