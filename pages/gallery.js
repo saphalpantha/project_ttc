@@ -4,7 +4,7 @@ import Gallery from '../components/Gallery/Gallery'
 
 const images = [
   {
-     src: "/images/stream/bba/bba_4.jpg",
+     src: "/images/stream/bba/bba_2.JPG",
      width: 442,
      height: 505,
      isSelected: false,
@@ -12,7 +12,7 @@ const images = [
      caption: "After Rain (Jeshu John - designerspics.com)",
   },
   {
-    src: "/images/stream/college_pics/ci_3.jpg",
+    src: "/images/stream/college_pics/ci_3.JPG",
      width: 440,
      height: 291,
      alt: "Boats (Jeshu John - designerspics.com)",
@@ -21,7 +21,7 @@ const images = [
   },
 
   {
-    src: "/images/stream/college_pics/ci_5.jpg",
+    src: "/images/stream/college_pics/ci_5.JPG",
      width: 282,
      height: 291,
      alb_name:'College Infrastructure',
@@ -55,7 +55,6 @@ const images = [
   },
 
 ];
-
 const gallery = () => {
 
 
