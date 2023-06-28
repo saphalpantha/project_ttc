@@ -4,10 +4,11 @@ import Gallery from '../components/Gallery/Gallery'
 
 const images = [
   {
-     src: "/images/stream/college_pics/ci_1.jpg",
+     src: "/images/stream/bba/bba_4.jpg",
      width: 442,
      height: 505,
      isSelected: false,
+     alb_name:'BBA Convocation',
      caption: "After Rain (Jeshu John - designerspics.com)",
   },
   {
@@ -15,37 +16,45 @@ const images = [
      width: 440,
      height: 291,
      alt: "Boats (Jeshu John - designerspics.com)",
+     alb_name:'College Infrastructure',
+
   },
 
   {
-    src: "/images/stream/college_pics/ci_4.jpg",
+    src: "/images/stream/college_pics/ci_5.jpg",
      width: 282,
      height: 291,
+     alb_name:'College Infrastructure',
   },
 
   {
     src: "/images/stream/lab/l_1.jpeg",
      width: 312,
      height: 533,
+     alb_name:'Lab',
+
   },
   {
     src: "/images/stream/lab/l_2.jpeg",
      width: 312,
      height: 533,
+     alb_name:'Lab'
   },
   {
     src: "/images/stream/college_pics/ci_1.jpg",
      width: 312,
      height: 533,
+     alb_name:'College Infrastructure',
+
   },
   {
-    src: "/images/stream/bba/bba_4.jpg",
+    src: "/images/stream/bba/bba_1.jpg",
      width: 312,
      height: 333,
+     alb_name:'BBA Convocation',
   },
 
 ];
-
 
 const gallery = () => {
 
