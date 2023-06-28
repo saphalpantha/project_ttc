@@ -71,18 +71,18 @@ const ExploreGrid = () => {
       <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-3 gap-5">
       {images.map((image, index) => (
        
-        <div key={index} className={` relative bg-slate-500 w-${image.width} h-${image.height}   ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
+        <div key={index} className={` relative bg-slate-500 w-full h-[30rem]   ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
           <div className=' transition-all  group duration-200 ease flex hover:bg-[#201F54]  hover:opacity-95  absolute  flex-col w-full justify-center  items-center h-full'>
           <Link href={`/gallery`}>
             <h1 className='text-3xl  opacity-0 group-hover:opacity-100 text-center text-white'>{image.alb_name}</h1>
             </Link>
           </div>
-          <div className={`w-[${image.width}] h-full`}>
+          <div className={`w-[${image.width}] h-[30rem]`}>
           <Image width={500} height={500}
             
             src={image.src}
             alt={`Image ${index + 1}`}
-            className=" object-center hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
+            className=" object-center  object-cover hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
             />
             </div>
         </div>
