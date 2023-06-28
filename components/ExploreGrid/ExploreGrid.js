@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 const images = [
   {
-     src: "/images/stream/bba/bba_2.jpg",
+     src: "/images/stream/bba/bba_2.JPG",
      width: 442,
      height: 505,
      isSelected: false,
@@ -12,7 +12,7 @@ const images = [
      caption: "After Rain (Jeshu John - designerspics.com)",
   },
   {
-    src: "/images/stream/college_pics/ci_3.jpg",
+    src: "/images/stream/college_pics/ci_3.JPG",
      width: 440,
      height: 291,
      alt: "Boats (Jeshu John - designerspics.com)",
@@ -21,7 +21,7 @@ const images = [
   },
 
   {
-    src: "/images/stream/college_pics/ci_5.jpg",
+    src: "/images/stream/college_pics/ci_5.JPG",
      width: 282,
      height: 291,
      alb_name:'College Infrastructure',
@@ -79,8 +79,8 @@ const ExploreGrid = () => {
           </div>
           <div className={`w-[${image.width}] h-[30rem]`}>
           <Image width={500} height={500}
-            
-            src={image.src.toLowerCase()}
+              
+            src={image.src}
             alt={`Image ${index + 1}`}
             className=" object-center  object-cover hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
             />
