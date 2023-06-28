@@ -11,14 +11,14 @@ const images = [
      caption: "After Rain (Jeshu John - designerspics.com)",
   },
   {
-    src: "/images/stream/college_pics/ci_2.jpg",
+    src: "/images/stream/college_pics/ci_3.jpg",
      width: 440,
      height: 291,
      alt: "Boats (Jeshu John - designerspics.com)",
   },
 
   {
-    src: "/images/stream/college_pics/ci_5.jpg",
+    src: "/images/stream/college_pics/ci_4.jpg",
      width: 282,
      height: 291,
   },
