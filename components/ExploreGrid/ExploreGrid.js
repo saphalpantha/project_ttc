@@ -77,14 +77,14 @@ const ExploreGrid = () => {
             <h1 className='text-3xl  opacity-0 group-hover:opacity-100 text-center text-white'>{image.alb_name}</h1>
             </Link>
           </div>
+          <div className={`w-[${image.width}] h-full`}>
           <img
             
             src={image.src}
             alt={`Image ${index + 1}`}
-            // width={image.width}
-            // height={image.height}
-            className=" object-center hover:border-2  border-red-500 cursor-pointer w-full h-full w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
+            className=" object-center hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
             />
+            </div>
         </div>
       ))}
     </div>

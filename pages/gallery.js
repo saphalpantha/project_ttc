@@ -60,7 +60,7 @@ const gallery = () => {
 
 
   return (
-    <div>
+    <div>w
         <Gallery images={images}/>
     </div>
   )
