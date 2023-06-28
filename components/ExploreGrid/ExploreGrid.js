@@ -80,7 +80,7 @@ const ExploreGrid = () => {
           <div className={`w-[${image.width}] h-[30rem]`}>
           <Image width={500} height={500}
             
-            src={image.src}
+            src={image.src.toLowerCase()}
             alt={`Image ${index + 1}`}
             className=" object-center  object-cover hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
             />
