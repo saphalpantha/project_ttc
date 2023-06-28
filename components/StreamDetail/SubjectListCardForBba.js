@@ -11,7 +11,7 @@ const SubjectListCardForBba = ({ subjectLists, sem }) => {
         <div className=" mx-auto text-black flex flex-col md:flex-row space-y-5 py-2 md:py-0  px-2 mx-5 items-center md:items-baseline justify-center items-center md:gap-[50px]">
           <ul className="flex flex-col space-y-4">
             {subjectLists?.map((sub) => (
-              <li className="font-light text-center">{sub}</li>
+              <li className="font-light text-justify text-center">{sub}</li>
             ))}
           </ul>
         </div>

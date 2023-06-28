@@ -4,42 +4,42 @@ import Image from "next/image";
 import Link from 'next/link';
 const images = [
   {
-     src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+     src: "/images/stream/college_pics/ci_1.jpg",
      width: 442,
      height: 505,
      isSelected: false,
      caption: "After Rain (Jeshu John - designerspics.com)",
   },
   {
-     src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+    src: "/images/stream/college_pics/ci_2.jpg",
      width: 440,
      height: 291,
      alt: "Boats (Jeshu John - designerspics.com)",
   },
 
   {
-     src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+    src: "/images/stream/college_pics/ci_5.jpg",
      width: 282,
      height: 291,
   },
 
   {
-     src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+    src: "/images/stream/lab/l_1.jpeg",
      width: 312,
      height: 533,
   },
   {
-     src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+    src: "/images/stream/lab/l_2.jpeg",
      width: 312,
      height: 533,
   },
   {
-     src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+    src: "/images/stream/college_pics/ci_1.jpg",
      width: 312,
      height: 533,
   },
   {
-     src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+    src: "/images/stream/bba/bba_4.jpg",
      width: 312,
      height: 333,
   },
@@ -66,7 +66,7 @@ const ExploreGrid = () => {
           </div>
           <img
             
-            src={"/images/the_img.jpg"}
+            src={image.src}
             alt={`Image ${index + 1}`}
             // width={image.width}
             // height={image.height}
