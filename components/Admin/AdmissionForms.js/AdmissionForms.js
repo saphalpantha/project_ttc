@@ -91,6 +91,7 @@ const data = [
 
 const AdmissionForms = () => {
   const [admissionResult, setAdmissionResult] = useState([]);
+  const [filterOrder, setFilterOrder] = useState('Management');
   // const [isDownloadable, setIsDownloadable] = useState(false);
     const componentRef = useRef()
     const [sortOrder, setSortOrder] = useState("asc");
@@ -139,7 +140,7 @@ const AdmissionForms = () => {
 
     const studentNameSort = () => {
       let updatedResult;
-      if (sortOrder === "normal") {
+      if (sortOrder === "desc") {
         updatedResult = [...admissionResult].sort((a, b) =>
           a.nameinblock.localeCompare(b.nameinblock)
         );
@@ -152,6 +153,37 @@ const AdmissionForms = () => {
     };
 
 
+    const sortPhoneNumber = () => {
+      let updatedResult;
+      if (sortOrder === "asc") {
+        updatedResult = admissionResult.sort((a, b) => a.id - b.id);
+        setSortOrder("desc");
+      } else {
+        updatedResult = admissionResult.sort((a, b) => b.id - a.id);
+        setSortOrder("asc");
+      }
+      setAdmissionResult([...updatedResult]);
+    };
+
+
+    const sortFacultyHandler = () => {
+      let updatedResult;
+      const onlyScience = admissionResult.filter((a) => a.faculty === 'Science');
+      const onlyManagement = admissionResult.filter((a) => a.faculty === 'Management');
+      const exceptthese = admissionResult.filter((a) => a.faculty != 'Management' && a.faculty != 'Science' );
+      if(filterOrder === 'Science'){
+        updatedResult = [...onlyScience, ...onlyManagement, ...exceptthese]
+      
+        setAdmissionResult(updatedResult)
+        setFilterOrder('Management');
+      }
+
+      else if(filterOrder ==='Management' ){
+        updatedResult = [...onlyManagement, ...onlyScience, ...exceptthese];
+        setAdmissionResult(updatedResult);
+        setFilterOrder('Science');
+      }
+    }
   return (
     <div className="min-h-screen py-10 flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
       <div className="flex gap-4 ">
@@ -216,7 +248,8 @@ const AdmissionForms = () => {
               ></img>
               <h1>Mobile Number</h1>
               <img
-                className="w-[1.3rem] h-[1.3rem]"
+                onClick={sortPhoneNumber}
+                className="w-[1.3rem] h-[1.3rem] cursor-pointer"
                 src="/images/table_icon.svg"
               ></img>
             </div>
@@ -227,7 +260,8 @@ const AdmissionForms = () => {
               ></img>
               <h1>Faculty</h1>
               <img
-                className="w-[1.3rem] h-[1.3rem]"
+              onClick={sortFacultyHandler}
+                className="w-[1.3rem] h-[1.3rem] cursor-pointer"
                 src="/images/table_icon.svg"
               ></img>
             </div>
