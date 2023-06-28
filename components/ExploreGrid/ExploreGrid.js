@@ -78,7 +78,7 @@ const ExploreGrid = () => {
             </Link>
           </div>
           <div className={`w-[${image.width}] h-full`}>
-          <img
+          <Image width={500} height={500}
             
             src={image.src}
             alt={`Image ${index + 1}`}
