@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 const images = [
   {
-     src: "/images/stream/bba/bba_4.jpg",
+     src: "/images/stream/bba/bba_2.jpg",
      width: 442,
      height: 505,
      isSelected: false,
