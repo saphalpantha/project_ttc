@@ -80,7 +80,7 @@ const handler = async (req, res) => {
     }).catch(err => {
         console.log(err);
         res.status(400).json({msg:'form not submitted', data:err});
-
+    
     })
   }
 };

@@ -6,6 +6,9 @@ const NewsCardList = () => {
   const [notice, setNotice] = useState([]);
   useEffect(() => {
     fetch('/api/news-notice').then(result => result.json()).then(data => {
+      let updatedResult;
+      const newData = data.msg.sort((a,b) => b.id - a.id);
+      updatedResult = [...newData]
       setNotice(data.msg)
     }).catch(err => console.log(err))
   },[])

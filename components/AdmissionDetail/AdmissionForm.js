@@ -59,12 +59,12 @@ const AdmissionForm = () => {
     see_cc:'',
     see_tc:'',
     see_marksheet:''
+    
   
   }
 
-  const submitHandler = async (formD) => {
-      
-
+  const submitHandler = async (formD, resetForm) => {
+    
     try{
       const response = await fetch('/api/admission-forms', {
         method:'POST',
@@ -75,13 +75,17 @@ const AdmissionForm = () => {
       })
       // console.log(formData)
       console.log(response.json())
+      alert('submited successfully')
+      resetForm();
     }
     catch(err){
       console.log(err)
     }
+
   }
-  const formik = useFormik({initialValues, onSubmit : values => {
-    submitHandler(values)
+  const formik = useFormik({initialValues, onSubmit : (values, resetForm) => {
+
+    submitHandler(values, resetForm)
   }})
   const {values, handleBlur, handleChange, handleReset, handleSubmit, setFieldValue} = formik
   return (
@@ -160,7 +164,7 @@ const AdmissionForm = () => {
 
     
       <div className="w-[70%] py-2 mx-auto ">
-        <label className={`text-xl pl-3 pt-2     text-[#201F54] ${classes.req}`}>
+        <label className={`text-xl pl-3 pt-2 text-[#201F54]`}>
           Name in Devanagari
         </label>
         
@@ -172,13 +176,14 @@ const AdmissionForm = () => {
 
       <div className="grid justify-center place-items-center px-32 py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
         <div className="flex flex-col space-y-1">
-          <label className="text-xl pl-3 text-[#201F54]">
+          <label className={`text-xl pl-3 text-[#201F54] ${classes.req}`}>
             Date of Birth (B.S)
           </label>{" "}
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="dob_bs"
             required
-            className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+            
+            className={`  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl `}
             type="date"
             ></input>
         </div>
@@ -188,7 +193,6 @@ const AdmissionForm = () => {
           </label>{" "}
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="dob_ad"
-            required
             className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="date"
           ></input>
@@ -223,7 +227,7 @@ const AdmissionForm = () => {
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="p_no"
             required
-            className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+            className={`w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl ${classes.req}`}
             type="number"
             ></input>
         </div>
@@ -378,9 +382,9 @@ const AdmissionForm = () => {
             name="bus_faculty"
             className="w-[14rem]  bg-white h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
             value="Science"
-          >
-            <option>Science</option>
-            <option>Management</option>
+          > 
+            <option>Yes</option>  
+            <option>No</option>
           </select>
         </div>
 
@@ -561,7 +565,7 @@ const AdmissionForm = () => {
             name="see_marksheet"
           ></input>
         </div>
-        <div className="flex flex-col space-y-2 text-center">
+        {/* <div className="flex flex-col space-y-2 text-center">
           <label className={`text-[#201F54] font-bold ${classes.req}`}>
             See transfer Certificate
           </label>
@@ -572,8 +576,8 @@ const AdmissionForm = () => {
             
             name="see_tc"
           ></input>
-        </div>
-        <div className="flex flex-col space-y-2 text-center">
+        </div> */}
+        {/* <div className="flex flex-col space-y-2 text-center">
           <label className={`text-[#201F54] font-bold ${classes.req}`}>
             SEE Character Certificate
           </label>
@@ -584,7 +588,7 @@ const AdmissionForm = () => {
             
             name="see_cc"
           ></input>
-        </div>
+        </div> */}
       </div>
       <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
         Interest on Extra Activities
@@ -592,7 +596,7 @@ const AdmissionForm = () => {
       <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
       <div className="flex  space-x-4 text-center">
                     <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
-                      required
+                      
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       ></input>
@@ -621,7 +625,7 @@ const AdmissionForm = () => {
                   </div>
                   <div className="flex  space-x-4 text-center">
                     <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
-                      required
+                  
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                     ></input>
@@ -669,7 +673,7 @@ const AdmissionForm = () => {
                 </label>
               </div>
               <div className="w-[100%] flex py-5 flex-col justify-center items-center">
-              <button className="py-3 px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  ">Submit</button>
+              <button type="submit" className="py-3 px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  ">Submit</button>
               </div>
                   </form>
               
