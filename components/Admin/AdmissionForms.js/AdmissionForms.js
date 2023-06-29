@@ -103,24 +103,26 @@ const AdmissionForms = () => {
         console.log(data.msg);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [admissionResult]);
 
   // const downloadDataHandler = () => {
   //   setIsDownloadable(true)
   // }
 
+  const copy = admissionResult;
 
   const allFormDisplayHandler = () => {
     setAdmissionResult(admissionResult) 
   }
 
   const scienceFacultyFormHandler = () => {
-    const updatedResult = admissionResult.filter(item => item.faculty === 'Science')
-    setAdmissionResult(updatedResult)
+    let updatedResult;
+    updatedResult = copy.filter(item => item.faculty === 'Science')
+    setAdmissionResult(updatedResult);
   }
 
   const managementFacultyFormHandler = () => {
-    const updatedResult = admissionResult.filter(item => item.faculty === "Management")
+    const updatedResult = copy.filter(item => item.faculty === "Management")
     setAdmissionResult(updatedResult)
     
     }

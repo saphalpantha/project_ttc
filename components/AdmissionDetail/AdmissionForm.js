@@ -12,6 +12,7 @@ const AdmissionForm = () => {
   const [marksheet, setMarksheet] = useState(null);
   const [tc, setTC] = useState(null);
   const [cc, setCC] = useState(null);
+  // const [hobbies, setHobbies] = useState('');
 
   const initialValues = {
     faculty:'',
@@ -58,21 +59,35 @@ const AdmissionForm = () => {
     photo:'',
     see_cc:'',
     see_tc:'',
-    see_marksheet:''
+    see_marksheet:'',
+    check1:false,
+    check2:false,
+    check3:false,
+    check4:false,
+    check5:false,
+    check6:false,
+    check7:false,
+    check8:false,
     
   
   }
 
   const submitHandler = async (formD, resetForm) => {
-    
+    console.log(formD);
+    const selectedCheckboxes = Object.keys(values)
+    .filter((key) => values[key] && key.startsWith('check'))
+    .map((key) => key.replace('check', ''))
+    .join(' ');
+  console.log(selectedCheckboxes);
+    // console.log(hobbies)
     try{
-      const response = await fetch('/api/admission-forms', {
-        method:'POST',
-        body:JSON.stringify(formD),
-        headers:{
-          'Content-Type':'application/json',
-        }
-      })
+      // const response = await fetch('/api/admission-forms', {
+      //   method:'POST',
+      //   body:JSON.stringify(formD),
+      //   headers:{
+      //     'Content-Type':'application/json',
+      //   }
+      // })
       // console.log(formData)
       console.log(response.json())
       alert('submited successfully')
@@ -595,77 +610,94 @@ const AdmissionForm = () => {
       </h1>
       <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
       <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
-                      
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
+                      name="hobby"
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      checked={values.check1}
                       ></input>
                     <label className={"font-bold"}>Basketball</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      name="hobby"
+                      checked={values.check2}
                     ></input>
                     <label className={"font-bold"}>Volley Ball</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      name="hobby"
+                      checked={values.check3}
                     ></input>
                     <label className={"font-bold"}>Table Tennis</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      name="hobby"
+                      checked={values.check4}
                       ></input>
                     <label className={"font-bold"}>Football</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
-                  
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
+                  name="hobby"
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      checked={values.check5}
                     ></input>
                     <label className={"font-bold"}>Quiz</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      name="hobby"
+                      checked={values.check6}
+                    
                     ></input>
                     <label className={"font-bold"}>Speech</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      name="hobby"
+                      checked={values.check7}
                     ></input>
                     <label className={"font-bold"}>Cricket</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
+                      name="hobby"
+                      checked={values.check8}
                     ></input>
                     <label className={"font-bold"}>Chess</label>
                   </div>
               </div>
                   <div className="flex space-x-3 gap-5 justify-center items-center">
                   <label className="text-xl  text-[#201F54]">Others</label>
-                  <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                  <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                     className=" w-[45%]  h-[3rem] border-2 border-[#000] px-[1rem] text-black rounded-xl"
                     type="text"
+                    name="hobby"
                   ></input>
                 </div>
                 <div className="flex items-center px-5 py-5 md:px-0  justify-center  space-x-3 text-center">
-                <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+                <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                   required
                   className="  w-[24px] h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                   type="checkbox"
                   name="formisChecked"
+            
                   ></input>
                 <label className={`text-[#201F54] tracking-tight md:tracking-widest font-bold ${classes.req}`}>
                   I hereby declare that above provided data is correct. Form
