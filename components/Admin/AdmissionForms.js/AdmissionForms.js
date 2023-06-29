@@ -91,6 +91,8 @@ const data = [
 
 const AdmissionForms = () => {
   const [admissionResult, setAdmissionResult] = useState([]);
+  const [originalResult, setOriginalResult] = useState([]);
+
   const [filterOrder, setFilterOrder] = useState('Management');
   // const [isDownloadable, setIsDownloadable] = useState(false);
     const componentRef = useRef()
@@ -100,10 +102,11 @@ const AdmissionForms = () => {
       .then((result) => result.json())
       .then((data) => {
         setAdmissionResult(data.msg);
+        setOriginalResult(data.msg);
         console.log(data.msg);
       })
       .catch((err) => console.log(err));
-  }, [admissionResult]);
+  }, []);
 
   // const downloadDataHandler = () => {
   //   setIsDownloadable(true)
@@ -112,21 +115,19 @@ const AdmissionForms = () => {
   const copy = admissionResult;
 
   const allFormDisplayHandler = () => {
-    setAdmissionResult(admissionResult) 
-  }
+    // Reset admissionResult to the originalResult
+    setAdmissionResult(originalResult);
+  };
 
   const scienceFacultyFormHandler = () => {
-    let updatedResult;
-    updatedResult = copy.filter(item => item.faculty === 'Science')
+    const updatedResult = originalResult.filter(item => item.faculty === 'Science');
     setAdmissionResult(updatedResult);
-  }
+  };
 
   const managementFacultyFormHandler = () => {
-    const updatedResult = copy.filter(item => item.faculty === "Management")
-    setAdmissionResult(updatedResult)
-    
-    }
-
+    const updatedResult = originalResult.filter(item => item.faculty === 'Management');
+    setAdmissionResult(updatedResult);
+  };
 
     const sortFormNumber = () => {
       let updatedResult;
