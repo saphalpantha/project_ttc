@@ -7,7 +7,6 @@ const NewsCard = ({heading, desc, photo}) => {
         <img className=" w-full h-full " src={`/images/${photo}.jpg`}/>
       </div>
       <h1 className="  text-2xl md:text-3xl">{heading}</h1>
-      <h1 className=" text-xl md:text-2xl font-light">Description</h1>
       <p className="text-2xs font-light overflow-clip w-[359px] h-[149px]">
         {desc}
       </p>

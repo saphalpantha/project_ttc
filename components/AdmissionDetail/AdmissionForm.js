@@ -12,6 +12,16 @@ const AdmissionForm = () => {
   const [marksheet, setMarksheet] = useState(null);
   const [tc, setTC] = useState(null);
   const [cc, setCC] = useState(null);
+  const [checkboxValues, setCheckboxValues] = useState({
+    check1:false,
+    check2:false,
+    check3:false,
+    check4:false,
+    check5:false,
+    check6:false,
+    check7:false,
+    check8:false,
+  });
   // const [hobbies, setHobbies] = useState('');
 
   const initialValues = {
@@ -60,25 +70,25 @@ const AdmissionForm = () => {
     see_cc:'',
     see_tc:'',
     see_marksheet:'',
-    check1:false,
-    check2:false,
-    check3:false,
-    check4:false,
-    check5:false,
-    check6:false,
-    check7:false,
-    check8:false,
+
     
   
   }
 
   const submitHandler = async (formD, resetForm) => {
     console.log(formD);
-    const selectedCheckboxes = Object.keys(values)
-    .filter((key) => values[key] && key.startsWith('check'))
-    .map((key) => key.replace('check', ''))
-    .join(' ');
-  console.log(selectedCheckboxes);
+    const checkedValues = [];
+
+    // Iterate over the checkboxes
+    for (let i = 1; i <= 8; i++) {
+      const checkboxValue = values[`check${i}`];
+      if (checkboxValue) {
+        checkedValues.push(checkboxValue);
+      }
+    }
+    
+    // The `checkedValues` array will contain the values of the checked checkboxes
+    console.log(checkedValues);
     // console.log(hobbies)
     try{
       // const response = await fetch('/api/admission-forms', {
@@ -380,7 +390,6 @@ const AdmissionForm = () => {
           <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
             name="localgurdain_cellno"
-            required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="number"
           ></input>
@@ -559,7 +568,7 @@ const AdmissionForm = () => {
 
       <div className="grid justify-center place-items-center px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
         <div className="flex flex-col space-y-2 text-center">
-          <label className={"font-bold"}>Valid Photo</label>
+          <label className={`font-bold ${classes.req}`}>Valid Photo</label>
           <input onChange={(e) => setPhoto(e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
             required
             className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
@@ -614,7 +623,7 @@ const AdmissionForm = () => {
                       name="hobby"
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
-                      checked={values.check1}
+                      checked={checkboxValues.check1}
                       ></input>
                     <label className={"font-bold"}>Basketball</label>
                   </div>
@@ -623,7 +632,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={values.check2}
+                      checked={checkboxValues.check2}
                     ></input>
                     <label className={"font-bold"}>Volley Ball</label>
                   </div>
@@ -632,7 +641,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={values.check3}
+                      checked={checkboxValues.check3}
                     ></input>
                     <label className={"font-bold"}>Table Tennis</label>
                   </div>
@@ -641,7 +650,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={values.check4}
+                      checked={checkboxValues.check4}
                       ></input>
                     <label className={"font-bold"}>Football</label>
                   </div>
@@ -650,7 +659,7 @@ const AdmissionForm = () => {
                   name="hobby"
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
-                      checked={values.check5}
+                      checked={checkboxValues.check5}
                     ></input>
                     <label className={"font-bold"}>Quiz</label>
                   </div>
@@ -659,7 +668,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={values.check6}
+                      checked={checkboxValues.check6}
                     
                     ></input>
                     <label className={"font-bold"}>Speech</label>
@@ -669,7 +678,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={values.check7}
+                      checked={checkboxValues.check7}
                     ></input>
                     <label className={"font-bold"}>Cricket</label>
                   </div>
@@ -678,7 +687,8 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={values.check8}
+                      value={checkboxValues.check8}
+                      // checked={values.check8}
                     ></input>
                     <label className={"font-bold"}>Chess</label>
                   </div>

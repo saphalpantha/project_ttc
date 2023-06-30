@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import AdmissionForms from '../../components/Admin/AdmissionForms.js/AdmissionForms'
+import AdmissionForms from '../../../components/Admin/AdmissionForms.js/AdmissionForms'
 
 const admissionforms = () => {
 

@@ -4,7 +4,10 @@ import { useEffect } from "react";
 import { useState, useRef } from "react";
 import { CSVDownload, CSVLink } from "react-csv";
 import ReactToPrint from "react-to-print";
-import UserFormat from "./UserFormat";
+import UserFormat, { PrintButton } from "./UserFormat";
+
+import { useReactToPrint } from "react-to-print";
+import Link from "next/link";
 
 const data = [
   {
@@ -92,10 +95,14 @@ const data = [
 const AdmissionForms = () => {
   const [admissionResult, setAdmissionResult] = useState([]);
   const [originalResult, setOriginalResult] = useState([]);
-
+  const [selectedItem, setSelectedItem] = useState({});
   const [filterOrder, setFilterOrder] = useState('Management');
+  const componentRef = useRef()
+  const handlePrint = useReactToPrint({
+    content:() => 
+      componentRef.current
+  })
   // const [isDownloadable, setIsDownloadable] = useState(false);
-    const componentRef = useRef()
     const [sortOrder, setSortOrder] = useState("asc");
   useEffect(() => {
     fetch("/api/admission-forms")
@@ -103,7 +110,6 @@ const AdmissionForms = () => {
       .then((data) => {
         setAdmissionResult(data.msg);
         setOriginalResult(data.msg);
-        console.log(data.msg);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -112,7 +118,6 @@ const AdmissionForms = () => {
   //   setIsDownloadable(true)
   // }
 
-  const copy = admissionResult;
 
   const allFormDisplayHandler = () => {
     // Reset admissionResult to the originalResult
@@ -186,6 +191,16 @@ const AdmissionForms = () => {
         setAdmissionResult(updatedResult);
         setFilterOrder('Science');
       }
+    }
+
+
+    const ItemHandler = (id) => {
+      // alert('working')
+      const selectitem = originalResult.find(item => item.id === id);
+      setSelectedItem(selectitem)
+      console.log(selectedItem)
+      handlePrint();
+
     }
   return (
     <div className="min-h-screen py-10 flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
@@ -290,16 +305,28 @@ const AdmissionForms = () => {
               <span className="">{i.faculty}</span>
               <div>
 
-                  <ReactToPrint 
-                  trigger={() => <button  className="text-justify cursor-pointer text-[#B65E0C]">Download</button>}
-                  content={() => componentRef.current}
-                />
-                <div className="hidden">
-                <UserFormat ref={componentRef} text={"this works"}  />
+
+              {/* <PrintButton title={"Download"} className={"text-justify cursor-pointer text-[#B65E0C]"}/> */}
+              <button onClick={() => ItemHandler(i.id)} key={i.id} href={`/admin/admission-forms/${i.id}`} className="text-justify cursor-pointer text-[#B65E0C]">Download</button>
+                  {
+                    // <ReactToPrint
+                    // key={i.id}
+
+                    // trigger={(i) =>{
+
+                    //   return( <button  className="text-justify cursor-pointer text-[#B65E0C]">Download</button>)}}
+                    //   content={() => componentRef.current}
+                      
+                    //   />
+                    }
+                    </div>
+                    {
+                      <div className="hidden">
+          {/* <UserFormat ref={componentRef}  data={selectedItem}/> */}
                   </div>
                 
+                }
               </div>
-            </div>
           ))}
         </div>
       </div>
