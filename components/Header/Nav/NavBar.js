@@ -73,7 +73,7 @@ import Logo from "../../Logo/Logo";
 
 export function DropdownMenu({ title, links }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownHovered, setIsDropdownHovered] = useState(false);
+  const [currentHoveredDropdown, setCurrentHoveredDropdown] = useState(null);
   const dropdownRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
 
@@ -97,13 +97,14 @@ export function DropdownMenu({ title, links }) {
     hideDropdown();
   };
 
-  const handleDropdownMouseEnter = () => {
+  const handleDropdownMouseEnter = (index) => {
     clearTimeout(hoverTimeoutRef.current);
-    setIsDropdownHovered(true);
+    setCurrentHoveredDropdown(index);
+    setIsOpen(true);
   };
 
   const handleDropdownMouseLeave = () => {
-    setIsDropdownHovered(false);
+    setCurrentHoveredDropdown(null);
     hideDropdown();
   };
 
@@ -132,24 +133,29 @@ export function DropdownMenu({ title, links }) {
       {isOpen && (
         <div
           className={`relative min-h-screen md:min-h-0 shadow-none md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}
-          onMouseEnter={handleDropdownMouseEnter}
-          onMouseLeave={handleDropdownMouseLeave}
         >
-          {links.map((link) => (
+          {links.map((link, index) => (
             <div
               key={link.id}
               className={`dropdownLink ${styles.dropdownLink}`}
+              onMouseEnter={() => handleDropdownMouseEnter(index)}
+              onMouseLeave={handleDropdownMouseLeave}
             >
               {link.sublinks ? (
                 <>
                   <button
                     className={`py-2 text-left ${styles.dropdownButton}`}
                     onClick={hideDropdown}
-
                   >
                     {link.name}
                   </button>
-                  <div className={` ${(!isDropdownHovered && ( link.name === "Science" || link.name === "Management" || link.name === "BBA" ) )  && 'hidden'} dropdown-menu ${styles.subDropdownMenu}`}>
+                  <div
+                    className={`${
+                      currentHoveredDropdown === index
+                        ? ""
+                        : "hidden"
+                    } dropdown-menu ${styles.subDropdownMenu}`}
+                  >
                     {link.sublinks.map((sublink) => (
                       <Link
                         className={`dropdown-item text-left text-black tracking-widest text-2xs ${styles.dropdownLink}`}
@@ -182,31 +188,45 @@ export function DropdownMenu({ title, links }) {
 
 
 
-
-
-
-
-
-
-
-// function DropdownMenu({ title, links }) {
-//   const [openMenus, setOpenMenus] = useState([]);
+// export function DropdownMenu({ title, links }) {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [isDropdownHovered, setIsDropdownHovered] = useState(false);
 //   const dropdownRef = useRef(null);
-//   const toggleDropdown = (itemId) => {
-//     if (openMenus.includes(itemId)) {
-//       setOpenMenus(openMenus.filter((menuId) => menuId !== itemId));
-//     } else {
-//       setOpenMenus([...openMenus, itemId]);
-//     }
+//   const hoverTimeoutRef = useRef(null);
+
+//   const showDropdown = () => {
+//     clearTimeout(hoverTimeoutRef.current);
+//     setIsOpen(true);
 //   };
 
-//   const isDropdownOpen = (itemId) => {
-//     return openMenus.includes(itemId);
+//   const hideDropdown = () => {
+//     hoverTimeoutRef.current = setTimeout(() => {
+//       setIsOpen(false);
+//     }, 200);
+//   };
+
+//   const handleMouseEnter = () => {
+//     clearTimeout(hoverTimeoutRef.current);
+//     setIsOpen(true);
+//   };
+
+//   const handleMouseLeave = () => {
+//     hideDropdown();
+//   };
+
+//   const handleDropdownMouseEnter = () => {
+//     clearTimeout(hoverTimeoutRef.current);
+//     setIsDropdownHovered(true);
+//   };
+
+//   const handleDropdownMouseLeave = () => {
+//     setIsDropdownHovered(false);
+//     hideDropdown();
 //   };
 
 //   const handleClickOutside = (event) => {
 //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-//       setOpenMenus([]);
+//       setIsOpen(false);
 //     }
 //   };
 
@@ -219,49 +239,48 @@ export function DropdownMenu({ title, links }) {
 
 //   return (
 //     <div className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
-
-
 //       <button
-//       onMouseOverCapture={() => toggleDropdown(title)}
-//         className={`block  py-2 px-4 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
-//          onClick={() => toggleDropdown(title)}
-
-         
+//         className={`block py-2 px-4 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
+//         onMouseEnter={handleMouseEnter}
+//         onMouseLeave={handleMouseLeave}
 //       >
 //         {title}
 //       </button>
-//       {isDropdownOpen(title) && (
-//         <div className={`relative  min-h-screen  md:min-h-0 shadow-none  md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}>
-
+//       {isOpen && (
+//         <div
+//           className={`relative min-h-screen md:min-h-0 shadow-none md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}
+//           onMouseEnter={handleDropdownMouseEnter}
+//           onMouseLeave={handleDropdownMouseLeave}
+//         >
 //           {links.map((link) => (
-//             <div key={link.id} onClick={() => toggleDropdown(title)} className={`dropdownLink ${styles.dropdownLink}`}>
-//               {link.sublinks ?  (
+//             <div
+//               key={link.id}
+//               className={`dropdownLink ${styles.dropdownLink}`}
+//             >
+//               {link.sublinks ? (
 //                 <>
 //                   <button
-//                     className={` py-2 text-left ${styles.dropdownButton} ${
-//                       isDropdownOpen(link.id) ? styles.active : ""
-//                     }`}
-//                     onMouseOver={() => toggleDropdown(link.id)}
+//                     className={`py-2 text-left ${styles.dropdownButton}`}
+//                     onClick={hideDropdown}
+
 //                   >
 //                     {link.name}
 //                   </button>
-//                   {isDropdownOpen(link.id) && (
-//                     <div   className={`dropdown-menu  ${styles.subDropdownMenu}`}>
-//                       {link.sublinks.map((sublink) => (
-//                         <Link
-//                           className={`dropdown-item text-left  text-black tracking-widest text-2xs ${styles.dropdownLink}`}
-//                           key={sublink.id}
-//                           href={sublink.link}
-//                         >
-//                           {sublink.name}
-//                         </Link>
-//                       ))}
-//                     </div>
-//                   )}
+//                   <div className={` ${(!isDropdownHovered && ( link.name === "Science" || link.name === "Management" || link.name === "BBA" ) )  && 'hidden'} dropdown-menu ${styles.subDropdownMenu}`}>
+//                     {link.sublinks.map((sublink) => (
+//                       <Link
+//                         className={`dropdown-item text-left text-black tracking-widest text-2xs ${styles.dropdownLink}`}
+//                         key={sublink.id}
+//                         href={sublink.link}
+//                       >
+//                         {sublink.name}
+//                       </Link>
+//                     ))}
+//                   </div>
 //                 </>
 //               ) : (
 //                 <Link
-//                   className={`dropdown-item  text-left ${styles.dropdownLink}`}
+//                   className={`dropdown-item text-left ${styles.dropdownLink}`}
 //                   key={link?.id}
 //                   href={link.link}
 //                 >
@@ -275,6 +294,11 @@ export function DropdownMenu({ title, links }) {
 //     </div>
 //   );
 // }
+
+
+
+
+
 
 
 

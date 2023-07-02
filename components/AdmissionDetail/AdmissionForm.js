@@ -12,16 +12,6 @@ const AdmissionForm = () => {
   const [marksheet, setMarksheet] = useState(null);
   const [tc, setTC] = useState(null);
   const [cc, setCC] = useState(null);
-  const [checkboxValues, setCheckboxValues] = useState({
-    check1:false,
-    check2:false,
-    check3:false,
-    check4:false,
-    check5:false,
-    check6:false,
-    check7:false,
-    check8:false,
-  });
   // const [hobbies, setHobbies] = useState('');
 
   const initialValues = {
@@ -70,35 +60,25 @@ const AdmissionForm = () => {
     see_cc:'',
     see_tc:'',
     see_marksheet:'',
-
+    hobby:[],
+  
     
   
   }
 
   const submitHandler = async (formD, resetForm) => {
-    console.log(formD);
-    const checkedValues = [];
+    formD.hobby.push(formD.others);
+    const hobbies_string = formD.hobby.join(" ");
 
-    // Iterate over the checkboxes
-    for (let i = 1; i <= 8; i++) {
-      const checkboxValue = values[`check${i}`];
-      if (checkboxValue) {
-        checkedValues.push(checkboxValue);
-      }
-    }
-    
-    // The `checkedValues` array will contain the values of the checked checkboxes
-    console.log(checkedValues);
-    // console.log(hobbies)
     try{
-      // const response = await fetch('/api/admission-forms', {
-      //   method:'POST',
-      //   body:JSON.stringify(formD),
-      //   headers:{
-      //     'Content-Type':'application/json',
-      //   }
-      // })
-      // console.log(formData)
+      const response = await fetch('/api/admission-forms', {
+        method:'POST',
+        body:JSON.stringify(formD),
+        headers:{
+          'Content-Type':'application/json',
+        }
+      })
+      console.log(formData)
       console.log(response.json())
       alert('submited successfully')
       resetForm();
@@ -213,7 +193,7 @@ const AdmissionForm = () => {
             ></input>
         </div>
         <div className="flex flex-col space-y-1">
-          <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+          <label className={`text-xl pl-3  text-[#201F54]`}>
             Date of Birth (A.D)
           </label>{" "}
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
@@ -585,7 +565,6 @@ const AdmissionForm = () => {
             required
             className="    py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="file"
-            
             name="see_marksheet"
           ></input>
         </div>
@@ -619,20 +598,22 @@ const AdmissionForm = () => {
       </h1>
       <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
       <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
                       name="hobby"
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
-                      checked={checkboxValues.check1}
+                      value={"BasketBall"}
+                      // checked={checkboxValues.check1}
                       ></input>
                     <label className={"font-bold"}>Basketball</label>
                   </div>
                   <div className="flex  space-x-4 text-center">
-                    <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
+                    <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={checkboxValues.check2}
+                      value={"VolleyBall"}
+                      // checked={checkboxValues.check2}
                     ></input>
                     <label className={"font-bold"}>Volley Ball</label>
                   </div>
@@ -641,7 +622,8 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={checkboxValues.check3}
+                      value={"TableTennis"}
+                      // checked={checkboxValues.check3}
                     ></input>
                     <label className={"font-bold"}>Table Tennis</label>
                   </div>
@@ -650,7 +632,8 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={checkboxValues.check4}
+                      value={"Football"}
+                      // checked={checkboxValues.check4}
                       ></input>
                     <label className={"font-bold"}>Football</label>
                   </div>
@@ -659,7 +642,7 @@ const AdmissionForm = () => {
                   name="hobby"
                       className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
-                      checked={checkboxValues.check5}
+                      value={"Quiz"}
                     ></input>
                     <label className={"font-bold"}>Quiz</label>
                   </div>
@@ -668,7 +651,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={checkboxValues.check6}
+                      value={"Speech"}
                     
                     ></input>
                     <label className={"font-bold"}>Speech</label>
@@ -678,7 +661,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      checked={checkboxValues.check7}
+                      value={"Cricket"}
                     ></input>
                     <label className={"font-bold"}>Cricket</label>
                   </div>
@@ -687,8 +670,7 @@ const AdmissionForm = () => {
                       className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
                       type="checkbox"
                       name="hobby"
-                      value={checkboxValues.check8}
-                      // checked={values.check8}
+                      value={"Chess"}
                     ></input>
                     <label className={"font-bold"}>Chess</label>
                   </div>
@@ -698,7 +680,9 @@ const AdmissionForm = () => {
                   <input onChange={handleChange } onBlur={handleBlur} onReset={handleReset}
                     className=" w-[45%]  h-[3rem] border-2 border-[#000] px-[1rem] text-black rounded-xl"
                     type="text"
-                    name="hobby"
+                    name="others"
+
+                    value={values.others}
                   ></input>
                 </div>
                 <div className="flex items-center px-5 py-5 md:px-0  justify-center  space-x-3 text-center">
@@ -711,7 +695,7 @@ const AdmissionForm = () => {
                   ></input>
                 <label className={`text-[#201F54] tracking-tight md:tracking-widest font-bold ${classes.req}`}>
                   I hereby declare that above provided data is correct. Form
-                  Cannot be edited after submission*.
+                  Cannot be edited after submission
                 </label>
               </div>
               <div className="w-[100%] flex py-5 flex-col justify-center items-center">
