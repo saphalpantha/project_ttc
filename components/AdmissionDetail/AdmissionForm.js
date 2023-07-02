@@ -69,7 +69,8 @@ const AdmissionForm = () => {
   const submitHandler = async (formD, resetForm) => {
     formD.hobby.push(formD.others);
     const hobbies_string = formD.hobby.join(" ");
-
+    // formD.see_cc = cc;
+    console.log(formD)
     try{
       const response = await fetch('/api/admission-forms', {
         method:'POST',
@@ -78,9 +79,12 @@ const AdmissionForm = () => {
           'Content-Type':'application/json',
         }
       })
-      console.log(formData)
-      console.log(response.json())
-      alert('submited successfully')
+      if(response.ok){
+
+        alert('submited successfully')
+      }else{
+        alert('failed to submit your form');
+      }
       resetForm();
     }
     catch(err){
@@ -92,6 +96,33 @@ const AdmissionForm = () => {
 
     submitHandler(values, resetForm)
   }})
+
+
+
+
+  const handleMarksheetChange = (event) => {
+    const file = event.target.files[0];
+    setMarksheet(file);
+  };
+  
+  // Function to handle file selection for tc
+  const handleTCChange = (event) => {
+    const file = event.target.files[0];
+    setTC(file);
+  };
+  
+  // Function to handle file selection for cc
+  const handleCCChange = (event) => {
+    const file = event.target.files[0];
+    setCC(file);
+  };
+
+  const handlePhotoChange = (event) => {
+    const file = event.target.files[0];
+    setPhoto(file);
+  };
+  
+
   const {values, handleBlur, handleChange, handleReset, handleSubmit, setFieldValue} = formik
   return (
     <Fragment>
@@ -549,11 +580,10 @@ const AdmissionForm = () => {
       <div className="grid justify-center place-items-center px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
         <div className="flex flex-col space-y-2 text-center">
           <label className={`font-bold ${classes.req}`}>Valid Photo</label>
-          <input onChange={(e) => setPhoto(e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
+          <input onChange={(e) => setFieldValue('photo', e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
             required
             className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="file"
-            
+            type="file"            
             name="photo"
           ></input>
         </div>
@@ -561,7 +591,7 @@ const AdmissionForm = () => {
           <label className={`text-[#201F54] font-bold ${classes.req}`}>
             SEE marksheet
           </label>
-          <input onChange={(e) => setMarksheet(e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
+          <input onChange={(e) => setFieldValue('see_marksheet', e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
             required
             className="    py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
             type="file"
