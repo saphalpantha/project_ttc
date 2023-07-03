@@ -11,8 +11,6 @@ const printButtonHandler = () => {
 
 const UserFormat = forwardRef(( props, ref ) => {
     
-
-
  const  {faculty,
   grade,
   shift,
