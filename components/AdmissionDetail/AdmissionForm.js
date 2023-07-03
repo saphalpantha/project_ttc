@@ -71,13 +71,13 @@ const AdmissionForm = () => {
     const hobbies_string = formD.hobby.join(" ");
     // formD.see_cc = cc;
     console.log(formD)
-    const formData = new FormData();
-    formData.append("user" ,formD);
-    console.log('after appedning in frontend',formData)
+    // const formData = new FormData();
+    // formData.append("user" ,formD);
+    // console.log('after appedning in frontend',formData)
     try{
       const response = await fetch('/api/admission-forms', {
         method:'POST',
-        body:formData,
+        body:JSON.stringify(formD),
       })
       if(response.ok){
 
