@@ -71,13 +71,13 @@ const AdmissionForm = () => {
     const hobbies_string = formD.hobby.join(" ");
     // formD.see_cc = cc;
     console.log(formD)
+    const formData = new FormData();
+    formData.append("user" ,formD);
+    console.log('after appedning in frontend',formData)
     try{
       const response = await fetch('/api/admission-forms', {
         method:'POST',
-        body:JSON.stringify(formD),
-        headers:{
-          'Content-Type':'application/json',
-        }
+        body:formData,
       })
       if(response.ok){
 
@@ -92,6 +92,48 @@ const AdmissionForm = () => {
     }
 
   }
+
+
+
+  // const submitHandler = async (formD, resetForm) => {
+  //   const formData = new FormData();
+  
+  //   for (const field in formD) {
+  //     if (Array.isArray(formD[field])) {
+  //       // Handle array fields (hobby)
+  //       formData.append(field, formD[field].join(" ").trim())
+  //     } else if (field === "photo" || field === "see_marksheet") {
+  //       // Append the file fields
+  //       if (formD[field]) {
+  //         formData.append(field, formD[field]);
+  //       }
+  //     } else {
+  //       // Append other fields
+  //       formData.append(field, formD[field]);
+  //     }
+  //   }
+
+  //   console.log(formData)
+  
+  //   try {
+  //     const response = await fetch("/api/admission-forms", {
+  //       method: "POST",
+  //       body: formData,
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     });
+  //     const data = await response.json();
+  //     console.log(data);
+  //     // Handle the response
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //     // Handle the error
+  //   }
+  // };
+  
+  
+
   const formik = useFormik({initialValues, onSubmit : (values, resetForm) => {
 
     submitHandler(values, resetForm)
@@ -141,7 +183,7 @@ const AdmissionForm = () => {
               name="faculty"
               required
               className=" w-[14rem] h-[2.6rem]  bg-white border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
-              value="Science"
+              value={values.faculty}
             >
               <option>Science</option>
               <option>Management</option>
@@ -155,7 +197,7 @@ const AdmissionForm = () => {
             name="grade"
               required
               className="w-[14rem] h-[2.6rem]  border-2 bg-white  border-[#201F54] text-black px-[1rem] rounded-xl"
-              value="Science"
+              value={values.grade}
             >
               <option>11</option>
               <option>12</option>
@@ -169,7 +211,7 @@ const AdmissionForm = () => {
             name="shift"
               required
               className="  w-[14rem] h-[2.6rem] bg-white  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
-              value="Science"
+              value={values.shift}
             >
               <option>Morning</option>
               <option>Day</option>
@@ -242,7 +284,7 @@ const AdmissionForm = () => {
             name="gender"
             required
             className="  w-[14rem] h-[2.6rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-xl"
-            value="Science"
+            value={values.gender}
             >
             <option>Male</option>
             <option>Female</option>
@@ -416,7 +458,7 @@ const AdmissionForm = () => {
           <select onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
             name="bus_faculty"
             className="w-[14rem]  bg-white h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
-            value="Science"
+            value={values.bus_faculty}
           > 
             <option>Yes</option>  
             <option>No</option>
