@@ -334,7 +334,7 @@ const AdmissionForms = () => {
                 </button>  */}
 
                 {
-                  <div className="bg-black" key={i.id} onMouseEnter={() => selectedItemHandler(i)}>
+                  <div className="" key={i.id} onMouseEnter={() => selectedItemHandler(i)}>
                   <ReactToPrint
                     key={i.id}
                     trigger={(i) => {
