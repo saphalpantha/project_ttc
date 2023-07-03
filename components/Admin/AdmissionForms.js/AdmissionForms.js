@@ -99,6 +99,9 @@ const AdmissionForms = () => {
   const [filterOrder, setFilterOrder] = useState('Management');
   const componentRef = useRef()
 
+  const printComponentRef = useRef();
+
+
     const [sortOrder, setSortOrder] = useState("asc");
   useEffect(() => {
     fetch("/api/admission-forms")
@@ -217,10 +220,20 @@ const AdmissionForms = () => {
         </div>
         <div className="flex w-[20%] gap-2 shadow-md justify-center items-center bg-white rounded-xl py-2 px-8 font-bold tracking-wide">
           <img className="w-[2rem] h-[2rem]" src="/images/print.svg"></img>
-          <button>Print</button>
+          <ReactToPrint
+
+
+                    trigger={() =>{
+
+                      return( <button  className="">Print</button>)}}
+                      content={() => printComponentRef.current}
+                      
+                      />
+          
         </div>
       </div>
-      <div className={`rounded-xl bg-white h-auto w-[100%] ${classes.sh}`}>
+    
+      <div ref={printComponentRef} className={`rounded-xl bg-white h-auto w-[100%] ${classes.sh}`}>
         <div className="font-semibold">
           <div className="flex justify-between justify-center px-[3rem] pt-[2rem]">
             <div className="flex gap-2">
@@ -310,9 +323,9 @@ const AdmissionForms = () => {
                   }
                     </div>
                     {
-                      <div className="hidden">
-          <UserFormat ref={componentRef}  data={selectedItem}/>
-                  </div>
+          //             <div className="hidden">
+          // <UserFormat ref={componentRef}  data={selectedItem}/>
+          //         </div>
                 
                 }
               </div>
