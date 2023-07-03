@@ -69,15 +69,14 @@ const AdmissionForm = () => {
   const submitHandler = async (formD, resetForm) => {
     formD.hobby.push(formD.others);
     const hobbies_string = formD.hobby.join(" ");
-    // formD.see_cc = cc;
-    console.log(formD)
-    // const formData = new FormData();
-    // formData.append("user" ,formD);
-    // console.log('after appedning in frontend',formData)
+    console.log('from client',hobbies_string)
     try{
       const response = await fetch('/api/admission-forms', {
         method:'POST',
         body:JSON.stringify(formD),
+        headers:{
+          'Content-Type':'application/json',
+        }
       })
       if(response.ok){
 
