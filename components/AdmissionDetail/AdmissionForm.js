@@ -184,6 +184,7 @@ const AdmissionForm = () => {
               className=" w-[14rem] h-[2.6rem]  bg-white border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
               value={values.faculty}
             >
+              <option>Select Faculty</option>
               <option>Science</option>
               <option>Management</option>
             </select>
@@ -198,6 +199,7 @@ const AdmissionForm = () => {
               className="w-[14rem] h-[2.6rem]  border-2 bg-white  border-[#201F54] text-black px-[1rem] rounded-xl"
               value={values.grade}
             >
+              <option>select grade</option>
               <option>11</option>
               <option>12</option>
             </select>
@@ -212,6 +214,7 @@ const AdmissionForm = () => {
               className="  w-[14rem] h-[2.6rem] bg-white  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
               value={values.shift}
             >
+              <option>Select Shift</option>
               <option>Morning</option>
               <option>Day</option>
             </select>
@@ -285,6 +288,7 @@ const AdmissionForm = () => {
             className="  w-[14rem] h-[2.6rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-xl"
             value={values.gender}
             >
+            <option>Select Gender</option>
             <option>Male</option>
             <option>Female</option>
           </select>
@@ -459,6 +463,7 @@ const AdmissionForm = () => {
             className="w-[14rem]  bg-white h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
             value={values.bus_faculty}
           > 
+            <option>Select Bus Faculty</option>  
             <option>Yes</option>  
             <option>No</option>
           </select>
