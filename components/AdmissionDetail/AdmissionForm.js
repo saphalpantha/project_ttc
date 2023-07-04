@@ -301,7 +301,7 @@ const AdmissionForm = () => {
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="dob_ad"
             className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="text"
+            type="date"
           ></input>
         </div>
         <div className="flex flex-col space-y-1">
