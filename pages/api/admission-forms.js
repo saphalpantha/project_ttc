@@ -70,7 +70,7 @@ const handler = async (req, res) => {
       hobby,
     } = req.body
 
-    // const hobby_string = hobby.join(' ').trim();
+    const hobby_string = hobby.join(' ').trim();
 
     console.log(hobby_string)
     const db = await getDb();
