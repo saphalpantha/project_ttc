@@ -94,13 +94,40 @@ const AdmissionForm = () => {
 
 
 
+
+  // const submitHandler = async (formD) => {
+
+  //       formD.hobby.push(formD.others);
+  //       const hobbies_string = formD.hobby.join(" ");
+  //       const formData = new FormData();
+  //       formData.append("student",JSON.stringify(formD));
+  //   try{
+  //     const response = await fetch('/api/admission-forms', {
+  //       method:'POST',
+  //       body:formData,
+  //     })
+  //     if(response.ok){
+
+  //       alert('submited successfully')
+  //     }else{
+  //       alert('failed to submit your form');
+  //     }
+  //     resetForm();
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
+
+
+
   // const submitHandler = async (formD, resetForm) => {
   //   const formData = new FormData();
   
   //   for (const field in formD) {
   //     if (Array.isArray(formD[field])) {
   //       // Handle array fields (hobby)
-  //       formData.append(field, formD[field].join(" ").trim())
+  //       formData.append(field, formD[field].join(" ").trim());
   //     } else if (field === "photo" || field === "see_marksheet") {
   //       // Append the file fields
   //       if (formD[field]) {
@@ -111,26 +138,25 @@ const AdmissionForm = () => {
   //       formData.append(field, formD[field]);
   //     }
   //   }
-
-  //   console.log(formData)
+  
+  //   console.log(formData);
   
   //   try {
-  //     const response = await fetch("/api/admission-forms", {
+  //     const response = await fetch("http://localhost:5000/api/upload/multiple", {
   //       method: "POST",
   //       body: formData,
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data',
-  //       },
   //     });
-  //     const data = await response.json();
-  //     console.log(data);
-  //     // Handle the response
+  //     if (response.ok) {
+  //       alert('Submitted successfully');
+  //     } else {
+  //       alert('Failed to submit your form');
+  //     }
+  //     resetForm();
   //   } catch (error) {
   //     console.error("Error submitting form:", error);
   //     // Handle the error
   //   }
   // };
-  
   
 
   const formik = useFormik({initialValues, onSubmit : (values, resetForm) => {
@@ -170,7 +196,7 @@ const AdmissionForm = () => {
       <h1 className="w-[95%]  mx-auto my-4 py-3 rounded-full text-center font-bold bg-[#FF9900] text-white">
         Admission Form
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form encType="multipart/form-data" onSubmit={handleSubmit}>
 
       <div>
         <div className="flex justify-center py-5 flex-col  md:flex-row gap-2 md:gap-32 items-center">
@@ -298,7 +324,7 @@ const AdmissionForm = () => {
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="t_no"
             className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="tel"
+            type="number"
           ></input>
         </div>
         <div className="flex flex-col space-y-1">
@@ -328,12 +354,12 @@ const AdmissionForm = () => {
         <div className="flex flex-col space-y-1">
           <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
             Ward Number:
-          </label>{" "}
-          <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
+          </label>{" "} 
+          <input  onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="ward_no"
             required
             className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="text"
+            type="number"
           ></input>
         </div>
         <div className="flex flex-col space-y-1">

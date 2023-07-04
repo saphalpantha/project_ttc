@@ -21,6 +21,8 @@ const handler = async (req, res) => {
   }
 
   if (req.method === "POST") {
+
+    console.log(req)
     const {
       faculty,
       grade,
@@ -66,9 +68,10 @@ const handler = async (req, res) => {
       see_tc,
       see_marksheet,
       hobby,
-    } = req.body;
+    } = req.body
 
-    const hobby_string = hobby.join(' ').trim();
+    // const hobby_string = hobby.join(' ').trim();
+
     console.log(hobby_string)
     const db = await getDb();
     db.query(
