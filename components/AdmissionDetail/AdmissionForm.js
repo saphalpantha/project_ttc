@@ -291,7 +291,7 @@ const AdmissionForm = () => {
             required
             
             className={`  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl `}
-            type="date"
+            type="text"
             ></input>
         </div>
         <div className="flex flex-col space-y-1">
@@ -301,7 +301,7 @@ const AdmissionForm = () => {
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="dob_ad"
             className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="date"
+            type="text"
           ></input>
         </div>
         <div className="flex flex-col space-y-1">
@@ -441,7 +441,7 @@ const AdmissionForm = () => {
           ></input>
         </div>
         <div className="flex flex-col space-y-1">
-          <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
+          <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{""}
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
             name="mothers_cellno"
             required
@@ -501,7 +501,7 @@ const AdmissionForm = () => {
           <input onChange={handleChange} onBlur={handleBlur} onReset={handleReset}
           name="bus_stop"
             className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="number"
+            type="text"
           ></input>
         </div>
       </div>
