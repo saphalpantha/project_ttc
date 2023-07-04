@@ -78,16 +78,17 @@ const AdmissionForm = () => {
           'Content-Type':'application/json',
         }
       })
+      const data = await response.json()
       if(response.ok){
-
         alert('submited successfully')
       }else{
-        alert('failed to submit your form');
+        console.log('thissssssssssss',data.data.message)
+        alert(`failed to submit your form \n\n ${data.data.message}`, );
       }
-      resetForm();
+      // resetForm();
     }
     catch(err){
-      console.log(err)
+      alert(err.message)
     }
 
   }
