@@ -25,7 +25,7 @@ const Stream = () => {
         <h1 className='font-bold text-[#FF9900] text-3xl md:text-5xl uppercase'>COURSE OFFERRED</h1>
         <div className='w-[100%] bg-[#D9D9D9] mx-auto md:h-[35rem]  flex flex-col md:flex-row overflow-scroll'>
             <div className='items-start w-[30rem] hidden md:block'>
-            <img  className='w-[100%] h-[100%]' src={`${updatedItem.src}`} alt='img'></img>
+            <img  className='w-[100%] h-[100%]' src={updatedItem.src} alt='img'></img>
             </div>
                 <div className='w-[100%] md:w-[60%] flex flex-col' >
                  <div className='w-[8rem] md:w-[30rem]'>
