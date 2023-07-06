@@ -6,34 +6,6 @@ import SubjectListCardForplus2 from "./SubjectListCard";
 import Container from "../Container/Container";
 import StyleCover from "../StyleCover/StyleCover";
 import Link from "next/link";
-// const streamSubject = [
-//   {
-//     grade: "GRADE XI",
-//     optionalSubjectLists: ["Finance", "Computer", "Social", "Math"],
-//     compSubjectLists: ["English", "Nepali", "Account", "Economics"],
-//   },
-
-//   {
-//     grade: "GRADE XII",
-//     optionalSubjectLists: ["Finance", "Computer", "Social", "Math"],
-//     compSubjectLists: ["English", "Nepali", "Account", "Economics"],
-//   },
-// ];
-
-// const streamSubjectMgmt = [
-//     {
-//         grade: "GRADE XI",
-//         optionalSubjectLists: ["Finance", "Computer", "Social", "Math"],
-//         compSubjectLists: ["English", "Nepali", "Account", "Economics"],
-//       },
-    
-//       {
-//         grade: "GRADE XII",
-//         optionalSubjectLists: ["Finance", "Computer", "Social", "Math"],
-//         compSubjectLists: ["English", "Nepali", "Account", "Economics"],
-//       },
-// ]
-
 
 
 
