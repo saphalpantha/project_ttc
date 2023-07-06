@@ -6,8 +6,8 @@ import React from "react";
 
 const aboutDropdownLinks = [
   { id: "a1", link: "/about", name: "About Tilottama" },
-  { id: "a2", link: "/faculty/board", name: "Board Members" },
-  { id: "a3", link: "/faculty", name: "Faculty & Staffs" },
+  { id: "a2", link: "/", name: "Board Members" },
+  { id: "a3", link: "/", name: "Faculty & Staffs" },
 ];
 const resultsDropdownLinks = [
   { id: "a1", link: "/results/grade11-result", name: "Internal Exam Result" },
@@ -28,7 +28,7 @@ const coursesDropdownLinks = [
       { id: "s1", link: "/courses/science/introduction/", name: "Introduction" },
       { id: "s2", link: "/courses/science/admission/", name: "Admission Procedure" },
       { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
-      { id: "s4", link: "/faculty/#faculty_science/", name: "Faculty Members" },
+      { id: "s4", link: "/", name: "Faculty Members" },
     ],
   },
   {
@@ -38,7 +38,7 @@ const coursesDropdownLinks = [
       { id: "s1", link: "/courses/management/introduction", name: "Introduction" },
       { id: "s2", link: "/courses/management/admission", name: "Admission Procedure" },
       { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
-      { id: "s4", link: "faculty/#faculty_management", name: "Faculty Members" },
+      { id: "s4", link: "", name: "Faculty Members" },
     ],
   },
   {
@@ -48,7 +48,7 @@ const coursesDropdownLinks = [
       { id: "s1", link: "/courses/bba/introduction", name: "Introduction" },
       { id: "s2", link: "/courses/bba/admission", name: "Admission Procedure" },
       { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
-      { id: "s4", link: "/faculty/#faculty_bba", name: "Faculty Members" },
+      { id: "s4", link: "", name: "Faculty Members" },
     ],
   },
 ];

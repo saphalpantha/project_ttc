@@ -265,7 +265,7 @@ const AdmissionForm = () => {
 
         <div className="grid justify-center place-items-center px-32 py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-1">
-            <label className={`text-xl pl-3 text-[#201F54] ${classes.req}`}>
+            <label className={`text-xl pl-3 text-[#201F54] `}>
               Date of Birth (B.S)
             </label>{" "}
             <input
@@ -273,12 +273,11 @@ const AdmissionForm = () => {
               onBlur={handleBlur}
               onReset={handleReset}
               name="dob_bs"
-              required
               className={`  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl `}
               type="text"
             ></input>
           </div>
-          <div className="flex flex-col space-y-1">
+          <div className={`flex flex-col space-y-1 ${classes.req}`}>
             <label className={`text-xl pl-3  text-[#201F54]`}>
               Date of Birth (A.D)
             </label>{" "}
@@ -287,6 +286,7 @@ const AdmissionForm = () => {
               onBlur={handleBlur}
               onReset={handleReset}
               name="dob_ad"
+              required
               className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="date"
             ></input>
