@@ -10,89 +10,6 @@ import { useReactToPrint } from "react-to-print";
 import Link from "next/link";
 import { Document, Page, PDFViewer } from "@react-pdf/renderer";
 
-const data = [
-  {
-    id: "i1",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i2",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i3",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i4",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i5",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i6",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i7",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i8",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i9",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-  {
-    id: "i10",
-    formNo: "222",
-    studentname: "sita",
-    mblno: "22929292",
-    faculty: "gta",
-    status: "Download",
-  },
-];
-
 const AdmissionForms = () => {
   const [admissionResult, setAdmissionResult] = useState([]);
   const [originalResult, setOriginalResult] = useState([]);
@@ -101,7 +18,6 @@ const AdmissionForms = () => {
   const componentRef = useRef();
 
   const printComponentRef = useRef();
-
   const [sortOrder, setSortOrder] = useState("asc");
   useEffect(() => {
     fetch("/api/admission-forms")
@@ -110,7 +26,7 @@ const AdmissionForms = () => {
         setAdmissionResult(data.msg);
         setOriginalResult(data.msg);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {});
   }, []);
 
   // const downloadDataHandler = () => {
@@ -250,10 +166,10 @@ const AdmissionForms = () => {
 
       <div
         ref={printComponentRef}
-        className={`rounded-xl bg-white h-auto w-[100%] ${classes.sh}`}
+        className={`rounded-xl bg-white h-auto  w-[100%] ${classes.sh}`}
       >
         <div className="font-semibold">
-          <div className="flex justify-between justify-center px-[3rem] pt-[2rem]">
+          <div className="flex justify-between  px-[2rem] pt-[2rem]">
             <div className="flex gap-2">
               <img
                 className="w-[1.3rem] h-[1.3rem]"
@@ -311,12 +227,12 @@ const AdmissionForms = () => {
             </div>
           </div>
         </div>
-        <div className="px-[3rem]">
-          <span className="block w-[93%] h-[0.09rem] mx-auto bg-[#D2CCCC] mt-8"></span>
+        <div className="px-[3rem] flex flex-col justify-center place-content-center ">
+          <span className="block w-[90%] h-[0.09rem] mx-auto bg-[#D2CCCC] mt-8"></span>
           {admissionResult.map((i) => (
             <div
               key={i.id}
-              className="flex justify-center justify-between py-5 pt-[1rem]"
+              className="flex items-center  justify-center justify-between py-5 pt-[1rem]"
             >
               <span className="">{i.id}</span>
               <span className="">{i.nameinblock}</span>
