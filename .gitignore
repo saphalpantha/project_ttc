@@ -12,6 +12,7 @@
 /.next/
 /out/
 
+/public/images/uploads
 # production
 /build
 
@@ -30,3 +31,5 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+
