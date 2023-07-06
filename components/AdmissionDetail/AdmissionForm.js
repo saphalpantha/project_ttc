@@ -277,8 +277,8 @@ const AdmissionForm = () => {
               type="text"
             ></input>
           </div>
-          <div className={`flex flex-col space-y-1 ${classes.req}`}>
-            <label className={`text-xl pl-3  text-[#201F54]`}>
+          <div className={`flex flex-col space-y-1`}>
+            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               Date of Birth (A.D)
             </label>{" "}
             <input
