@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   serverRuntimeConfig:{
-    maxRequestBodySize:'20mb',
+    maxRequestBodySize:'200mb',
   },
   reactStrictMode: true,
   images:{
