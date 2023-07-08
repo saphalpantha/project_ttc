@@ -221,6 +221,7 @@ const AdmissionForm = () => {
                 <option>Select Shift</option>
                 <option>Morning</option>
                 <option>Day</option>
+                <option>Mid Day</option>
               </select>
             </div>
           </div>

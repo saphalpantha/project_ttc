@@ -10,20 +10,6 @@ import Container from '../Container/Container';
 import classes from './OurStar.module.css'
 import { data } from 'autoprefixer';
 
-// const starsData = [
-//   {id:'st1', nameofstar:'Sulav Bhandari', typeofscholarship:'SII', img:'dummy_user'},
-//   {id:'st2', nameofstar:'Annup Chhetri', typeofscholarship:'Compex', img:'dummy_user'},
-//   {id:'st3', nameofstar:'Akash Thapa', typeofscholarship:'Compex', img:'dummy_user'},
-//   {id:'st4', nameofstar:'Akash Thapa', typeofscholarship:'Compex', img:'dummy_user'},
-//   {id:'st5', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-//   {id:'st6', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-//   {id:'st7', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-//   {id:'st8', nameofstar:'Asim Bhandari', typeofscholarship:'MBBS', img:'dummy_user'},
-// ]
-
-
-
-
 
 
 
