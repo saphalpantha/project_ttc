@@ -242,7 +242,6 @@ const AdmissionForm = () => {
           <input
             onChange={handleChange}
             onBlur={handleBlur}
-            onReset={handleReset}
             name="nameinblock"
             required
             className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
