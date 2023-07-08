@@ -743,7 +743,7 @@ const AdmissionForm = () => {
               onBlur={handleBlur}
               onReset={handleReset}
               required
-              className="py-4  md:w-[376px]  placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="py-4 w-[250px]  md:w-[376px]  placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="file"
               name="photo"
             ></input>
@@ -757,7 +757,7 @@ const AdmissionForm = () => {
               onBlur={handleBlur}
               onReset={handleReset}
               required
-              className="py-4 md:w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="py-4 w-[250px] md:w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="file"
               name="see_marksheet"
             ></input>
