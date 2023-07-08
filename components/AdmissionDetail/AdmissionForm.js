@@ -226,7 +226,6 @@ const AdmissionForm = () => {
             </div>
           </div>
         </div>
-
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Basic Information
         </h1>
@@ -744,7 +743,7 @@ const AdmissionForm = () => {
               onBlur={handleBlur}
               onReset={handleReset}
               required
-              className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="py-4  md:w-[376px]  placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="file"
               name="photo"
             ></input>
@@ -758,7 +757,7 @@ const AdmissionForm = () => {
               onBlur={handleBlur}
               onReset={handleReset}
               required
-              className="    py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="py-4 md:w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="file"
               name="see_marksheet"
             ></input>
@@ -792,7 +791,7 @@ const AdmissionForm = () => {
           Interest on Extra Activities
         </h1>
         <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
-          <div className="flex  space-x-4 text-center">
+          <div className="flex space-x-4 text-center">
             <input
               onChange={handleChange}
               onBlur={handleBlur}
