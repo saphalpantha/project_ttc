@@ -13,34 +13,40 @@ const Login = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        if(!username && !password){
-            alert("Invalid Username & Password")
-            router.push('/admin/login');
+       
+        const enteredData = {
+            username:username,
+            password:password,
         }
-        router.replace('/admin/dashboard')
         try{
-         const response = await fetch('/api/login', {
+
+            const response =  await fetch('/api/authenticate', {
                 method:'POST',
+                body:JSON.stringify(enteredData),
                 headers:{
-                'Content-Type':'application/json',
-            },
-            body:JSON.stringify(username,password),
-        });
-        const data = await response.json();
-        if(response.ok){
-            console.log('LOGIN SUCCESSFULL');
-            if(data.isAuthenticated === false){
-                alert('Not Authenticated');
+                'Content-Type':'application/json'
             }
-            localStorage.setItem('isAuthenticated', data.isAuthenticated);
-            router.replace('/api/dashboard')
-        }      
+        })
+        const data = await response.json();
+        console.log(data)
+        
+        if(!data.isAuthenticate){
+            alert(data.msg);
+        }
+        else{
+            alert(data.msg);
+            localStorage.setItem('isAuth', data.isAuthenticate);
+            router.replace('/admin/dashboard');
+        }
+        
+        
     }
     catch(err){
-        alert('Something Went wrong. Please Try Again');
+        alert('Something Went Wrong. Please Try Again');
     }
+
     }
-  return (
+    return (
     <div className={`${classes.login} min-h-screen gap-10  w-[100vw]  flex flex-col  justify-center items-center relative z-10` }>
         <div className='absolute flex flex-col gap-10 justify-center items-center'>
 

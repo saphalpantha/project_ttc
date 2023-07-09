@@ -58,37 +58,6 @@ const AdmissionForm = () => {
     hobby: [],
   };
 
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
 
   const submitHandler = async (formD) => {
     formD.hobby.push(formD.others);
@@ -614,7 +583,7 @@ const AdmissionForm = () => {
             ></input>
           </div>
         </div>
-        <div className="grid justify-center place-items-center px-[15rem] py-5  gap-5  grid-cols-1 mx-auto  md:grid-cols-6 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-1 md:px-[15rem] py-5  gap-5  grid-cols-1 mx-auto  md:grid-cols-6 gap-2 md:gap-y-3  md:grid-row-2">
           <label className="text-xl pl-3 text-[#201F54]">Sendup</label>
 
           <div className="flex flex-col space-y-1">
