@@ -15,8 +15,8 @@ const Sidebar = () => {
   const router = useRouter()
 
   const logoutHandler = () => {
+    deleteCookie('user');
     router.replace('/')
-    deleteCookie('key');
     router.reload()
   }
   return (
