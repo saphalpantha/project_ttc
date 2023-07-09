@@ -42,6 +42,7 @@ const Login = () => {
         
     }
     catch(err){
+        console.log(err);
         alert('Something Went Wrong. Please Try Again');
     }
 

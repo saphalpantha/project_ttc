@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Rowing } from "@mui/icons-material";
+import {deleteCookie} from 'cookies-next'
 const Sidebar = () => {
 
 
@@ -15,7 +16,7 @@ const Sidebar = () => {
 
   const logoutHandler = () => {
     router.replace('/')
-    localStorage.clear()
+    deleteCookie('key');
     router.reload()
   }
   return (

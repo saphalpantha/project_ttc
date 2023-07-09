@@ -54,7 +54,7 @@ const UserFormat = forwardRef((props, ref) => {
     see_optmath,
     see_science,
     see_account,
-    others,
+    hobbies,
     formisChecked,
     photo,
     see_cc,
@@ -63,11 +63,12 @@ const UserFormat = forwardRef((props, ref) => {
   } = props.data;
 
   console.log(props.data);
+
   return (
     <Fragment>
       <div ref={ref}>
         <div className={`p-4`}>
-          <div className="text-lg font-bold mb-4">Form Result</div>
+          <div className="text-lg font-bold">Form Result</div>
           <div className="grid grid-cols-3 gap-5 justify-center items-center">
             <div className="flex items-center">
               <label className="mr-2">Faculty:</label>
@@ -239,8 +240,16 @@ const UserFormat = forwardRef((props, ref) => {
           </div>
           <div className="mb-4">
             <div>
-              <label className="font-bold">Send-up CGPA:</label>
-              <p>{sendUpGpa}</p>
+              <label className="font-bold">See GPA:</label>
+              <p>{see_cgpa}</p>
+            </div>
+          </div>
+          <div>
+          <div>
+              <label className="block mb-2">
+                Interest on extra activities:
+              </label>
+              <span>{hobbies}</span>
             </div>
           </div>
           {/* <div className="mb-4">
@@ -289,14 +298,14 @@ const UserFormat = forwardRef((props, ref) => {
                 <td>{see_science}</td>
                 <td>{see_account}</td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td colspan="7">
                   <label className="underline">
                     (Please attach the copies of Mark sheet, T.C. and C.C)
                   </label>
                 </td>
-              </tr>
-              <tr className="flex justify-center items-center">
+              </tr> */}
+              {/* <tr className="flex justify-center items-center">
                 <td className="p-5" colspan="3">
 
                   <Link href={'/'}><label className="block text-blue-900">SEE Marksheet</label></Link>
@@ -308,157 +317,15 @@ const UserFormat = forwardRef((props, ref) => {
                 <td  className='p-5' colspan="2">
                   <label className="block text-blue-900">SEE C.C.</label>
                 </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
 
 
-        <div className="p-4 grid grid-cols-1 gap-10 justify-center items-center ">
+        {/* <div className="p-4 grid grid-cols-1 gap-10 justify-center items-center ">
           <div>
-            <div>
-              <label className="block mb-2">
-                Interest on extra activities:
-              </label>
-              <div className="grid grid-cols-2 gap-2">
-                <label for="basketball" className="inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    id="basketball"
-                    name="interest"
-                    value="1"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Basket Ball</span>
-                </label>
-                <label for="volleyball" className="inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    id="volleyball"
-                    name="interest"
-                    value="2"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Volley Ball</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="3"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">TT</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="4"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Football</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="5"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Cricket</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="6"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Chess</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="7"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Quiz</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="8"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Poem/Essay/Story Etc.</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <input
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="9"
-                    name="interest"
-                    disabled="disabled"
-                    className="form-checkbox"
-                  />
-                  <span className="ml-2">Speech Competition</span>
-                </label>
-                <label
-                  for="inlineCheckbox1"
-                  className="inline-flex items-center"
-                >
-                  <span className="ml-2">Others:</span>
-                </label>
-                <div>
-                  <input
-                    type="text"
-                    name="others"
-                    id="others"
-                    disabled="disabled"
-                    value=""
-                    className="form-input"
-                  />
-                </div>
-              </div>
-            </div>
+  
           </div>
           <div>
             <label for="declare" className="block mt-4">
@@ -494,7 +361,7 @@ const UserFormat = forwardRef((props, ref) => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );

@@ -6,6 +6,7 @@ import { JoinFull } from "@mui/icons-material";
 import { headers } from "next/dist/client/components/headers";
 import { useState } from "react";
 import axios from "axios";
+import Container from "../Container/Container";
 const AdmissionForm = () => {
   const [photo, setPhoto] = useState(null);
   const [marksheet, setMarksheet] = useState(null);
@@ -131,7 +132,7 @@ const AdmissionForm = () => {
   const { values, handleBlur, handleChange, handleReset, handleSubmit } =
     formik;
   return (
-    <Fragment>
+    <Container>
       <h1 className="w-[95%]  mx-auto my-4 py-3 rounded-full text-center font-bold bg-[#FF9900] text-white">
         Admission Form
       </h1>
@@ -231,7 +232,7 @@ const AdmissionForm = () => {
           ></input>
         </div>
 
-        <div className="grid justify-center place-items-center px-32 py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-2 px-2 md:px-32 py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-1">
             <label className={`text-xl pl-3 text-[#201F54] `}>
               Date of Birth (B.S)
@@ -318,7 +319,7 @@ const AdmissionForm = () => {
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Address
         </h1>
-        <div className="grid justify-center place-items-center px-32 py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-2 md:px-32 py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               Ward Number:
@@ -365,7 +366,7 @@ const AdmissionForm = () => {
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Family Information
         </h1>
-        <div className="grid justify-center place-items-center px-32 py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-2 md:px-32 py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               Fathers Name
@@ -488,7 +489,7 @@ const AdmissionForm = () => {
           Bus Faculty
         </h1>
 
-        <div className="grid justify-center place-items-center px-32  py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-2 md:px-32  py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-2">
             <label className="text-xl pl-3  text-[#201F54]">Bus faculty</label>
             <select
@@ -539,7 +540,7 @@ const AdmissionForm = () => {
             ></input>
           </div>
         </div>
-        <div className="grid justify-center place-items-center px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-2 md:px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex   flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               Send-up CGPA
@@ -704,7 +705,7 @@ const AdmissionForm = () => {
           Documents
         </h1>
 
-        <div className="grid justify-center place-items-center px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-[5rem] md:px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-2 text-center">
             <label className={`font-bold ${classes.req}`}>Valid Photo</label>
             <input
@@ -890,16 +891,16 @@ const AdmissionForm = () => {
             edited after submission
           </label>
         </div>
-        <div className="w-[100%] flex py-5 flex-col justify-center items-center">
+        <div className="w-[90%] flex py-5 flex-col justify-center items-center">
           <button
             type="submit"
-            className="py-3 px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
+            className="py-3  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
           >
             Submit
           </button>
         </div>
       </form>
-    </Fragment>
+    </Container>
   );
 };
 

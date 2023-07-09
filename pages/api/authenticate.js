@@ -1,6 +1,8 @@
 
 import { getDb } from "../../ttc_db";
 import bcrypt from 'bcryptjs'
+import { setCookie, getCookie } from "cookies-next";
+
 const handler = async (req,res) => {
     if(req.method === 'POST'){
         const username = req.body.username;
@@ -23,7 +25,7 @@ const handler = async (req,res) => {
             if(!isMatch){
                 res.status(404).json({msg:'Incorrect Password.Please Try Agaim', isAuthenticate:false});
             }            
-            
+            setCookie('user', true, {req, res,maxAge:60*60*24});
             res.status(200).json({msg:'Login Successfull !', isAuthenticate:true, user:user});
             
         }
@@ -33,6 +35,8 @@ const handler = async (req,res) => {
         
     }
 }
+
+
 
 
 export default handler

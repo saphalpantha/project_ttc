@@ -4,43 +4,37 @@ import "../styles/globals.css";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import Sidebar from "../components/Admin/Sidebar/Sidebar";
-
+import { NextApiResponse } from "next";
+import { NextResponse } from "next/server";
+import {getSession} from 'next-iron-session'
+import {getCookie } from 'cookies-next'
 export default function App({ Component, pageProps }) {
   const [isAdminComp, setIsAdminComp] = useState(false);
   const router  = useRouter()
   const path = router.asPath;
+ 
   useEffect(() => {
-    if(path === '/'){
-      setIsAdminComp(false);
-    }
-    if(path === '/admin/dashboard' || path === '/admin/results' || path === '/admin/admission-forms'){
-      setIsAdminComp(true)
-
-    }
-    const user = localStorage.getItem('isAuth');
-    if(user === null || user === false){
-      if(path.startsWith('/admin') || path.startsWith('/api')){
-        if(!path.startsWith('/admin/login')){
-          router.push('/admin/login');
-          router.reload();
-          setIsAdminComp(false);
-        }
-        else{
-          setIsAdminComp(true)
-        }
+    const user = getCookie('user')
+    if(user === undefined || user === false){
+      if(path.startsWith('/admin')){
+        router.push('/admin/login');
+        setIsAdminComp(false)
+      }
+      if(path === '/admin/admisssion-forms' || path === '/admin/dashboard' || path === '/admin/login'){
+        setIsAdminComp(true)
       }
     }
     else{
-      if(path.startsWith('/admin/login')){
-        router.replace('/admin');
+      if(!path.startsWith('/admin/')){
+        setIsAdminComp(false)
+      }
+      else{
+        setIsAdminComp(true)
       }
     }
 
-  },[])
 
-
-
-  
+  },[path])
 
 
   return (

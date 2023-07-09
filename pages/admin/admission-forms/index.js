@@ -1,21 +1,38 @@
 import React, { useEffect } from 'react'
 import AdmissionForms from '../../../components/Admin/AdmissionForms.js/AdmissionForms'
-import { useRouter } from 'next/router'
-import { useScreen } from 'usehooks-ts'
 import { useState } from 'react'
+import {getCookie } from 'cookies-next'
+const admissionforms = ({isAuth}) => {
 
-const admissionforms = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  useEffect(() => {
-    const isAuth = localStorage.getItem('isAuth');
-    setIsLoggedIn(isAuth)
-  })
+
   return (
     <div>
-      {isLoggedIn ? 
+      {isAuth ? 
         <AdmissionForms/> : <div className='w-full h-full min-h-screen flex flex-col justify-center items-center font-bold text-2xl'> <h1>Failed to load Page</h1> </div> } 
     </div>
   )
 }
 
+
+
 export default admissionforms
+
+export const getServerSideProps = async ({req,res}) => {
+  const user = getCookie('user', {req,res})
+
+  if(!user){
+    return{
+      redirect:{
+        destination:'/admin/login',
+        permanent:false,
+      }
+    }
+  }
+  return{
+
+
+    props:{
+      isAuth:user
+    }
+  }
+}
