@@ -21,7 +21,8 @@ export default function App({ Component, pageProps }) {
     if(user === null || user === false){
       if(path.startsWith('/admin') || path.startsWith('/api')){
         if(!path.startsWith('/admin/login')){
-          router.push('/');
+          
+          router.push('/admin/login');
           setIsAdminComp(false);
         }
         else{
