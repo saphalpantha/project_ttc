@@ -1,7 +1,49 @@
 import React from "react";
-
+import { Fragment } from "react";
+import { useState } from "react";
+import Modal from "../UI/ResultPortal";
 const EntranceResult = () => {
+  const [enteredRollno, setEnteredRollno] = useState();
+  const [isOpen, setIsOpen] = useState(true);
+  const [result, setResult] = useState(null);
+
+  const [isPaste, setIsPaste] = useState(null);
+  const submitHandler = async (e) => {
+      e.preventDefault();
+      if(!enteredRollno){
+        alert('please entered valid entrace roll no');
+      }
+
+
+      try{
+        const response = await fetch('/api/entrance-result', {
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+
+          body:JSON.stringify({entrance_roll:enteredRollno})
+        })
+
+        const data = await response.json();
+        if(data.success === true){
+          setResult(data.msg);
+        }
+        else{
+          alert(data.msg)
+        }
+      }catch(err){
+        alert('Something Went Wrong. Please Try Again')
+      }
+  }
+
+  const pasteHandler = (e) => {
+    setIsPaste(true)
+    e.preventDefault();
+  }
   return (
+    <Fragment>
+      {result && <Modal  result={result} isOpen={isOpen} img={"/images/banner.png"} onClose={() => setIsOpen(false)} />}
     <div  className="flex flex-col relative">
     <section className="h-[15rem]">
       <div className="w-[100%]">
@@ -15,10 +57,11 @@ const EntranceResult = () => {
     <div className="bg-[#FF9900] rounded-full py-2 font-bold text-2xl  text-center text-white">
       Entrance Result
     </div>
-    <form className="flex pt-10 flex-col justify-center items-center gap-10 ">
+    <form className="flex pt-10 flex-col justify-center items-center gap-10 " onSubmit={submitHandler}>
         <div className="flex flex-col space-y-3 ">
             <label className="text-xl text-[#201F54]">Entrance Roll No</label>
-            <input type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
+            <input onPaste={pasteHandler} onClick={(e) => setEnteredRollno(e.target.value)}  type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
+           { isPaste &&  <label className="font-bold text-xl text-center text-[#FF9900]" >copy/paste is not allowed !</label>}
         </div>
         <button className="py-3 w-fit px-10  hover:bg-[#FF9900] cursor-pointer transition-all duration-200 ease-in  bg-[#201F54] text-white rounded-3xl font-bold" >Check Result</button>
     </form>
@@ -33,6 +76,7 @@ const EntranceResult = () => {
           </div>
     </section>
   </div>
+    </Fragment>
   );
 };
 
