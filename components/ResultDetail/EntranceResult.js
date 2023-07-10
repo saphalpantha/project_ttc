@@ -29,9 +29,6 @@ const EntranceResult = () => {
         if(data.success === true){
           setResult(data.msg);
         }
-        else{
-          alert(data.msg)
-        }
       }catch(err){
         alert('Something Went Wrong. Please Try Again')
       }
@@ -60,7 +57,7 @@ const EntranceResult = () => {
     <form className="flex pt-10 flex-col justify-center items-center gap-10 " onSubmit={submitHandler}>
         <div className="flex flex-col space-y-3 ">
             <label className="text-xl text-[#201F54]">Entrance Roll No</label>
-            <input onPaste={pasteHandler} onClick={(e) => setEnteredRollno(e.target.value)}  type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
+            <input onClick={(e) => setEnteredRollno(e.target.value)}  type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
            { isPaste &&  <label className="font-bold text-xl text-center text-[#FF9900]" >copy/paste is not allowed !</label>}
         </div>
         <button className="py-3 w-fit px-10  hover:bg-[#FF9900] cursor-pointer transition-all duration-200 ease-in  bg-[#201F54] text-white rounded-3xl font-bold" >Check Result</button>
