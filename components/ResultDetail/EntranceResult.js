@@ -3,18 +3,22 @@ import { Fragment } from "react";
 import { useState } from "react";
 import Modal from "../UI/ResultPortal";
 const EntranceResult = () => {
-  const [enteredRollno, setEnteredRollno] = useState();
+  const [enteredRollno, setEnteredRollno] = useState('');
   const [isOpen, setIsOpen] = useState(true);
   const [result, setResult] = useState(null);
+  const [isLoading, setisLoading] = useState(false)
 
-  const [isPaste, setIsPaste] = useState(null);
+
+
+  const rollChangeHandler = (e) => {
+    const enteredRoll = e.target.value;
+    setEnteredRollno(enteredRoll);
+  }
+  
   const submitHandler = async (e) => {
       e.preventDefault();
-      if(!enteredRollno){
-        alert('please entered valid entrace roll no');
-      }
-
-
+      setisLoading(true)
+    console.log(enteredRollno)
       try{
         const response = await fetch('/api/entrance-result', {
           method:'POST',
@@ -26,18 +30,18 @@ const EntranceResult = () => {
         })
 
         const data = await response.json();
+        setisLoading(false)
         if(data.success === true){
           setResult(data.msg);
         }
+        else{
+          alert(data.msg)
+        }
       }catch(err){
-        alert('Something Went Wrong. Please Try Again')
+        alert('Something Went Wrong !')
       }
   }
 
-  const pasteHandler = (e) => {
-    setIsPaste(true)
-    e.preventDefault();
-  }
   return (
     <Fragment>
       {result && <Modal  result={result} isOpen={isOpen} img={"/images/banner.png"} onClose={() => setIsOpen(false)} />}
@@ -57,10 +61,10 @@ const EntranceResult = () => {
     <form className="flex pt-10 flex-col justify-center items-center gap-10 " onSubmit={submitHandler}>
         <div className="flex flex-col space-y-3 ">
             <label className="text-xl text-[#201F54]">Entrance Roll No</label>
-            <input onClick={(e) => setEnteredRollno(e.target.value)}  type="number" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
-           { isPaste &&  <label className="font-bold text-xl text-center text-[#FF9900]" >copy/paste is not allowed !</label>}
+            <input onChange={rollChangeHandler}  type="text" className="w-[20rem] h-[2.5rem] border-2 rounded-2xl border-[#201F54] text-xl text-black pl-[1rem]"></input>
+           {/* { isPaste &&  <label className="font-bold text-xl text-center text-[#FF9900]" >copy/paste is not allowed !</label>} */}
         </div>
-        <button className="py-3 w-fit px-10  hover:bg-[#FF9900] cursor-pointer transition-all duration-200 ease-in  bg-[#201F54] text-white rounded-3xl font-bold" >Check Result</button>
+        <button  className="py-3 w-fit px-10  hover:bg-[#FF9900] cursor-pointer transition-all duration-100 ease-in  bg-[#201F54] text-white rounded-3xl font-bold" >{isLoading ? 'Please Wait' : 'Check Result'}</button>
     </form>
   </div>
 </div>
@@ -83,7 +87,7 @@ export default EntranceResult;
 
 
 
-<section className="max-w-6xl md:max-w-full container h-[100vh]">
+{/* <section className="max-w-6xl md:max-w-full container h-[100vh]">
 <div className="max-w-6xl mx-auto px-0 flex flex-col  justify-between space-y-20 py-[3rem]">
   <div className="pb-[1rem]">
     <div className="bg-[#FF9900] py-2 font-bold text-2xl text-center text-white">
@@ -94,8 +98,8 @@ export default EntranceResult;
             <label className="text-xl text-[#201F54]">Entrance Roll No</label>
             <input type="number" className="w-[20rem] h-[3rem] border-2 rounded-full border-[#201F54] text-xl text-black pl-[1rem]"></input>
         </div>
-        <button className="py-3 w-fit px-10 bg-[#201F54] text-white">Check Result</button>
+        <button className="py-3 w-fit px-10 bg-[#201F54] text-white">{isLoading}</button>
     </form>
   </div>
 </div>
-</section>
+</section> */}

@@ -23,12 +23,12 @@ const Modal = ({ isOpen, onClose, result }) => {
     <CancelIcon style={{width:'2rem', height:'2rem'}}/>
   </div>
   <div className={`${classes["image-container"]} border-2 border-gray-400`}>
-    <div className='w-[100%] h-[100%]  px-20 py-20  flex flex-col justify-center items-center gap-5'>
-        <h1 className='text-2xl'>Result of Roll:<span className='font-semibold text-[#201F54]'> {result.entrance_roll}</span></h1>
+    <div className='w-[100%] h-[100%]  px-20 py-20 md:px-20 md:py-20  flex flex-col justify-center items-center gap-5'>
+        <h1 className=' text-xl whitespace-nowrap md:text-2xl'>Result of Roll:<span className='font-semibold text-[#201F54]'> {result.entrance_roll}</span></h1>
         <span className='font-semibold text-3xl'>
             {result.result === 1 ? 'Pass' : 'Fail'}
         </span>
-        <h1 className='text-2xl' >obtained marks : <span className='font-bold text-2xl' >{result.obtained_marks} </span></h1>
+        <h1 className=' text-xl md:text-2xl whitespace-nowrap' >obtained marks : <span className='font-bold text-2xl' >{result.obtained_marks} </span></h1>
     </div>
 
   </div>
