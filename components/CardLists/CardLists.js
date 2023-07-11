@@ -5,7 +5,7 @@ import SingleCard from './Card'
 const card_data = [
     {id:'c1' ,title:'Take Tour', img:'take_tour_card', link:'http://tour.virtualedufairnepal.com/tilottamacampus/'},
     {id:'c2' ,title:'Admission', img:'admission_card', admission_status:'OPEN', link:'/admissions'},
-    {id:'c3' ,title:'Results', img:'result_card' , link:'/results'},
+    {id:'c3' ,title:'Entrance Results', img:'result_card' , link:'/results/entrance-result'},
 ]
 const CardLists = () => {
   return (
