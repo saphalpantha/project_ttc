@@ -26,7 +26,7 @@ const Modal = ({ isOpen, onClose, result }) => {
     <div className='w-[100%] h-[100%]  px-10 py-10 md:px-20 md:py-20  flex flex-col justify-center items-center gap-5'>
         <h1 className=' text-xl whitespace-nowrap md:text-2xl'>Result of Roll:<span className='font-semibold text-[#201F54]'> {result.entrance_roll}</span></h1>
         <span className='font-semibold text-3xl'>
-            {result.result === 1 ? 'Congratulations You got Scholarship' : 'Congratulations, You Passed'}
+            {result.result === 1 ? 'Congratulations You Passed with Grand Scholarship' : 'Congratulations, You Passed'}
         </span>
         <h1 className=' text-xl md:text-2xl whitespace-nowrap' >{'Visit Campus for your Admission Process.'}<br> The admission process will be on first come first serve basis. </h1>
     </div>
