@@ -27,7 +27,7 @@ const coursesDropdownLinks = [
     sublinks: [
       { id: "s1", link: "/courses/science/introduction/", name: "Introduction" },
       { id: "s2", link: "/courses/science/admission/", name: "Admission Procedure" },
-      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      // { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
       { id: "s4", link: "/", name: "Faculty Members" },
     ],
   },
@@ -37,7 +37,7 @@ const coursesDropdownLinks = [
     sublinks: [
       { id: "s1", link: "/courses/management/introduction", name: "Introduction" },
       { id: "s2", link: "/courses/management/admission", name: "Admission Procedure" },
-      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      // { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
       { id: "s4", link: "", name: "Faculty Members" },
     ],
   },
@@ -47,7 +47,7 @@ const coursesDropdownLinks = [
     sublinks: [
       { id: "s1", link: "/courses/bba/introduction", name: "Introduction" },
       { id: "s2", link: "/courses/bba/admission", name: "Admission Procedure" },
-      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      // { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
       { id: "s4", link: "", name: "Faculty Members" },
     ],
   },
