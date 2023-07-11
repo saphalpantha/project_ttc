@@ -15,10 +15,10 @@ const resultsDropdownLinks = [
   { id: "a3", link: "/results/", name: "NEB Grade XII Result" },
   { id: "a4", link: "/results/entrance-result", name: "Entrance Exam Result" },
 ];
-const othersDropdownLinks = [
-  { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
-  { id: "a2", link: "/", name: "Item-3" },
-];
+// const othersDropdownLinks = [
+//   { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
+//   { id: "a2", link: "/", name: "Item-3" },
+// ];
 
 const coursesDropdownLinks = [
   {
@@ -367,7 +367,7 @@ export default function Navbar() {
             to="/contact"
             onClick={() => setTimeout(() => setOpen(!open), 100)}
           >
-            Others
+            // Others
           </NavLink>
         </div>
       </div>
