@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, result }) => {
         <span className='font-semibold text-3xl'>
             {result.result === 1 ? 'Congratulations You Passed with Grand Scholarship' : 'Congratulations, You Passed'}
         </span>
-        <h1 className=' text-xl md:text-2xl whitespace-nowrap' >{'Visit Campus for your Admission Process.'}<br> The admission process will be on first come first serve basis. </h1>
+        <h1 className=' text-xl md:text-2xl whitespace-nowrap' >Visit Campus for your Admission Process.<br> The admission process will be on first come first serve basis. </h1>
     </div>
 
   </div>
