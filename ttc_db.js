@@ -5,10 +5,10 @@ let _db;
 export async function connectToDb() {
 
         const dbConnect = await mysql.createConnection({
-            host:process.env.DB_HOST,
-            database:process.env.DB_NAME,
-            user:process.env.DB_USER,
-            password:process.env.DB_PASS
+            host:127.0.0.1,
+            database:tilottama_edu
+            user:tilottama_edu_user,
+            password:RPvt9OP4uxParxXHzS8Y
     })  
 
     _db = dbConnect
