@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./NavBar.module.css";
 import React from "react";
 
-
 const aboutDropdownLinks = [
   { id: "a1", link: "/about", name: "About Tilottama" },
   { id: "a2", link: "/", name: "Board Members" },
@@ -15,19 +14,27 @@ const resultsDropdownLinks = [
   { id: "a3", link: "/results/", name: "NEB Grade XII Result" },
   { id: "a4", link: "/results/entrance-result", name: "Entrance Exam Result" },
 ];
-// const othersDropdownLinks = [
-//   { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
-//   { id: "a2", link: "/", name: "Item-3" },
-// ];
+const othersDropdownLinks = [
+  { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
+  { id: "a2", link: "/", name: "Item-3" },
+];
 
 const coursesDropdownLinks = [
   {
     id: "a1",
     name: "Science",
     sublinks: [
-      { id: "s1", link: "/courses/science/introduction/", name: "Introduction" },
-      { id: "s2", link: "/courses/science/admission/", name: "Admission Procedure" },
-      // { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      {
+        id: "s1",
+        link: "/courses/science/introduction/",
+        name: "Introduction",
+      },
+      {
+        id: "s2",
+        link: "/courses/science/admission/",
+        name: "Admission Procedure",
+      },
+      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
       { id: "s4", link: "/", name: "Faculty Members" },
     ],
   },
@@ -35,9 +42,17 @@ const coursesDropdownLinks = [
     id: "a2",
     name: "Management",
     sublinks: [
-      { id: "s1", link: "/courses/management/introduction", name: "Introduction" },
-      { id: "s2", link: "/courses/management/admission", name: "Admission Procedure" },
-      // { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      {
+        id: "s1",
+        link: "/courses/management/introduction",
+        name: "Introduction",
+      },
+      {
+        id: "s2",
+        link: "/courses/management/admission",
+        name: "Admission Procedure",
+      },
+      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
       { id: "s4", link: "", name: "Faculty Members" },
     ],
   },
@@ -47,29 +62,26 @@ const coursesDropdownLinks = [
     sublinks: [
       { id: "s1", link: "/courses/bba/introduction", name: "Introduction" },
       { id: "s2", link: "/courses/bba/admission", name: "Admission Procedure" },
-      // { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
+      { id: "s3", link: "/", name: "Scholarship and Fee Structure" },
       { id: "s4", link: "", name: "Faculty Members" },
     ],
   },
 ];
 
-
-
 function NavLink({ to, children }) {
   return (
-    <Link className={` hover:border-b-4 px-4 text-black hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`} href={to ? to : "/"}>
+    <Link
+      className={` hover:border-b-4 px-4 text-black hover:border-[#201F54] block py-2   transition-all duration-200  ${styles.navLink}`}
+      href={to ? to : "/"}
+    >
       {children}
     </Link>
   );
 }
 
-
-
 import { useEffect, useRef } from "react";
 import Sidebar from "./SideBar";
 import Logo from "../../Logo/Logo";
-
-
 
 export function DropdownMenu({ title, links }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -151,9 +163,7 @@ export function DropdownMenu({ title, links }) {
                   </button>
                   <div
                     className={`${
-                      currentHoveredDropdown === index
-                        ? ""
-                        : "hidden"
+                      currentHoveredDropdown === index ? "" : "hidden"
                     } dropdown-menu ${styles.subDropdownMenu}`}
                   >
                     {link.sublinks.map((sublink) => (
@@ -183,10 +193,6 @@ export function DropdownMenu({ title, links }) {
     </div>
   );
 }
-
-
-
-
 
 // export function DropdownMenu({ title, links }) {
 //   const [isOpen, setIsOpen] = useState(false);
@@ -295,26 +301,19 @@ export function DropdownMenu({ title, links }) {
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
 export default function Navbar() {
-
   const [open, setOpen] = useState(false);
   const [isSciOpen, setIsSciOpen] = useState(false);
   const [isMgmtOpen, setIsMgmtOpen] = useState(false);
   const [isBBAOpen, setIsBBAOpen] = useState(false);
 
-
   return (
     <nav
-      className={`flex  tex-black ${ open && 'z-[200]'}  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${styles.navbar}`}
+      className={`flex  tex-black ${
+        open && "z-[200]"
+      }  justify-center items-center filter   drop-shadow-md bg-white px-4 py-2 h-13  items-center z-50 ${
+        styles.navbar
+      }`}
     >
       <div
         className={`fixed top-0 md:hidden  left-0 h-screen  bg-white transform ${
@@ -327,16 +326,13 @@ export default function Navbar() {
           className={`flex md:hidden items-center justify-center filter drop-shadow-md bg-white h-20 ${styles.mobileNavHeader}`}
         >
           <Link className="text-xl  font-semibold" href="/">
-              <Logo/>
+            <Logo />
           </Link>
         </div>
-        <div className={`flex  md:hidden  justify-center items-center flex-col mt-8 ${styles.mobileNavLinks}`}>
-          <Link
-
-            href={"/"}
-          >
-            Home
-          </Link>
+        <div
+          className={`flex  md:hidden  justify-center items-center flex-col mt-8 ${styles.mobileNavLinks}`}
+        >
+          <Link href={"/"}>Home</Link>
           {/* <NavLink to="/contact" onClick={() => setTimeout(() => setOpen(!open), 100)}>
             About
           </NavLink> */}
@@ -348,9 +344,9 @@ export default function Navbar() {
             Admission
           </NavLink>
           <DropdownMenu title="Courses" links={coursesDropdownLinks} />
-          
+
           <DropdownMenu title="Results" links={resultsDropdownLinks} />
-          
+
           <NavLink
             to="/newsnotice"
             onClick={() => setTimeout(() => setOpen(!open), 100)}
@@ -371,12 +367,18 @@ export default function Navbar() {
           </NavLink>
         </div>
       </div>
-      <div className={` ${open && 'hidden'} w-3/12  flex items-center ${styles.logo}`}>
+      <div
+        className={` ${open && "hidden"} w-3/12  flex items-center ${
+          styles.logo
+        }`}
+      >
         <Link className="text-2xl  font-semibold" href="/">
-        <Logo/>
+          <Logo />
         </Link>
       </div>
-      <div className={`w-9/12 flex md:justify-start justify-end items-center ${styles.menu}`}>
+      <div
+        className={`w-9/12 flex md:justify-start justify-end items-center ${styles.menu}`}
+      >
         <div
           className={`z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden ${styles.hamburger}`}
           onClick={() => setOpen(!open)}
@@ -397,11 +399,13 @@ export default function Navbar() {
             }`}
           />
         </div>
-        <div className={`hidden md:flex  pl-[6rem]  gap-2 ${styles.desktopMenu}`}>
-          <NavLink  to="/">Home</NavLink>
+        <div
+          className={`hidden md:flex  pl-[6rem]  gap-2 ${styles.desktopMenu}`}
+        >
+          <NavLink to="/">Home</NavLink>
           {/* <NavLink to="/about" >About</NavLink> */}
           <DropdownMenu title="About" links={aboutDropdownLinks} />
-          <NavLink to="/admissions" >Admission</NavLink>
+          <NavLink to="/admissions">Admission</NavLink>
           <DropdownMenu title="Courses" links={coursesDropdownLinks} />
           <DropdownMenu title="Results" links={resultsDropdownLinks} />
           <NavLink to="/newsnotice">Notice</NavLink>
@@ -416,17 +420,10 @@ export default function Navbar() {
 
 // ===================================================================================================================================
 
-
-
-
-
-
-
 // import { useState, useEffect, useRef } from "react";
 // import { FaBars, FaTimes } from "react-icons/fa";
 // import { Link } from "next/link";
 // import Logo from "../../Logo/Logo";
-
 
 // const aboutDropdownLinks = [
 //   { id: "a1", link: "/about", name: "About Tilottama" },
@@ -458,8 +455,6 @@ export default function Navbar() {
 //   { id: "a14", link: "/feedback", name: "Feedback" },
 //   { id: "a15", link: "/reach-us", name: "How to Reach Us" },
 // ];
-
-
 
 // function NavLink({ to, children, onClick }) {
 //   return (
@@ -568,8 +563,6 @@ export default function Navbar() {
 //       document.removeEventListener("mousedown", handleClickOutside);
 //     };
 //   }, []);
-
-
 
 //   const mobileMenuIcon = isMobileMenuOpen ? <FaTimes /> : <FaBars />;
 
