@@ -13,8 +13,8 @@ const Hero = () => {
 
   const [isOpen, setIsOpen] = useState(true);
   
-  setCookie('open', 'true')
   const spotlightCloseHandler = () => {
+    setCookie('open', 'true')
     setIsOpen(false)
   }
   return (
