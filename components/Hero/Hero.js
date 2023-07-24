@@ -29,7 +29,6 @@ const Hero = () => {
         <CardLists/>
 
         
-      {/* <HeroSlider/> */}
     {/* <h1 className=' text-6xl max-w-lg font-[400] text-center font-serif absolute top-[110%] text-white font-semibold left-[35%]'>Welcome to 
 Tilottama Campus</h1> */}
 </Container>
