@@ -136,7 +136,7 @@ export function DropdownMenu({ title, links }) {
   return (
     <div className={`relative ${styles.dropdownMenu}`} ref={dropdownRef}>
       <button
-        className={`block py-2 px-4 hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
+        className={`block py-2 px-4 text-black hover:border-b-4 hover:border-[#201F54] ${styles.navLink} ${styles.dropdownButton}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
