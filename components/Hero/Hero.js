@@ -7,12 +7,13 @@ import StyleCover from '../StyleCover/StyleCover'
 import { motion, useScroll } from 'framer-motion'
 import Modal from '../UI/Portal'
 import { useState } from 'react'
-
+import { setCookie, getCookie } from "cookies-next";
 
 const Hero = () => {
 
   const [isOpen, setIsOpen] = useState(true);
   
+  setCookie('open', 'true')
   const spotlightCloseHandler = () => {
     setIsOpen(false)
   }
@@ -23,7 +24,8 @@ const Hero = () => {
       <Image  className='w-[100%] h-[100%] object-contain' src="/images/main_photo.svg" width={500} height={500} ></Image>
 
     </motion.div>
-        <Modal isOpen={isOpen} img={"/images/banner.png"} onClose={spotlightCloseHandler} />
+          {!getCookie('open')  && <Modal isOpen={isOpen} img={"/images/banner.png"} onClose={spotlightCloseHandler} />  }
+
         <CardLists/>
 
         

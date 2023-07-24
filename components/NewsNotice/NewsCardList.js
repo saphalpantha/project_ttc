@@ -14,7 +14,7 @@ const NewsCardList = () => {
   },[])
   return (
     <div className='flex justify-center items-center flex-col md:flex-row justify-between gap-5 md:gap-10'>
-        {notice.slice(0,3).map(i => (<NewsCard key={i.id} heading={i.heading} desc={i.para} photo={i.photo} />))}
+        {notice.slice(0,3).map(i => (<NewsCard  key={i.id} heading={i.heading} desc={i.para} photo={i.photo} />))}
     </div>
   )
 }
