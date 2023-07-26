@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+./ttc_db.js
 # testing
 /coverage
 
@@ -31,5 +31,4 @@ yarn-error.log*
 # vercel
 .vercel
 
-ttc_db.js
 
