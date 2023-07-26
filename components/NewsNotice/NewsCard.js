@@ -10,8 +10,7 @@ const NewsCard = ({heading, desc, photo, link}) => {
       <p className="text-2xs font-light overflow-clip w-[359px] h-[149px]">
         {desc}
       </p>
-      {console.log('this is linkkkkkkkkk ', link)}
-      <Link className={' text-[#201F54] hover:text-[#FF9900] text-2xs absolute bottom-1 right-3'} href={'https://m.facebook.com/story.php?story_fbid=pfbid0uZuAYqhoBURd6ESj61uVkJKiZpf7r3GTMguFYVgU6NLaxtGbouLENJ3rj3ekRPcrl&id=100083559392986&mibextid=Nif5oz'}>Read More</Link>
+      <Link className={' text-[#201F54] hover:text-[#FF9900] text-2xs absolute bottom-1 right-3'} href={link}>Read More</Link>
     </div>
   );
 };
