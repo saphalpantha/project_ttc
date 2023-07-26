@@ -31,5 +31,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-/ttc_db.js
+ttc_db.js
 
