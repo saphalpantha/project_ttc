@@ -10,7 +10,7 @@ const About = () => {
         className={`max-w-6xl md:max-w-full bg-fixed items-center flex justify-center md:h-[110vh] ${classes.clip} h-[70vh] `}
       ></div>
       <section
-        className={`flex flex-col space-y-5 px-5 py-7 md:space-y-10 md:px-32 md:py-10 justify-center ${classes.stylee}`}
+        className={`flex flex-col space-y-5 px-5 py-7 md:space-y-5 md:px-32 md:py-10 justify-center ${classes.stylee}`}
       >
         <h1 className="text-[#FF9900] text-5xl font-semibold">
           About Tilottama
@@ -30,12 +30,22 @@ const About = () => {
           University. It is also planning to launch Master in Business
           Administration (MBA) in the near future.{" "}
         </p>
+        <p className="max-w-5xl text-xl">
+          The college has been imparting a practical education. The college
+          feels proud on the high success passing rate of students along with
+          the university toppers for several years. The college gradutes being
+          placed at reputed organizations in senior level positions justifies
+          the quality education and make us feel at the top.
+        </p>
+        <p className="max-w-5xl text-xl">
+        The faculty of management of this college soley aims to inculcate a quality education with an excelleent state art of facilities to the students who have choosen the pathway of management as their career or profession. This college places a high value on providing its students with fulfilling educational experience in management disciplines. We are confident that you will find this college as the best platform to develop yourself.
+        </p>
       </section>
       <section
         className={`relative min-h-screen  flex flex-col space-y-5 md:space-y-0 md:flex-row justify-center pt-[17rem] md:pt-[12rem] items-center bg-fixed ${classes.clip2} `}
       >
         <div className="flex p-10 pb-[4rem]  rounded-l-[4rem]  bg-[#FF9900]">
-          <p className="leading-5 md:leading-7  max-w-sm md:max-w-lg  text-white font-bold text-2xs md:text-3xs ">
+          <p className="leading-5 md:leading-7  max-w-sm md:max-w-xl  text-white font-bold text-2xs md:text-3xs ">
             The college has been imparting quality and practical education. The
             final results published by NEB Nepal in the past 27 years have
             proved that Tilottama Secondary School (TSS) has become a home for
@@ -55,8 +65,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row space-y-20 md:space-y-0  py-4  justify-center items-center gap-10  md:py-10 bg-scroll">
-        <div className="flex flex-col max-w-lg w-[100%] px-14 md:px-0 space-y-5">
+      <section className="flex flex-col md:flex-row space-y-20 md:space-y-0  py-4  justify-center items-center gap-16  md:py-10 bg-scroll">
+        <div className="flex flex-col max-w-sm w-[100%] md:px-0 space-y-5">
           <h1 className="text-[#FF9900] text-5xl font-semibold">Location</h1>
           <p className="text-xl   leading-9 font-light">
             Tilottama Campus was established in 1996 as the first private
@@ -75,7 +85,7 @@ const About = () => {
           ></iframe>
         </div>
       </section>
-      <section className="flex flex-col space-y-5 md:space-y-10 px-5 py-4 justify-evenly max-w-6xl mx-auto md:py-10 bg-scroll">
+      <section className="flex flex-col space-y-5 md:space-y-10  py-4 justify-evenly max-w-5xl mx-auto md:py-10 bg-scroll">
         <h1 className="text-[#FF9900] text-5xl font-semibold">
           College Infrastructure
         </h1>
@@ -89,7 +99,10 @@ const About = () => {
         </p>
 
         <div className="border-4 transition-all duration-300 ease hover:bg-[#201F54] hover:text-white  border-[#201F54] py-2 font-bold text-2xl text-center text-[#201F54]">
-          <a className="" href="http://tour.virtualedufairnepal.com/tilottamacampus/">
+          <a
+            className=""
+            href="http://tour.virtualedufairnepal.com/tilottamacampus/"
+          >
             See Photos and Videos of College
           </a>
         </div>

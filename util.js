@@ -1,6 +1,6 @@
 export const getAllNotice =  async () => {
     try{
-      const res =  await fetch('/api/news-notice/');
+      const res = await fetch('/api/news-notice/');
       const data  = await res.json();
       return data.msg;
     }

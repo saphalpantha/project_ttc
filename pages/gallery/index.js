@@ -1,5 +1,5 @@
 import React from 'react'
-import Gallery from '../components/Gallery/Gallery'
+import Gallery from '../../components/Gallery/Gallery'
 
 
 const images = [
@@ -59,7 +59,7 @@ const gallery = () => {
 
 
   return (
-    <div>w
+    <div>
         <Gallery images={images}/>
     </div>
   )

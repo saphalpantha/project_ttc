@@ -56,6 +56,7 @@ const newsNotice = () => {
   const [data,setData] = useState([]);
   useEffect(() => {
     fetch('/api/news-notice').then(result => result.json()).then(data => {
+      console.log(data)
       setData(data.msg)
     }).catch(err => console.log(err))
   },[])

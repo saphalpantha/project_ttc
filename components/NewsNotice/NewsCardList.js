@@ -13,8 +13,8 @@ const NewsCardList = () => {
     }).catch(err => console.log(err))
   },[])
   return (
-    <div className='flex justify-center items-center flex-col md:flex-row justify-between gap-5 md:gap-10'>
-        {notice.slice(0,3).map(i => (<NewsCard  key={i.id} heading={i.heading} desc={i.para} photo={i.photo} link={i.link} />))}
+    <div className='flex justify-center items-center flex-col md:flex-row justify-between gap-5 md:gap-3'>
+        {notice.slice(0,3).map(i => (<NewsCard  id={i.id} key={i.id} heading={i.heading} desc={i.para} photo={i.photo} link={i.link} />))}
     </div>
   )
 }

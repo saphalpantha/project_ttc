@@ -11,6 +11,8 @@ const Sidebar = () => {
     {id:'i1', title:'Dashboard',icon:'dashboard', link:'dashboard'},
     {id:'i2', title:'Result',icon:'result', link:'result'},
     {id:'i3', title:'AdmissionForm',icon:'edit_form_sidebar', link:'admission-forms'},
+    {id:'i3', title:'News and Notice',icon:'edit_form_sidebar', link:'newsnotice'},
+    {id:'i4', title:'Our Star',icon:'edit_form_sidebar', link:'ourstar'},
   ]
   const router = useRouter()
 

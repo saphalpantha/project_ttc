@@ -8,12 +8,17 @@ import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import {getSession} from 'next-iron-session'
 import {getCookie } from 'cookies-next'
+import Preloader from "../components/UI/Preloader";
 export default function App({ Component, pageProps }) {
   const [isAdminComp, setIsAdminComp] = useState(false);
+  const [loading, setLoading] = useState(true)
   const router  = useRouter()
   const path = router.asPath;
- 
+  
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Simulating a 2-second delay
     const user = getCookie('user')
     if(user === undefined || user === false){
       if(path.startsWith('/admin')){
@@ -38,10 +43,19 @@ export default function App({ Component, pageProps }) {
 
 
   return (
+
+    
     <Fragment>
-      {" "}
-      {!isAdminComp  &&  <Header />} { isAdminComp ? <div className="flex justify-between w-[100vw]"> <Sidebar/>  <Component {...pageProps} /> </div> : <div>  <Component {...pageProps} /> </div> }
-     {!isAdminComp &&  <Footer />}
+        {loading ? <Preloader/> :  <div>
+
+    <div>
+  {!isAdminComp  &&  <Header />} { isAdminComp ? <div className="flex justify-between w-[100vw]"> <Sidebar/>  <Component {...pageProps} /> </div> : <div>  <Component {...pageProps} /> </div> }
+ {!isAdminComp &&  <Footer />}
+  </div>
+
+  {/* <div className="text-4xl text-purple-700">Loading</div> */}
+</div> }
+   
     </Fragment>
   );
 }

@@ -16,11 +16,11 @@ import { data } from 'autoprefixer';
 export const Star = ({nameofstar, typeofscholarship, img}) => {
   return(
       <div className='w-[200px]  h-[220px] flex flex-col justify-center items-center'>
-          <div className='w-[10rem] h-[10rem] border-2 border-[#FF9900] rounded-full flex justify-center items-center p-[2rem]'>
-              <img className='w-[1/6]' alt="img" src={`/images/${img}.svg`}></img>
+          <div className='w-[10rem]  h-[10rem] overflow-clip border-2 border-[#FF9900] rounded-full flex justify-center items-center'>
+              <img className='w-[100%] rounded-full h-[100%]' alt="img" src={`/images/stars-uploads/${img}`}></img>
           </div>
           <span className='text-2xs text-#201F54 tracking-tight'>{nameofstar}</span>
-          <span className='font-bold text-2xs text-[#FF9900]'>{`${typeofscholarship} Scholarship`}</span>
+          <span className='font-bold text-2xs text-[#FF9900]'>{`${typeofscholarship}`}</span>
       </div>
   )
 }
@@ -38,8 +38,8 @@ const OurStars = () => {
     <Container>
 
     <div className={`max-w-6xl md:max-w-full h-[30rem]  gap-10 bg-white `}>
-            <div className={` ${classes.star} flex flex-col h-[27rem] bg-white drop-shadow-xl shadow-xl justify-center mx-auto `}><h1 className='text-5xl text-[#FF9900] font-bold  text-left px-20'>Our Stars</h1>
-            <div className='flex flex-row justify-around px-[1rem]'>
+            <div className={` ${classes.star} flex flex-col h-[27rem] bg-white drop-shadow-xl shadow-xl justify-center mx-auto `}><h1 className='text-5xl text-[#FF9900] font-bold  text-left px-[4rem]'>Our Stars</h1>
+            <div className='flex flex-row justify-around px-[0.5rem]'>
 
     <Swiper
       // install Swiper modules

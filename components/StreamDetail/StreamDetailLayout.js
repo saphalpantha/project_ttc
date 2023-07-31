@@ -37,7 +37,7 @@ const StreamDetailLayout = ({streamData}) => {
               ></img>
           </div>
         </div>
-        <div className="flex flex-col  pl-[3.4rem] justify-center space-y-5">
+        <div className="flex flex-col  px-[5.5rem] justify-center space-y-5">
           <h1 className="text-5xl text-[#FF9900] font-bold">
             Objective of Tilottama Campus
           </h1>

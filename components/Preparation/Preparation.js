@@ -2,35 +2,167 @@ import React, { useState } from "react";
 import classes from "../AdmissionDetail/AdmissionDetail.module.css";
 import { useScreen } from "usehooks-ts";
 const Preparation = () => {
-    const [activeTitle, setActiveTitle] = useState('')
-    const [activeSubjectName, setActiveSubjectName] = useState('');
-    const titleClickHandler = (title) => {
-        setActiveTitle(title.id)
-    }
+  const [activeTitle, setActiveTitle] = useState( {
+    id: "m1",
+    title: "class 11",
+    subjects: [
+      {
+        subName: "Science",
+        subLists: [
+          "Physics",
+          "Biology",
+          "English",
+          "Conmputer",
+          "Chemestry",
+          "Maths",
+          "Nepali",
+        ],
+      },
+      {
+        subName: "Management",
+        subLists: [
+          "Physics",
+          "Biology",
+          "English",
+          "Conmputer",
+          "Chemestry",
+          "Maths",
+          "Nepali",
+        ],
+      },
+    ],
+  },);
+  const [activeSubjectName, setActiveSubjectName] = useState();
+  const titleSelectHandler = (item) => {
+    setActiveTitle(item);
+  };  
 
-    const subjectNameClickHandler = (name) => {
-        setActiveSubjectName(name.subName)
-    }
+
+  const toggleSubjectsHandler = () => {
+
+  }
+
+
   const materialData = [
     {
       id: "m1",
       title: "class 11",
-      subjects: [{ subName: "Science", subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }, { subName: "Management" , subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }],
+      subjects: [
+        {
+          subName: "Science",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+        {
+          subName: "Management",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+      ],
     },
     {
       id: "m2",
       title: "class 12",
-      subjects: [{ subName: "Science", subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }, { subName: "Management" , subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }],
+      subjects: [
+        {
+          subName: "Science",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+        {
+          subName: "Management",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+      ],
     },
     {
       id: "m3",
       title: "BBA",
-      subjects: [{ subName: "Science", subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }, { subName: "Management" , subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }],
+      subjects: [
+        {
+          subName: "Science",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+        {
+          subName: "Management",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+      ],
     },
     {
       id: "m4",
       title: "Entrance",
-      subjects: [{ subName: "Science", subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }, { subName: "Management" , subLists:['Physics', 'Biology', 'English', 'Conmputer', 'Chemestry','Maths', 'Nepali'] }],
+      subjects: [
+        {
+          subName: "Science",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+        {
+          subName: "Management",
+          subLists: [
+            "Physics",
+            "Biology",
+            "English",
+            "Conmputer",
+            "Chemestry",
+            "Maths",
+            "Nepali",
+          ],
+        },
+      ],
     },
   ];
   return (
@@ -46,37 +178,60 @@ const Preparation = () => {
           Preparation Material
         </div>
 
-        <div className="flex  max-w-6xl md:max-w-full w-[100%] mx-auto justify-center py-[5rem]">
-            {materialData.map(mt => {
-                return(
-                    <div className="">
-                        <ul className={`flex border-2 gap-5 w-[100%] border-[#201F54] py-4 ${activeTitle === mt.id  && 'bg-[#201F54] text-white '}`} ><li className="pl-4" onClick={() => titleClickHandler(mt)}>{mt.title}</li></ul>
-                    <div className="flex gap-5 flex-col">
-
-                    <ul className="flex  flex-col gap-5">
-                        {
-                            mt.subjects?.map(sb => (
-                                <div className="flex  flex-col">
-                                <li className="py-4 text-[#201F54] border-2 border-[#201F54] w-full"  onClick={() => subjectNameClickHandler(sb)}>{sb.subName}</li>
-                                <ul className={` ${activeSubjectName !== sb.subName ?  'hidden ' : 'h-32'} flex border-2 border-[#201F54] flex-col bg-slate-700`} >
-                                    {sb.subLists.map(item => {
-                                    <li className=" py-1 text-[#201F54] text-[#201F54]"> {item} </li>
-                                    })}
-                                        
-                                </ul>
-                                </div>
-                            ))
-                        }
-                    </ul>
+        <section className=" min-h-screen  items-center pt-[4rem]  flex flex-col ">
+          <div className="flex border border-[0.2rem]  border-[#FF9900] flex-col justify-center items-center">
+            <div className="flex gap-2 pb-[1px] bg-[#201F54]">
+              {materialData.map((item) => (
+                <div className="py-3">
+                  <span
+                    key={item.id}
+                    className={`text-white text-xl px-2 md:px-5 cursor-pointer py-4 ${
+                      activeTitle.id === item.id && "bg-[#FF9900]"
+                    }`}
+                    onClick={() => titleSelectHandler(item)}
+                  >
+                    {item.title}
+                  </span>
+                 
+                </div>
+              ))}
+            </div>
+            <div className="w-full px-2 py-2 flex flex-col gap-2">
+              <div className="flex flex-col gap-2">
+              {
+                activeTitle.subjects.map(item => (
+                  <div className="gap-2 flex flex-col">
+                  <h1  onClick={() => setActiveSubjectName(item.subName)} className={`border-[#201F54]  border-[0.2rem] pl-[1rem] py-1  ${activeSubjectName == item.subName && 'bg-[#201F54] text-white'}`}>
+                  {item.subName}
+                </h1> 
+                {
+                  activeSubjectName === item.subName && 
+      <ul className=" grid grid-cols-2 justify-center items-center pl-10 border-2 p-4 border-[#201F54] ">
+                     {item.subLists.map(i => <li>{i}</li>)}
+                 </ul>
+                 }
                     </div>
-                        </div>
-                    
-                )
-            })}
-        </div>
+                ))
+              }
+
+                </div>  
+
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );
 };
 
 export default Preparation;
+
+
+
+{/* <div className="w-full">
+{activeTitle === item.id && <div className="flex flex-col w-[100%] p-2 gap-2">
+  {item.subjects.map(sub => (
+
+  ))}
+</div>}
+  </div> */}

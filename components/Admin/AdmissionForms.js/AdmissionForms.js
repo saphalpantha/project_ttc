@@ -120,7 +120,7 @@ const AdmissionForms = () => {
 
 
   return (
-    <div className="min-h-screen py-10 flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
+    <div className="min-h-screen py-10  flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
       <div className="flex gap-4 ">
         <h1 className="text-[#201F54] font-bold">Admission Forms</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
@@ -166,10 +166,10 @@ const AdmissionForms = () => {
 
       <div
         ref={printComponentRef}
-        className={`rounded-xl bg-white h-auto  w-[100%] ${classes.sh}`}
+        className={`rounded-xl pb-[3rem] bg-white h-auto  w-[100%] ${classes.sh}`}
       >
         <div className="font-semibold">
-          <div className="flex justify-between  px-[2rem] pt-[2rem]">
+          <div className="flex justify-between  px-[3rem] pt-[2rem]">
             <div className="flex gap-2">
               <img
                 className="w-[1.3rem] h-[1.3rem]"
@@ -227,17 +227,17 @@ const AdmissionForms = () => {
             </div>
           </div>
         </div>
-        <div className="px-[3rem] flex flex-col justify-center place-content-center ">
-          <span className="block w-[90%] h-[0.09rem] mx-auto bg-[#D2CCCC] mt-8"></span>
+        <div className="px-[3rem] flex flex-col ">
+          <span className="block w-[100%] h-[0.09rem] mx-auto bg-[#D2CCCC] mt-8"></span>
           {admissionResult.map((i) => (
             <div
               key={i.id}
-              className="flex items-center  justify-center justify-between py-5 pt-[1rem]"
+              className="flex justify-between  px-[1rem] pt-[2rem]"
             >
-              <span className="">{i.id}</span>
-              <span className="">{i.nameinblock}</span>
-              <span className="">{i.p_no}</span>
-              <span className="">{i.faculty}</span>
+              <span className="max-w-sm w-[55%]">{i.id}</span>
+              <span className="max-w-sm w-[100%]">{i.nameinblock}</span>
+              <span className="max-w-sm w-[65%]">{i.p_no}</span>
+              <span className="max-w-sm w-[50%]">{i.faculty}</span>
               <div>
                 {/* <PrintButton title={"Download"} className={"text-justify cursor-pointer text-[#B65E0C]"}/> */}
 
@@ -255,7 +255,7 @@ const AdmissionForms = () => {
                     key={i.id}
                     trigger={(i) => {
                       return (
-                        <button className="text-justify cursor-pointer text-[#B65E0C]">
+                        <button className="text-justify  cursor-pointer text-[#B65E0C]">
                           Download
                         </button>
                       );
@@ -279,3 +279,7 @@ const AdmissionForms = () => {
 };
 
 export default AdmissionForms;
+
+
+
+// flex items-center justify-between py-5 pt-[1rem] 
