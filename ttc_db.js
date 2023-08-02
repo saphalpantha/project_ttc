@@ -1,5 +1,4 @@
 import mysql from 'mysql2/promise'
-
 let _db;
 
 export async function connectToDb() {
