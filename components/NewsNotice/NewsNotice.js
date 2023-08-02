@@ -15,7 +15,7 @@ const NewsNotice = () => {
             <Link href={"/newsnotice"}>  <img className=" z-[100] w-[3rem] h-[3rem] text-3xl md:text-5xl relative md:absolute text-[#FFF] md:top-[10%] font-bold z-[100] w-fit right-[5%]" src="/images/news_arrow.svg" ></img></Link>
             </div>
             <img
-              className="object-contain bg-contain opacity-80 "
+              className="object-contain w-[100vw] bg-contain opacity-80 "
               src="/images/cover_newsnotice.png"
             ></img>
             <div className="relative md:absolute top-[50%] md:left-[50%] left-0 translate-x-0 md:translate-x-[-50%]">

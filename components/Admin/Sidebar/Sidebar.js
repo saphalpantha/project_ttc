@@ -13,6 +13,8 @@ const Sidebar = () => {
     {id:'i3', title:'AdmissionForm',icon:'edit_form_sidebar', link:'admission-forms'},
     {id:'i3', title:'News and Notice',icon:'edit_form_sidebar', link:'newsnotice'},
     {id:'i4', title:'Our Star',icon:'edit_form_sidebar', link:'ourstar'},
+    {id:'i5', title:'Add User',icon:'edit_form_sidebar', link:'/user/add-user'},
+    {id:'i5', title:'Change Password',icon:'edit_form_sidebar', link:'/user/change-password'},
   ]
   const router = useRouter()
 
@@ -22,14 +24,14 @@ const Sidebar = () => {
     router.reload()
   }
   return (
-    <div className="items-center justify-center place-items-center flex flex-col justify-between py-5 min-h-screen fixed bg-[#201F54] w-[19%] z-10">
-      <div className="flex flex-col  py-10 justify-center    items-center px-2">
+    <div className="items-center fixed   h-[100vh] overflow-y-scroll  justify-center place-items-center flex flex-col justify-between py-5 min-h-screen fixed bg-[#201F54] w-[19%] z-10">
+      <div className="flex flex-col py-1 justify-center  items-center px-2">
         <img className="" src="/images/sidebar_logo.svg"></img>
-        <div className="flex flex-col gap-5 pt-[5rem] justify-center justify-between">
+        <div className="flex flex-col gap-4 pt-[2rem] justify-center justify-between">
             {sidebar_data.map(i => (  <Link href={`/admin/${i.link}`}>
             <div className={`flex   py-2 flex-row  gap-5 justify-start px-3  hover:bg-[#576A9E] rounded-sm`}>
             <img className="w-[1.5rem]  h-[1.5rem]" src={`/images/${i.icon}.svg`}></img>
-            <h1 className="text-white text-xl text-justify ">{i.title}</h1>
+            <h1 className="text-white text-[1rem] text-justify ">{i.title}</h1>
           </div>
             </Link> 
           ))}

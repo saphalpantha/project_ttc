@@ -1,14 +1,15 @@
 import React from 'react'
-import OurStar from '../../components/Admin/OurStar/OurStar'
-
 import {getCookie } from 'cookies-next'
-const ourStar = () => {
+import AddUser from '../../../components/Admin/User/AddUser'
+const useradd = () => {
   return (
-   <OurStar/>
+    <div className=''>
+        <AddUser/>
+    </div>
   )
 }
 
-export default ourStar
+export default useradd
 
 
 export const getServerSideProps = async ({req,res}) => {

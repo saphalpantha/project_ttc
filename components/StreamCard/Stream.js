@@ -9,9 +9,11 @@ const streamData = [
 ]
 
 const Stream = () => {
+    const [open,setOpen] = useState(false)
     const [updatedItem, setUpdatedItem] = useState({id:'s1', title:'Science Stream at Tilottama', desc:'The Faculty of Science at Tilottama has been instigated since its establishment. Its primary goal of it is to provide advanced and pragmatic in-depth knowledge of science to produce high-caliber science scholars. It aims to create a foundation for future doctors, engineers, agriculturists, forest officials, and scientists. To meet its goal Tilottama provides the best quality education which assists to visualize the true potential of students in various fields of science. It was established by reputed and professional academicians in the field of Science who are committed to imparting need-based quality education so as to ensure academic par excellence and attain outstanding results in board exams. Our proficient and professional teachers deliver theory lectures along with practical demonstrations in our sophisticated and well-equipped modern laboratory to retain practical know-how to the students and strengthen their understanding.', link:'science', src:'/images/stream/science/sci_stream_cover.png'});
     const [activeItem, setActiveItem ] =  useState('s1')
     const linkClickHandler = (item) => {
+        setOpen(true)
         setActiveItem(item.id)
         setUpdatedItem(item)
         
@@ -33,7 +35,7 @@ const Stream = () => {
                      {streamData?.map(i => (<li className={ `text-center cursor-pointer   w-full p-5 md:p-7 md:text-xl  text-2xs  ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
                     </ul>
                  </div>
-                 <div className=' relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full  flex flex-col text-white h-full gap-y-5'>
+                 <div className={` ${(activeItem === 's1' && open == false  ) ?  'hidden' :''} md:flex relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full   flex-col text-white h-full gap-y-5`}>
                     <h1 className='text-2xs md:text-2xl  font-bold'>{updatedItem.title}</h1>
                     <p className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</p>
                 <Link href={`/courses/${updatedItem.link}/introduction`}>  <button className=" hover:bg-[#BB7000] transition-all duration-200 ease-in absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button></Link>

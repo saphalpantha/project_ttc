@@ -3,8 +3,8 @@ import Link from "next/link";
 import ScrollLayout from "../UI/ScrollLayout";
 const NewsCard = ({heading, desc, photo, link, id}) => {
   return (
-    <div className="flex flex-col pb-10  justify-center  gap-4 p-3 items-baseline border-5 bg-white  w-[23.6rem] h-[495px] shadow-2xl relative ">
-      <div className="bg-black  w-[359px] overflow-hidden  h-[210px] ">
+    <div className="flex flex-col pb-10  justify-center  gap-4 p-3 items-baseline border-5 bg-white  w-[23.7rem] h-[495px] shadow-2xl relative ">
+      <div className="bg-black  w-[359px] overflow-hidden  h-[230px] ">
         <img className=" w-full h-full " src={`/images/notice-uploads${photo}`}/>
       </div>
       <ScrollLayout opacity={1} duration={2} x={0}>

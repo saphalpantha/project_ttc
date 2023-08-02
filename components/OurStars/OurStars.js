@@ -34,6 +34,7 @@ const OurStars = () => {
     }).catch(err => console.log(err))
   },[data])
   const {width} = useWindowSize()
+
   return (
     <Container>
 
@@ -44,8 +45,9 @@ const OurStars = () => {
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, A11y]}
-      spaceBetween={100}
-      slidesPerView={width > 768 ? 4 : 1}
+      spaceBetween={130}
+      loop={true}
+      slidesPerView={width > 768 && width <= 1280 && 4 || width < 768 && 1 || width > 1280 && 6}
       navigation
       style={{display:'flex' , justifyContent:'space-between', padding:'2rem 5rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
@@ -61,6 +63,7 @@ const OurStars = () => {
           })}
     </Swiper>
       </div>
+      {/* <h1 className='text-3xl text-blue-600'>{width}</h1> */}
             </div>
     </div>
             </Container>
