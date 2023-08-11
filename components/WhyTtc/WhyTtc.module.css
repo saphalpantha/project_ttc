@@ -1,8 +1,8 @@
 
 .main{
     /* background-image: url("https://idsb.tmgrup.com.tr/ly/uploads/images/2023/02/21/thumbs/800x531/258632.jpg?v=1676984653"); */
-    background-image: url('../../public/images/stream/bba/bba_2.jpg');
-    background: linear-gradient(90deg, rgba(32, 31, 84, 0.86) 0%, rgba(0, 0, 0, 0.00) 100%), url('../../public/images/stream/bba/bba_2.jpg'), lightgray 50% / cover no-repeat;
+    background-image: url('../../public/images/stream/bba/bba_2.JPG');
+    background: linear-gradient(90deg, rgba(32, 31, 84, 0.86) 0%, rgba(0, 0, 0, 0.00) 100%), url('../../public/images/stream/bba/bba_2.JPG'), lightgray 50% / cover no-repeat;
     /* object-fit: cover; */
     background-size: cover;
     background-position: center;
