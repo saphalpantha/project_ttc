@@ -2,6 +2,7 @@ import Container from '../Container/Container'
 import React from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
+import ScrollLayout from '../UI/ScrollLayout'
 const streamData = [
     {id:'s1', title:'Science Stream at Tilottama', desc:'The Faculty of Science at Tilottama has been instigated since its establishment. Its primary goal of it is to provide advanced and pragmatic in-depth knowledge of science to produce high-caliber science scholars. It aims to create a foundation for future doctors, engineers, agriculturists, forest officials, and scientists. To meet its goal Tilottama provides the best quality education which assists to visualize the true potential of students in various fields of science. It was established by reputed and professional academicians in the field of Science who are committed to imparting need-based quality education so as to ensure academic par excellence and attain outstanding results in board exams. Our proficient and professional teachers deliver theory lectures along with practical demonstrations in our sophisticated and well-equipped modern laboratory to retain practical know-how to the students and strengthen their understanding.', link:'Science', src:'/images/stream/science/sci_stream_cover.png'},
     {id:'s2', title:'Management Stream at Tilottama', desc:'The Faculty of Management at Tilottama has been instigated since its establishment. Its primary goal of it is to provide advanced and pragmatic in-depth knowledge of science to produce high-caliber science scholars. It aims to create a foundation for future managers,CA and aspiring positions. To meet its goal Tilottama provides the best quality education which assists to visualize the true potential of students in various fields of management. It was established by reputed and professional academicians in the field of Management who are committed to imparting need-based quality education so as to ensure academic par excellence and attain outstanding results in board exams.', link:'Management', src:'/images/stream/bba/bba_1.jpg'},
@@ -26,8 +27,8 @@ const Stream = () => {
     <div className='max-w-6xl w-[100%] px-2 md:px-0  pb-[2rem] py-[2rem]  space-y-5 pr-0 md:mx-auto'>
         <h1 className='font-bold text-[#FF9900] text-3xl md:text-5xl uppercase'>COURSE OFFERRED</h1>
         <div className='w-[100%] bg-[#D9D9D9] mx-auto md:h-[35rem]  flex flex-col md:flex-row overflow-scroll'>
-            <div className='items-start w-[30rem] hidden md:block'>
-            <img  className='w-[100%] h-[100%]' src={updatedItem.src} alt='img'></img>
+            <div className='items-start object-cover w-[30rem] hidden md:block'>
+            <img  className='w-[100%] object-cover h-[100%]' src={updatedItem.src} alt='img'></img>
             </div>
                 <div className='w-[100%] md:w-[60%] flex flex-col'>
                  <div className='w-[8rem] md:w-[30rem]'>
@@ -35,9 +36,14 @@ const Stream = () => {
                      {streamData?.map(i => (<li className={ `text-center cursor-pointer   w-full p-5 md:p-7 md:text-xl  text-2xs  ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
                     </ul>
                  </div>
-                 <div className={` ${(activeItem === 's1' && open == false  ) ?  'hidden' :''} md:flex relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full   flex-col text-white h-full gap-y-5`}>
+                 <div className={` overflow-hidden ${(activeItem === 's1' && open == false  ) ?  'hidden' :''} md:flex relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full   flex-col text-white h-full gap-y-5`}>
+                    <ScrollLayout duration={0.6} x={-230}>
                     <h1 className='text-2xs md:text-2xl  font-bold'>{updatedItem.title}</h1>
+                    </ScrollLayout>
+                    <ScrollLayout duration={0.7} x={-250}>
+
                     <p className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</p>
+                    </ScrollLayout>
                 <Link href={`/courses/${updatedItem.link}/introduction`}>  <button className=" hover:bg-[#BB7000] transition-all duration-200 ease-in absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button></Link>
                  </div>
  

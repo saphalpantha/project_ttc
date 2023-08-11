@@ -11,10 +11,12 @@ const CardLists = () => {
   return (
     // <div className='max-w-6xl md:max-w-full  md:w-[100%] bg-[#EEEEEE] flex justify-center py-8 items-center'>
 
-    <div className='mx-auto   text-black flex flex-col md:flex-row space-y-5 pt-2 md:py-5  px-2  items-center md:items-baseline justify-center items-center md:gap-[50px]'>
+    <div className='py-10 bg-[#EEEEEE]'>
+      <div className='mx-auto   text-black flex flex-col md:flex-row   items-center md:items-baseline justify-center items-center md:gap-[50px]'>
         {card_data.map(item => (
           <SingleCard link={item.link} key={item.id} title={item.title} admission_status={item.admission_status} img={item.img}/>
           ))}
+          </div>
     </div>  
           // </div>
   )

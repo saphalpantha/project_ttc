@@ -108,19 +108,6 @@ const AdmissionForm = () => {
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   const formik = useFormik({
     initialValues,

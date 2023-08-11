@@ -57,6 +57,7 @@ const readFile = (req, saveLocally) => {
 
 const handler = async (req, res) => {
   if (req.method === "GET") {
+    
     const db = await getDb();
     db.query("SELECT * FROM admission_forms")
       .then((result) => {
@@ -132,15 +133,16 @@ const handler = async (req, res) => {
 
       
       const db = await getDb();
-      console.log('this is photottttttttttttttt',photo.filepath);
+      // console.log('this is photottttttttttttttt',photo.filepath);
     db.query(
-      `INSERT INTO admission_forms VALUES (NULL, '${faculty}', '${grade}', '${shift}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', '${t_no}', '${p_no}', '${email}', '${ward_no}', '${vdc_mun}', '${district}', '${fathers_name}', '${fathers_cellno}', '${fathers_occupation}', '${mothers_name}', '${mothers_cellno}', '${mothers_occupation}', '${localgurdain_name}', '${localgurdain_occupation}', '${localgurdain_cellno}', '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', '${sendUpGpa}', '${see_cgpa}', '${grade_div}', '${sendup_eng}', '${sendup_optmath}', '${sendup_science}', '${sendup_account}', '${see_eng}', '${see_cmath}', '${see_optmath}', '${see_science}', '${see_account}', '${hobby}','${photo.filepath}' , '', '', '${marksheet.filepath}', '${sendup_cmath}')`
+      `INSERT INTO admission_forms VALUES (NULL, '${faculty}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', '${t_no}', '${p_no}', '${email}', '${ward_no}', '${vdc_mun}', '${district}', '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', '${sendUpGpa}')`
     )
       .then((result) => {
         res.status(200).json({ msg: "form submitted successfully", data: result });
       })
       .catch((err) => {
         console.log(err);
+        console.log(studentFields);
         res.status(400).json({ msg: "form not submitted", errMsg: err });
       });
 

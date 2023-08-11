@@ -44,6 +44,12 @@ const AdmissionForms = () => {
     );
     setAdmissionResult(updatedResult);
   };
+  const bbaFacultyFormHandler = () => {
+    const updatedResult = originalResult.filter(
+      (item) => item.faculty === "BBA"
+    );
+    setAdmissionResult(updatedResult);
+  };
 
   const managementFacultyFormHandler = () => {
     const updatedResult = originalResult.filter(
@@ -96,8 +102,11 @@ const AdmissionForms = () => {
     const onlyManagement = admissionResult.filter(
       (a) => a.faculty === "Management"
     );
+    const onlyBBA = admissionResult.filter(
+      (a) => a.faculty === "BBA"
+    );
     const exceptthese = admissionResult.filter(
-      (a) => a.faculty != "Management" && a.faculty != "Science"
+      (a) => a.faculty != "Management" && a.faculty != "Science" && a.faculty != 'BBA'
     );
     if (filterOrder === "Science") {
       updatedResult = [...onlyScience, ...onlyManagement, ...exceptthese];
@@ -106,6 +115,11 @@ const AdmissionForms = () => {
       setFilterOrder("Management");
     } else if (filterOrder === "Management") {
       updatedResult = [...onlyManagement, ...onlyScience, ...exceptthese];
+      setAdmissionResult(updatedResult);
+      setFilterOrder("Science");
+    }
+    else if (filterOrder === "BBA") {
+      updatedResult = [...onlyBBA, ...onlyManagement, ...onlyScience, ...exceptthese];
       setAdmissionResult(updatedResult);
       setFilterOrder("Science");
     }
@@ -143,6 +157,12 @@ const AdmissionForms = () => {
           className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#B65E0C]  hover:text-[#B65E0C] cursor-pointer"
         >
           Management Faculty
+        </span>
+        <span
+          onClick={bbaFacultyFormHandler}
+          className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#B65E0C]  hover:text-[#B65E0C] cursor-pointer"
+        >
+          BBA Faculty
         </span>
       </div>
 

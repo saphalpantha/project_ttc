@@ -1,7 +1,8 @@
 import React from 'react'
 import Gallery from '../../components/Gallery/Gallery'
 
-
+import { useEffect, useState } from 'react';
+import { data } from 'autoprefixer';
 const images = [
   {
      src: "/images/stream/bba/bba_2.JPG",
@@ -56,7 +57,13 @@ const images = [
 
 ];
 const gallery = () => {
-
+  const [images, setImages ] = useState([]);
+  useEffect(() => {
+    fetch('/api/getall-album').then(result => result.json()).then(data => {
+      
+      setImages(data.msg)
+    }).catch(err => console.log(err))
+  },[data])
 
   return (
     <div>

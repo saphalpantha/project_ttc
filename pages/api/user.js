@@ -1,8 +1,14 @@
+import { getCookie } from "cookies-next";
 import { getDb } from "../../ttc_db";
 
 import bcrypt from "bcryptjs";
 const handler = async (req, res) => {
 
+  const user = getCookie('user', {req,res})
+
+  if(!user){
+    return res.redirect("/");
+  }
 
     if(req.method === 'PUT'){
         const old = req.body.old;

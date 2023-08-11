@@ -16,7 +16,6 @@ const resultsDropdownLinks = [
 ];
 const othersDropdownLinks = [
   { id: "a1", link: "/preparation-material", name: "Prepation Materials" },
-  { id: "a2", link: "/", name: "Item-3" },
 ];
 
 const coursesDropdownLinks = [

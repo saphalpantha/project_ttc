@@ -44,27 +44,11 @@ const OurStar = () => {
         <label>Name of Student</label>
         <input  value={values.student_name} onChange={(e) => setName(e.target.value)} className='border-2 ' type='text'></input>
         </div>
-        <div className="flex flex-col space-y-2">
-              <label className={``}>
-                Scholarship Name
-              </label>
-              <select
-              value={scholarship}
-                onChange={(e) => setScholarShip(e.target.value)}
-                onBlur={handleBlur}
-                onReset={handleReset}
-                name="faculty"
-                required
-                className=" py-1 bg-white border-2 border-2 text-black"
-              >
-                <option>Select Scholarship</option>
-                <option>IOE</option>
-                <option>MBBS</option>
-                <option>COMPEX</option>
-              </select>
-              <label>Add Scholarship</label>
-              <input onChange={(e) => setScholarShip(e.target.value)} type='text' className='border-2'></input>
-            </div>
+        <div className='flex flex-col justify-center'>
+        <label>Add achievement</label>
+        <input  value={values.student_name} onChange={(e) => setName(e.target.value)} className='border-2 ' type='text'></input>
+        </div>
+
         <label>Upload Image</label>
         <input  onChange={(e) => setImage(e.target.files[0])} className='border-2 py-2 pl-5' type='file'></input>
         <div className='flex flex-col justify-center items-center'>
