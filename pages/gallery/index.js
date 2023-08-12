@@ -63,7 +63,7 @@ const gallery = () => {
       
       setImages(data.msg)
     }).catch(err => console.log(err))
-  },[data])
+  },[1])
 
   return (
     <div>

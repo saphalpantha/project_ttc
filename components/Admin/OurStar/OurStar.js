@@ -14,7 +14,7 @@ const OurStar = () => {
     formData.append('name', name)
     formData.append("scholarship", scholarship);
     formData.append("image", image);
-    console.log(formData);
+    console.log(formData,'log form data');
     try {
       const response = await axios.post("/api/our-stars", formData, {
         headers: {
@@ -42,11 +42,11 @@ const OurStar = () => {
     <form encType="multipart/form-data" className='flex flex-col justify-center gap-5 px-20' onSubmit={handleSubmit}>
         <div className='flex flex-col justify-center'>
         <label>Name of Student</label>
-        <input  value={values.student_name} onChange={(e) => setName(e.target.value)} className='border-2 ' type='text'></input>
+        <input  onChange={(e) => setName(e.target.value)} className='border-2 ' type='text'></input>
         </div>
         <div className='flex flex-col justify-center'>
         <label>Add achievement</label>
-        <input  value={values.student_name} onChange={(e) => setName(e.target.value)} className='border-2 ' type='text'></input>
+        <input  onChange={(e) => setScholarShip(e.target.value)} className='border-2 ' type='text'></input>
         </div>
 
         <label>Upload Image</label>

@@ -20,7 +20,7 @@ const EditAlbum = () => {
         setAlbums(data.msg);
       })
       .catch((err) => {});
-  }, [albums, selectedAlbum]);
+  }, [1]);
 
   const singleAlbumDeleteHandler = async (item, indx) => {
     const id = item.id;

@@ -67,46 +67,70 @@ const UserFormat = forwardRef((props, ref) => {
   return (
     <Fragment>
       <div ref={ref}>
-        <div className={`p-4`}>
-          <div className="text-lg font-bold">Form Result</div>
-          <div className="grid grid-cols-3 gap-5 justify-center items-center">
-            <div className="flex items-center">
-              <label className="mr-2">Faculty:</label>
-              <span>{faculty}</span>
-            </div>
-            <div className="flex items-center">
+        <div className={`p-4 text-[2rem]`}>
+          <div className="text-lg text-[2.5rem] font-bold">BBA Admission Form</div>
+          <div className="grid grid-cols-1 gap-10 justify-center items-center pt-[1rem]">
+            {/* <div className="flex items-center">
               <label className="mr-2">Grade:</label>
               <span>{grade}</span>
-            </div>
-            <div className="flex items-center">
+            </div> */}
+            {/* <div className="flex items-center">
               <label className="mr-2">Shift:</label>
               <span>{shift}</span>
-            </div>
-            <div className="flex items-center">
+            </div> */}
+            <div className="flex flex-col gap-2 ">
               <label className="mr-2">Name in Block Letter:</label>
-              <span>{nameinblock}</span>
+              <div className="font-bold">{nameinblock}</div>
             </div>
-            <div className="flex items-center">
+            <div className="flex flex-col gap-2">
               <label className="mr-2">Name in Devanagari:</label>
-              <span>{nameindevanagari}</span>
+              <div className="font-bold">{nameindevanagari}</div>
             </div>
-            <div className="flex items-center">
-              <label className="mr-2">DOB (BS):</label>
-              <span>{dob_bs}</span>
-            </div>
-            <div className="flex items-center">
+          </div>
+          <div className="grid pt-6 text-[1.5rem] grid-cols-2 gap-4 justify-center items-center">
+            {/* <div className="flex items-center">
+              <label className="mr-2">Faculty:</label>
+              <span>{faculty}</span>
+            </div> */}
+            {/* <div className="flex items-center">
+              <label className="mr-2">Grade:</label>
+              <span>{grade}</span>
+            </div> */}
+            {/* <div className="flex items-center">
+              <label className="mr-2">Shift:</label>
+              <span>{shift}</span>
+            </div> */}
+            
+            <div className="flex  items-center">
               <label className="mr-2">DOB (AD):</label>
               <span>{dob_ad}</span>
+            </div>
+
+            <div className="flex  items-center">
+              <label className="mr-2">DOB (BS):</label>
+              <span>{dob_bs}</span>
             </div>
             <div className="flex items-center">
               <label className="mr-2">Gender:</label>
               <span>{gender}</span>
             </div>
+            <div className="flex items-center">
+              <label className="mr-2">Tel No:</label>
+              <span>{t_no}</span>
+            </div>
+            <div className="flex items-center">
+              <label className="mr-2">Phone No:</label>
+              <span>{p_no}</span>
+            </div>
+            <div className="flex items-center">
+              <label className="mr-2">Email</label>
+              <span>{email}</span>
+            </div>
           </div>
         </div>
-
-          <div className="text-lg font-bold mb-4">Permanent Address:</div>
-        <div className="p-4 grid grid-cols-3 gap-6 justify-center items-center">
+            
+          <div className="text-lg pt-6 text-[2rem] font-bold pl-5">Address:</div>
+        <div className="p-5 grid text-[1.5rem] grid-cols-3 gap-1 justify-center items-center">
           <div className="mt-4 ">
             <div className="mb-2">
               <label className="font-semibold">Ward:</label>
@@ -125,11 +149,27 @@ const UserFormat = forwardRef((props, ref) => {
               <p className="text-gray-800">{district}</p>
             </div>
           </div>
-        </div>
-          <div className="text-lg font-bold mb-4">
-            Family / Extra Information
           </div>
-        <div className="bg-gray-100 p-4 grid grid-cols-3 gap-5 justify-center items-center">
+          <div className="text-lg pt-6 text-[2rem] font-bold pl-5">Academic Information:</div>
+          <div className="grid text-[1.5rem] grid-cols-2 gap-4 justify-center items-center">
+
+          <div className="mt-4">
+            <div className="mb-2">
+              <label className="font-semibold">+2 Gpa:</label>
+              <p className="text-gray-800">{see_cgpa}</p>
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="mb-2">
+              <label className="font-semibold">Name of Previous School:</label>
+              <p className="text-gray-800">{nameofprevschool}</p>
+            </div>
+          </div>
+          </div>
+          {/* <div className="text-lg font-bold mb-4">
+            Family / Extra Information
+          </div> */}
+        {/* <div className="bg-gray-100 p-4 grid grid-cols-3 gap-5 justify-center items-center">
           <div className="mb-4">
             <div>
               <label className="font-bold">Father's Name:</label>
@@ -251,7 +291,7 @@ const UserFormat = forwardRef((props, ref) => {
               </label>
               <span>{hobbies}</span>
             </div>
-          </div>
+          </div> */}
           {/* <div className="mb-4">
       <div>
       <label className="font-bold">Board of Exam:</label>
@@ -270,9 +310,9 @@ const UserFormat = forwardRef((props, ref) => {
       <p>{gradeletter}</p>
       </div>
     </div> */}
-        </div>
+        {/* </div> */}
 
-        <div>
+        {/* <div>
           <table className="py-[5rem]">
             <tbody>
               <tr>
@@ -297,7 +337,7 @@ const UserFormat = forwardRef((props, ref) => {
                 <td>{see_optmath}</td>
                 <td>{see_science}</td>
                 <td>{see_account}</td>
-              </tr>
+              </tr> */}
               {/* <tr>
                 <td colspan="7">
                   <label className="underline">
@@ -318,9 +358,9 @@ const UserFormat = forwardRef((props, ref) => {
                   <label className="block text-blue-900">SEE C.C.</label>
                 </td>
               </tr> */}
-            </tbody>
+            {/* </tbody>
           </table>
-        </div>
+        </div> */}
 
 
         {/* <div className="p-4 grid grid-cols-1 gap-10 justify-center items-center ">

@@ -156,10 +156,10 @@ const AdmissionForms = () => {
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
 
       </div>
-      <div className="flex gap-3 justify-center items-center">
+      {/* <div className="flex gap-3 justify-center items-center">
         <label className="font-bold">Admission Open</label>
         <input  checked={isAdmissionOpen ? true : false} onClick={admissionOpenHandler} type="checkbox"/>
-      </div>
+      </div> */}
         </div>
       <div className="flex gap-14 py-10 group-hover:text-[#B65E0C]">
         <span
