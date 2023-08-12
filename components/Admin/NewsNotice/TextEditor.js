@@ -6,7 +6,6 @@ export default function TextEditor(props) {
   const log = () => {
     if (editorRef.current) {
         props.sendEdit(editorRef.current.getContent());
-      console.log(editorRef.current.getContent());
     }
   };
   return (

@@ -28,7 +28,7 @@ const Login = () => {
             }
         })
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         
         if(!data.isAuthenticate){
             alert(data.msg);
@@ -42,7 +42,7 @@ const Login = () => {
         
     }
     catch(err){
-        console.log(err);
+        // console.log(err);
         alert('Something Went Wrong. Please Try Again');
     }
 

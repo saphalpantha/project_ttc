@@ -62,7 +62,7 @@ const UserFormat = forwardRef((props, ref) => {
     see_marksheet,
   } = props.data;
 
-  console.log(props.data);
+
 
   return (
     <Fragment>

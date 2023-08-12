@@ -10,7 +10,7 @@ const Spotlight = () => {
   const submitHandler = async (formD) => {
     const formData = new FormData();
     formData.append("image", image);
-    console.log(formData);
+    // console.log(formData);
     try {
       const response = await axios.post("/api/spotlight", formData, {
         headers: {
@@ -23,7 +23,7 @@ const Spotlight = () => {
       alert('Form Submission SucessFully');
     } catch (err) {
       alert('Form Submission SucessFully123');
-      console.log(err);
+      // console.log(err);
       // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
       
     }

@@ -14,7 +14,7 @@ const NewsNotice = () => {
     formData.append('heading', heading)
     formData.append("desc", editorRef.current.getContent());
     formData.append("image", image);
-    console.log(formData);
+    // console.log(formData);
     try {
       const response = await axios.post("/api/news-notice", formData, {
         headers: {
@@ -28,7 +28,7 @@ const NewsNotice = () => {
       alert('Form Submission SucessFully');
     } catch (err) {
       alert('Form Submission SucessFully123');
-      console.log(err);
+      // console.log(err);
       // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
       
     }

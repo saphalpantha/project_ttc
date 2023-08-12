@@ -166,7 +166,7 @@ const AdmissionBBA = () => {
                 <option>BBA</option>
               </select>
             </div>
-            <div className="flex flex-col space-y-2">
+            {/* <div className="flex flex-col space-y-2">
               <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
                 Choose Shift
               </label>
@@ -184,7 +184,7 @@ const AdmissionBBA = () => {
                 <option>Day</option>
                 <option>Mid Day</option>
               </select>
-            </div>
+            </div> */}
           </div>
         </div>
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">

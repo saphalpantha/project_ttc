@@ -38,7 +38,7 @@ const AdmissionForms = () => {
         'Content-Type':'application/json'
       },
       body:JSON.stringify({isAdmissionOpen:isAdmissionOpen}),
-    }).then(result => result.json()).then(data => console.log(data.msg)).catch(err => {})
+    }).then(result => result.json()).then(data => {} ).catch(err => {})
   },[isAdmissionOpen])
 
   // const downloadDataHandler = () => {
