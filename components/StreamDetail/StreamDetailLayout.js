@@ -12,7 +12,6 @@ import Link from "next/link";
 const StreamDetailLayout = ({streamData}) => {
   return (
     <Container>
-
       <section className="">
       <StyleCover isLeft={true} src={streamData.img} title={`${streamData.faculty_name} Faculty`}/>
       </section>
@@ -29,7 +28,7 @@ const StreamDetailLayout = ({streamData}) => {
 
             ))}
           </div>
-          <div className="">
+          <div className="w-1/2">
             <img
               className="w-[100%] h-[100%]"
               src={streamData.section_img}

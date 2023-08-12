@@ -18,6 +18,7 @@ const login = () => {
 
 export const getServerSideProps = async ({req,res}) => {
   const user = getCookie('user', {req,res})
+  
 
   if(user){
     return{

@@ -3,6 +3,7 @@ import {  useFormik } from "formik";
 import axios from 'axios';
 import EditAlbum from './EditAlbum';
 import EditPhotos from './EditPhotos';
+import { useSession } from 'next-auth/react';
 
 
 const initialValues  = {
@@ -12,6 +13,7 @@ const Gallary = () => {
   const [files,setFiles] = useState([]);
   const [name,setName] = useState();
   const [cover,setCover] = useState();
+
 
   const handleFile = (e) => {
     setFiles(e.target.files)

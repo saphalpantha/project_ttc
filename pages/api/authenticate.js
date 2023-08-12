@@ -2,6 +2,7 @@
 import { getDb } from "../../ttc_db";
 import bcrypt from 'bcryptjs'
 import { setCookie, getCookie } from "cookies-next";
+import { getServerSession } from "next-auth";
 
 const handler = async (req,res) => {
     if(req.method === 'POST'){
@@ -40,3 +41,6 @@ const handler = async (req,res) => {
 
 
 export default handler
+
+
+

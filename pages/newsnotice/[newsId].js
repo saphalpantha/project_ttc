@@ -28,6 +28,7 @@ const NewsDetail = () => {
     <Container>
       <div className="flex flex-col justify-center mx-2 mx:px-32 gap-5 items-center py-[2rem] pb-[5rem]">
         <div className=" h-[50vh] md:h-[100vh]">
+          
           <img src={`/images/notice-uploads/${newsData?.photo}`} className="w-[100%] h-[100%]"></img>
         </div>
         <div className="flex flex-col space-y-2 px-2 md:px-0 max-w-7xl justify-center items-center gap-10">

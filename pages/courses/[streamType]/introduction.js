@@ -7,9 +7,9 @@ import BbaStream from '../../../components/StreamDetail/BbaStream';
 
 
 const scienceData = {
-  img:'/images/stream/science/sci_stream_cover.png',
+  img:'/images/stream/science/sci_stream_cover.jpg',
   faculty_name:"Science",
-  section_img:'/images/stream/science/sci_stream_small.svg',
+  section_img:'/images/stream/science/sci_stream_small.jpg',
   para:[{id:'p1', content:"At Tilottama, we pride ourselves on offering a comprehensive and cutting-edge science faculty that prepares students for a future filled with endless possibilities. Our dedicated team of experienced and passionate educators strives to cultivate a deep understanding and appreciation for the wonders of science among our students. ",},{id:'p2', content:"Our science faculty comprises a diverse group of experts who specialize in various fields, ranging from physics and chemistry to biology and environmental science. With their extensive knowledge and practical experience, our faculty members bring real-world applications into the classroom, ensuring that our students receive a well-rounded education that is both academically rigorous and relevant to the ever-evolving world of science.",}],
   objective:[{id:'o1', content:"To provide practical and value based quality education for promising young talents to carve their careers."},{id:'o2', content:"To generate decent human value and ethical human behavour in the students."},{id:'o3', content:"To provide highly disciplined and friendly atmosphere."},],
   streamSubject : [

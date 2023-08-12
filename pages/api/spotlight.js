@@ -25,7 +25,7 @@ const readFile = (req, saveLocally) => {
     options.uploadDir = path.join(process.cwd(), "public/images/spotlight-uploads");
     options.filename =  (name, ext,path, form) => {
       const fileExt = path.originalFilename.split('.')[1];
-      const newfilename = path.originalFilename.slice(0,2) + '.' +  fileExt;
+      const newfilename = path.originalFilename.slice(0,3) + '.' +  fileExt;
       console.log(newfilename);
       return new Date().getTime().toString() + "_" + newfilename;
     }

@@ -7,7 +7,7 @@ const AdmissionDetail = () => {
       <section>
         <StyleCover
           isLeft={true}
-          src={"/images/stream/science/sci_stream_cover.png"}
+          src={"/images/stream/science/science_admission_proc.jpg"}
           title={"Admission procedure (Science)"}
         />
       </section>

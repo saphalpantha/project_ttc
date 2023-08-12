@@ -8,7 +8,7 @@ const NewsCard = ({heading, desc, photo, link, id}) => {
         <div className="w-full  flex justify-center items-center h-full top-0 left-0 bg-[#232264E5]  opacity-10 group-hover:opacity-100  absolute">
           <h1 className="text-white border-[1px] border-[#A5A5A5] py-2 px-4 w-fit">Read More</h1>
         </div>
-        <img className=" w-full object-cover group-hover: h-full opacity-100  group-hover:opacity-0 group-hover:cursor-pointer " src={`/images/notice-uploads${photo}`}/>
+        <img className=" w-full object-cover group-hover: h-full opacity-100  group-hover:opacity-0 group-hover:cursor-pointer " src={`/images/notice-uploads/${photo}`}/>
       </div>
       <ScrollLayout opacity={1} duration={2} x={0}>
 

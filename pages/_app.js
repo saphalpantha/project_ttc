@@ -4,18 +4,18 @@ import "../styles/globals.css";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import Sidebar from "../components/Admin/Sidebar/Sidebar";
-import { NextApiResponse } from "next";
-import { NextResponse } from "next/server";
-import {getSession} from 'next-iron-session'
 import {getCookie } from 'cookies-next'
 import Preloader from "../components/UI/Preloader";
-export default function App({ Component, pageProps }) {
+import {SessionProvider, useSession} from 'next-auth/react'
+
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   const [isAdminComp, setIsAdminComp] = useState(false);
   const [loading, setLoading] = useState(true)
   const router  = useRouter()
   const path = router.asPath;
   
   useEffect(() => {
+
     setTimeout(() => {
       setLoading(false);
     }, 3000); // Simulating a 2-second delay
@@ -42,9 +42,11 @@ export default function App({ Component, pageProps }) {
   },[path])
 
 
+
   return (
 
-    
+    <SessionProvider session={session}>
+      {console.log(session, 'from huuuaaaa')}
     <Fragment>
         {loading ? <Preloader/> :  <div>
 
@@ -57,5 +59,6 @@ export default function App({ Component, pageProps }) {
 </div> }
    
     </Fragment>
+    </SessionProvider>
   );
 }

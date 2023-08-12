@@ -89,7 +89,7 @@ const Products = () => {
             // onSlideChange={() => console.log('slide change')}
           >
 
-            {allImages?.slice(1,-1).map((product) => {
+            {allImages.slice(1,-1).map((product) => {
                 return (
                   <SwiperSlide className="">
                   <ProductCard image={product.image} />

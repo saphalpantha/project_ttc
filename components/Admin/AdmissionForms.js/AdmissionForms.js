@@ -6,7 +6,7 @@ import { CSVDownload, CSVLink } from "react-csv";
 import ReactToPrint from "react-to-print";
 import UserFormat, { PrintButton } from "./UserFormat";
 import ReactDOMServer from "react-dom/server";
-import { useReactToPrint } from "react-to-print";
+import { useReactToPrint } from "react-to-print"; 
 import Link from "next/link";
 import { Document, Page, PDFViewer } from "@react-pdf/renderer";
 
@@ -15,11 +15,13 @@ const AdmissionForms = () => {
   const [originalResult, setOriginalResult] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
   const [filterOrder, setFilterOrder] = useState("Management");
+  const [isAdmissionOpen, setIsAdmissionOpen ] = useState(true);
   const componentRef = useRef();
 
   const printComponentRef = useRef();
   const [sortOrder, setSortOrder] = useState("asc");
   useEffect(() => {
+    // console.log(isAdmissionOpen, 'ADM C OR O')
     fetch("/api/admission-forms")
       .then((result) => result.json())
       .then((data) => {
@@ -28,6 +30,16 @@ const AdmissionForms = () => {
       })
       .catch((err) => {});
   }, []);
+
+  useEffect(() => {
+    fetch('/api/admission-status/', {
+      method:'PUT',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({isAdmissionOpen:isAdmissionOpen}),
+    }).then(result => result.json()).then(data => console.log(data.msg)).catch(err => {})
+  },[isAdmissionOpen])
 
   // const downloadDataHandler = () => {
   //   setIsDownloadable(true)
@@ -132,13 +144,23 @@ const AdmissionForms = () => {
     setSelectedItem(item);
   } 
 
+  const admissionOpenHandler = () => {
+    setIsAdmissionOpen(!isAdmissionOpen);
+  }
 
   return (
     <div className="min-h-screen py-10  flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
+      <div className="flex justify-between px-[2rem]">
       <div className="flex gap-4 ">
         <h1 className="text-[#201F54] font-bold">Admission Forms</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
+
       </div>
+      <div className="flex gap-3 justify-center items-center">
+        <label className="font-bold">Admission Open</label>
+        <input  checked={isAdmissionOpen ? true : false} onClick={admissionOpenHandler} type="checkbox"/>
+      </div>
+        </div>
       <div className="flex gap-14 py-10 group-hover:text-[#B65E0C]">
         <span
           onClick={allFormDisplayHandler}
