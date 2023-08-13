@@ -14,16 +14,16 @@ import { useEffect } from 'react'
 const Hero = () => {
 
   const [isOpen, setIsOpen] = useState(true);
-  const [img,setImg] = useState([{id:100,photo:'/images/spotlight-uploads/1691340836082_ci_6/jpg'}]);
+  const [img,setImg] = useState([{id:100,photo:''}]);
   
   useEffect(() => {
       fetch('/api/spotlight').then(res => res.json()).then(data => {data && setImg(data?.msg)}).catch(err => console.log('eers', err));
-  },[])
+  },[img])
   const spotlightCloseHandler = () => {
     setCookie('open', 'true')
     setIsOpen(false)
   }
-  console.log(img,'img')
+
   return (
     
     <Container>

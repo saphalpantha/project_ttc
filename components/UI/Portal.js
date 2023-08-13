@@ -31,7 +31,6 @@ const Modal = ({ isOpen, onClose, img }) => {
       <a className='text-blue-900' href='https://m.facebook.com/story.php?story_fbid=pfbid0uZuAYqhoBURd6ESj61uVkJKiZpf7r3GTMguFYVgU6NLaxtGbouLENJ3rj3ekRPcrl&id=100083559392986&mibextid=Nif5oz'>Click Here to Follow</a>
     </div>  */}
     <div className='w-[100%] h-[100%] px-4 bg-contain object-contain'>
-      {console.log(img.slice(-1)[0].photo,'sppp')}
     <img className='w-[100%] h-[100%]' src={`/images/spotlight-uploads/${img.slice(-1)[0]?.photo}`} alt="first Image" />
     </div>
 
