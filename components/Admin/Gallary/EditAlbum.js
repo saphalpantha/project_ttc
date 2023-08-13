@@ -73,7 +73,7 @@ const EditAlbum = () => {
     }
   };
 
-  const handleSubmit = async () => {
+  const submitHandler = async () => {
     e.preventDefault();
     const formData = new FormData();
     
@@ -87,7 +87,7 @@ const EditAlbum = () => {
 
     try {
       await axios
-        .post(`/api/update-image/${fixedAlbumState.id}`, formData, {
+        .post(`/api/update-image/${fixedAlbumState.id}/`, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -217,7 +217,7 @@ const EditAlbum = () => {
 
 const updateForm =<form
 encType="multipart/form-data" 
-onSubmit={handleSubmit}
+onSubmit={submitHandler}
 className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-center items-center h-[10rem] w-1/2 mx-auto"
 >
 <div className=" flex flex-col gap-5 ">
@@ -226,7 +226,7 @@ className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-cent
   <div className="flex gap-10">
 
   <button onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
-  <button className="border-2 px-2 w-fit py-2">Submit</button>
+  <button type="submit" className="border-2 px-2 w-fit py-2">Submit</button>
   </div>
 </div>
 </form>

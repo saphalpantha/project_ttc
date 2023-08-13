@@ -241,7 +241,7 @@ return (
         <div className={`w-[${image.width}] h-full`}>
         <img 
             
-          src={image.src}
+          src={`${(index === 1 || index == 3 ) ? image.src : `/images/gallary/${image.src}`}`}
           alt={`Image ${index + 1}`}
           className=" object-center  object-cover hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
           />

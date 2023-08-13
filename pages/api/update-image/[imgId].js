@@ -71,7 +71,8 @@ const handler = async (req, res) => {
   if(req.method === 'POST'){
     const id = req.query.imgId;
     console.log('this is imgID', id);
-
+    console.log(filesDir,'this is file dir');
+    console.log(imageField, 'this is img dir')
     // try{
     //     await fs.readdir(path.join(process.cwd() + "/public", "/images", "/gallary"));
     //   }
