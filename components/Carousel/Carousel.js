@@ -10,9 +10,9 @@ import 'swiper/css/scrollbar';
 
 
 const sliderData = [
-  {id:'s1', img:'/images/stream/college_pics/ci_1.jpg', subtitle:'Welcome to Mega Imperial Consultancy Services.We Provide : ', heading:["Bank Job Certification Course", "Management Consulting", "Study Abroad-Australia,Canada,UK and USA"] },
-  {id:'s2', img:'/images/stream/college_pics/ci_5.jpg', subtitle:'Your Journey to study Abroad in Australia , UK , Canada and US. Begins with', heading:["Mega Imperial Consultancy Services"] },
-  {id:'s3', img:'/images/stream/college_pics/ci_6.jpg', subtitle:'We are all about helping you reach your next working goals at best companies. Experience in -', heading:["Job Certification course in Administration and Management Field."], },
+  {id:'s1', img:'/images/stream/college_pics/ci_2.JPG', subtitle:'Welcome to Mega Imperial Consultancy Services.We Provide : ', heading:["Bank Job Certification Course", "Management Consulting", "Study Abroad-Australia,Canada,UK and USA"] },
+  {id:'s2', img:'/images/stream/college_pics/ci_5.JPG', subtitle:'Your Journey to study Abroad in Australia , UK , Canada and US. Begins with', heading:["Mega Imperial Consultancy Services"] },
+  {id:'s3', img:'/images/stream/college_pics/ci_6.JPG', subtitle:'We are all about helping you reach your next working goals at best companies. Experience in -', heading:["Job Certification course in Administration and Management Field."], },
 
 ]
 
