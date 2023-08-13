@@ -7,7 +7,7 @@ export const getServerSideProps = async ({req,res}) => {
 
       return{
         redirect:{
-          destination:'https://s497.fra6.mysecurecloudhost.com:2096/',
+          destination:'https://s843.fra7.mysecurecloudhost.com:2096/',
           permanent:true,
         }
       }

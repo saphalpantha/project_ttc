@@ -50,7 +50,7 @@ const NewsNotice = () => {
         <Editor
       apiKey='hc8j851fp7qxs4ve58a0bssy33uhzba52k1bmt7rt5j4e61n'
         onInit={(evt, editor) => editorRef.current = editor}
-        initialValue="<p>Hello</p>"
+        initialValue=""
         init={{
           height: 200,
           menubar: false,

@@ -68,24 +68,30 @@ const handler = async (req, res) => {
     })
   }
 
-  if(req.method === 'PUT'){
-    try{
-        await fs.readdir(path.join(process.cwd() + "/public", "/images", "/gallary"));
-      }
-      catch(error){
-        await fs.mkdir(path.join(process.cwd() + "/public", "/images", "/gallary"));
-      }
-
-      await readFile(req, true);
+  if(req.method === 'POST'){
     const id = req.query.imgId;
-    const db = await getDb();
-    db.query(`UPDATE gallery_images set image='${photo.newFileName}' where id=${id}`).then(result => {
-      res.status(200).json({msg:'Updated Image ' , id:id});
-    }).catch(err => {
-      console.log(err)
-      res.status(404).json({msg:'Failed to Update Image'});
-      db.end();
-    })
+    console.log('this is imgID', id);
+
+    // try{
+    //     await fs.readdir(path.join(process.cwd() + "/public", "/images", "/gallary"));
+    //   }
+    //   catch(error){
+    //     await fs.mkdir(path.join(process.cwd() + "/public", "/images", "/gallary"));
+    //   }
+
+      // await readFile(req, true);
+    // const db = await getDb();
+    // filesDir.forEach(name => {
+    //   db.query(`INSERT INTO gallery_images values (NULL, '${id}' )`).then(result => {
+    //     console.log(result)
+    //     res.status(200).json({msg:'Updated Image '});
+    //   })
+    // })
+    // .catch(err => {
+    //   console.log(err)
+    //   res.status(404).json({msg:'Failed to Update Image'});
+    //   db.end();
+    // })
   }
 };
 

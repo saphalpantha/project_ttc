@@ -8,16 +8,18 @@ import Preloader from "../../UI/Preloader";
 const EditAlbum = () => {
   const [albums, setAlbums] = useState([]);
   const [selectedAlbum, setSelectedAlbum] = useState([]);
-  const [photo, setPhoto] = useState();
+  const [photos, setPhotos] = useState();
   const [load, setLoad] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
+  const [fixedAlbumState, setFixedAlbumState] = useState([]);
 
   useEffect(() => {
     fetch("/api/getall-album")
       .then((result) => result.json())
       .then((data) => {
         setAlbums(data.msg);
+        setFixedAlbumState(data.msg);
       })
       .catch((err) => {});
   }, [1]);
@@ -73,39 +75,42 @@ const EditAlbum = () => {
 
   const handleSubmit = async () => {
     e.preventDefault();
-    console.log(selectedItem,'this is seleted')
     const formData = new FormData();
-    formData.append("photo", photo);
-    formData.append('id', selectedItem.id)
+    
+    [...photos].map((file) => {
+      formData.append(file.name, file);
+    });
+
+    
 
 
-    // try {
-    //   await axios
-    //     .post(`/api/update-image`, formData, {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //       },
-    //     })
-    //     .then((response) => {
-    //       alert(response.data.msg);
-    //       console.log(response);
-    //     })
-    //     .catch((err) => {
-    //       console.log("");
-    //     });
-    // } catch (err) {
-    //   console.log(err);
-    // }
+
+    try {
+      await axios
+        .post(`/api/update-image/${fixedAlbumState.id}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          alert(response.data.msg);
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log("");
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const backHandler = () => {
     setSelectedAlbum([]);
   };
   
-  const singleImageEditHandler = (item, indx) => {
+  const singleImageEditHandler = () => {
     setIsOpen(true);
-    setSelectedItem(item)
-    const id = item.id;
+    // console.log(fixedAlbumState,'state album')
   };
 
   const gallary = <div>
@@ -141,12 +146,13 @@ const EditAlbum = () => {
                   >
                     Open
                   </td>
-                  <td
+                  <button
+                    disabled={selectedAlbum.length<=6}
                     onClick={() => singleAlbumDeleteHandler(i, indx)}
-                    className="text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white"
+                    className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
                   >
                     Delete
-                  </td>
+                  </button>
                 </tr>
               ) : (
                 <Preloader />
@@ -157,21 +163,26 @@ const EditAlbum = () => {
       </tbody>
     </table>
   ) : (
-    <table className="px-[1rem] border-2 py-[5rem]">
+    <table className="px-[1rem] flex-col border-2 py-[5rem]">
       <tbody className="flex flex-col px-[3rem] py-[5rem]">
+        <div className="flex justify-between items-center justify-center">
+
         <span
           onClick={backHandler}
           className="font-bold text-white bg-[#201F54] w-fit px-5 cursor-pointer py-2 rounded-full"
-        >
+          >
           Back{" "}
         </span>
+        <div onClick={() => singleImageEditHandler()}  className="border-[#201F54] text-[#201F54] border-[2px] px-4 py-2 rounded-full hover:bg-[#201F54] hover:text-white cursor-pointer">
+          Add  Photos
+        </div>
+          </div>
         <span className="font-bold text-xl py-2">
           {selectedAlbum[0].album_name}
         </span>
         <tr className="flex gap-[10rem] py-5">
           <th>S.N</th>
           <th>Images</th>
-          <th>Change</th>
           <th>Delete</th>
         </tr>
         {selectedAlbum.length <= 0 && (
@@ -189,18 +200,12 @@ const EditAlbum = () => {
                     src={`/images/gallary/${i.image}`}
                   />
                 </td>
-                <td
-                  onClick={() => singleImageEditHandler(i, indx)}
-                  className="px-2 rounded-full bg-[#201F54] w-fit h-[2.5rem] flex justify-center items-center my-10 py-1 text-center text-white cursor-pointer"
-                >
-                  Update
-                </td>
-                <td
+                <button
                   onClick={() => singleImageDeleteHandler(i, indx)}
                   className="text-justify cursor-pointer px-3  my-10 rounded-full bg-red-500 h-[2rem] text-white"
                 >
                   Delete
-                </td>
+                </button>
               </tr>
             </Fragment>
           );
@@ -211,12 +216,13 @@ const EditAlbum = () => {
 </div>
 
 const updateForm =<form
+encType="multipart/form-data" 
 onSubmit={handleSubmit}
 className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-center items-center h-[10rem] w-1/2 mx-auto"
 >
 <div className=" flex flex-col gap-5 ">
-  <label className="flex-start">Choose New Image</label>
-  <input type="file"></input>
+  <label className="flex-start">Choose New Images</label>
+  <input multiple onChange={(e) => setPhotos(e.target.files)} type="file"></input>
   <div className="flex gap-10">
 
   <button onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
