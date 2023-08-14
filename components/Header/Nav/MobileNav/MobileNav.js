@@ -1,0 +1,262 @@
+import React from "react";
+import Logo from "../../../Logo/Logo";
+import NavModel from "../NavModel";
+import { Fragment } from "react";
+import { useState } from "react";
+import Backdrop from "../../../UI/Nav/Backdrop";
+import Link from "next/link";
+
+import ScrollLayout from '../../../UI/ScrollLayout'
+
+const MobileNav = () => {
+
+  const aboutData = [
+    { id: "i1", name: "About Tilottama", link: "/about" },
+    { id: "i2", name: "Board Members", link: "/about" },
+    { id: "i3", name: "Faculty & Staffs", link: "/about" },
+  ];
+  const resultData = [
+    {
+      id: "i1",
+      name: "Internal Exam Result",
+      link: "/results/internal-result",
+    },
+    { id: "i2", name: "NEB Grade XI Result", link: "/results/grade11-result" },
+    { id: "i2", name: "NEB Grade XII Result", link: "/results/" },
+    { id: "i3", name: "Entrance Exam Result", link: "/entrance-results/" },
+  ];
+
+  const othersData = [
+    { id: "i1", name: "Preparation Materials", link: "/preparation-material" },
+  ];
+
+  const courseData = [
+    {
+      id: "i1",
+      title: "Science",
+      items: [
+        {
+          id: "s1",
+          link: "/courses/science/introduction",
+          subtitle: "Introduction",
+        },
+        {
+          id: "s2",
+          link: "/courses/science/admission",
+          subtitle: "Admission Procedure",
+        },
+        { id: "s3", link: "", subtitle: "Scholarship and Fee Structure" },
+        {
+          id: "s4",
+          link: "/courses/science/#faculty_science",
+          subtitle: "Faculty Members",
+        },
+      ],
+    },
+    {
+      id: "i2",
+      title: "Management",
+      items: [
+        {
+          id: "m1",
+          link: "/courses/management/introduction",
+          subtitle: "Introduction",
+        },
+        {
+          id: "m2",
+          link: "/courses/management/admission",
+          subtitle: "Admission Procedure",
+        },
+        { id: "m3", link: "", subtitle: "Scholarship and Fee Structure" },
+        {
+          id: "m4",
+          link: "/courses/management/#faculty_science",
+          subtitle: "Faculty Members",
+        },
+      ],
+    },
+    {
+      id: "i3",
+      title: "BBA",
+      items: [
+        {
+          id: "b1",
+          link: "/courses/bba/introduction",
+          subtitle: "Introduction",
+        },
+        {
+          id: "b2",
+          link: "/courses/bba/admission",
+          subtitle: "Admission Procedure",
+        },
+        { id: "b3", link: "", subtitle: "Scholarship and Fee Structure" },
+        {
+          id: "b4",
+          link: "/courses/bba/#faculty_science",
+          subtitle: "Faculty Members",
+        },
+      ],
+    },
+  ];
+
+  const [about, setAbout] = useState([]);
+  const [course, setCourse] = useState([]);
+  const [result, setResult] = useState([]);
+  const [others, setOthers] = useState([]);
+  const [active, setActive] = useState({});
+  const [modelIsActive, setModelIsActive] = useState(false);
+  const [activeCourse, setActiveCourse] = useState({});
+  const aboutHandler = () => {
+    setAbout(aboutData);
+    setActive({ id: "about", data: aboutData });
+    setCourse([]);
+    setOthers([]);
+    setResult([]);
+  };
+  const courseHandler = () => {
+    setCourse(courseData);
+    setActiveCourse({});
+    setActive({ id: "course", data: courseData });
+    setAbout([]);
+    setOthers([]);
+    setResult([]);
+  };
+  const resultHandler = () => {
+    setResult(resultData);
+    setActive({ id: "result", data: resultData });
+    setCourse([]);
+    setAbout([]);
+    setOthers([]);
+  };
+  const othersHandler = () => {
+    setOthers(othersData);
+    setActive({ id: "others", data: othersData });
+    setResult([]);
+    setCourse([]);
+    setAbout([]);
+  };
+
+  return (
+    <Fragment>
+        {modelIsActive && <Backdrop onClick={() => setModelIsActive(false)}/>}
+        <h1 onClick={() => setModelIsActive(prev => !prev)} className=" text-xl flex md:hidden z-[2000] cursor-pointer absolute right-[1rem] top-[1rem] text-white">{modelIsActive ? 'Close' : 'Open'}</h1>
+        {
+            modelIsActive && 
+            <NavModel>
+        <div className="flex flex md:hidden w-[50vw] right-0  fixed  min-h-screen  text-white bg-slate-900 z-[1000] flex-col gap-4">
+          <div className="pt-[7rem]">
+            {Object.keys(active).length <= 0 ? (
+                <ScrollLayout duration={0.4} x={150} y={-10} >
+
+              <ul className="flex   font-bold justify-center pl-[2rem]  gap-3 flex-col">
+                {<Link onClick={() => setModelIsActive(false)} href="/"><li className="cursor-pointer pl-[1rem] text-left">Home</li></Link>}
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                <li
+                  onClick={aboutHandler}
+                  className="cursor-pointer pl-[1rem] text-left"
+                  >
+                  About ^ 
+                </li>
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+               {<Link onClick={() => setModelIsActive(false)} href={"/admissions"}> <li className="cursor-pointer pl-[1rem] text-left">
+                  Admission
+                </li> </Link>}
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                <li
+                  onClick={courseHandler}
+                  className="cursor-pointer pl-[1rem] text-left"
+                  >
+                  Courses ^
+                </li>
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                <li
+                  onClick={resultHandler}
+                  className="cursor-pointer pl-[1rem] text-left"
+                  >
+                  Result ^
+                </li>
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                {<Link onClick={() => setModelIsActive(false)} href={"/newsnotice"}><li className="cursor-pointer pl-[1rem] text-left">Notice</li> </Link>}
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+               { <Link onClick={() => setModelIsActive(false)} href={"/gallery"}> <li className="cursor-pointer pl-[1rem] text-left">Gallery</li> </Link>}
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                <li
+                  onClick={othersHandler}
+                  className="cursor-pointer pl-[1rem] text-left"
+                  >
+                  Others ^
+                </li>
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+              </ul>
+                  </ScrollLayout>
+            ) : (
+                <ul className="flex  font-bold justify-center pl-[2rem] pt-[0rem]  gap-14 flex-col">
+                <h1 onClick={() => {
+                    Object.keys(activeCourse).length > 0 ? setActiveCourse({}) : setActive({})
+                }} className="cursor-pointer">
+                  back
+                </h1>
+                <div className="flex flex-col gap-10">
+                  {active.id != "course" &&
+                    active.data?.map((i) => {
+                        {
+                      }
+                      return (
+                          <div>
+                            <Link onClick={() => setModelIsActive(false)} href={`${i.link}`}>
+                              <ScrollLayout duration={0.4} x={150} y={0} >
+                          <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
+                            {i.name}
+                          </li>
+                    </ScrollLayout>
+                            </Link>
+                          <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
+                        </div>
+                      );
+                    })}
+
+                  {Object.keys(activeCourse).length <= 0 &&
+                    active.id === "course" &&
+                    active.data.map((i) => {
+                      return (
+                          <div key={i.id}>
+                             <ScrollLayout duration={0.4} x={150} y={0} >
+
+                          <li
+                            onClick={() => setActiveCourse(i)}
+                            className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left"
+                            >
+                            {`${i.title }  ^`}
+                          </li>
+                              </ScrollLayout>
+                          <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
+                        </div>
+                      );
+                    })}
+                  {Object.keys(activeCourse).length > 0 &&
+                    active.id === "course" &&
+                    activeCourse.items.map((i) => {
+                      return (
+                          <div key={i.id}>
+                             <ScrollLayout duration={0.4} x={150} y={0} >
+
+  {               <Link onClick={() => setModelIsActive(false)} href={`${i.link}`}>      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
+                            {i.subtitle}
+                          </li> </Link> }
+                             </ScrollLayout>
+                          <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
+                        </div>
+                      );
+                    })}
+                </div>
+              </ul>
+            )}
+          </div>
+        </div>
+      </NavModel>
+}
+    </Fragment>
+  );
+};
+
+export default MobileNav;

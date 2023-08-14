@@ -1,7 +1,10 @@
 import React from 'react'
-import Navbar from './Nav/NavBar'
+// import Navbar from './Nav/NavBar'
 import Container from '../Container/Container'
 import Link from 'next/link'
+import NavDesktop from './Nav/NavDesktop'
+import MobileNav from './Nav/MobileNav/MobileNav'
+// import NavLinks from './Nav/NavLinks'
 
 // const Header = () => {  
 //   return ( 
@@ -40,10 +43,13 @@ const Header = () => {
     // <Container>
     <div className='relative max-w-6xl z-[1000] md:max-w-full text-center flex flex-col space-y-3  '>
        <div className='w-full bg-[#201F54] h-5'></div>
-        <div className=' absolute top-[-10%] z-[100] right-[50%]  translate-x-[50%] md:translate-x-0  md:right-[2.4rem] bg-[#FF9900] w-[200px] h-[64px] rounded-b-[15px]  md:block'>
+        <div className=' absolute top-[-10%] z-[1] right-[50%]  translate-x-[50%] md:translate-x-0  md:right-[2.4rem] bg-[#FF9900] w-[200px] h-[64px] rounded-b-[15px]  md:block'>
            <Link href="/admissions"> <h1 className='font-bold tracking-wider text-xl mx-auto mt-3 text-white  '>Admission Open</h1></Link>
         </div>
-            <Navbar/>
+            {/* <Navbar/> */}
+            {/* <NavLinks/> */}
+            <MobileNav/>
+            <NavDesktop/>
     </div>
     // </Container>
   )

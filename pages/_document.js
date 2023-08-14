@@ -5,6 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <div id="spotlight"></div>
+      <div id="mobilenav"></div>
+      <div id="navmodel"></div>
       <body>
         <Main />
         <NextScript />
