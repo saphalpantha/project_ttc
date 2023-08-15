@@ -24,9 +24,6 @@ jobs:
       - name: Build Next.js App
         run: npm run build
 
-      - name: List Files in Build Directory (for debugging)
-        run: ls -la build
-
       - name: Add EC2 Host Key to Known Hosts
         run: |
           mkdir -p ~/.ssh
@@ -34,4 +31,4 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r build ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com:~/path-to-deployment-folder/
+          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com:~/.ssh/id_rsa
