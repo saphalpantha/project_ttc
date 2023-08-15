@@ -26,5 +26,5 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -i "tito.pem" ubuntu@ec2-3-110-102-69.ap-south-1.compute.amazonaws.com
+        ssh -i "titolama.pem" ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com
 
