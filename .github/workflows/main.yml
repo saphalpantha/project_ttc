@@ -26,5 +26,5 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -i "titolama.pem" ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com
+        ssh -i "~/.ssh/id_rsa" ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com
 
