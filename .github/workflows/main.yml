@@ -31,4 +31,4 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r build ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com:/project_ttc
+          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com:/project_ttc
