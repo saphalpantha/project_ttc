@@ -1,4 +1,4 @@
-name: tilottama
+name: Deploy to EC2
 
 on:
   push:
@@ -6,30 +6,32 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build Next.js app
-      run: npm run build
-      
-    - name: Add EC2 Host Key to Known Hosts
-      run: |
+      - name: Build Next.js App
+        run: npm run build
+
+      - name: List Files in Build Directory (for debugging)
+        run: ls -la build
+
+      - name: Add EC2 Host Key to Known Hosts
+        run: |
           mkdir -p ~/.ssh
           ssh-keyscan -H ec2-65-0-102-176.ap-south-1.compute.amazonaws.com >> ~/.ssh/known_hosts
 
-    - name: Deploy to EC2
-      run: |
-          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r build ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com
-
+      - name: Deploy to EC2
+        run: |
+          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r build ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com:~/path-to-deployment-folder/
