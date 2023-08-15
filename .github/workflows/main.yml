@@ -23,8 +23,13 @@ jobs:
 
     - name: Build Next.js app
       run: npm run build
+      
+    - name: Add EC2 Host Key to Known Hosts
+      run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ec2-65-0-102-176.ap-south-1.compute.amazonaws.com >> ~/.ssh/known_hosts
 
     - name: Deploy to EC2
       run: |
-        ssh -i "../ubuntu/~/.ssh/id_rsa" ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com
+          scp -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} -r build ubuntu@ec2-65-0-102-176.ap-south-1.compute.amazonaws.com
 
