@@ -12,7 +12,7 @@ const AdmissionForm = () => {
   const [marksheet, setMarksheet] = useState(null);
   const [tc, setTC] = useState(null);
   const [cc, setCC] = useState(null);
-  
+  const [loading,setLoading] = useState(false)
 
   const initialValues = {
     faculty: "",
@@ -61,6 +61,7 @@ const AdmissionForm = () => {
 
 
   const submitHandler = async (formD) => {
+    setLoading(true)
     formD.hobby.push(formD.others);
     const hobbies_string = formD.hobby.join(" ");
     const formData = new FormData();
@@ -77,9 +78,10 @@ const AdmissionForm = () => {
           "Content-Type": "multipart/form-data",
         },
       }); 
-
+      setLoading(false)
       alert('Form Submission SucessFully');
     } catch (err) {
+      setLoading(false)
       alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
       
     }
@@ -881,9 +883,10 @@ const AdmissionForm = () => {
         <div className="w-[90%] flex py-5 flex-col justify-center items-center">
           <button
             type="submit"
+            disabled={loading}
             className="py-3  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
           >
-            Submit
+            {loading ? 'Submitting' : 'Submit'}
           </button>
         </div>
       </form>

@@ -9,7 +9,9 @@ const NewsNotice = () => {
   const [image,setImage] = useState()
   const [heading, setHeading] = useState();
   const editorRef = useRef(null);
+  const [loading,setLoading] = useState(false);
   const submitHandler = async (formD) => {
+    setLoading(true);
     const formData = new FormData();
     formData.append('heading', heading)
     formData.append("desc", editorRef.current.getContent());
@@ -22,11 +24,13 @@ const NewsNotice = () => {
         },
         
       }); 
+      setLoading(false)
       setDummy(response.data)
 
 
       alert('Form Submission SucessFully');
     } catch (err) {
+      setLoading(false)
       alert('Form Submission SucessFully123');
       // console.log(err);
       // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
@@ -71,7 +75,7 @@ const NewsNotice = () => {
         <label>Upload Image</label>
         <input  onChange={(e) => setImage(e.target.files[0])} className='border-2 py-2 pl-5' type='file'></input>
         <div className='flex flex-col justify-center items-center'>
-        <button  type='submit' className='border-2 px-6 py-2 w-fit'>Submit</button>
+        <button  disabled={loading} type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>
 

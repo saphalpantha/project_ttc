@@ -36,7 +36,7 @@ const Stream = () => {
                      {streamData?.map(i => (<li className={ `text-center cursor-pointer   w-full p-5 md:p-7 md:text-xl  text-2xs  ${activeItem === i.id ? 'bg-[#201F54] text-white' : 'bg-white '}`} onClick={() => linkClickHandler(i)} >{i.link}</li>))}
                     </ul>
                  </div>
-                 <div className={` overflow-hidden ${(activeItem === 's1' && open == false  ) ?  'hidden' :''} md:flex relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full   flex-col text-white h-full gap-y-5`}>
+                 <div className={` overflow-hidden  md:flex relative bg-[#201F54]  p-[2rem] py-[4rem] md:p-[2rem] h-full   flex-col text-white h-full gap-y-5`}>
                     <ScrollLayout duration={0.6} x={-230}>
                     <h1 className='text-2xs md:text-2xl  font-bold'>{updatedItem.title}</h1>
                     </ScrollLayout>

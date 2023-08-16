@@ -13,6 +13,7 @@ const Gallary = () => {
   const [files,setFiles] = useState([]);
   const [name,setName] = useState();
   const [cover,setCover] = useState();
+  const [loading,setLoading] = useState(false);
 
 
   const handleFile = (e) => {
@@ -31,16 +32,19 @@ const Gallary = () => {
     });
 
     try {
+      setLoading(true)
       await axios.post(`/api/gallary/1`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         }
         
       }).then((response)=>{
+        setLoading(false)
         alert(response.data.msg);
         alert(response.data.data.insertId);
         console.log(response);
       }).catch((err) => {
+        setLoading(false)
         console.log("");
       }); 
       // console.log(response);
@@ -48,6 +52,7 @@ const Gallary = () => {
       // alert(response.data.id);
       // alert('Form Submission SucessFully');
     } catch (err) {
+      setLoading(false)
       alert('Form not submitted');
       console.log("err");
       console.log(err);
@@ -79,7 +84,7 @@ const Gallary = () => {
         <label>Upload Images</label>
         <input  onChange={handleFile } className='border-2 py-2 pl-5' multiple type='file'></input>
         <div className='flex flex-col justify-center items-center'>
-        <button  type='submit' className='border-2 px-6 py-2 w-fit'>Submit</button>
+        <button disabled={loading}  type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>}
 

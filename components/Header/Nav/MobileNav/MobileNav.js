@@ -5,10 +5,12 @@ import { Fragment } from "react";
 import { useState } from "react";
 import Backdrop from "../../../UI/Nav/Backdrop";
 import Link from "next/link";
-
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ScrollLayout from '../../../UI/ScrollLayout'
-
-const MobileNav = () => {
+import ClearIcon from '@mui/icons-material/Clear';
+import MenuIcon from '@mui/icons-material/Menu';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+const MobileNav = ({isOpen,setIsOpen}) => {
 
   const aboutData = [
     { id: "i1", name: "About Tilottama", link: "/about" },
@@ -104,7 +106,6 @@ const MobileNav = () => {
   const [result, setResult] = useState([]);
   const [others, setOthers] = useState([]);
   const [active, setActive] = useState({});
-  const [modelIsActive, setModelIsActive] = useState(false);
   const [activeCourse, setActiveCourse] = useState({});
   const aboutHandler = () => {
     setAbout(aboutData);
@@ -138,27 +139,28 @@ const MobileNav = () => {
 
   return (
     <Fragment>
-        {modelIsActive && <Backdrop onClick={() => setModelIsActive(false)}/>}
-        <h1 onClick={() => setModelIsActive(prev => !prev)} className=" text-xl flex md:hidden z-[2000] cursor-pointer absolute right-[1rem] top-[1rem] text-white">{modelIsActive ? 'Close' : 'Open'}</h1>
+
+        {isOpen && <Backdrop/>}
         {
-            modelIsActive && 
-            <NavModel>
-        <div className="flex flex md:hidden w-[50vw] right-0  fixed  min-h-screen  text-white bg-slate-900 z-[1000] flex-col gap-4">
+            isOpen && 
+            <NavModel onClick={() => setIsOpen(false)}>
+        <div className="flex flex md:hidden w-[60vw] right-0  fixed  min-h-screen  text-white bg-[#292828] z-[1000] flex-col gap-4">
+            <h1 onClick={() => setIsOpen(false)} className="cursor-pointer absolute right-[2rem] top-[2rem]"><ClearIcon/></h1>
           <div className="pt-[7rem]">
             {Object.keys(active).length <= 0 ? (
-                <ScrollLayout duration={0.4} x={150} y={-10} >
+              <ScrollLayout duration={0.4} x={150} y={-10} >
 
               <ul className="flex   font-bold justify-center pl-[2rem]  gap-3 flex-col">
-                {<Link onClick={() => setModelIsActive(false)} href="/"><li className="cursor-pointer pl-[1rem] text-left">Home</li></Link>}
+                {<Link onClick={() => setIsOpen(false)} href="/"><li className="cursor-pointer pl-[1rem] text-left">Home</li></Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={aboutHandler}
                   className="cursor-pointer pl-[1rem] text-left"
                   >
-                  About ^ 
+                  About <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-               {<Link onClick={() => setModelIsActive(false)} href={"/admissions"}> <li className="cursor-pointer pl-[1rem] text-left">
+               {<Link onClick={() => setIsOpen(false)} href={"/admissions"}> <li className="cursor-pointer pl-[1rem] text-left">
                   Admission
                 </li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
@@ -166,25 +168,25 @@ const MobileNav = () => {
                   onClick={courseHandler}
                   className="cursor-pointer pl-[1rem] text-left"
                   >
-                  Courses ^
+                  Courses <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={resultHandler}
                   className="cursor-pointer pl-[1rem] text-left"
                   >
-                  Result ^
+                  Result <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-                {<Link onClick={() => setModelIsActive(false)} href={"/newsnotice"}><li className="cursor-pointer pl-[1rem] text-left">Notice</li> </Link>}
+                {<Link onClick={() => setIsOpen(false)} href={"/newsnotice"}><li className="cursor-pointer pl-[1rem] text-left">Notice</li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-               { <Link onClick={() => setModelIsActive(false)} href={"/gallery"}> <li className="cursor-pointer pl-[1rem] text-left">Gallery</li> </Link>}
+               { <Link onClick={() => setIsOpen(false)} href={"/gallery"}> <li className="cursor-pointer pl-[1rem] text-left">Gallery</li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={othersHandler}
                   className="cursor-pointer pl-[1rem] text-left"
                   >
-                  Others ^
+                  Others <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
               </ul>
@@ -194,7 +196,7 @@ const MobileNav = () => {
                 <h1 onClick={() => {
                     Object.keys(activeCourse).length > 0 ? setActiveCourse({}) : setActive({})
                 }} className="cursor-pointer">
-                  back
+                  <KeyboardBackspaceIcon/>
                 </h1>
                 <div className="flex flex-col gap-10">
                   {active.id != "course" &&
@@ -203,7 +205,7 @@ const MobileNav = () => {
                       }
                       return (
                           <div>
-                            <Link onClick={() => setModelIsActive(false)} href={`${i.link}`}>
+                            <Link onClick={() => setIsOpen(false)} href={`${i.link}`}>
                               <ScrollLayout duration={0.4} x={150} y={0} >
                           <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
                             {i.name}
@@ -226,7 +228,7 @@ const MobileNav = () => {
                             onClick={() => setActiveCourse(i)}
                             className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left"
                             >
-                            {`${i.title }  ^`}
+                            {`${i.title }`} <ArrowRightAltIcon/>
                           </li>
                               </ScrollLayout>
                           <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
@@ -240,7 +242,7 @@ const MobileNav = () => {
                           <div key={i.id}>
                              <ScrollLayout duration={0.4} x={150} y={0} >
 
-  {               <Link onClick={() => setModelIsActive(false)} href={`${i.link}`}>      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
+  {               <Link onClick={() => setIsOpen(false)} href={`${i.link}`}>      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
                             {i.subtitle}
                           </li> </Link> }
                              </ScrollLayout>

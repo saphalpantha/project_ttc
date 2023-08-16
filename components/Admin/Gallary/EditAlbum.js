@@ -13,7 +13,7 @@ const EditAlbum = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
   const [fixedAlbumState, setFixedAlbumState] = useState([]);
-
+  const [loading,setLoading] = useState(false)
   useEffect(() => {
     fetch("/api/getall-album")
       .then((result) => result.json())
@@ -86,6 +86,7 @@ const EditAlbum = () => {
 
 
     try {
+      setLoading(true)
       await axios
         .post(`/api/update-image/${fixedAlbumState.id}/`, {
           headers: {
@@ -94,12 +95,14 @@ const EditAlbum = () => {
         })
         .then((response) => {
           alert(response.data.msg);
-          console.log(response);
+          setLoading(false)
         })
         .catch((err) => {
+          setLoading(false)
           console.log("");
         });
     } catch (err) {
+      setLoading(false)
       console.log(err);
     }
   };
@@ -226,7 +229,7 @@ className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-cent
   <div className="flex gap-10">
 
   <button onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
-  <button type="submit" className="border-2 px-2 w-fit py-2">Submit</button>
+  <button disabled={loading} type="submit" className="border-2 px-2 w-fit py-2">{loading ? 'Submitting' : 'Submit'}</button>
   </div>
 </div>
 </form>

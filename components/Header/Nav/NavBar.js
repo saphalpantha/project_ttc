@@ -143,7 +143,7 @@ export function DropdownMenu({ title, links }) {
       </button>
       {isOpen && (
         <div
-          className={`relative min-h-screen md:min-h-0 shadow-none md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}
+          className={`relative hidden min-h-screen md:min-h-0 shadow-none md:shadow-md md:absolute dropdown md:flex border-t-4 border-blue-800 ${styles.dropdown}`}
         >
           {links.map((link, index) => (
             <div

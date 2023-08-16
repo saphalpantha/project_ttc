@@ -63,7 +63,7 @@ const Login = () => {
                     <label className='text-xl text-[#201F54]'>Password</label>
                     <input onChange={(e) => setPassword(e.target.value)} type='password' className='w-[20rem] pl-[1rem] h-[2.7rem] border-2 rounded-xl border-[#201F54]'></input>
                 </div>
-                <button className='bg-[#201F54] hover:bg-[#FF9900] transition-all duration-150 w-[40%] text-center  text-white font-bold uppercase py-3 px-10 rounded-full'>Login</button>
+                <button  className='bg-[#201F54] hover:bg-[#FF9900] transition-all duration-150 w-[40%] text-center  text-white font-bold uppercase py-3 px-10 rounded-full'>Login</button>
             </form>
         </div>
         </div>

@@ -6,9 +6,11 @@ const ChangePassword = () => {
   const [old,setOld] = useState('');
   const [newpass,setNewPass] = useState('');
 const [email, setEmail] = useState('');
+const [loading,setLoading] = useState(false)
 
   const submitHandler = async (e) => {
     e.preventDefault()
+    setLoading(true)
     try {
       const response = await fetch("/api/user", {
           method:'PUT',
@@ -19,10 +21,12 @@ const [email, setEmail] = useState('');
         
       })
       const res_data = await response.json()
+      setLoading(false)
     if(response.ok){
         alert(`${res_data.msg}`)
     }
     } catch (err) {
+      setLoading(false)
         alert('Failed to add user');
       console.log(err);
       
@@ -48,7 +52,7 @@ const [email, setEmail] = useState('');
         <input  onChange={(e) => setNewPass(e.target.value)} className='border-2 ' type='password'></input>
         </div>
         <div className='flex flex-col justify-center items-center'>
-        <button  className='border-2 px-6 py-2 w-fit'>Submit</button>
+        <button  disabled={loading} className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>
 </div>

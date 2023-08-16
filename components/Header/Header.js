@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import Navbar from './Nav/NavBar'
 import Container from '../Container/Container'
 import Link from 'next/link'
 import NavDesktop from './Nav/NavDesktop'
 import MobileNav from './Nav/MobileNav/MobileNav'
+import Logo from '../Logo/Logo'
+import MenuIcon from '@mui/icons-material/Menu';
 // import NavLinks from './Nav/NavLinks'
 
 // const Header = () => {  
@@ -39,6 +41,7 @@ import MobileNav from './Nav/MobileNav/MobileNav'
 
 
 const Header = () => {  
+  const [isOpen, setIsOpen] = useState(false)
   return ( 
     // <Container>
     <div className='relative max-w-6xl z-[1000] md:max-w-full text-center flex flex-col space-y-3  '>
@@ -48,7 +51,16 @@ const Header = () => {
         </div>
             {/* <Navbar/> */}
             {/* <NavLinks/> */}
-            <MobileNav/>
+
+            {/* <MobileNav/> */}
+            <div className='bg-white relative flex md:hidden items-center  px-[1rem] h-[7rem] '> 
+                <div className='mt-[1.3rem] mx-auto'>
+
+                <Logo/>
+                <h1 onClick={() => setIsOpen(true)} className='absolute  top-[3rem] right-[1rem] w-[3rem] h-[3rem]'><MenuIcon fontSize='large'  /></h1>
+                </div>
+            </div>
+            <MobileNav isOpen={isOpen} setIsOpen={setIsOpen}/>
             <NavDesktop/>
     </div>
     // </Container>
