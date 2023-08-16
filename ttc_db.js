@@ -22,7 +22,7 @@ export async function connectToDb() {
     return _db
 }
 
-
+ 
 export async function getDb() {
    const db =  await connectToDb();
     return db
