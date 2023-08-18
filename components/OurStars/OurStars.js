@@ -8,7 +8,7 @@ import { Navigation, Pagination, A11y } from 'swiper';
 import { useWindowSize } from 'usehooks-ts';
 import Container from '../Container/Container';
 import classes from './OurStar.module.css'
-import { data } from 'autoprefixer';
+
 
 
 
@@ -17,7 +17,7 @@ export const Star = ({nameofstar, typeofscholarship, img}) => {
   return(
       <div className='w-[200px]  h-[220px] flex flex-col justify-center items-center'>
           <div className='w-[10rem]  h-[10rem] overflow-clip border-2 border-[#FF9900] rounded-full flex justify-center items-center'>
-              <img className='w-[100%] rounded-full h-[100%]' alt="img" src={`/images/stars-uploads/${img}`}></img>
+              <img className='w-[100%] object-cover rounded-full h-[100%]' alt="img" src={`/images/stars-uploads/${img}`}></img>
           </div>
           <span className='text-2xs text-#201F54 tracking-tight'>{nameofstar}</span>
           <span className='font-bold text-2xs text-[#FF9900]'>{`${typeofscholarship}`}</span>
@@ -33,7 +33,7 @@ const OurStars = () => {
       setStarData(data.msg)
       console.log(data,'starsss')
     }).catch(err => console.log(err))
-  },[data])
+  },[])
   const {width} = useWindowSize()
 
   return (

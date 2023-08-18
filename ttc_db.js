@@ -18,8 +18,8 @@ export async function connectToDb() {
     //     multipleStatements: true
     // })
 
-    _db = dbConnect
-    return _db
+    // _db = dbConnect
+    // return _db
 }
 
  

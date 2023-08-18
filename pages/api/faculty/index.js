@@ -1,13 +1,13 @@
 
 
 
-import { getDb } from "../../ttc_db"
+import { getDb } from '../../../ttc_db';
 import fs from 'fs/promises';
 import formidable from "formidable";
 import { NextApiRequest } from "next";
 import path from "path";
 
-let spotlightFields = {};
+let facultyFields = {};
 
 
 export const config = {
@@ -22,7 +22,7 @@ const readFile = (req, saveLocally) => {
 
   };
   if(saveLocally){
-    options.uploadDir = path.join(process.cwd(), "public/images/spotlight-uploads");
+    options.uploadDir = path.join(process.cwd(), "public/images/faculty-uploads");
     options.filename =  (name, ext,path, form) => {
       const fileExt = path.originalFilename.split('.')[1];
       const newfilename = path.originalFilename.slice(0,3) + '.' +  fileExt;
@@ -35,12 +35,12 @@ const readFile = (req, saveLocally) => {
 
     form.on("field", (name, value) => {
       // Add field values to the data object
-      spotlightFields[name] = value;
+      facultyFields[name] = value;
     });
 
     form.on("file", (name, file) => {
       // Add file details to the data object
-      spotlightFields[name] = file;
+      facultyFields[name] = file;
     });
 
     form.on("error", (err) => {
@@ -48,7 +48,7 @@ const readFile = (req, saveLocally) => {
     });
 
     form.on("end", () => {
-      resolve(spotlightFields);
+      resolve(facultyFields);
     });
 
     form.parse(req);
@@ -65,7 +65,7 @@ const handler = async (req,res) => {
         // const {name} = req.query 
         // console.log(name)
         const db = await getDb()
-        db.query('SELECT * FROM spotlight').then(result => {
+        db.query('SELECT * FROM faculty').then(result => {
             res.status(200).json({msg:result[0]})
             db.end();
         }).catch(err => {
@@ -79,33 +79,33 @@ const handler = async (req,res) => {
     } 
     if (req.method === "POST") {
         try{
-          await fs.readdir(path.join(process.cwd() + "/public", "/images", "/spotlight-uploads"));
+          await fs.readdir(path.join(process.cwd() + "/public", "/images", "/faculty-uploads"));
         }
         catch(error){
-          await fs.mkdir(path.join(process.cwd() + "/public", "/images", "/spotlight-uploads"));
+          await fs.mkdir(path.join(process.cwd() + "/public", "/images", "/faculty-uploads"));
         }
     
         await readFile(req, true);
     
       
           const {
-            image
-          } = spotlightFields;
+            name,phoneno,image,dept
+          } = facultyFields;
           
-          console.log('this is api trigeed',spotlightFields)
+          console.log('this is api trigeed',facultyFields)
           const db = await getDb();
         db.query(
-          `INSERT INTO spotlight values (NULL,  '${image.newFilename}')`
+          `INSERT INTO faculty values (NULL, '${name}','${phoneno}', '${image.newFilename}' , '${dept}')`
         )
           .then((result) => {
             return res.status(200).json({ msg: "form submitted successfully", data: result });
           })
           .catch((err) => {
-            console.log(err);   
-           return res.status(400).json({ msg: "form not submitted", errMsg: err });
+            console.log(err);
+            return res.status(400).json({ msg: "form not submitted", errMsg: err });
           });
 
-        res.status(200).json({msg:spotlightFields})
+        res.status(200).json({msg:facultyFields})
     
       }  
 

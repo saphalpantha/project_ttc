@@ -102,21 +102,21 @@ return (
       <nav className=" hidden md:flex py-[0.5rem] relative z-[1000] gap-10 items-center px-[1rem]">
         <Logo></Logo>
         <ul className="flex  gap-12">
-         <Link href={"/"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Home</li></Link>
+         <a href={"/"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Home</li></a>
           <li className="relative cursor-pointer" onClick={aboutHanlder}>
             <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">About</span>
             {(about.length > 0 && active ) && (
               <div className="absolute  border-t-4 border-[#201F54] top-[3.8rem]  left-[-5rem] flex flex-col items-center w-[15rem]  bg-white h-[10rem]">
-                <ul className="flex pt-[1rem] flex-col gap-4">
+               { active && <ul className="flex pt-[1rem] flex-col gap-4">
                   {about.map((i) => (
-                    <Link href={i.link}><li className="hover:bg-gray-200 px-14 py-1">{i.name}</li></Link>
+                    <a href={i.link}><li className="hover:bg-gray-200 px-14 py-1">{i.name}</li></a>
                   ))}
-                </ul>
+                </ul>}
               </div>
             )}
           </li>
 
-         <Link href={"/admissions"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Admission</li> </Link>
+         <a href={"/admissions"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Admission</li> </a>
           <li className="cursor-pointer" onClick={courseHandler}>
             <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Course</span>
 
@@ -134,7 +134,7 @@ return (
                                         <h1 className="font-bold text-[1.1rem]">{od.title}</h1>
                                         <ul className='flex  gap-2 pt-[1rem] flex-col' >
 
-                                            {od.items.map(id => <div className="hover:bg-gray-200 px-14 py-1"><Link  href={id.link}> <li>{id.subtitle}</li></Link> </div>)}
+                                            {od.items.map(id => <div className="hover:bg-gray-200 px-14 py-1"><a  href={id.link}> <li>{id.subtitle}</li></a> </div>)}
                                         </ul>
                                         </div>
                                             )
@@ -164,21 +164,21 @@ return (
               <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] left-[-5rem]  flex flex-col items-center w-[15rem]  bg-white h-[13rem]">
                 <ul className="flex  pt-[1rem] flex-col gap-4">
                   {result.map((i) => (
-                  <Link href={i.link}>  <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li></Link>
+                  <a href={i.link}>  <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li></a>
                   ))}
                 </ul>
               </div>
             )}
           </li>
-        <Link href={"/newsnotice"}>  <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Notice</li> </Link>
-         <Link href={"/gallery"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Gallery</li></Link>
+        <a href={"/newsnotice"}>  <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Notice</li> </a>
+         <a href={"/gallery"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Gallery</li></a>
           <li className=" relative cursor-pointer" onClick={othersHandler}>
             <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Others</span>
             {(others.length > 0 && active) && (
               <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center w-[15rem]  bg-white h-[5rem]">
                 <ul className="flex pt-[1rem] flex-col gap-4">
                   {others.map((i) => (
-                   <Link href={i.link}> <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li> </Link>
+                   <a href={i.link}> <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li> </a>
                   ))}
                 </ul>
               </div>
