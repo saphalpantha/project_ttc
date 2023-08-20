@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {  useFormik } from "formik";
 import { Editor } from '@tinymce/tinymce-react';
 import { useRef } from 'react';
 import axios from 'axios';
+import NewsNoticePageCard from '../../NewsNotice/NewsNoticePageCard';
+import NewsCard from '../../NewsNotice/NewsCard';
 const initialValues = {
 }
 const NewsNotice = () => {
@@ -10,6 +12,12 @@ const NewsNotice = () => {
   const [heading, setHeading] = useState();
   const editorRef = useRef(null);
   const [loading,setLoading] = useState(false);
+  const [allNotice,setAllNotice] = useState([])
+
+  useEffect(() => {
+    fetch('/api/news-notice').then(res => res.json()).then(data => setAllNotice(data.msg)).catch(err => {})
+  },[])
+
   const submitHandler = async (formD) => {
     setLoading(true);
     const formData = new FormData();
@@ -82,7 +90,20 @@ const NewsNotice = () => {
     {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
         
       {/* {console.log(dummy.msg.desc)} */}
+      <section className='min-h-screen grid-cols-2' >
+          {allNotice.map(i => {
+            return(
+              <div className='flex flex-col gap-4' >
+
+                    <img className='w-[10rem] h-[10rem]' src={`/images/notice-uploads/${i.photo}`}></img>
+                    <div>{i.heading}</div>
+
+              </div>
+            )
+          })}
+      </section>
 </div>
+
   )
 }
 

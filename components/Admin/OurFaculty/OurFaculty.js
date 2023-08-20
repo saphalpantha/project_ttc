@@ -70,6 +70,7 @@ const OurFaculty = () => {
             <option>Account</option>
             <option>Nepali</option>
             <option>English</option>
+            <option>Maths</option>
         </select>
         </div>
 
@@ -83,6 +84,14 @@ const OurFaculty = () => {
     {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
         
       {/* {console.log(dummy.msg.desc)} */}
+      <section className='min-h-screen'>
+        <div>
+          {
+
+            // <image src={`/images/faculty-uploads/${}`} className='w-[3rem] h-[3rem]' />
+          }
+        </div>
+      </section>
 </div>
   )
 }

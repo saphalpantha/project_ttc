@@ -1,0 +1,18 @@
+import { Card } from '@mui/material'
+import React from 'react'
+
+const BoardCard = ({isBig, post ,name,id,photo}) => {
+  return (
+    <div className={` bg-transparent 0 ${!isBig ? 'w-[13rem] h-[13rem]' : 'w-[17rem] h-[17rem]'} flex flex-col space-y-1 justify-center items-center shadow-none border-none`} >
+        <div className={`rounded-3xl bg-[#D9D9D9] ${!isBig ? 'w-[199px] h-[199px] p-3' : 'w-[200px] h-[200px] '} `}>
+            <img className='w-[100%] rounded-3xl h-[100%] ' src={`/images/board/${photo}.jpg`} alt="user"></img>
+        </div>
+        <span className="font-bold text-2xs px-[1rem]">{name}</span>
+        <span className="font-bold text-2xs">{post}</span>
+        {/* <span className="font-light text-2xs">{phoneno}</span> */}
+    </div>
+
+  )
+}
+
+export default BoardCard

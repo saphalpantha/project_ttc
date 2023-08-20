@@ -45,8 +45,8 @@ const readFile = (req, saveLocally) => {
 
     form.on("file", async (name, file) => {
       // Add file details to the data object
-      const res = await Storage.put(options.filename, file);
-      console.log(res, options.filename, )
+      // const res = await Storage.put(options.filename, file);
+      // console.log(res, options.filename, )
       noticeFields[name] = file;
     });
 

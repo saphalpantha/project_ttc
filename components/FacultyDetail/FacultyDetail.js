@@ -44,7 +44,8 @@ const FacultyDetail = () => {
     accountDept: [],
     financeDept: [],
     engDept: [],
-    nepDept: []
+    nepDept: [],
+    mathDept:[],
   });
   useEffect( () => {
     const fetchData = async () => {
@@ -62,7 +63,8 @@ const FacultyDetail = () => {
           accountDept: data.filter(i => i.dept === 'Accounts'),
           financeDept: data.filter(i => i.dept === 'Finance'),
           engDept: data.filter(i => i.dept === 'English'),
-          nepDept: data.filter(i => i.dept === 'Nepali')
+          nepDept: data.filter(i => i.dept === 'Nepali'),
+          mathDept: data.filter(i => i.dept === 'Maths')
         });
       }
       catch(err){
@@ -165,6 +167,16 @@ const FacultyDetail = () => {
             </div>
           </div>
 
+          <div className="flex flex-col justify-between space-y-10 ">
+            <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
+              Department of Maths
+            </h1>
+            <div className="grid grid-cols-1   px-4 md:grid-cols-4 justify-between items-center mx-auto gap-20">
+              {deptData.mathDept?.map((i) => (
+              <FacultyCard id={i.id} name={i.name} phoneno={i.phoneno} photo={i.photo}   isBig={false}/>
+              ))}
+            </div>
+          </div>
           <div className="flex flex-col justify-between space-y-10 ">
             <h1 className="text-[#201F54] font-semibold text-2xl pl-[7rem]">
               Department of Nepali

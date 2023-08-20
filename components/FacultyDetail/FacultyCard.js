@@ -10,7 +10,7 @@ const FacultyCard = ({isBig, phoneno ,name,id,photo}) => {
             <img className='w-[100%] rounded-3xl h-[100%] ' src={`/images/faculty-uploads/${photo}`} alt="user"></img>
         </div>
         <span className="font-bold text-2xs">{name}</span>
-        <span className="font-light text-2xs">{phoneno}</span>
+        {/* <span className="font-light text-2xs">{phoneno}</span> */}
     </div>
 
   )
