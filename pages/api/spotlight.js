@@ -62,8 +62,7 @@ const readFile = (req, saveLocally) => {
 const handler = async (req,res) => {
 
     if(req.method === 'GET'){
-        // const {name} = req.query 
-        // console.log(name)
+
         const db = await getDb()
         db.query('SELECT * FROM spotlight').then(result => {
             res.status(200).json({msg:result[0]})
