@@ -9,8 +9,8 @@ import Navbar from "./NavBar";
 import MobileNav from "./MobileNav/MobileNav";
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
-  { id: "i2", name: "Board Members", link: "/about" },
-  { id: "i3", name: "Faculty & Staffs", link: "/about" },
+  { id: "i2", name: "Board Members", link: "/faculty/board" },
+  { id: "i3", name: "Faculty & Staffs", link: "/faculty" },
 ];
 const resultData = [
   { id: "i1", name: "Internal Exam Result", link: "/results/internal-result" },
