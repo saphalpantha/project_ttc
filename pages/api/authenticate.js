@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs'
 import { setCookie, getCookie } from "cookies-next";
 import { getServerSession } from "next-auth";
 
+import jwt from 'jsonwebtoken'
 const handler = async (req,res) => {
     if(req.method === 'POST'){
         const username = req.body.username;
@@ -26,9 +27,10 @@ const handler = async (req,res) => {
             if(!isMatch){
                 res.status(404).json({msg:'Incorrect Password.Please Try Agaim', isAuthenticate:false});
             }            
+
             setCookie('user', true, {req, res,maxAge:60*60*24});
-            res.status(200).json({msg:'Login Successfull !', isAuthenticate:true, user:user});
-            
+            const token = jwt.sign({success:true,email:user[0][0].email},'DqbXbAxbtPkSM5YgiiJtIr58B0QlkaEh', {expiresIn:'1d'})
+            res.status(200).json({msg:'Login Successfull !', isAuthenticate:true, token:token});
         }
         catch(err){
             res.status(404).json({msg:err.message});

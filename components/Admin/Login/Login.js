@@ -34,8 +34,9 @@ const Login = () => {
             alert(data.msg);
         }
         else{
+
             alert(data.msg);
-            localStorage.setItem('isAuth', data.isAuthenticate);
+            localStorage.setItem('isAuth', data.token);
             router.replace('/admin/dashboard');
         }
         

@@ -7,15 +7,24 @@ const NewsCardList = () => {
   const [notice, setNotice] = useState([]);
   useEffect(() => {
     fetch('/api/news-notice/').then(result => result.json()).then(data => {
-      let updatedResult;
-      const newData = data.msg.sort((a,b) => b.id - a.id);
-      updatedResult = [...newData]
-      setNotice(data.msg)
+      // const f_data = data.msg;
+      // let final_data = [];
+      // f_data.map(async (ele) => {
+      //   // const code = await (await fetch("/api/get-images/notice-uploads/"+ele.photo)).json();
+      //   const res = await fetch("/api/get-images/notice-uploads/"+ele.photo);
+      //   const code = await res.json();
+
+      //   ele.img_code = `data:image/${code.ext};base64,${code.msg}`;
+      //   final_data.push(ele);
+      // });
+      // if(final_data.length > 0){
+        setNotice(data.msg)
+      // }
     }).catch(err => console.log(err))
   },[])
   return (
     <div className='flex justify-center items-center flex-col md:flex-row justify-between gap-5 md:gap-3'>
-        {notice.slice(0,3).map(i => (<NewsCard  id={i.id} key={i.id} heading={i.heading} desc={i.para} photo={i.photo} link={i.link} />))}
+        {notice?.slice(0,3)?.map(i => (<NewsCard  id={i.id} key={i.id} heading={i.heading} desc={i.para} photo={i.photo} link={i.link} />))}
     </div>
   )
 }
