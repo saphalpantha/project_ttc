@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import AdmissionForms from '../../../components/Admin/AdmissionForms.js/AdmissionForms'
-import { useState } from 'react'
-import {getCookie } from 'cookies-next'
+import { requireAuth } from '../../../lib/requireAuth'
 const admissionforms = ({isAuth}) => {
 
 
@@ -17,22 +16,11 @@ const admissionforms = ({isAuth}) => {
 
 export default admissionforms
 
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
-
-  if(!user){
-    return{
-      redirect:{
-        destination:'/admin/login',
-        permanent:false,
-      }
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    return {
+      props:{session}
     }
-  }
-  return{
+  })
 
-
-    props:{
-      isAuth:user
-    }
-  }
 }

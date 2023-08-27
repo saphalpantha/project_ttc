@@ -1,7 +1,6 @@
-import newsNotice from ".";
 import Container from "../../components/Container/Container";
 import React from "react";
-import { getAllNotice, getSingleNotice } from "../../util";
+import { getAllNotice } from "../../util";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useState } from "react";

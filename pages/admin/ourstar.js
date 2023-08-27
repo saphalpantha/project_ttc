@@ -1,7 +1,7 @@
 import React from 'react'
 import OurStar from '../../components/Admin/OurStar/OurStar'
 
-import {getCookie } from 'cookies-next'
+import { requireAuth } from '../../lib/requireAuth'
 const ourStar = () => {
   return (
    <OurStar/>
@@ -11,22 +11,11 @@ const ourStar = () => {
 export default ourStar
 
 
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
-
-  if(!user){
-    return{
-      redirect:{
-        destination:'/admin/login',
-        permanent:false,
-      }
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    return {
+      props:{session}
     }
-  }
-  return{
+  })
 
-
-    props:{
-      isAuth:user
-    }
-  }
 }

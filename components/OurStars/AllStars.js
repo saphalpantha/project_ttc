@@ -46,7 +46,7 @@ const AllStars = () => {
         const response = await fetch("/api/our-stars");
         const resData = await response.json();
         const data = resData.msg;
-        console.log(data);
+ 
 
         setAchievement({
           ioe: data.filter((i) => i.scholarship_name.toLowerCase() === "ioe"),
@@ -60,7 +60,7 @@ const AllStars = () => {
           ),
         });
       } catch (err) {
-        console.log(err);
+ 
       }
     };
     fetchData();

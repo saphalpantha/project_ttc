@@ -1,14 +1,11 @@
 import React from 'react'
 import Login from '../../components/Admin/Login/Login'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import {getCookie } from 'cookies-next'
+import { getSession } from 'next-auth/react'
 const login = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   return (
-    <div>
-      {!isLoggedIn && <Login/> }
+    <div className='min-h-screen fixed z-[100]'>
+      <Login/> 
         
     </div>
   )
@@ -16,23 +13,23 @@ const login = () => {
 
 
 
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
-  
 
-  if(user){
-    return{
-      redirect:{
-        destination:'/admin/dashboard',
-        permanent:true,
+export const getServerSideProps = async (ctx) => {
+
+  const session = await getSession({req:ctx.req});
+  if(session){
+      return{
+          redirect:{
+              destination:'/admin/dashboard',
+              permanent:false,
+          },
       }
-    }
   }
-  return{
-    props:{
-      isAuth:''
-    }
+
+  return {
+    props:{}
   }
+
 }
 
 

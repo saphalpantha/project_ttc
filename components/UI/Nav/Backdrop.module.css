@@ -4,6 +4,6 @@
     left: 0;
     width: 100%;
     min-height: 110vh;
-    background-color: rgba(17, 16, 16, 0.473);
+    /* background-color: rgba(17, 16, 16, 0.473); */
     z-index: 100; 
   }

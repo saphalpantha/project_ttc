@@ -2,15 +2,12 @@ import React from 'react'
 import classes from './Login.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
 const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
-
-
-
-
     const submitHandler = async (e) => {
         e.preventDefault();
        
@@ -18,36 +15,49 @@ const Login = () => {
             username:username,
             password:password,
         }
-        try{
 
-            const response =  await fetch('/api/authenticate', {
-                method:'POST',
-                body:JSON.stringify(enteredData),
-                headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        const data = await response.json();
-        // console.log(data)
+        const results = await signIn('credentials', {
+            redirect:false,
+            email:enteredData.username,
+            password:enteredData.password
+          })
+
+          if(!results.ok){
+            alert(results.error)
+          }
+          
+          if(results.ok){
+            router.push('/admin/dashboard')
+          }
+
+
+        // try{
+
+        //     const response =  await fetch('/api/authenticate', {
+        //         method:'POST',
+        //         body:JSON.stringify(enteredData),
+        //         headers:{
+        //         'Content-Type':'application/json'
+        //     }
+        // })
+        // const data = await response.json();
+        // console.log(data,'the login')
         
-        if(!data.isAuthenticate){
-            alert(data.msg);
-        }
-        else{
-
-            alert(data.msg);
-            localStorage.setItem('isAuth', data.token);
-            router.replace('/admin/dashboard');
-        }
+        // if(!data.isAuthenticate){
+        //     alert(data.msg);
+        // }
+        // else{
+        //     alert(data.msg);
+        //     router.replace('/admin/dashboard');
+        // }
         
         
     }
-    catch(err){
-        // console.log(err);
-        alert('Something Went Wrong. Please Try Again');
-    }
+    // catch(err){
+    //     // console.log(err);
+    //     alert('Something Went Wrong. Please Try Again');
+    // }
 
-    }
     return (
     <div className={`${classes.login} min-h-screen gap-10  w-[100vw]  flex flex-col  justify-center items-center relative z-10` }>
         <div className='absolute flex flex-col gap-10 justify-center items-center'>

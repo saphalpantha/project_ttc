@@ -1,6 +1,7 @@
-import React from 'react'
-import {getCookie } from 'cookies-next'
-import { useSession } from 'next-auth/react'
+import React from 'react';
+import { useSession } from 'next-auth/react';
+import { requireAuth } from '../../lib/requireAuth';
+
 const DashBoard = () => {
   const {data:session} = useSession();
   console.log(session, 'from dashboard');
@@ -12,22 +13,12 @@ const DashBoard = () => {
 export default DashBoard
 
 
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
 
-  if(!user){
-    return{
-      redirect:{
-        destination:'/admin/login',
-        permanent:false,
-      }
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    return {
+      props:{session}
     }
-  }
-  return{
-
-
-    props:{
-      isAuth:user
-    }
-  }
+  })
+  
 }

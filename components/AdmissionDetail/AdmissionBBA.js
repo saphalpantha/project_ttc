@@ -1,9 +1,6 @@
 import React from "react";
-import { Fragment } from "react";
 import classes from "./AdmissionDetail.module.css";
-import { Form, useFormik } from "formik";
-import { JoinFull } from "@mui/icons-material";
-import { headers } from "next/dist/client/components/headers";
+import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import Container from "../Container/Container";

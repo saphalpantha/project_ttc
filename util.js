@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 export const getAllNotice =  async () => {
     try{
       const res = await fetch('/api/news-notice/');
@@ -14,3 +15,7 @@ export const getAllNotice =  async () => {
     const singleNews = allNotice.find(item => item.id === id);
     return singleNews;
   }
+
+
+
+

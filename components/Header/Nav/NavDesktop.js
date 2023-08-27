@@ -1,12 +1,8 @@
 import React from "react";
-import Portal from "../../UI/Nav/Portal";
 import { Fragment } from "react";
 import Logo from "../../Logo/Logo";
 import { useState } from "react";
 import Backdrop from "../../UI/Nav/Backdrop";
-import Link from "next/link";
-import Navbar from "./NavBar";
-import MobileNav from "./MobileNav/MobileNav";
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
   { id: "i2", name: "Board Members", link: "/faculty/board" },
@@ -96,9 +92,16 @@ const othersHandler = () => {
     setAbout([]);
 };
 
+
 return (
     <Fragment>
-       { active &&  <Backdrop onClick={() => {setActive(false)}}/>}
+       { active &&  <Backdrop onClick={() => {
+            setOthers([]);
+            setActive(false)
+            setResult([]);
+            setCourse([]);
+            setAbout([]);
+       }}/>}
       <nav className=" hidden md:flex py-[0.5rem] relative z-[1000] gap-10 items-center px-[1rem]">
         <Logo></Logo>
         <ul className="flex  gap-12">

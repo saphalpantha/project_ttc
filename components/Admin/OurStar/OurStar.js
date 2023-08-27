@@ -16,7 +16,7 @@ const OurStar = () => {
     formData.append('name', name)
     formData.append("scholarship", scholarship);
     formData.append("image", image);
-    console.log(formData,'log form data');
+ 
     try {
       const response = await axios.post("/api/our-stars", formData, {
         headers: {
@@ -32,7 +32,7 @@ const OurStar = () => {
     } catch (err) {
       setLoading(false)
       alert('Form Submission SucessFully123');
-      console.log(err);
+ 
       // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
       
     }
@@ -63,7 +63,7 @@ const OurStar = () => {
 
     {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
         
-      {/* {console.log(dummy.msg.desc)} */}
+ 
 </div>
   )
 }

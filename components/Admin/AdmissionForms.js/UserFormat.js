@@ -1,6 +1,4 @@
-import { Fragment, forwardRef, useEffect, useState } from "react";
-import classes from "./AdmissionForms.module.css";
-import Link from "next/link";
+import { Fragment, forwardRef } from "react";
 export const PrintButton = ({ className, title }) => {
   return (
     <button className={className} onClick={printButtonHandler}>

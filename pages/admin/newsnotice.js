@@ -1,6 +1,6 @@
 import React from 'react'
-import {getCookie } from 'cookies-next'
 import NewsNotice from '../../components/Admin/NewsNotice/NewsNotice'
+import { requireAuth } from '../../lib/requireAuth'
 const newsnotice = () => {
   return (
    <NewsNotice/>
@@ -9,23 +9,11 @@ const newsnotice = () => {
 
 export default newsnotice
 
-
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
-
-  if(!user){
-    return{
-      redirect:{
-        destination:'/admin/login',
-        permanent:false,
-      }
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    return {
+      props:{session}
     }
-  }
-  return{
+  })
 
-
-    props:{
-      isAuth:user
-    }
-  }
 }

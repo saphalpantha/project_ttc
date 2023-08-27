@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Rowing } from "@mui/icons-material";
 import {deleteCookie} from 'cookies-next'
+import { signOut } from "next-auth/react";
 const Sidebar = () => {
 
 
@@ -19,12 +20,8 @@ const Sidebar = () => {
     {id:'i6', title:'Spotlight',icon:'edit_form_sidebar', link:'/spotlight'},
     {id:'i6', title:'Faculty',icon:'edit_form_sidebar', link:'/faculty'},
   ]
-  const router = useRouter()
-
-  const logoutHandler = () => {
-    deleteCookie('user');
-    router.replace('/')
-    router.reload()
+  const logoutHandler = async () => {
+    await signOut({redirect:true})
   }
   return (
     <div className="items-center fixed   h-[100vh] overflow-y-scroll  justify-center place-items-center flex flex-col justify-between py-5 min-h-screen fixed bg-[#201F54] w-[19%] z-10">

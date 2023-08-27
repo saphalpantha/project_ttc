@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import {  useFormik } from "formik";
+import React, { useState } from 'react';
+import { useFormik } from "formik";
 import axios from 'axios';
 import EditAlbum from './EditAlbum';
-import EditPhotos from './EditPhotos';
-import { useSession } from 'next-auth/react';
 
 
 const initialValues  = {

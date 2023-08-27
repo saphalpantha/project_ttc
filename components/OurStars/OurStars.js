@@ -31,14 +31,12 @@ const OurStars = () => {
   useEffect(() => {
     fetch('/api/our-stars').then(result => result.json()).then(data => {
       setStarData(data.msg)
-      console.log(data,'starsss')
-    }).catch(err => console.log(err))
+    }).catch(err => {})
   },[])
   const {width} = useWindowSize()
 
   return (
     <Container>
-{console.log(starsData,'from stars')}
     <div className={`max-w-6xl md:max-w-full  h-[30rem]  gap-10  bg-white `}>
             <div className={` ${classes.star} flex flex-col h-[27rem] bg-white drop-shadow-xl shadow-xl justify-center mx-auto `}><h1 className='text-3xl md:text-5xl text-[#FF9900] font-bold  text-left px-[4rem]'>Our Stars</h1>
             <div className='flex flex-row justify-around px-[3rem]'>
@@ -52,8 +50,7 @@ const OurStars = () => {
       navigation
       style={{display:'flex' , justifyContent:'space-between', padding:'3rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
-      // onSwiper={(swiper) => console.log('')}
-      // onSlideChange={() => console.log('slide change')}
+
       >
           {starsData.map(star => {
             return(

@@ -1,8 +1,7 @@
 import React from 'react'
-import OurStar from '../../components/Admin/OurStar/OurStar'
 
-import {getCookie } from 'cookies-next'
 import Spotlight from '../../components/Admin/Spotlight/Spotlight'
+import { requireAuth } from '../../lib/requireAuth'
 const spotlight = () => {
   return (
    <Spotlight/>
@@ -12,22 +11,10 @@ const spotlight = () => {
 export default spotlight
 
 
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
-
-  if(!user){
-    return{
-      redirect:{
-        destination:'/admin/login',
-        permanent:false,
-      }
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    return {
+      props:{session}
     }
-  }
-  return{
-
-
-    props:{
-      isAuth:user
-    }
-  }
+  })
 }

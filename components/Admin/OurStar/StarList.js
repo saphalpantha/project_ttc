@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import classes from "../AdmissionForms.js/AdmissionForms.module.css";
 import { useState } from "react";
-import Image from "next/image";
 import { Fragment } from "react";
 import Preloader from "../../UI/Preloader";
 import { useFormik } from "formik";
@@ -40,7 +38,7 @@ const StarList = () => {
 
   const singleFacultyDeleteHandler = async (item, indx) => {
     const id = item.id;
-    console.log(id);
+ 
 
     try {
       // setDeleteState(true);
@@ -60,18 +58,18 @@ const StarList = () => {
     setLoad(true);
     setIsOpen(true);
     const id = item.id;
-    console.log(id, "edit id");
-    console.log(item);
+ 
+ 
 
     try {
       const res = await fetch(`/api/gallary/${id}`);
       const data = await res.json();
-      console.log(data);
+ 
       setSelectedAlbum(data.msg);
       setLoad(false);
     } catch (err) {
       setLoad(false);
-      console.log(err);
+ 
     }
   };
 
@@ -91,7 +89,7 @@ const StarList = () => {
     formData.append("phoneno", phone);
     formData.append("image", image);
     formData.append("dept", department);
-    console.log(formData, "log form data");
+ 
     try {
       const response = await axios.post("/api/faculty", formData, {
         headers: {
@@ -105,7 +103,7 @@ const StarList = () => {
     } catch (err) {
       setLoading(false);
       alert("Form Submission SucessFully123");
-      console.log(err);
+ 
       // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
     }
 

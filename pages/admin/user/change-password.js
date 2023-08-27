@@ -1,6 +1,6 @@
 import React from 'react'
-import {getCookie } from 'cookies-next'
 import ChangePassword from '../../../components/Admin/User/ChangePassword'
+import { requireAuth } from '../../../lib/requireAuth'
 const changeuser = () => {
   return (
     <div className=''>
@@ -12,22 +12,11 @@ const changeuser = () => {
 export default changeuser
 
 
-export const getServerSideProps = async ({req,res}) => {
-  const user = getCookie('user', {req,res})
-
-  if(!user){
-    return{
-      redirect:{
-        destination:'/admin/login',
-        permanent:false,
-      }
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    return {
+      props:{session}
     }
-  }
-  return{
+  })
 
-
-    props:{
-      isAuth:user
-    }
-  }
 }

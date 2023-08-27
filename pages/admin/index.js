@@ -1,32 +1,17 @@
-
-import React from 'react'
-import Login from '../../components/Admin/Login/Login'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import {getCookie } from 'cookies-next'
-const admin = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-
-}
-
-export default admin
+import { requireAuth } from "../../lib/requireAuth";
 
 
-export const getServerSideProps = async ({req,res}) => {
-    const user = getCookie('user', {req,res})
-  
-    if(user){   
-      return{
+export default  () => {}
+
+export const getServerSideProps = async (ctx) => {
+  return requireAuth(ctx,({session}) => {
+    if(session){
+      return {
         redirect:{
           destination:'/admin/dashboard',
-          permanent:true,
+          permanent:false,
         }
       }
     }
-    return{
-      props:{
-        isAuth:''
-      }
-    }
-  }
-  
+  })
+};

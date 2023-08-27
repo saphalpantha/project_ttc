@@ -2,13 +2,9 @@ import React from "react";
 import classes from "./AdmissionForms.module.css";
 import { useEffect } from "react";
 import { useState, useRef } from "react";
-import { CSVDownload, CSVLink } from "react-csv";
+import { CSVLink } from "react-csv";
 import ReactToPrint from "react-to-print";
-import UserFormat, { PrintButton } from "./UserFormat";
-import ReactDOMServer from "react-dom/server";
-import { useReactToPrint } from "react-to-print"; 
-import Link from "next/link";
-import { Document, Page, PDFViewer } from "@react-pdf/renderer";
+import UserFormat from "./UserFormat";
 
 const AdmissionForms = () => {
   const [admissionResult, setAdmissionResult] = useState([]);

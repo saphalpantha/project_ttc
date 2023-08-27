@@ -1,11 +1,8 @@
-import React, { useRef, useEffect } from 'react';
-import Container from '../Container/Container'
-import Image from "next/image";
+import React, { useEffect } from 'react';
+import Container from '../Container/Container';
 import Link from 'next/link';
-import ScrollLayout from '../UI/ScrollLayout';
 // let db = [];
 import { useState } from 'react';
-import { data } from 'autoprefixer';
 
 
 
@@ -118,11 +115,9 @@ const ExploreGrid = () => {
   const [grid, setGrid ] = useState([]);
   useEffect(() => {
     fetch('/api/getall-album').then(result => result.json()).then(data => {
-      console.log(data.msg)
       setGrid(data.msg)
     }).catch(err => console.log(err))
   },[])
-  console.log(grid,"000000000000000000000000000000000","---------------------------");
   
 
 const images1 = [

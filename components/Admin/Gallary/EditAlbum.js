@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import classes from "../AdmissionForms.js/AdmissionForms.module.css";
 import { useState } from "react";
-import Image from "next/image";
 import { Fragment } from "react";
 import Preloader from "../../UI/Preloader";
 const EditAlbum = () => {
