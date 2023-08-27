@@ -14,7 +14,7 @@ const Hero = () => {
   const [img,setImg] = useState([{id:100,photo:''}]);
   
   useEffect(() => {
-      fetch('/api/spotlight').then(res => res.json()).then(data => {data && setImg(data?.msg)}).catch(err => console.log('eers', err));
+      fetch('/api/spotlight').then(res => res.json()).then(data => {data && setImg(data?.msg)}).catch(err => {});
   },[])
   const spotlightCloseHandler = () => {
     setCookie('open', 'true')

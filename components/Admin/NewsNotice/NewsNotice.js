@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import {  useFormik } from "formik";
+import React, { useEffect, useState } from 'react';
+import { useFormik } from "formik";
 import { Editor } from '@tinymce/tinymce-react';
 import { useRef } from 'react';
 import axios from 'axios';
-import NewsNoticePageCard from '../../NewsNotice/NewsNoticePageCard';
-import NewsCard from '../../NewsNotice/NewsCard';
 const initialValues = {
 }
 const NewsNotice = () => {

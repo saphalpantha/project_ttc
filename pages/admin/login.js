@@ -1,6 +1,6 @@
-import React from 'react'
 import Login from '../../components/Admin/Login/Login'
 import { getSession } from 'next-auth/react'
+import React from 'react'
 const login = () => {
 
   return (

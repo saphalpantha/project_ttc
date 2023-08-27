@@ -1,14 +1,12 @@
 import React from "react";
-import Logo from "../../../Logo/Logo";
 import NavModel from "../NavModel";
 import { Fragment } from "react";
 import { useState } from "react";
 import Backdrop from "../../../UI/Nav/Backdrop";
 import Link from "next/link";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import ScrollLayout from '../../../UI/ScrollLayout'
+import ScrollLayout from '../../../UI/ScrollLayout';
 import ClearIcon from '@mui/icons-material/Clear';
-import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 const MobileNav = ({isOpen,setIsOpen}) => {
 

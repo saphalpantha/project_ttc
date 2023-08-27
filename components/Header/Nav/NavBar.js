@@ -79,7 +79,6 @@ function NavLink({ to, children }) {
 }
 
 import { useEffect, useRef } from "react";
-import Sidebar from "./SideBar";
 import Logo from "../../Logo/Logo";
 
 export function DropdownMenu({ title, links }) {

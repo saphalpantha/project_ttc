@@ -7,19 +7,7 @@ const NewsCardList = () => {
   const [notice, setNotice] = useState([]);
   useEffect(() => {
     fetch('/api/news-notice/').then(result => result.json()).then(data => {
-      // const f_data = data.msg;
-      // let final_data = [];
-      // f_data.map(async (ele) => {
-      //   // const code = await (await fetch("/api/get-images/notice-uploads/"+ele.photo)).json();
-      //   const res = await fetch("/api/get-images/notice-uploads/"+ele.photo);
-      //   const code = await res.json();
-
-      //   ele.img_code = `data:image/${code.ext};base64,${code.msg}`;
-      //   final_data.push(ele);
-      // });
-      // if(final_data.length > 0){
         setNotice(data.msg)
-      // }
     }).catch(err => console.log(err))
   },[])
   return (

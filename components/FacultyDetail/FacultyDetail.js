@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import FacultyCard from "./FacultyCard";
 import Container from "../Container/Container";
-// import {Container} from '../../components/Container/Container'
+
 import StyleCover from "../StyleCover/StyleCover";
 import { useState } from "react";
 import { data } from "autoprefixer";

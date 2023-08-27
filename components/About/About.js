@@ -1,8 +1,6 @@
 import React from "react";
 import Container from "../Container/Container";
 import classes from "./About.module.css";
-import Image from "next/image";
-import Link from "next/link";
 const About = () => {
   return (
     <Container>
