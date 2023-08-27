@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken');
 export const getAllNotice =  async () => {
     try{
       const res = await fetch('/api/news-notice/');
