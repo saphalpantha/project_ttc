@@ -20,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.2.3",
+    "cookies-next": "^3.0.0",
     "formidable": "^3.5.0",
     "formik": "^2.4.2",
     "framer-motion": "^10.15.0",
