@@ -1,12 +1,10 @@
-import { getCookie } from "cookies-next";
 import { getDb } from "../../ttc_db";
 
 import bcrypt from "bcryptjs";
 const handler = async (req, res) => {
 
-  const user = getCookie('user', {req,res})
-
-  if(!user){
+  const sesson = getSession({req:req});
+  if(!sesson){
     return res.redirect("/");
   }
 

@@ -5,9 +5,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useState } from "react";
 
-
-
-
 const NewsDetail = () => {
   const [newsData, setNewsData] = useState({});
   const router = useRouter();

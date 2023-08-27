@@ -69,7 +69,6 @@ export  const authOptions = {
                 session.user.isAuthenticate = user.isAuthenticate;
                 session.user.email = user.email; 
         
-                console.log(session, 'the session from org next');
             }
             return session;
         },

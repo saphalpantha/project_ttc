@@ -6,3 +6,5 @@ import { authOptions } from "../../../authOptions";
 
 
 export default function handler(req,res) { NextAuth(req,res,authOptions)}
+
+

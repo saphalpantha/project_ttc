@@ -1,8 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { Rowing } from "@mui/icons-material";
-import {deleteCookie} from 'cookies-next'
 import { signOut } from "next-auth/react";
 const Sidebar = () => {
 

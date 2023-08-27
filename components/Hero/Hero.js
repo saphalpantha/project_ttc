@@ -1,13 +1,10 @@
 import React from 'react'
-import Image from 'next/image'
 import CardLists from '../CardLists/CardLists'
 import Container from '../Container/Container'
-import HeroSlider from '../Carousel/Carousel'
-import StyleCover from '../StyleCover/StyleCover'
-import { motion, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Modal from '../UI/Portal'
 import { useState } from 'react'
-import { setCookie, getCookie } from "cookies-next";
+import { setCookie, getCookie } from "cookies-next"
 import Carousel from '../Carousel/Carousel'
 import { useEffect } from 'react'
 
