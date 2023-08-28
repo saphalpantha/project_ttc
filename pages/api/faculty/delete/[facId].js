@@ -11,7 +11,7 @@ const handler = async (req, res) => {
       res.status(200).json({msg:'Deleted Faculty ' , id:id});
     }).catch(err => {
       console.log(err)
-      res.status(404).json({msg:'Failed to delete Faculty'});
+      res.status(404).json({msg:'Failed to delete faculty'});
       db.end();
     })
   }
