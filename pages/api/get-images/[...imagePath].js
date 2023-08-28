@@ -5,8 +5,7 @@ const path = require('path');
 
 let fileBuffer = [];
 let filesDir = []
-const findFileById = (id) => {
-    const directoryPath = path.join(process.cwd(), 'public/', 'images/', 'notice-uploads/');
+const findFileById = (id,directoryPath) => {
     const dir = fs.readdirSync(directoryPath);
     const fileInfo =  dir.find(item => item === id);
     const data = fs.readFileSync(path.join(directoryPath, `${fileInfo}`))
@@ -19,10 +18,13 @@ const handler =   (req,res) => {
     if(req.method == 'GET'){
         const slug = req.query.imagePath;
         const directoryName = slug[0];
+        if(!directoryName &&  !imageId){
+            return;
+        }
         const imageId = slug[1];
-        const directoryPath = path.join(process.cwd(), 'public/', 'images/', directoryName, imageId);
+        const directoryPath = path.join(process.cwd(), 'public/', 'images/', directoryName);
         console.log(directoryPath)
-        const data = findFileById(imageId);
+        const data = findFileById(imageId, directoryPath);
         const EXT = (imageId).split(".")[1];
         res.status(200).json({msg:data,ext:EXT});
         // const base64_Data = findFileById(id);

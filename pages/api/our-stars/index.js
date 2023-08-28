@@ -60,7 +60,6 @@ const readFile = (req, saveLocally) => {
 
 
 const handler = async (req,res) => {
-
     if(req.method === 'GET'){
         // const {name} = req.query 
         // console.log(name)

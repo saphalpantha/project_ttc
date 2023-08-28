@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {  useFormik } from "formik";
 import axios from 'axios';
+import FacList from './FacList';
 
 
 const initialValues  = {
@@ -22,7 +23,7 @@ const OurFaculty = () => {
     formData.append("dept", department);
     console.log(formData,'log form data');
     try {
-      const response = await axios.post("/api/faculty", formData, {
+      const response = await axios.post("/api/faculty/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -86,6 +87,7 @@ const OurFaculty = () => {
       {/* {console.log(dummy.msg.desc)} */}
       <section className='min-h-screen'>
         <div>
+          <FacList/>
           {
 
             // <image src={`/images/faculty-uploads/${}`} className='w-[3rem] h-[3rem]' />

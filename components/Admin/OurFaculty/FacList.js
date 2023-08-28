@@ -3,10 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Fragment } from "react";
 import Preloader from "../../UI/Preloader";
-import { useFormik } from "formik";
-import axios from "axios";
-
-const FacList = () => {
+const EditAlbum = () => {
   const [albums, setAlbums] = useState([]);
   const [selectedAlbum, setSelectedAlbum] = useState([]);
   const [photos, setPhotos] = useState();
@@ -14,49 +11,41 @@ const FacList = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
   const [fixedAlbumState, setFixedAlbumState] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  
-  const initialValues = {};
-
-
+  const [loading,setLoading] = useState(false)
   useEffect(() => {
-    fetch("/api/faculty/")
+    fetch("/api/faculty")
       .then((result) => result.json())
       .then((data) => {
         setAlbums(data.msg);
-        setFixedAlbumState(data.msg); 
+        setFixedAlbumState(data.msg);
       })
       .catch((err) => {});
   }, [1]);
 
-  const singleFacultyDeleteHandler = async (item, indx) => {
+  const singleAlbumDeleteHandler = async (item, indx) => {
     const id = item.id;
     console.log(id);
 
     try {
-      // setDeleteState(true);
       const res = await fetch(`/api/faculty/delete/${id}`, {
         method: "DELETE",
       });
-      // setDeleteState(false);
       const data = await res.json();
-      alert(`Succesfully Deleted Faculty id ${indx + 1}`);
+      alert(`Succesfully Deleted Album id ${indx + 1}`);
     } catch (err) {
-      // setDeleteState(false);
-      alert(`Failed to Delete Faculty id ${indx + 1}`);
+      alert(`Failed Deleted Album id ${indx + 1}`);
     }
   };
 
   const singleAlbumEditHandler = async (item) => {
     setLoad(true);
-    setIsOpen(true);
     const id = item.id;
-    console.log(id, "edit id");
     console.log(item);
-
     try {
-      const res = await fetch(`/api/gallary/${id}`);
+      const res = await fetch(`/api/faculty/edit/${id}`, {
+        method:'POST',
+        body:formData
+      });
       const data = await res.json();
       console.log(data);
       setSelectedAlbum(data.msg);
@@ -67,160 +56,129 @@ const FacList = () => {
     }
   };
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit: (values, resetForm) => {
-      submitHandler(values);
-    },
-  });
-  const { values, handleBlur, handleChange, handleReset, handleSubmit } =
-    formik;
+  
 
-  const submitHandler = async (formD) => {
-    setLoading(true);
+  const submitHandler = async () => {
+    e.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("phoneno", phone);
-    formData.append("image", image);
-    formData.append("dept", department);
-    console.log(formData, "log form data");
+    
+    [...photos].map((file) => {
+      formData.append(file.name, file);
+    });
+
+    
+
+
+
     try {
-      const response = await axios.post("/api/faculty", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      setLoading(false);
-
-      alert("Form Submission SucessFully");
+      setLoading(true)
+      await axios
+        .post(`/api/update-image/${fixedAlbumState.id}/`, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          alert(response.data.msg);
+          setLoading(false)
+        })
+        .catch((err) => {
+          setLoading(false)
+          console.log("");
+        });
     } catch (err) {
-      setLoading(false);
-      alert("Form Submission SucessFully123");
+      setLoading(false)
       console.log(err);
-      // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
     }
-
-    const gallary = (
-      <div>
-        {selectedAlbum.length <= 0 ? (
-          <table className="px-[1rem] border-2 py-[5rem]">
-            <tbody className="flex flex-col px-[3rem] py-[5rem]">
-              <tr className="flex gap-[9.8rem] py-5">
-                <th>S.N</th>
-                <th>Profile</th>
-                <th>Name</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-              {albums.map((i, indx) => {
-                return (
-                  <Fragment>
-                    {!load ? (
-                      <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
-                        <td className="text-justify">{indx + 1}</td>
-                        <td className="object-cover">
-                          <img
-                            className="w-[5rem] object-cover h-[5rem]"
-                            src={`/images/faculty-uploads/${i.photo}`}
-                          />
-                        </td>
-                        <td className="text-justify max-w-xl w-[10%]">
-                          {i.name}
-                        </td>
-                        <td
-                          onClick={() => singleAlbumEditHandler(i, indx)}
-                          className="text-justify cursor-pointer px-4 rounded-full bg-[#201F54] h-[2rem] text-white"
-                        >
-                          Open
-                        </td>
-                        <button
-                          onClick={() => singleFacultyDeleteHandler(i, indx)}
-                          className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
-                        >
-                          Delete
-                        </button>
-                      </tr>
-                    ) : (
-                      <Preloader />
-                    )}
-                  </Fragment>
-                );
-              })}
-            </tbody>
-          </table>
-        ) : (
-          <div></div>
-        )}
-      </div>
-    );
-
-    const updateForm = (
-      <form
-        encType="multipart/form-data"
-        className="flex flex-col justify-center gap-5 px-20"
-        onSubmit={handleSubmit}
-      >
-        <div className="flex flex-col justify-center">
-          <label>Name of Faculty</label>
-          <input
-            onChange={(e) => setName(e.target.value)}
-            className="border-2 "
-            type="text"
-          ></input>
-        </div>
-        <div className="flex flex-col justify-center">
-          <label>Phone No</label>
-          <input
-            onChange={(e) => setPhone(e.target.value)}
-            className="border-2 "
-            type="number"
-          ></input>
-        </div>
-        <div className="flex flex-col gap-4 justify-center">
-          <label>Factulty Department</label>
-          <select
-            className="border-2 py-2 bg-white "
-            onChange={(e) => setDepartment(e.target.value)}
-          >
-            <option>Select Department</option>
-            <option>Physics</option>
-            <option>Chemistry</option>
-            <option>Biology</option>
-            <option>Computer</option>
-            <option>Economics</option>
-            <option>Finance</option>
-            <option>Account</option>
-            <option>Nepali</option>
-            <option>English</option>
-            <option>Maths</option>
-          </select>
-        </div>
-
-        <label>Upload Image</label>
-        <input
-          onChange={(e) => setImage(e.target.files[0])}
-          className="border-2 py-2 pl-5"
-          type="file"
-        ></input>
-        <div className="flex flex-col justify-center items-center">
-          <button type="submit" className="border-2 px-6 py-2 w-fit">
-            {loading ? "Submitting" : "Submit"}
-          </button>
-        </div>
-      </form>
-    );
-    return (
-      <div className="">
-        <div className="flex gap-4 ">
-          <h1 className="text-[#201F54] font-bold">Update Faculty</h1>
-          <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
-        </div>
-
-        {isOpen ? updateForm : gallary}
-      </div>
-    );
   };
+
+  const backHandler = () => {
+    setSelectedAlbum([]);
+  };
+  
+  const singleImageEditHandler = () => {
+    setIsOpen(true);
+    // console.log(fixedAlbumState,'state album')
+  };
+
+  const gallary = <div>
+    <table className="px-[1rem] border-2 py-[5rem]">
+      <tbody className="flex flex-col px-[3rem] py-[5rem]">
+        <tr className="flex gap-[9.7rem] py-5">
+          <th>S.N</th>
+          <th>Profile</th>
+          <th>Name</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        {albums.map((i, indx) => {
+          return (
+            <Fragment>
+              {!load ? (
+                <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
+                  <td className="text-justify">{indx + 1}</td>
+                  <td className="object-cover">
+                    <img
+                      className="w-[5rem] object-cover h-[5rem]"
+                      src={`/images/faculty-uploads/${i.photo}`}
+                    />
+                  </td>
+                  <td className="text-justify max-w-xl w-[10%]">
+                    {i.name}
+                  </td>
+                  <td
+                    onClick={() => singleAlbumEditHandler(i, indx)}
+                    className="text-justify cursor-pointer px-4 rounded-full bg-[#201F54] h-[2rem] text-white"
+                  >
+                    Open
+                  </td>
+                  <button
+                    onClick={() => singleAlbumDeleteHandler(i, indx)}
+                    className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
+                  >
+                    Delete
+                  </button>
+                </tr>
+              ) : (
+                <Preloader />
+              )}
+            </Fragment>
+          );
+        })}
+      </tbody>
+    </table>
+</div>
+
+const updateForm =<form
+encType="multipart/form-data" 
+onSubmit={submitHandler}
+className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-center items-center h-[10rem] w-1/2 mx-auto"
+>
+<div className=" flex flex-col gap-5 ">
+  <label className="flex-start">Choose New Images</label>
+  <input multiple onChange={(e) => setPhotos(e.target.files)} type="file"></input>
+  <div className="flex gap-10">
+
+  <button onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
+  <button disabled={loading} type="submit" className="border-2 px-2 w-fit py-2">{loading ? 'Submitting' : 'Submit'}</button>
+  </div>
+</div>
+</form>
+  return (
+    <div className="">
+      <div className="flex gap-4 ">
+        <h1 className="text-[#201F54] font-bold">Update Gallary</h1>
+        <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
+      </div>
+
+      {isOpen ? updateForm : gallary}
+      
+
+
+    </div>
+  );
 };
 
-export default FacList;
+export default EditAlbum;
+
+// flex items-center justify-between py-5 pt-[1rem]

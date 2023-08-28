@@ -1,26 +1,21 @@
-// import { getDb } from "../../../ttc_db";
-// const handler = async (req, res) => {
+import { getDb } from "../../../../ttc_db";
 
-//   if(req.method === 'DELETE'){
-//     const id = req.query.facId;
-//     console.log(id)
-//     const db = await getDb();
-//     db.query(`DELETE FROM faculty where id=${id}`).then(result => {
-//       console.log(result)
-//       res.status(200).json({msg:'Deleted Faculty ' , id:id});
-//     }).catch(err => {
-//       console.log(err)
-//       res.status(404).json({msg:'Failed to delete Faculty'});
-//       db.end();
-//     })
-//   }
-// };
+const handler = async (req, res) => {
 
-// export default handler;
+  if(req.method === 'DELETE'){
+    const id = req.query.facId;
+    console.log(id)
+    const db = await getDb();
+    db.query(`DELETE FROM faculty where id=${id}`).then(result => {
+      console.log(result)
+      res.status(200).json({msg:'Deleted Faculty ' , id:id});
+    }).catch(err => {
+      console.log(err)
+      res.status(404).json({msg:'Failed to delete Faculty'});
+      db.end();
+    })
+  }
+};
 
+export default handler;
 
-const handler = (req,res) => {
-
-}
-
-export default handler
