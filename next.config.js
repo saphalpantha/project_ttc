@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverless:{
+    "api/get-images/[...imagePath]":{
+      exclude:['./components/NewsNotice/NewsCardList.js'],
+    }
+  }
   serverRuntimeConfig:{
     maxRequestBodySize:'200mb',
   },
