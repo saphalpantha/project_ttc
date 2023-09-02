@@ -64,7 +64,7 @@ const OurStars = () => {
           console.log(err);
         }
       })
-      setStarD(prev => {
+       setStarD(prev => {
         return {
           starD:final_data,
         }

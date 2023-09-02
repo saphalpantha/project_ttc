@@ -8,8 +8,8 @@ import { useState } from 'react'
 const NewsCardList = () => {
   const [notice, setNotice] = useState([]);
   let final_data = [];
-  useEffect(() => {
-     fetch('/api/news-notice/').then(result => result.json()).then(data => {
+  useEffect( () => {
+      fetch('/api/news-notice/').then(result => result.json()).then(data => {
       let d = data.msg;
       d.map(async i=>{
         const res = await fetch(`/api/get-images/notice-uploads/${i.photo}`);
@@ -21,11 +21,10 @@ const NewsCardList = () => {
             const imgFile = `data:image/${data.ext};base64, ${data.msg}`;
             let  updatedItem  =  { ...i, img_code: imgFile };
             final_data.push(updatedItem)
-          } else {
           }
       })
-      setNotice(final_data)
-    }).catch(err => console.log(err))
+      //  setNotice(final_data)
+    }).catch(err => console.log(err)).finally( ()=> setNotice(final_data));
   },[])
 
 

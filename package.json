@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "saphal":"npm run build && npm run start",
+    "start": "PORT=3002 next start",
+    "saphal": "npm run build && npm run start",
     "lint": "next lint"
   },
   "dependencies": {
