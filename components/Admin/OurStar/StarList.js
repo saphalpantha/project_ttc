@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import Preloader from "../../UI/Preloader";
 import { useFormik } from "formik";
 import axios from "axios";
+import useGetData from "../../Helper/Helper";
 const initialValues = {}
 const StarList = () => {
   const [albums, setAlbums] = useState([]);
@@ -56,17 +57,14 @@ const StarList = () => {
   const { values, handleBlur, handleChange, handleReset, handleSubmit } = formik
 
 
-  useEffect(() => {
-    fetch("/api/our-stars")
-      .then((result) => result.json())
-      .then((data) => {
-        setAlbums(data.msg);
-        setFixedAlbumState(data.msg);
-      })
-      .catch((err) => {});
-  }, [1]);
 
 
+  const state_data = {
+    _api_main:'/api/our-stars',
+    _api_sec:'/api/get-images/stars-uploads/',
+  }
+
+  const starD = useGetData(state_data);
 
   const singleAlbumDeleteHandler = async (item,index) => {
     setLoad(true);
@@ -113,7 +111,7 @@ const StarList = () => {
             <th>Edit</th>
             <th>Delete</th>
           </tr>
-          {albums?.map((i, indx) => {
+          {starD?.map((i, indx) => {
             return (
               <Fragment>
                 {!load ? (
@@ -122,7 +120,7 @@ const StarList = () => {
                     <td className="object-cover">
                       <img
                         className="w-[5rem] object-cover h-[5rem]"
-                        src={`/images/stars-uploads/${i.photo}`}
+                        src={`${i.img_code}`}
                       />
                     </td>
                     <td className="text-justify max-w-xl w-[10%]">{i.name}</td>

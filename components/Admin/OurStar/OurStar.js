@@ -65,7 +65,7 @@ const OurStar = () => {
     </form>
 }
     {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
-        <section className='min-h-screen'>
+        <section className='min-h-screen pt-[2rem]'>
           <StarList/>
         </section>
  

@@ -7,15 +7,15 @@ const Sidebar = () => {
 
   const sidebar_data = [
     {id:'i1', title:'Dashboard',icon:'dashboard', link:'dashboard'},
+    {id:'i6', title:'Spotlight',icon:'spotlight', link:'/spotlight'},
     {id:'i2', title:'Result',icon:'result', link:'result'},
     {id:'i3', title:'AdmissionForm',icon:'edit_form_sidebar', link:'admission-forms'},
-    {id:'i3', title:'News and Notice',icon:'edit_form_sidebar', link:'newsnotice'},
-    {id:'i4', title:'Our Star',icon:'edit_form_sidebar', link:'ourstar'},
-    {id:'i5', title:'Add User',icon:'edit_form_sidebar', link:'/user/add-user'},
-    {id:'i5', title:'Change Password',icon:'edit_form_sidebar', link:'/user/change-password'},
-    {id:'i6', title:'Gallary',icon:'edit_form_sidebar', link:'/gallary'},
-    {id:'i6', title:'Spotlight',icon:'edit_form_sidebar', link:'/spotlight'},
-    {id:'i6', title:'Faculty',icon:'edit_form_sidebar', link:'/faculty'},
+    {id:'i3', title:'News and Notice',icon:'megaphone', link:'newsnotice'},
+    {id:'i4', title:'Our Star',icon:'star', link:'ourstar'},
+    {id:'i6', title:'Gallary',icon:'gallery', link:'/gallary'},
+    {id:'i5', title:'Add User',icon:'adduser', link:'/user/add-user'},
+    {id:'i5', title:'Change Password',icon:'changepass', link:'/user/change-password'},
+    {id:'i6', title:'Faculty',icon:'star', link:'/faculty'},
   ]
   const logoutHandler = async () => {
     await signOut({redirect:true})

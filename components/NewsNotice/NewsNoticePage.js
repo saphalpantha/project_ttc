@@ -40,7 +40,7 @@ const NewsNoticePage = ({newsData}) => {
           </div>
           <div className=" mx-auto flex flex-col gap-2 md:gap-10 pt-20">
             {currentItems.map((i) => (
-              <NewsNoticePageCard para={i.para} id={i.id} heading={i.heading} img={i.photo} />
+              <NewsNoticePageCard para={i.para} id={i.id} heading={i.heading} img={i.img_code} />
             ))}
           </div>
         </section>

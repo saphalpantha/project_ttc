@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { Editor } from '@tinymce/tinymce-react';
 import { useRef } from 'react';
 import axios from 'axios';
+import EditNewsNotice from './EditNewsNotice';
 const initialValues = {
 }
 const NewsNotice = () => {
@@ -11,7 +12,7 @@ const NewsNotice = () => {
   const editorRef = useRef(null);
   const [loading,setLoading] = useState(false);
   const [allNotice,setAllNotice] = useState([])
-
+  const [openPostForm, setOpenPostForm] = useState(false);
   useEffect(() => {
     fetch('/api/news-notice').then(res => res.json()).then(data => setAllNotice(data.msg)).catch(err => {})
   },[])
@@ -50,7 +51,9 @@ const NewsNotice = () => {
 
   return (
 <div className='pl-[22%]  w-[100vw] py-14'>
-    <form encType="multipart/form-data" className='flex flex-col justify-center gap-5 px-20' onSubmit={handleSubmit}>
+<button className='px-4 absolute right-[1rem] hover:bg-[#201F54] hover:text-white  w-fit py-2 border-[1px] rounded-full border-[#201F54] transition-all duration-300 ease-in-out' onClick={() => setOpenPostForm(prev => !prev)}>{openPostForm ? 'Close' : 'Add New'}</button>
+
+   { openPostForm &&  <form encType="multipart/form-data" className='flex flex-col pt-[3rem] justify-center gap-5 px-20' onSubmit={handleSubmit}>
         <div className='flex flex-col justify-center'>
         <label>Heading of Notice</label>
         <input  onChange={(e) => setHeading(e.target.value)} className='border-2 ' type='text'></input>
@@ -83,23 +86,10 @@ const NewsNotice = () => {
         <div className='flex flex-col justify-center items-center'>
         <button  disabled={loading} type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
-    </form>
-
-    {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
-        
-      {/* {console.log(dummy.msg.desc)} */}
-      <section className='min-h-screen grid-cols-2' >
-          {allNotice.map(i => {
-            return(
-              <div className='flex flex-col gap-4' >
-
-                    <img className='w-[10rem] h-[10rem]' src={`/images/notice-uploads/${i.photo}`}></img>
-                    <div>{i.heading}</div>
-
-              </div>
-            )
-          })}
-      </section>
+    </form>}
+    <section className='min-h-screen pt-[2rem]'>
+          <EditNewsNotice/>
+        </section>
 </div>
 
   )

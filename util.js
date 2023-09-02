@@ -1,8 +1,10 @@
 import { readFile,utils } from 'xlsx';
 import { join } from 'path';
 import { cwd } from 'process';
+import { useEffect } from 'react';
 
 export const getAllNotice =  async () => {
+  
     try{
       const res = await fetch('/api/news-notice/');
       const data  = await res.json();

@@ -2,40 +2,22 @@ import React from 'react'
 import NewsCard from './NewsCard'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import useGetData from '../Helper/Helper'
 
 
 
 const NewsCardList = () => {
-  const [notice, setNotice] = useState([]);
-  let final_data = [];
-  useEffect( () => {
-      fetch('/api/news-notice/').then(result => result.json()).then(data => {
-      let d = data.msg;
-      d.map(async i=>{
-        const res = await fetch(`/api/get-images/notice-uploads/${i.photo}`);
-        if(!res.ok){
-          return null;
-        }
-          const data = await res.json();
-          if (data.msg && data.ext) {
-            const imgFile = `data:image/${data.ext};base64, ${data.msg}`;
-            let  updatedItem  =  { ...i, img_code: imgFile };
-            final_data.push(updatedItem)
-          }
-      })
-      //  setNotice(final_data)
-    }).catch(err => console.log(err)).finally( ()=> setNotice(final_data));
-  },[])
+  const state_data = {
+    _api_main:'/api/news-notice/',
+    _api_sec:'/api/get-images/notice-uploads/',
+  }
+  const notice = useGetData(state_data);
+  console.log(notice,'he notice')
+  if(!notice){
+    return;
+  }
 
 
-
-  // const getImagesById = async (id) => {
-  //     const res = await fetch(`/api/get-images/notice-uploads/${id}`);
-  //       const data = await res.json();
-  //       let imgFile = `data:image/${data.ext};${data.msg}`
-  //       return imgFile;
-    
-  // }
   return (
     <div className='flex justify-center items-center flex-col md:flex-row justify-between gap-5 md:gap-3'>
         {notice.slice(0,3).map(i => (<NewsCard  id={i.id} key={i.id} heading={i.heading} desc={i.para} photo={i.img_code} link={i.link} />))}

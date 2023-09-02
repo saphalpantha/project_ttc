@@ -3,6 +3,7 @@ import Gallery from '../../components/Gallery/Gallery'
 
 import { useEffect, useState } from 'react';
 import { data } from 'autoprefixer';
+import useGetData from '../../components/Helper/Helper';
 const images = [
   {
      src: "/images/stream/bba/bba_2.JPG",
@@ -57,17 +58,18 @@ const images = [
 
 ];
 const gallery = () => {
-  const [images, setImages ] = useState([]);
-  useEffect(() => {
-    fetch('/api/getall-album').then(result => result.json()).then(data => {
-      
-      setImages(data.msg)
-    }).catch(err => console.log(err))
-  },[1])
+  const state_data = {
+    _api_main:'/api/getall-album',
+    _api_sec:'/api/get-images/gallary/',
+  }
+  const grid = useGetData(state_data);
+  if(!grid){
+    return;
+  }
 
   return (
     <div>
-        <Gallery images={images}/>
+        <Gallery images={grid}/>
     </div>
   )
 }

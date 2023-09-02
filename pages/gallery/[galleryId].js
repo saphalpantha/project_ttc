@@ -2,13 +2,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import React, { Fragment, useEffect, useState } from "react"; 
-import  { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore,{ Navigation, Pagination, A11y,Autoplay } from "swiper";
+import React, { Fragment, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y } from "swiper";
 import { useWindowSize } from "usehooks-ts";
 import { useRouter } from "next/router";
 import Container from "../../components/Container/Container";
-import Preloader from "../../components/UI/Preloader";
+import useGetData from "../../components/Helper/Helper";
 
 export const ProductCard = ({ image }) => {
   return (  
@@ -16,7 +16,7 @@ export const ProductCard = ({ image }) => {
       <img
         className="w-[100%] group-hover:scale-125 duration-150 ease-in h-[100%]"
         alt="img"
-        src={`/images/gallary/${[image]}`}
+        src={`${[image]}`}
       ></img>
     </div>
   );
@@ -27,7 +27,7 @@ export const GalleryNav = ({ image }) => {
       <img
         className="w-[100%] group-hover:scale-125 duration-150 ease-in h-[100%]"
         alt="img"
-        src={`/images/gallary/${[image]}`}
+        src={`${image}`}
       ></img>
     </div>
   );
@@ -36,32 +36,29 @@ export const GalleryNav = ({ image }) => {
 
 
 const Products = () => {
-    const [allImages,setAllImages] = useState([]);
+    // const [allImages,setAllImages] = useState([]);
     const [albImages, setAlbImages] = useState([]);
-    const [loading, setLoading] = useState(true)
     const router = useRouter();
     const query = router.query.galleryId;
-
-    useEffect(() => {
-      fetch(`/api/gallary/${query}`).then(result => result.json()).then(data => {
-        setLoading(false)
-        console.log('fromami',data.msg)
-        
-        setAllImages(data.msg)
-
-
-      }).catch(err => console.log(err))
-    },[query])
     
+    const state_data = {
+      _api_main:`/api/gallary/${query}`,
+      _api_sec:'/api/get-images/gallary/',
+    }
+    const allImages = useGetData(state_data);
+    console.log(allImages,'all images')
+    if(!allImages){
+      return;
+    }
+  
 
 //   SwiperCore.use([Autoplay])
   const { width } = useWindowSize();
   return (
-    <Fragment>
-{loading ? <Preloader/> : 
-    <Container>
+    <div className="">
+  <Container>
 
-       <h1 className='text-white  text-center font-bold max-w-6xl bg-[#FF9900] mt-[2rem] py-3 mx-auto w-full uppercase'>{`${allImages[0].album_name} Album`}</h1>
+       <h1 className='text-white  text-center font-bold max-w-6xl bg-[#FF9900] mt-[2rem] py-3 mx-auto w-full uppercase'>{`${allImages[0]?.album_name} Album`}</h1>
         {/* <h1 className="text-3xl md:text-4xl font-semibold text-center py-4 uppercase "></h1> */}
       <div
         className={`max-w-6xl mx-auto px-2 md:px-32  md:max-w-full min-h-screen  pt-[2rem]  bg-[#f8f9fa] `}
@@ -89,7 +86,7 @@ const Products = () => {
             // onSlideChange={() => console.log('slide change')}
           >
 
-            {allImages.slice(1,-1).map((product) => {
+            {allImages?.slice(1,-1).map((product) => {
                 return (
                   <SwiperSlide className="">
                   <ProductCard image={product.image} />
@@ -136,8 +133,7 @@ const Products = () => {
             </div>
 
     </Container>
-            }
-              </Fragment>
+              </div>
   );
 };
 

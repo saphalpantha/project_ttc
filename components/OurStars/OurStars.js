@@ -8,6 +8,7 @@ import { Navigation, Pagination, A11y } from 'swiper';
 import { useWindowSize } from 'usehooks-ts';
 import Container from '../Container/Container';
 import classes from './OurStar.module.css'
+import useGetData from '../Helper/Helper';
 
 
 
@@ -27,53 +28,68 @@ export const Star = ({nameofstar, typeofscholarship, img}) => {
   
 
 
-const initalState = {
-  starD:[],
-}
+// const initalState = {
+//   starD:[],
+// }
 const OurStars = () => {
-  const [starD, setStarD] = useState(initalState)
-  let final_data = [];
-  useEffect(() => {
-    stateHandler()
-  },[])
+
+  const state_data = {
+    _api_main:'/api/our-stars',
+    _api_sec:'/api/get-images/stars-uploads/',
+  }
+
+  const starD = useGetData(state_data);
+  if(!starD){
+    return <h1>hello</h1>
+  }
+  
+  // const [starD, setStarD] = useState(initalState)
+  // let final_data = [];
+  // useEffect(() => {
+  //   stateHandler()
+  // },[])
 
   
 
 
 
-  const stateHandler =  async () => {
-    try{
-      const res = await fetch('/api/our-stars/');
-      const starData = await res.json();
-      const d = starData.msg
-      d.map(async i=>{
-        try{
+  // const stateHandler =  async () => {
+  //   try{
+  //     const res = await fetch('/api/our-stars/');
+  //     const starData = await res.json();
+  //     const d = starData.msg
+  //     d.map(async i=>{
+  //       try{
 
-          const res = await fetch(`/api/get-images/stars-uploads/${i.photo}`);
-          if(!res.ok){
-            return null;
-          }
-          const data = await res.json();
-          if (data.msg && data.ext) {
-            const imgFile = `data:image/${data.ext};base64, ${data.msg}`;
-            let  updatedItem  =  { ...i, img_code: imgFile };
-            final_data.push(updatedItem)
-          }
-        }
-        catch(err){
-          console.log(err);
-        }
-      })
-       setStarD(prev => {
-        return {
-          starD:final_data,
-        }
-      })
-    }
-    catch(err){
-      console.log(err);
-    }
-  }
+  //         const res = await fetch(`/api/get-images/stars-uploads/${i.photo}`);
+  //         if(!res.ok){
+  //           return null;
+  //         }
+  //         const data = await res.json();
+  //         if (data.msg && data.ext) {
+  //           const imgFile = `data:image/${data.ext};base64, ${data.msg}`;
+  //           let  updatedItem  =  { ...i, img_code: imgFile };
+  //           final_data.push(updatedItem)
+  //         }
+  //       }
+  //       catch(err){
+  //         console.log(err);
+  //       }
+  //       finally{
+  //         setStarD(prev => {
+  //           return {
+  //             starD:final_data,
+  //           }
+  //         })
+  //       }
+  //     })
+       
+  //   }
+  //   catch(err){
+  //     console.log(err);
+  //   }
+  // }
+
   // useEffect(() => {
   //    fetch('/api/our-stars/').then(result => result.json()).then(data => {
   //     let d = data.msg;
@@ -114,7 +130,7 @@ const OurStars = () => {
       style={{display:'flex' , justifyContent:'space-between', padding:'3rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
       >
-          {starD.starD.map(star => {
+          {starD.map(star => {
             return(
               <SwiperSlide className=''>
                 <Star key={star?.id} typeofscholarship={star?.scholarship_name} nameofstar={star?.name} img={star?.img_code}/>

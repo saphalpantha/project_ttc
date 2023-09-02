@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NewsNoticePage from "../../components/NewsNotice/NewsNoticePage";
 import { useEffect } from "react";
+import useGetData from "../../components/Helper/Helper";
 // const data = [
 //   {
 //     id: "n1",
@@ -53,17 +54,19 @@ import { useEffect } from "react";
 // ];
 
 const newsNotice = () => {
-  const [data,setData] = useState([]);
-  useEffect(() => {
-    fetch('/api/news-notice').then(result => result.json()).then(data => {
-      console.log(data)
-      setData(data.msg)
-    }).catch(err => console.log(err))
-  },[])
+  const state_data = {
+    _api_main:'/api/news-notice/',
+    _api_sec:'/api/get-images/notice-uploads/',
+  }
+  const notice = useGetData(state_data);
+  if(!notice){
+    return;
+  }
+
   
   return (
     <div>
-      <NewsNoticePage newsData={data} />
+      <NewsNoticePage newsData={notice} />
     </div>
   );
 };

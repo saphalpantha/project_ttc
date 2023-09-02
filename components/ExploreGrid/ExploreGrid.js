@@ -3,6 +3,7 @@ import Container from '../Container/Container';
 import Link from 'next/link';
 // let db = [];
 import { useState } from 'react';
+import useGetData from '../Helper/Helper';
 
 
 
@@ -112,17 +113,19 @@ const images = [
 // ];
 const ExploreGrid = () => {
 
-  const [grid, setGrid ] = useState([]);
-  useEffect(() => {
-    fetch('/api/getall-album').then(result => result.json()).then(data => {
-      setGrid(data.msg)
-    }).catch(err => console.log(err))
-  },[])
-  
+  const state_data = {
+    _api_main:'/api/getall-album',
+    _api_sec:'/api/get-images/gallary/',
+  }
+  const grid = useGetData(state_data);
+  console.log('the grid', grid)
+  if(!grid){
+    return;
+  }
 
 const images1 = [
   {
-     src: grid[0]?.cover_image,
+     src: grid[0]?.img_code,
      width: 442,
      height: 505,
      isSelected: false,
@@ -137,7 +140,7 @@ const images1 = [
 
   },
   {
-    src: grid[1]?.cover_image,
+    src: grid[1]?.img_code,
     width: 442,
     height: 505,
     isSelected: false,
@@ -151,21 +154,21 @@ const images1 = [
 
   },
   {
-    src: grid[2]?.cover_image,
+    src: grid[2]?.img_code,
     width: 442,
     height: 505,
     isSelected: false,
     alb_name:grid[2]?.album_name,
  },
  {
-   src: grid[3]?.cover_image,
+   src: grid[3]?.img_code,
    width: 442,
    height: 505,
    isSelected: false,
    alb_name:grid[3]?.album_name,
 },
 {
-  src: grid[4]?.cover_image,
+  src: grid[4]?.img_code,
   width: 442,
   height: 505,
   isSelected: false,
@@ -236,7 +239,7 @@ return (
         <div className={`w-[${image.width}] h-full`}>
         <img 
             
-          src={`${(index === 1 || index == 3 ) ? image.src : `/images/gallary/${image.src}`}`}
+          src={`${(index === 1 || index == 3 ) ? image.src : `${image.src}`}`}
           alt={`Image ${index + 1}`}
           className=" object-center  object-cover hover:border-2  border-red-500 cursor-pointer w-[100%] h-[100%]  hover:border-black hover:text-white hover:font-bold hover:text-center hover:transition-all duration-150"
           />
