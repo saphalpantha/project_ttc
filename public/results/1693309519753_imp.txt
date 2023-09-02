@@ -1,0 +1,30 @@
+ m : n => 1 1 1
+	
+ 1: m => merge relationship with many side  (2 tables) B side
+
+
+ m : 1 => merge relationhip with many side ( 2 table) A side 
+
+
+ 1 : 1 => R can merge either for A or B
+
+
+
+
+ALSO GIVEN CARDINALITY CONSTRAINTS
+
+TOTAL  => FOREIGN KEY ( NOT NULL)
+
+CASE 1 : binary relationship with cardinality constraints and total participation constraints from 
+[ONE SIDE]
+=> merge many side
+
+
+
+CASE 1 : binary relationship with cardinality constraints and total participation constraints from 
+[BOTH SIDE]
+
+=> merge all and make one table
+
+
+

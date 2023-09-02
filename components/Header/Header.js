@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import Navbar from './Nav/NavBar'
 import Container from '../Container/Container'
 import Link from 'next/link'
@@ -40,15 +40,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 
 
-const Header = () => {  
-  const [isOpen, setIsOpen] = useState(false)
+const Header = () => { 
+   
+  const [isOpen, setIsOpen] = useState(null)
+  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false)
+  useEffect(() => {
+    fetch('/api/admission-status/').then(res => res.json()).then(data => {
+      const admission_status = data.msg[0]?.admission_open;
+
+      setIsAdmissionOpen(+admission_status)
+    }).catch(err => {})
+  },[isAdmissionOpen])
   return ( 
     // <Container>
     <div className='relative max-w-6xl z-[1000] md:max-w-full text-center flex flex-col space-y-3  '>
        <div className='w-full bg-[#201F54] h-5'></div>
-        <div className=' absolute top-[-10%] z-[1] right-[50%]  translate-x-[50%] md:translate-x-0  md:right-[2.4rem] bg-[#FF9900] w-[200px] h-[64px] rounded-b-[15px]  md:block'>
+      {isAdmissionOpen ? <div className='  absolute top-[-10%] z-[1] right-[50%]  translate-x-[50%] md:translate-x-0  md:right-[2.4rem] bg-[#FF9900] w-[200px] h-[64px] rounded-b-[15px]  md:block'>
            <Link href="/admissions"> <h1 className='font-bold tracking-wider text-xl mx-auto mt-3 text-white  '>Admission Open</h1></Link>
-        </div>
+        </div>: ''}
             {/* <Navbar/> */}
             {/* <NavLinks/> */}
 

@@ -7,7 +7,7 @@ const initialValues  = {
 };
 const Spotlight = () => {
   const [image,setImage] = useState()
-  const [loading,setLoading] = useState(true);
+  const [loading,setLoading] = useState(false);
   const submitHandler = async (formD) => {
     setLoading(true)
     const formData = new FormData();

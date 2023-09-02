@@ -12,6 +12,7 @@ const OurFaculty = () => {
   const [phone, setPhone] = useState();
   const [department, setDepartment] = useState();
   const [loading,setLoading] = useState(false);
+  const [openPostForm, setOpenPostForm] = useState(false);
 
 
   const submitHandler = async (formD) => {
@@ -49,7 +50,11 @@ const OurFaculty = () => {
 
   return (
 <div className='pl-[22%]  w-[100vw] py-14'>
-    <form encType="multipart/form-data" className='flex flex-col justify-center gap-5 px-20' onSubmit={handleSubmit}>
+<div className='pb-5 w-full justify-end relative flex flex-col'>
+
+<button className='px-4 absolute right-[1rem] hover:bg-[#201F54] hover:text-white  w-fit py-2 border-[1px] rounded-full border-[#201F54] transition-all duration-300 ease-in-out' onClick={() => setOpenPostForm(prev => !prev)}>{openPostForm ? 'Close' : 'Add New'}</button>
+</div>
+   { openPostForm &&  <form encType="multipart/form-data" className='flex flex-col justify-center gap-5 px-20' onSubmit={handleSubmit}>
         <div className='flex flex-col justify-center'>
         <label>Name of Faculty</label>
         <input  onChange={(e) => setName(e.target.value)} className='border-2 ' type='text'></input>
@@ -80,7 +85,7 @@ const OurFaculty = () => {
         <div className='flex flex-col justify-center items-center'>
         <button  type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
-    </form>
+    </form>}
 
     {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
         

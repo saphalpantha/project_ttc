@@ -1,3 +1,7 @@
+import { readFile,utils } from 'xlsx';
+import { join } from 'path';
+import { cwd } from 'process';
+
 export const getAllNotice =  async () => {
     try{
       const res = await fetch('/api/news-notice/');
@@ -17,4 +21,31 @@ export const getAllNotice =  async () => {
 
 
 
+  export const Xl_to_Sql =  (path) => {
+    let workbook =  readFile(path);
+    let worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    let range = utils.decode_range(worksheet["!ref"]);
+
+    let data = [];
+    let columnNames = {};
+  
+    for (let col = range.s.c; col <= range.e.c; col++) {
+      let cellAddress = utils.encode_cell({ r: range.s.r, c: col });
+      let cell = worksheet[cellAddress];
+      columnNames[col] = cell ? cell.v : `column${col - range.s.c + 1}`;
+    }
+  
+    for (let row = range.s.r + 1; row <= range.e.r; row++) {
+      let rowData = {};
+  
+      for (let col = range.s.c; col <= range.e.c; col++) {
+        let cellAddress = utils.encode_cell({ r: row, c: col });
+        let cell = worksheet[cellAddress];
+        rowData[columnNames[col]] = cell ? cell.v : null;
+      }
+  
+      data.push(rowData);
+    }
+    return data;
+  };
 

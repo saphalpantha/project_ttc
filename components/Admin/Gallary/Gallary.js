@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useFormik } from "formik";
 import axios from 'axios';
 import EditAlbum from './EditAlbum';
-
-
 const initialValues  = {
 };
 const Gallary = () => {

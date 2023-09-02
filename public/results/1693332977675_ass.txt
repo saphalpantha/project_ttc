@@ -1,0 +1,174 @@
+
+
+
+Create a table PRODUCT with the attributes like p_id, p_name, color, mfg_yr,
+exp_yr, and price. Enter the data in the table as shown below:
+
+P-ID P-NAME   COLOR           MFG-YR          EXP-YR            PRICE					
+---------- ---------- - -- ---------- ---------- ----------					
+100 mobile	black	2015	2020		8499
+101 earphone	white	2017	2020		499.99
+102 speaker	red	2018	2022		899.49
+103 keyboard	black	2013	2020		1299.49
+104 monitor	blue	2017	2030		9100.49
+105 hdd	black	2014	2030        3500.49		
+106 mouse	white	2016	2022   500.49		
+107 pen drive green     2013     2022   300.49					
+
+
+
+
+Using the above table PRODUCT, perform the following operations:
+a) Create a view P1 from the above table and display the content of the view.
+b) Create another view P2 from the above view P1 where the view contains the
+P_ID, P_Name, and Price for the products that were manufactured in the year
+2017. Display the view P2.
+c) Insert a new product using the view P1 with the details 108, &#39;printer&#39;, &#39;white&#39;,
+2017, 2032,3000.49 and display the view P1 as well as the table PRODUCT.
+d) Using the view P1, update the price of the product P_ID “105” with the new
+price as 5000. Display the table PRODUCT after update.
+e) Delete the product speaker from the table PRODUCT using the view P1.
+Display the view as well as the table after deletion.
+f) Create a view P3 from the table PRODUCT with read only constraint. Try to
+delete a product from the view P3 and display the result.
+g) Delete the view P2. Try to display the view P2 after deletion and display the
+result.
+h) Add a new column ‘Brand’ to the table PRODUCT and update all products
+with brand value ‘HP’. Display the table after update. Create a view P4 after
+altering the table and display the view.
+i) Create a view P5 to display the exp_yr, and average price from the table
+PRODUCT. This view uses the exp_yr to group the products whose price is
+
+less than 5000, and displays product price only when the average price is
+greater than 1000.
+
+2. Create a SEQUENCE named as “Seq_1” that start with 1 and continues till 100.
+The numbers in the sequence is increased by 1. Now, create a table Stud_seq with the
+columns ‘Roll’, and ‘Name’. Using the above sequence, insert 10 student details in
+the table and display the table.
+
+ 
+
+==========================================================================================================================================================
+
+
+
+
+CREATE TABLE PRODUCT (
+  P_ID INT,
+  P_NAME VARCHAR(50),
+  COLOR VARCHAR(20),
+  MFG_YR INT,
+  EXP_YR INT,
+  PRICE DECIMAL(10,2)
+);
+
+
+
+
+INSERT INTO PRODUCT VALUES (100, 'mobile', 'black', 2015, 2020, 8499);
+INSERT INTO PRODUCT VALUES (101, 'earphone', 'white', 2017, 2020, 499.99);
+INSERT INTO PRODUCT VALUES (102, 'speaker', 'red', 2018, 2022, 899.49);
+INSERT INTO PRODUCT VALUES (103, 'keyboard', 'black', 2013, 2020, 1299.49);
+INSERT INTO PRODUCT VALUES (104, 'monitor', 'blue', 2017, 2030, 9100.49);
+INSERT INTO PRODUCT VALUES (105, 'hdd', 'black', 2014, 2030, 3500.49);
+INSERT INTO PRODUCT VALUES (106, 'mouse', 'white', 2016, 2022, 500.49);
+INSERT INTO PRODUCT VALUES (107, 'pen drive', 'green', 2013, 2022, 300.49);
+
+
+a. CREATE VIEW P1 AS SELECT * FROM PRODUCT;
+
+SELECT * FROM P1;
+
+
+
+b. CREATE VIEW P2 AS
+SELECT p_id, p_name, price
+FROM P1
+WHERE mfg_yr = 2017;
+
+SELECT * FROM P2;
+
+c. INSERT INTO P1 (p_id, p_name, color, mfg_yr, exp_yr, price)
+VALUES (108, 'printer', 'white', 2017, 2032, 3000.49);
+
+SELECT * FROM P1;
+SELECT * FROM PRODUCT;
+
+
+d.UPDATE P1 SET price = 5000 WHERE p_id = 105;
+
+SELECT * FROM PRODUCT;
+
+
+e.DELETE FROM P1 WHERE p_name = 'speaker';
+
+SELECT * FROM P1;
+SELECT * FROM PRODUCT;
+
+
+f.CREATE VIEW P3 AS SELECT * FROM PRODUCT WITH READ ONLY;
+
+DELETE FROM P3 WHERE p_id = 100;
+
+
+g.DROP VIEW P2;
+
+SELECT * FROM P2;
+
+
+h.ALTER TABLE PRODUCT ADD Brand VARCHAR(50);
+
+UPDATE PRODUCT SET Brand = 'HP';
+
+SELECT * FROM PRODUCT;
+
+CREATE VIEW P4 AS
+SELECT * FROM PRODUCT;
+
+SELECT * FROM P4;
+
+
+
+i.CREATE VIEW P5 AS
+SELECT exp_yr, AVG(price) as avg_price
+FROM PRODUCT
+WHERE price < 5000
+GROUP BY exp_yr
+HAVING AVG(price) > 1000;
+
+SELECT * FROM P5;
+
+
+
+
+
+
+QN2 
+
+CREATE SEQUENCE Seq_1 START WITH 1 INCREMENT BY 1 MAXVALUE 100;
+
+
+
+CREATE TABLE Stud_seq (
+    Roll INTEGER DEFAULT NEXTVAL('Seq_1'),
+    Name VARCHAR(50) NOT NULL
+);
+
+
+
+
+INSERT INTO Stud_seq (Name) VALUES ('John');
+INSERT INTO Stud_seq (Name) VALUES ('Alex');
+INSERT INTO Stud_seq (Name) VALUES ('Mary');
+INSERT INTO Stud_seq (Name) VALUES ('Sam');
+INSERT INTO Stud_seq (Name) VALUES ('Sarah');
+INSERT INTO Stud_seq (Name) VALUES ('David');
+INSERT INTO Stud_seq (Name) VALUES ('Emily');
+INSERT INTO Stud_seq (Name) VALUES ('Mark');
+INSERT INTO Stud_seq (Name) VALUES ('Lily');
+INSERT INTO Stud_seq (Name) VALUES ('Jack');
+
+
+
+SELECT * FROM Stud_seq;

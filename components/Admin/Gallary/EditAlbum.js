@@ -1,12 +1,12 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { Fragment } from "react";
+import { React ,useEffect,useState,Fragment } from "react";
 import Preloader from "../../UI/Preloader";
+import { useFormik } from "formik";
+import axios from "axios";
+const initialValues = {}
 const EditAlbum = () => {
   const [albums, setAlbums] = useState([]);
   const [selectedAlbum, setSelectedAlbum] = useState([]);
-  const [photos, setPhotos] = useState();
+  const [photos, setPhotos] = useState([]);
   const [load, setLoad] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
@@ -44,10 +44,11 @@ const EditAlbum = () => {
     setLoad(true);
     const id = item.id;
     console.log(item);
+    setSelectedItem(item);
     try {
       const res = await fetch(`/api/gallary/${id}`);
       const data = await res.json();
-      console.log(data);
+      console.log(data,'the data');
       setSelectedAlbum(data.msg);
       setLoad(false);
     } catch (err) {
@@ -71,26 +72,19 @@ const EditAlbum = () => {
     }
   };
 
-  const submitHandler = async () => {
-    e.preventDefault();
+
+  const submitHandler = async (formD) => {
     const formData = new FormData();
-    
     [...photos].map((file) => {
       formData.append(file.name, file);
     });
 
-    
-
-
+    console.log(formData)
 
     try {
       setLoading(true)
-      await axios
-        .post(`/api/update-image/${fixedAlbumState.id}/`, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
+      console.log(selectedItem, 'the item selected')
+      await axios.post(`/api/gallary/edit/${selectedItem.id}/`, formData )
         .then((response) => {
           alert(response.data.msg);
           setLoading(false)
@@ -104,6 +98,10 @@ const EditAlbum = () => {
       console.log(err);
     }
   };
+
+  
+  const formik = useFormik({initialValues, onSubmit : (values, resetForm) => {submitHandler(values)}})
+  const { values, handleBlur, handleChange, handleReset, handleSubmit } = formik
 
   const backHandler = () => {
     setSelectedAlbum([]);
@@ -218,7 +216,7 @@ const EditAlbum = () => {
 
 const updateForm =<form
 encType="multipart/form-data" 
-onSubmit={submitHandler}
+onSubmit={handleSubmit}
 className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-center items-center h-[10rem] w-1/2 mx-auto"
 >
 <div className=" flex flex-col gap-5 ">
@@ -226,7 +224,7 @@ className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-cent
   <input multiple onChange={(e) => setPhotos(e.target.files)} type="file"></input>
   <div className="flex gap-10">
 
-  <button onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
+  <button  onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
   <button disabled={loading} type="submit" className="border-2 px-2 w-fit py-2">{loading ? 'Submitting' : 'Submit'}</button>
   </div>
 </div>

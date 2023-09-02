@@ -14,7 +14,6 @@ import path from "path";
 let noticeFields = {};
 
 
-
 export const config = {
   api:{
     bodyParser:false,

@@ -66,6 +66,7 @@ import Card from 'react-bootstrap/Card';
 import ScrollLayout from '../UI/ScrollLayout';
 
 const SingleCard = ({img, title, admission_status , link}) =>  {
+  console.log(admission_status ,' from the card')
   return (
     <Card className='' style={{ width: '22rem' , height:'13.5rem' }}>
       <Card.Body>
@@ -78,7 +79,7 @@ const SingleCard = ({img, title, admission_status , link}) =>  {
               <img className='w-[100%] h-[100%] text-black' src={`/images/${img}.svg`} alt={title} />
          </div>
 
-         <Card.Title className='text-gray-400 font-light text-xl' >{`${title}`} <span className='text-red-500 font-bold text-2xs'>{admission_status && `(${admission_status})`}</span></Card.Title>
+         <Card.Title className='text-gray-400 font-light text-xl' >{`${title}`} { title === 'Admission' &&  <span className='text-red-500 font-bold text-2xs'>{ admission_status ? `(Open)` : '(Closed)'}</span>}</Card.Title>
      </div>
         </ScrollLayout>
       </Link>

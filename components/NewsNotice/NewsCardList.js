@@ -24,8 +24,7 @@ const NewsCardList = () => {
           } else {
           }
       })
-      final_data.length > 0 && setNotice(final_data)
-        console.log(final_data, 'the final')
+      setNotice(final_data)
     }).catch(err => console.log(err))
   },[])
 

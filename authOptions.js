@@ -40,6 +40,9 @@ export  const authOptions = {
               }
           })
       ],
+      secret:'0fg8p86i885cmdpaONu9sDEoW0tV1j2v',
+      
+
       callbacks: {
         // jwt:async({}) => {
         //     return 'hello'

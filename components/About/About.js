@@ -1,4 +1,4 @@
-import React from "react";
+import {React} from "react";
 import Container from "../Container/Container";
 import classes from "./About.module.css";
 const About = () => {
