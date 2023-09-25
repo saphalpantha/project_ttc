@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import Logo from "../../Logo/Logo";
 import { useState } from "react";
 import Backdrop from "../../UI/Nav/Backdrop";
+import { Link } from "@mui/material";
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
   { id: "i2", name: "Board Members", link: "/faculty/board" },
@@ -20,10 +21,13 @@ const resultData = [
 const othersData = [
 
   { id: "i1", name: "Preparation Materials", link: "/preparation-material" },
+  { id: "i2", name: "Career Service Center", link: "https://tilottama.careerservicelab.com" },
 ];
 
+
+
 const courseData = [
-    
+
   {
     id: "i1",
     title: "Science",
@@ -178,7 +182,7 @@ return (
           <li className=" relative cursor-pointer" onClick={othersHandler}>
             <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Others</span>
             {(others.length > 0 && active) && (
-              <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center w-[15rem]  bg-white h-[5rem]">
+              <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center w-[15rem]  bg-white h-[7rem]">
                 <ul className="flex pt-[1rem] flex-col gap-4">
                   {others.map((i) => (
                    <a href={i.link}> <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li> </a>

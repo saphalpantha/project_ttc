@@ -8,6 +8,15 @@ import axios from "axios";
 import { useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import useGetData from "../../Helper/Helper";
+import {
+  Table,
+  Header,
+  HeaderRow,
+  Body,
+  Row,
+  HeaderCell,
+  Cell,
+} from '@table-library/react-table-library/table';
 const initialValues = {}
 const StarList = () => {
   const [albums, setAlbums] = useState([]);

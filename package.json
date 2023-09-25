@@ -10,11 +10,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.2",
     "@next/font": "13.4.2",
+    "@table-library/react-table-library": "^4.1.7",
     "@tinymce/tinymce-react": "^4.3.0",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",

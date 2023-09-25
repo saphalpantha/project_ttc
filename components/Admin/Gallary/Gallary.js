@@ -83,7 +83,7 @@ const Gallary = () => {
         <button disabled={loading}  type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>}
-
+    
     <EditAlbum/>
     {/* <EditPhotos/> */}
     

@@ -1,7 +1,11 @@
-import { React ,useEffect,useState,Fragment } from "react";
+import { React ,useEffect,useState,Fragment, useMemo } from "react";
 import Preloader from "../../UI/Preloader";
 import { useFormik } from "formik";
 import axios from "axios";
+
+
+
+
 const initialValues = {}
 const EditAlbum = () => {
   const [albums, setAlbums] = useState([]);
@@ -12,16 +16,17 @@ const EditAlbum = () => {
   const [selectedItem, setSelectedItem] = useState({});
   const [fixedAlbumState, setFixedAlbumState] = useState([]);
   const [loading,setLoading] = useState(false)
-  useEffect(() => {
-    fetch("/api/getall-album")
-      .then((result) => result.json())
+
+useEffect(() => {
+  fetch("/api/getall-album")
+  .then((result) => result.json())
       .then((data) => {
         setAlbums(data.msg);
         setFixedAlbumState(data.msg);
       })
       .catch((err) => {});
   }, [1]);
-
+  
   const singleAlbumDeleteHandler = async (item, indx) => {
     const id = item.id;
     console.log(id);
@@ -40,6 +45,7 @@ const EditAlbum = () => {
     }
   };
 
+  
   const singleAlbumEditHandler = async (item) => {
     setLoad(true);
     const id = item.id;
@@ -114,21 +120,28 @@ const EditAlbum = () => {
 
   const gallary = <div>
         
-  {selectedAlbum.length <= 0 ? (
-    <table className="px-[1rem] border-2 py-[5rem]">
-      <tbody className="flex flex-col px-[3rem] py-[5rem]">
-        <tr className="flex gap-[8em] py-5">
+  {selectedAlbum.length == -1 ? (
+    <table className="">
+      <tbody className="flex flex-col py-[5rem]">
+        <tr className="flex justify-between py-5">
           <th>S.N</th>
           <th>Cover Photo</th>
           <th>Album Name</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
-        {albums.map((i, indx) => {
+        <tr className="flex justify-between px-[1rem] py-4">
+          <td>1</td>
+          <td></td>
+          <td>Alb Name</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+        {/* {albums.map((i, indx) => {
           return (
             <Fragment>
               {!load ? (
-                <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
+                <tr key={i.id} className="flex justify-between py-4 px-[1rem]">
                   <td className="text-justify">{indx + 1}</td>
                   <td className="object-cover">
                     <img
@@ -158,7 +171,7 @@ const EditAlbum = () => {
               )}
             </Fragment>
           );
-        })}
+        })} */}
       </tbody>
     </table>
   ) : (
@@ -214,6 +227,13 @@ const EditAlbum = () => {
   )}
 </div>
 
+
+
+
+
+
+
+
 const updateForm =<form
 encType="multipart/form-data" 
 onSubmit={handleSubmit}
@@ -232,11 +252,11 @@ className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-cent
   return (
     <div className="">
       <div className="flex gap-4 ">
-        <h1 className="text-[#201F54] font-bold">Update Gallary</h1>
+        <h1 className="text-[#201F54] py-2 font-bold">Update Gallary</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
       </div>
 
-      {isOpen ? updateForm : gallary}
+      {isOpen  ? updateForm : gallary}
       
 
 

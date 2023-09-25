@@ -23,18 +23,18 @@ const CardLists = () => {
     }).catch(err => {})
   },[isAdmissionOpen])
   return (
-    // <div className='max-w-6xl md:max-w-full  md:w-[100%] bg-[#EEEEEE] flex justify-center py-8 items-center'>
+    <div className='max-w-6xl md:max-w-full  md:w-[100%] bg-[#EEEEEE] flex justify-center py-8 items-center'>
 
-    <div className='py-10 w-[100%] bg-[#EEEEEE]'>
+    <div className='w-[100%] bg-[#EEEEEE]'>
       {console.log(isAdmissionOpen, 'from card list')}
-      <div className='text-black translate-x-[-2%] left-[2%] flex flex-col md:flex-row space-y-10 py-2 md:py-0  items-center md:items-baseline justify-center items-center md:gap-[50px]'>
+      <div className='text-black translate-x-[-2%] left-[2%] flex flex-col md:flex-row  py-2 md:py-0  items-center md:items-baseline justify-center items-center md:gap-[50px] gap-[20px]'>
         {card_data.map(item => (
           
           <SingleCard link={item.link} key={item.id} title={item.title} admission_status={isAdmissionOpen} img={item.img}/>
           ))}
           </div>
     </div>  
-          // </div>
+         </div>
   )
 }
 

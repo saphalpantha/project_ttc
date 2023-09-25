@@ -32,12 +32,12 @@ const EditPhotos = () => {
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
       </div>
 
-      <div className="flex gap-4  py-5 justify-end">
+      <div className="flex gap-4   py-5 justify-end">
         
       </div>
 
       <div
-        className={`rounded-xl pb-[3rem] bg-white h-auto  w-[100%] ${classes.sh}`}
+        className={`rounded-xl pb-[3rem] w-[90%] mx-auto bg-white h-auto  ${classes.sh}`}
       >
         <div className="font-semibold">
           <div className="flex gap-[8rem]  px-[3rem]  pt-[2rem]">

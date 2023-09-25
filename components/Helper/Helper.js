@@ -73,7 +73,7 @@ const useGetData = (compo_data) => {
   const stateHandler = async () => {
     try {
       const { _api_main, _api_sec } = compo_data;
-      const res = await fetch(`${_api_main}/`);
+      const res = await fetch(`${_api_main}`);
       const res_data = await res.json();
       console.log('res_data',res_data)
       const d = res_data.msg;
@@ -81,7 +81,7 @@ const useGetData = (compo_data) => {
       const updatedDataArray = await Promise.all(
         d.map(async (i) => {
           try {
-            const res = await fetch(`${_api_sec}/${_api_sec === '/api/get-images/gallary/' ? i.cover_image : i.photo}`);
+            const res = await fetch(`${_api_main}/${_api_sec === '/api/get-images/gallary/' ? i.cover_image : i.photo}`);
             if (!res.ok) {
               return null;
             }

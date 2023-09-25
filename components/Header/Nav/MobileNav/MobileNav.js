@@ -28,6 +28,7 @@ const MobileNav = ({isOpen,setIsOpen}) => {
 
   const othersData = [
     { id: "i1", name: "Preparation Materials", link: "/preparation-material" },
+    { id: "i2", name: "Career Service Center", link: "https://tilottama.careerservicelab.com/" },
   ];
 
   const courseData = [
@@ -219,15 +220,16 @@ const MobileNav = ({isOpen,setIsOpen}) => {
                     active.id === "course" &&
                     active.data.map((i) => {
                       return (
-                          <div key={i.id}>
+                          <div className="flex justify-between w-full" key={i.id}>
                              <ScrollLayout duration={0.4} x={150} y={0} >
 
                           <li
                             onClick={() => setActiveCourse(i)}
-                            className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left"
+                            className="cursor-pointer pl-[1rem]  text-[0.9rem] font-light text-left"
                             >
-                            {`${i.title }`} <ArrowRightAltIcon/>
+                            {`${i.title }`} 
                           </li>
+                            {/* <span className=""><ArrowRightAltIcon/></span> */}
                               </ScrollLayout>
                           <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
                         </div>
