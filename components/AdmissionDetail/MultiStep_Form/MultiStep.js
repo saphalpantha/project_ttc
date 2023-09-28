@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import { Fragment } from "react";
+import Logo from '../../Logo/Logo'
 // import Container from "../Container/Container";
 
 
@@ -59,7 +60,7 @@ export const ChooseFac = ({ handleSubmit, handleChange, values }) => {
   return (
     <div>
       {console.log(values,'faculty')}
-      <h1 className="w-[95%]  mx-auto my-4 py-3 rounded-full text-center font-bold bg-[#FF9900] text-white">
+      <h1 className="w-[95%]  mx-auto my-4 py-3  text-center font-bold bg-[#FF9900] text-white">
         Admission Form
       </h1>
       {/* <form encType="multipart/form-data" onSubmit={handleSubmit}> */}
@@ -73,7 +74,7 @@ export const ChooseFac = ({ handleSubmit, handleChange, values }) => {
               onChange={handleChange}
               name="faculty"
               required
-              className=" w-[14rem] h-[2.6rem]  bg-white border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
+              className=" w-[14rem] h-[2.6rem]  bg-white border-2 border-[#201F54] text-black px-[1rem] rounded-[0.3rem]"
               value={values.faculty}
             >
               <option>Select Faculty</option>
@@ -93,7 +94,7 @@ export const ChooseFac = ({ handleSubmit, handleChange, values }) => {
 const B1 = ({formik, handleChange, values}) => {
   {console.log(values,'b1')}
   return(
-    <div className="py-[1rem]">
+    <div className="">
       <h1 className="w-[80%]  mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
         Basic Information {values.faculty}
       </h1>
@@ -110,7 +111,7 @@ const B1 = ({formik, handleChange, values}) => {
         onChange={handleChange}
         name="nameinblock"
           required
-          className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
+          className="rounded-[0.3rem] pl-3 py-2 w-[70%] border-2 border-[#201F54]"
         ></input>
       </div>
 
@@ -123,7 +124,7 @@ const B1 = ({formik, handleChange, values}) => {
         <input
           onChange={handleChange}
           name="nameindevanagari"
-          className="rounded-xl pl-3 py-2 w-[70%] border-2 border-[#201F54]"
+          className="rounded-[0.3rem] pl-3 py-2 w-[70%] border-2 border-[#201F54]"
         ></input>
       </div>
 
@@ -135,7 +136,7 @@ const B1 = ({formik, handleChange, values}) => {
           <input
             onChange={handleChange}
             name="dob_bs"
-            className={`  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl `}
+            className={`  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem] `}
             type="text"
           ></input>
         </div>
@@ -147,7 +148,7 @@ const B1 = ({formik, handleChange, values}) => {
             onChange={handleChange}
             name="dob_ad"
             required
-            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
             type="date"
           ></input>
         </div>
@@ -173,7 +174,7 @@ const B2 = ({handleChange,values}) => {
             onChange={handleChange}
             name="gender"
             required
-            className="  w-[14rem] h-[2.6rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-xl"
+            className="  w-[14rem] h-[2.6rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-[0.3rem]"
             value={values.gender}
             >
             <option>Select Gender</option>
@@ -186,7 +187,7 @@ const B2 = ({handleChange,values}) => {
           <input
             onChange={handleChange}
             name="t_no"
-            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
             type="number"
             ></input>
         </div>
@@ -198,7 +199,7 @@ const B2 = ({handleChange,values}) => {
             onChange={handleChange}
             name="p_no"
             required
-            className={`w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl ${classes.req}`}
+            className={`w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem] ${classes.req}`}
             type="number"
             ></input>
         </div>
@@ -207,7 +208,7 @@ const B2 = ({handleChange,values}) => {
           <input
             onChange={handleChange}
             name="email"
-            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
             type="text"
             ></input>
         </div>
@@ -233,7 +234,7 @@ return(
               onBlur={handleBlur}
               name="ward_no"
               required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
               type="number"
             ></input>
           </div>
@@ -246,7 +247,7 @@ return(
               onBlur={handleBlur}
               name="vdc_mun"
               required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
               type="text"
               ></input>
           </div>
@@ -259,7 +260,7 @@ return(
               onBlur={handleBlur}
               name="district"
               required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
               type="text"
             ></input>
           </div>
@@ -293,12 +294,12 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
               onReset={handleReset}
               name="nameofprevschool"
               required
-              className=" rounded-xl pl-3 py-2 w-[150%] border-2 border-[#201F54]"
+              className=" rounded-[0.3rem] pl-3 py-2 w-[150%] border-2 border-[#201F54]"
             ></input>
           </div>
         </div>
           
-          <div className="flex  flex-col">
+          <div className="flex justify-center items-center space-y-2  w-full flex-col">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               +2 GPA
             </label>{" "}
@@ -308,7 +309,7 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
               onReset={handleReset}
               name="sendUpGpa"
               required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              className="  w-[150%] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
               type="text"
             ></input>
           </div>
@@ -322,14 +323,15 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
 const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, page }) => {
   return (
       
-    <div className="w-[95vw] h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[2rem]  mt-[4rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh] md:max-h-[40rem]  md:h-[80%] flex flex-col">
-    
-  
+    <div className="w-[95vw] border-[1px]  shadow-sm rounded-[0.4rem] h-[100vh] md:h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh] md:max-h-[40rem]  md:h-[80%] flex flex-col">
+      <div className="flex justify-center items-center py-[0.5rem]">
+      <Logo/>
+      </div>
       {children}
-      <div className="absolute bottom-1 md:bottom-[5%]   w-full justify-center items-center flex md:gap-32 gap-20">
+      <div className="absolute bottom-1 md:bottom-[2%]   w-full justify-center items-center flex md:gap-32 gap-20">
       <button
       onClick={prevHandler}
-            className="py-3  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
+            className="py-2  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in  shadow-md  "
           >
               Prev
           </button>
@@ -337,14 +339,14 @@ const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, pag
           page == 5 ? <div className=" flex py-5 flex-col justify-center items-center">
           <button
             type="submit"
-            className="py-3 px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
+            className="py-2 px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in  shadow-md  "
           >
             {!loading ? 'Submit' : 'Submitting'}
           </button>
         </div> : 
         <button
         onClick={nxtHandler}
-              className="py-3  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
+              className="py-2  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in  shadow-md  "
             >
                 Next
             </button>
@@ -439,12 +441,12 @@ const MultiStep = () => {
  
 
   return (
-    <div className="min-h-[100vh]  bg-white md:bg-gray-300 w-full">
+    <div className="min-h-[100vh]  bg-white w-full">
       <div className=" h-fit md:h-[40vh] bg-[#201F54] flex flex-col justify-center items-center">
         <div>
-          <div className="min-h-screen  md:bg-gray-300  w-full">
+          <div className="min-h-screen  w-full">
             <div className="required: md:h-[40vh] bg-[#201F54] flex flex-col justify-center items-center">
-              <form className="required: md:h-[40vh] bg-[#201F54] flex flex-col justify-center items-center"  encType="multipart/form-data" onSubmit={handleSubmit}>
+              <form className="required: md:h-[45vh]  bg-[#201F54] flex flex-col justify-center items-center"  encType="multipart/form-data" onSubmit={handleSubmit}>
               <Wrapper prevHandler={prevHandler} loading={loading} page={page} nxtHandler={nxtHandler}>
                   <Helper values={values}  handleSubmit={handleSubmit} handleChange={handleChange} page={page}/>
               </Wrapper>
