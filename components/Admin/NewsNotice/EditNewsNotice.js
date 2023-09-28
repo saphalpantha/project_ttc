@@ -76,7 +76,7 @@ const StarList = () => {
     _api_sec:'/api/get-images/notice-uploads/',
   }
   const notice = useGetData(state_data);
-  
+  console.log(notice,'notice')
 
 
 
@@ -116,37 +116,37 @@ const StarList = () => {
           >
           Back{" "}
         </span>}
-     { notice.length > 0 ? <table className="px-[1rem] border-2 py-[5rem]">
-        <tbody className="flex flex-col px-[3rem] py-[5rem]">
-          <tr className="flex gap-[9.7rem] py-5">
-            <th>S.N</th>
-            <th>Image</th>
-            <th>Heading</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-          {notice?.map((i, indx) => {
+        <table className={`w-[83%] my-[2rem] mx-auto`}>
+    <tbody className="flex pt-[1rem] flex-col border-[2px] h-[75vh]  overflow-y-scroll ">
+        <tr className="flex justify-between gap-[0rem]">
+        <th className="flex-1">S.N</th>
+            <th className="flex-1">Image</th>
+            <th className="flex-[1.3]">Heading</th>
+            <th className="flex-[1.3]">Edit</th>
+            <th className="flex-[1.1]">Delete</th>
+        </tr>
+        {notice.map((i, indx) => {
             return (
               <Fragment>
                 {!load ? (
-                  <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
-                    <td className="text-justify">{indx + 1}</td>
-                    <td className="object-cover">
+                  <tr key={i.id} className="flex justify-between gap-[4rem] mx-[2rem]  py-4">
+                    <td  className="flex-1">{indx + 1}</td>
+                    <td  className="object-cover flex-1">
                       <img
-                        className="w-[5rem] object-cover h-[5rem]"
+                        className="  w-[5rem] object-cover h-[5rem]"
                         src={`${i.img_code}`}
                       />
                     </td>
-                    <td className="text-justify max-w-xl w-[10%]">{i.heading}</td>
-                    <td
-                      onClick={() => singleAlbumEditHandler(i, indx)}
-                      className="text-justify cursor-pointer px-4 rounded-full bg-[#201F54] h-[2rem] text-white"
+                    <td  className="flex-1">{i.heading}</td>
+                    <td 
+                       onClick={() => singleAlbumEditHandler(i, indx)}
+                      className=" w-fit px-4 flex-1 cursor-pointer rounded-full bg-[#201F54] h-[2rem] text-white"
                     >
                       Open
                     </td>
                     <button
                       onClick={() => singleAlbumDeleteHandler(i, indx)}
-                      className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
+                      className={` cursor-pointer flex-1 px-4 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
                     >
                       Delete
                     </button>
@@ -157,8 +157,8 @@ const StarList = () => {
               </Fragment>
             );
           })}
-        </tbody>
-      </table> : <div className="flex flex-col justify-center items-center"><Preloader/></div>}
+    </tbody>
+</table>
     </div>
   );
 
@@ -209,7 +209,7 @@ apiKey='hc8j851fp7qxs4ve58a0bssy33uhzba52k1bmt7rt5j4e61n'
   
   return (
     <div className="">
-      <div className="flex gap-4 ">
+      <div className="flex gap-4 mx-[5.5rem] ">
         <h1 className="text-[#201F54] font-bold">Update NewsNotice</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
       </div>

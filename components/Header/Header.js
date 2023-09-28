@@ -44,6 +44,7 @@ const Header = () => {
    
   const [isOpen, setIsOpen] = useState(null)
   const [isAdmissionOpen, setIsAdmissionOpen] = useState(false)
+  const [linksData, setLinksData] = useState([]);
   useEffect(() => {
     fetch('/api/admission-status/').then(res => res.json()).then(data => {
       const admission_status = data.msg[0]?.admission_open;
@@ -51,6 +52,16 @@ const Header = () => {
       setIsAdmissionOpen(+admission_status)
     }).catch(err => {})
   },[isAdmissionOpen])
+
+  useEffect(() => {
+    
+    fetch('/api/custom-link').then(res => res.json()).then(data => {
+      console.log(data.msg);
+      setLinksData(data.msg)
+    }).catch(err => {
+      console.log(err);
+    })
+  },[])
   return ( 
     // <Container>
     <div className='relative max-w-6xl z-[1000] md:max-w-full text-center flex flex-col space-y-3  '>
@@ -63,14 +74,14 @@ const Header = () => {
 
             {/* <MobileNav/> */}
             <div className='bg-white relative flex md:hidden items-center  px-[1rem] h-[7rem] '> 
-                <div className='mt-[1.3rem] mx-auto'>
+                <div className={`${!isAdmissionOpen ? 'mt-[0rem]': 'mt-[1.3rem]' } ml-[1rem]`}>
 
-                <Logo/>
-                <h1 onClick={() => setIsOpen(true)} className='absolute  top-[3rem] right-[1rem] w-[3rem] h-[3rem]'><MenuIcon fontSize='large'  /></h1>
+             <a href="/">  <Logo/> </a>
+                <h1 onClick={() => setIsOpen(true)} className={`absolute  ${ !isAdmissionOpen ? 'top-[2.5rem]': 'top-[3.2rem]'} right-[2.2rem] w-[3rem] h-[3rem]`}><MenuIcon fontSize='large'  /></h1>
                 </div>
             </div>
-            <MobileNav isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <NavDesktop/>
+            <MobileNav  linksData={linksData} isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <NavDesktop linksData={linksData}/>
     </div>
     // </Container>
   )

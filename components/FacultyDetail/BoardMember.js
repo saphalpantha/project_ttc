@@ -41,7 +41,7 @@ const users = [
 
 const BoardMember = () => {
   return (
-    <div className="flex flex-col gap-10 pb-[10rem] justify-center items-center">
+    <div className="flex flex-col gap-14 pb-[5rem] justify-center items-center">
       <section
         id="board_members"
         className="md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl"
@@ -63,7 +63,7 @@ const BoardMember = () => {
         </div>
       </section>
 
-      <section className="md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl">
+      <section className="md:max-w-[60.313] mx-auto py-[1rem] md:py-[1rem] justify-center items-center max-w-6xl">
         <div className="flex flex-col justify-between space-y-10 ">
           <h1 className="  text-white bg-[#FF9900]  py-1 font-semibold text-2xl md:text-3xl text-center  ">
             Message From Founder Principal
@@ -80,7 +80,7 @@ const BoardMember = () => {
               <span className="text-center">Founder Principal</span>
             </div>
 
-            <p className=" text-center md:text-start max-w-xl leading-8 tracking-wide">
+            <p className=" text-center md:text-start text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
               {" "}
               Tilottama campus, established in 2053 has exemplified excellence
               in science and mangaement by providing quality and value based
@@ -111,7 +111,7 @@ const BoardMember = () => {
             Message From Vice-Principal
           </h1>
           <div className="flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3">
-            <div className="flex flex-col space-y-2 w-[20rem] h-[25rem] py-2 pt-[3rem]">
+            <div className="flex flex-col space-y-2 w-[20rem] h-[25rem]">
               <img src="/images/board/vice_2.jpg"></img>
               <span className="font-bold text-[#201F54] tracking-wide text-center">
                 Mr Navendu Dhakal
@@ -119,7 +119,7 @@ const BoardMember = () => {
               <span className="text-center">Vice Principal</span>
             </div>
 
-            <p className=" text-center md:text-start max-w-xl leading-8 tracking-wide">
+            <p className="md:text-start text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
               {" "}
               I am immensely pleased to welcome you at Tilottama Campus. The
               Campus is popularly known not only throughout the nation but also
@@ -141,13 +141,13 @@ const BoardMember = () => {
           </div>
         </div>
       </section>
-      <section className="md:max-w-[60.313] mx-auto py-[3rem] md:py-[1rem] justify-center items-center max-w-6xl">
+      <section className="md:max-w-[60.313] mx-auto py-[2rem] md:py-[1rem] justify-center items-center max-w-6xl">
         <div className="flex flex-col justify-between space-y-10 ">
           <h1 className="  text-white bg-[#FF9900]  py-1 font-semibold text-2xl md:text-3xl text-center  ">
             Message From Vice-Principal
           </h1>
-          <div className="flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3">
-            <div className="flex flex-col space-y-2 w-[20rem] h-[20rem] py-2 pt-[3rem]">
+          <div className="flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-10">
+            <div className="flex flex-col space-y-2 w-[20rem] h-[27rem] py-2 pt-[3rem]">
               <img src="/images/board/vice_principle.jpg"></img>
               <span className="font-bold text-[#201F54] tracking-wide text-center">
                 Mr Mukunda Acharya
@@ -155,7 +155,7 @@ const BoardMember = () => {
               <span className="text-center">Vice Principal</span>
             </div>
 
-            <p className=" text-center md:text-start max-w-xl leading-8 tracking-wide">
+            <p className="md:text-start text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
               {" "}
               I respect you for your interest at Tilottama Campus. We understand
               the challenges facing your generation and guide you properly to

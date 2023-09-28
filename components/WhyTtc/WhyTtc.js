@@ -93,7 +93,7 @@ const WhyTtc = () => {
   return (
     <Container>
 
-        <div className={`w-full min-h-screen md:h-[33rem] flex flex-col  pt-[1rem] md:pt-[5rem] object-cover ${classes.main}`}>
+        <div className={`w-full min-h-fit md:min-h-screen  md:h-[33rem] flex flex-col  pt-[1rem] pb-[2rem] md:pb-[0rem]  md:pt-[5rem] object-cover ${classes.main}`}>
         <div className="flex flex-col  justify-center md:space-y-5  max-w-6xl   ">
         <h1 className=" text-3xl py-5  px-[2rem]  md:px-[5rem]  md:py-0 md:text-4xl  text-white  font-bold text-center md:text-start">
              Why Tilottama?

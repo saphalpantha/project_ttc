@@ -244,7 +244,7 @@ const StarList = () => {
   }
 
   const starD = useGetData(state_data);
-
+  
   const singleAlbumDeleteHandler = async (item,index) => {
     setLoad(true);
     const id = item.id;
@@ -279,37 +279,38 @@ const StarList = () => {
           >
           Back{" "}
         </span>}
-      <table className="w-[90%] mx-auto">
-        <tbody className="flex flex-col px-[3rem] py-[5rem]">
-          <tr className="flex justify-between py-5">
-            <th>S.N</th>
-            <th>Profile</th>
-            <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-          {starD?.map((i, indx) => {
+
+        <table className={`w-[83%] my-[2rem] mx-auto`}>
+    <tbody className="flex pt-[1rem] flex-col border-[2px] h-[75vh]  overflow-y-scroll ">
+        <tr className="flex justify-between gap-[0rem]">
+        <th className="flex-1">S.N</th>
+            <th className="flex-1">Profile</th>
+            <th className="flex-[1.3]">Name</th>
+            <th className="flex-[1.3]">Edit</th>
+            <th className="flex-[1.1]">Delete</th>
+        </tr>
+        {starD.map((i, indx) => {
             return (
               <Fragment>
                 {!load ? (
-                  <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
-                    <td className="text-justify">{indx + 1}</td>
-                    <td className="object-cover">
+                  <tr key={i.id} className="flex justify-between gap-[4rem] mx-[2rem]  py-4">
+                    <td  className="flex-1">{indx + 1}</td>
+                    <td  className="object-cover flex-1">
                       <img
-                        className="w-[5rem] object-cover h-[5rem]"
+                        className="  w-[5rem] object-cover h-[5rem]"
                         src={`${i.img_code}`}
                       />
                     </td>
-                    <td className="text-justify max-w-xl w-[10%]">{i.name}</td>
-                    <td
-                      onClick={() => singleAlbumEditHandler(i, indx)}
-                      className="text-justify cursor-pointer px-4 rounded-full bg-[#201F54] h-[2rem] text-white"
+                    <td  className="flex-1">{i.name}</td>
+                    <td 
+                       onClick={() => singleAlbumEditHandler(i, indx)}
+                      className=" w-fit px-4 flex-1 cursor-pointer rounded-full bg-[#201F54] h-[2rem] text-white"
                     >
                       Open
                     </td>
                     <button
                       onClick={() => singleAlbumDeleteHandler(i, indx)}
-                      className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
+                      className={` cursor-pointer flex-1 px-4 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
                     >
                       Delete
                     </button>
@@ -320,8 +321,8 @@ const StarList = () => {
               </Fragment>
             );
           })}
-        </tbody>
-      </table>
+    </tbody>
+</table>
     </div>
   );
 

@@ -7,19 +7,28 @@ import { useState } from 'react'
 import { setCookie, getCookie } from "cookies-next"
 import Carousel from '../Carousel/Carousel'
 import { useEffect } from 'react'
+import useGetData from '../Helper/Helper'
 
 const Hero = () => {
 
   const [isOpen, setIsOpen] = useState(true);
   const [img,setImg] = useState([{id:100,photo:''}]);
   
-  useEffect(() => {
-      fetch('/api/spotlight').then(res => res.json()).then(data => {data && setImg(data?.msg)}).catch(err => {});
-  },[])
+  const state_data = {
+    _api_main:'/api/spotlight',
+    _api_sec:'/api/get-images/spotlight-uploads/',
+  }
+  const spotlightData = useGetData(state_data);
+  
+  console.log(spotlightData)
+
+  
   const spotlightCloseHandler = () => {
     setCookie('open', 'true')
     setIsOpen(false)
   }
+
+  
 
   return (
     
@@ -28,7 +37,7 @@ const Hero = () => {
       {/* <Image  className=' z-20 w-[100%] h-[100%] object-contain' src="/images/main_photo.svg" width={500} height={500} ></Image> */}
       <Carousel/>
     </motion.div>
-          {!getCookie('open')  && <Modal isOpen={isOpen} img={img}  onClose={spotlightCloseHandler} />  }
+          {!getCookie('open')  && <Modal isOpen={isOpen} img={spotlightData}  onClose={spotlightCloseHandler} />  }
 
         <CardLists/>
 

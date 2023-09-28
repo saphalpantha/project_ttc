@@ -8,12 +8,12 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ScrollLayout from '../../../UI/ScrollLayout';
 import ClearIcon from '@mui/icons-material/Clear';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-const MobileNav = ({isOpen,setIsOpen}) => {
+const MobileNav = ({isOpen,setIsOpen, linksData}) => {
 
   const aboutData = [
     { id: "i1", name: "About Tilottama", link: "/about" },
-    { id: "i2", name: "Board Members", link: "/about" },
-    { id: "i3", name: "Faculty & Staffs", link: "/about" },
+    { id: "i2", name: "Board Members", link: "/faculty/board" },
+    { id: "i3", name: "Faculty & Staffs", link: "/faculty" },
   ];
   const resultData = [
     {
@@ -21,14 +21,12 @@ const MobileNav = ({isOpen,setIsOpen}) => {
       name: "Internal Exam Result",
       link: "/results/internal-result",
     },
-    { id: "i2", name: "NEB Grade XI Result", link: "/results/grade11-result" },
-    { id: "i2", name: "NEB Grade XII Result", link: "/results/" },
     { id: "i3", name: "Entrance Exam Result", link: "/entrance-results/" },
   ];
 
   const othersData = [
-    { id: "i1", name: "Preparation Materials", link: "/preparation-material" },
-    { id: "i2", name: "Career Service Center", link: "https://tilottama.careerservicelab.com/" },
+    { id: "i1", link_title: "Preparation Materials", link: "/preparation-material" },
+    // { id: "i2", link_title: "Career Service Center", link: "https://tilottama.careerservicelab.com/" },
   ];
 
   const courseData = [
@@ -129,12 +127,19 @@ const MobileNav = ({isOpen,setIsOpen}) => {
     setOthers([]);
   };
   const othersHandler = () => {
-    setOthers(othersData);
-    setActive({ id: "others", data: othersData });
+    setOthers(updatedOthersData);
+    setActive({ id: "others", data: updatedOthersData });
     setResult([]);
     setCourse([]);
     setAbout([]);
   };
+
+
+  
+const updatedOthersData = [
+  ...linksData, ...othersData
+]
+
 
   return (
     <Fragment>
@@ -154,27 +159,30 @@ const MobileNav = ({isOpen,setIsOpen}) => {
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={aboutHandler}
-                  className="cursor-pointer pl-[1rem] text-left"
+                  className=" flex justify-between px-[3rem] w-full cursor-pointer pl-[1rem] text-left"
                   >
-                  About <ArrowRightAltIcon/>
+                  <span>About</span>
+                  <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-               {<Link onClick={() => setIsOpen(false)} href={"/admissions"}> <li className="cursor-pointer pl-[1rem] text-left">
+               {<Link onClick={() => setIsOpen(false)} href={"/multi"}> <li className="cursor-pointer pl-[1rem] text-left">
                   Admission
                 </li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={courseHandler}
-                  className="cursor-pointer pl-[1rem] text-left"
+                  className="  w-full justify-between flex px-[3rem] cursor-pointer pl-[1rem] text-left"
                   >
-                  Courses <ArrowRightAltIcon/>
+                                   <span>Course</span>
+                  <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={resultHandler}
-                  className="cursor-pointer pl-[1rem] text-left"
+                  className=" w-full justify-between  flex px-[3rem] cursor-pointer pl-[1rem] text-left"
                   >
-                  Result <ArrowRightAltIcon/>
+                                    <span>Result</span>
+                  <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 {<Link onClick={() => setIsOpen(false)} href={"/newsnotice"}><li className="cursor-pointer pl-[1rem] text-left">Notice</li> </Link>}
@@ -183,9 +191,10 @@ const MobileNav = ({isOpen,setIsOpen}) => {
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={othersHandler}
-                  className="cursor-pointer pl-[1rem] text-left"
+                  className=" flex justify-between  w-full px-[3rem] cursor-pointer pl-[1rem] text-left"
                   >
-                  Others <ArrowRightAltIcon/>
+                                    <span>Others</span>
+                  <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
               </ul>
@@ -207,7 +216,7 @@ const MobileNav = ({isOpen,setIsOpen}) => {
                             <Link onClick={() => setIsOpen(false)} href={`${i.link}`}>
                               <ScrollLayout duration={0.4} x={150} y={0} >
                           <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
-                            {i.name}
+                            {i.link_title}
                           </li>
                     </ScrollLayout>
                             </Link>
@@ -225,13 +234,16 @@ const MobileNav = ({isOpen,setIsOpen}) => {
 
                           <li
                             onClick={() => setActiveCourse(i)}
-                            className="cursor-pointer pl-[1rem]  text-[0.9rem] font-light text-left"
+                            className=" flex w-full justify-between cursor-pointer pl-[1rem]  text-[0.9rem] font-light text-left"
                             >
-                            {`${i.title }`} 
+                           <span> {`${i.title }`
+                           }
+                           
+                            <div className="w-[75%]   translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
+                           </span> 
+                  <ArrowRightAltIcon/>
                           </li>
-                            {/* <span className=""><ArrowRightAltIcon/></span> */}
                               </ScrollLayout>
-                          <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
                         </div>
                       );
                     })}
@@ -262,3 +274,7 @@ const MobileNav = ({isOpen,setIsOpen}) => {
 };
 
 export default MobileNav;
+
+
+
+

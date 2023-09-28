@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "PORT=3002 next start",
+    "start": "next start",
     "saphal": "npm run build && npm run start",
     "lint": "next lint"
   },

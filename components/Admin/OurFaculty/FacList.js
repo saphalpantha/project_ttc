@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import Preloader from "../../UI/Preloader";
 import { useFormik } from "formik";
 import axios from "axios";
+import useGetData from "../../Helper/Helper";
 const initialValues = {}
 const EditAlbum = () => {
   const [albums, setAlbums] = useState([]);
@@ -53,20 +54,18 @@ const EditAlbum = () => {
 
   
 
+
+
   const formik = useFormik({initialValues, onSubmit : (values, resetForm) => {submitHandler(values)}})
   const { values, handleBlur, handleChange, handleReset, handleSubmit } = formik
 
 
-  useEffect(() => {
-    fetch("/api/faculty")
-      .then((result) => result.json())
-      .then((data) => {
-        setAlbums(data.msg);
-        setFixedAlbumState(data.msg);
-      })
-      .catch((err) => {});
-  }, [1]);
+  const state_data = {
+    _api_main:'/api/faculty',
+    _api_sec:'/api/get-images/faculty-uploads/',
+  }
 
+  const facultyD = useGetData(state_data);
 
 
   const singleAlbumDeleteHandler = async (item,index) => {
@@ -105,37 +104,37 @@ const EditAlbum = () => {
           >
           Back{" "}
         </span>}
-      <table className="px-[1rem] border-2 py-[5rem]">
-        <tbody className="flex flex-col px-[3rem] py-[5rem]">
-          <tr className="flex gap-[9.7rem] py-5">
-            <th>S.N</th>
-            <th>Profile</th>
-            <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-          {albums?.map((i, indx) => {
+        <table className={`w-[83%]  my-[2rem] mx-auto`}>
+    <tbody className="flex pt-[1rem] flex-col border-[2px] h-[75vh]  overflow-y-scroll ">
+        <tr className="flex justify-between gap-[0rem]">
+        <th className="flex-1">S.N</th>
+            <th className="flex-1">Profile</th>
+            <th className="flex-[1.3]">Name</th>
+            <th className="flex-[1.3]">Edit</th>
+            <th className="flex-[1.1]">Delete</th>
+        </tr>
+        {facultyD.map((i, indx) => {
             return (
               <Fragment>
                 {!load ? (
-                  <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
-                    <td className="text-justify">{indx + 1}</td>
-                    <td className="object-cover">
+                  <tr key={i.id} className="flex justify-between gap-[4rem] mx-[2rem]  py-4">
+                    <td  className="flex-1">{indx + 1}</td>
+                    <td  className="object-cover flex-1">
                       <img
-                        className="w-[5rem] object-cover h-[5rem]"
-                        src={`/images/faculty-uploads/${i.photo}`}
+                        className="  w-[5rem] object-cover h-[5rem]"
+                        src={`${i.img_code}`}
                       />
                     </td>
-                    <td className="text-justify max-w-xl w-[10%]">{i.name}</td>
-                    <td
-                      onClick={() => singleAlbumEditHandler(i, indx)}
-                      className="text-justify cursor-pointer px-4 rounded-full bg-[#201F54] h-[2rem] text-white"
+                    <td  className="flex-1">{i.name}</td>
+                    <td 
+                       onClick={() => singleAlbumEditHandler(i, indx)}
+                      className=" w-fit px-4 flex-1 cursor-pointer rounded-full bg-[#201F54] h-[2rem] text-white"
                     >
                       Open
                     </td>
                     <button
                       onClick={() => singleAlbumDeleteHandler(i, indx)}
-                      className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
+                      className={` cursor-pointer flex-1 px-4 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
                     >
                       Delete
                     </button>
@@ -146,8 +145,8 @@ const EditAlbum = () => {
               </Fragment>
             );
           })}
-        </tbody>
-      </table>
+    </tbody>
+</table>
     </div>
   );
 
@@ -193,8 +192,8 @@ const EditAlbum = () => {
   
   return (
     <div className="">
-      <div className="flex gap-4 ">
-        <h1 className="text-[#201F54] font-bold">Update Faculty</h1>
+      <div className="flex gap-4  mx-[5.5rem]">
+        <h1 className="text-[#201F54]   font-bold">Update Faculty</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
       </div>
 

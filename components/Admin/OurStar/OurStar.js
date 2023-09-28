@@ -46,7 +46,7 @@ const OurStar = () => {
 
   return (
 <div className='pl-[22%]  w-[100vw] py-10'>
-<button className='px-4 absolute mt-[1.5rem] right-[1rem] hover:bg-[#201F54] hover:text-white  w-fit py-2 border-[1px] rounded-full border-[#201F54] transition-all duration-300 ease-in-out' onClick={() => setOpenPostForm(prev => !prev)}>{openPostForm ? 'Close' : 'Add New'}</button>
+<button className='px-4 absolute mt-[1.3rem] right-[3.5rem] hover:bg-[#201F54] hover:text-white  w-fit py-2 border-[1px] rounded-full border-[#201F54] transition-all duration-300 ease-in-out' onClick={() => setOpenPostForm(prev => !prev)}>{openPostForm ? 'Close' : 'Add New'}</button>
    { openPostForm && <form encType="multipart/form-data" className='flex flex-col justify-center gap-5 px-20 pt-[3rem]' onSubmit={handleSubmit}>
         <div className='flex flex-col justify-center'>
         <label>Name of Student</label>
@@ -66,7 +66,7 @@ const OurStar = () => {
 }
     {/* <div  dangerouslySetInnerHTML={{__html: dummy.msg.desc}} /> */}
         <section className='min-h-screen  pt-[2rem]'>
-          <StarList/>
+          <StarList />
         </section>
  
 </div>

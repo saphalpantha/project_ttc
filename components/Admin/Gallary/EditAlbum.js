@@ -2,6 +2,7 @@ import { React ,useEffect,useState,Fragment, useMemo } from "react";
 import Preloader from "../../UI/Preloader";
 import { useFormik } from "formik";
 import axios from "axios";
+import useGetData from "../../Helper/Helper";
 
 
 
@@ -17,16 +18,7 @@ const EditAlbum = () => {
   const [fixedAlbumState, setFixedAlbumState] = useState([]);
   const [loading,setLoading] = useState(false)
 
-useEffect(() => {
-  fetch("/api/getall-album")
-  .then((result) => result.json())
-      .then((data) => {
-        setAlbums(data.msg);
-        setFixedAlbumState(data.msg);
-      })
-      .catch((err) => {});
-  }, [1]);
-  
+
   const singleAlbumDeleteHandler = async (item, indx) => {
     const id = item.id;
     console.log(id);
@@ -45,6 +37,12 @@ useEffect(() => {
     }
   };
 
+
+  const state_data = {
+    _api_main:'/api/getall-album',
+    _api_sec:'/api/get-images/gallary/',
+  }
+  const galleryData = useGetData(state_data);
   
   const singleAlbumEditHandler = async (item) => {
     setLoad(true);
@@ -120,64 +118,54 @@ useEffect(() => {
 
   const gallary = <div>
         
-  {selectedAlbum.length == -1 ? (
-    <table className="">
-      <tbody className="flex flex-col py-[5rem]">
-        <tr className="flex justify-between py-5">
-          <th>S.N</th>
-          <th>Cover Photo</th>
-          <th>Album Name</th>
-          <th>Edit</th>
-          <th>Delete</th>
+  {selectedAlbum.length == 0 ? (
+    <table className={`w-[83%] my-[2rem] mx-auto`}>
+    <tbody className="flex pt-[1rem] flex-col border-[2px] h-[75vh]  overflow-y-scroll ">
+        <tr className="flex justify-between gap-[0rem]">
+        <th className="flex-1">S.N</th>
+            <th className="flex-1">Cover photo</th>
+            <th className="flex-[1.3]">Album Name</th>
+            <th className="flex-[1.3]">Edit</th>
+            <th className="flex-[1.1]">Delete</th>
         </tr>
-        <tr className="flex justify-between px-[1rem] py-4">
-          <td>1</td>
-          <td></td>
-          <td>Alb Name</td>
-          <td>Edit</td>
-          <td>Delete</td>
-        </tr>
-        {/* {albums.map((i, indx) => {
-          return (
-            <Fragment>
-              {!load ? (
-                <tr key={i.id} className="flex justify-between py-4 px-[1rem]">
-                  <td className="text-justify">{indx + 1}</td>
-                  <td className="object-cover">
-                    <img
-                      className="w-[5rem] object-cover h-[5rem]"
-                      src={`/images/gallary/${i.cover_image}`}
-                    />
-                  </td>
-                  <td className="text-justify max-w-xl w-[10%]">
-                    {i.album_name}
-                  </td>
-                  <td
-                    onClick={() => singleAlbumEditHandler(i, indx)}
-                    className="text-justify cursor-pointer px-4 rounded-full bg-[#201F54] h-[2rem] text-white"
-                  >
-                    Open
-                  </td>
-                  <button
-                    disabled={selectedAlbum.length<=6}
-                    onClick={() => singleAlbumDeleteHandler(i, indx)}
-                    className={`text-justify cursor-pointer px-3 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
-                  >
-                    Delete
-                  </button>
-                </tr>
-              ) : (
-                <Preloader />
-              )}
-            </Fragment>
-          );
-        })} */}
-      </tbody>
-    </table>
+        {galleryData.map((i, indx) => {
+            return (
+              <Fragment>
+                {!load ? (
+                  <tr key={i.id} className="flex justify-between gap-[4rem] mx-[2rem]  py-4">
+                    <td  className="flex-1">{indx + 1}</td>
+                    <td  className="object-cover flex-1">
+                      <img
+                        className="  w-[5rem] object-cover h-[5rem]"
+                        src={`${i.img_code}`}
+                      />
+                    </td>
+                    <td  className="flex-1">{i.album_name}</td>
+                    <td 
+                       onClick={() => singleAlbumEditHandler(i, indx)}
+                      className=" w-fit px-4 flex-1 cursor-pointer rounded-full bg-[#201F54] h-[2rem] text-white"
+                    >
+                      Open
+                    </td>
+                    <button
+                      onClick={() => singleAlbumDeleteHandler(i, indx)}
+                      className={` cursor-pointer flex-1 px-4 rounded-full bg-red-500 h-[2rem] text-white disabled:bg-red-200`}
+                    >
+                      Delete
+                    </button>
+                  </tr>
+                ) : (
+                  <Preloader />
+                )}
+              </Fragment>
+            );
+          })}
+    </tbody>
+</table>
   ) : (
-    <table className="px-[1rem] flex-col border-2 py-[5rem]">
-      <tbody className="flex flex-col px-[3rem] py-[5rem]">
-        <div className="flex justify-between items-center justify-center">
+    <table className="w-[83%] my-[2rem] mx-auto">
+      <tbody className="flex pt-[1rem] flex-col border-[2px] h-[75vh]  overflow-y-scroll">
+        <div className="flex justify-between px-[2rem] items-center justify-center">
 
         <span
           onClick={backHandler}
@@ -189,22 +177,21 @@ useEffect(() => {
           Add  Photos
         </div>
           </div>
-        <span className="font-bold text-xl py-2">
-          {selectedAlbum[0].album_name}
+        <span className="font-bold text-xl px-[2.4rem] py-2">
+          {`Album ${selectedAlbum[0]?.album_name}`}
         </span>
-        <tr className="flex gap-[10rem] py-5">
-          <th>S.N</th>
-          <th>Images</th>
-          <th>Delete</th>
+        <tr className="flex pt-[2rem] justify-between gap-[3rem]">
+          <th className="flex-[0.8]">S.N</th>
+          <th className="flex-1">Images</th>
+          <th className="flex-1">Delete</th>
         </tr>
         {selectedAlbum.length <= 0 && (
           <h1 className="font-bold text-[#201F54]">Loading...</h1>
         )}
-        {console.log(selectedAlbum, "selected")}
         {selectedAlbum?.slice(1, -1)?.map((i, indx) => {
           return (
             <Fragment>
-              <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
+              <tr key={i.id} className="flex justify-between py-4 px-[6rem]">
                 <td className="text-justify">{indx + 1}</td>
                 <td className="object-cover">
                   <img
@@ -251,7 +238,7 @@ className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-cent
 </form>
   return (
     <div className="">
-      <div className="flex gap-4 ">
+      <div className="flex gap-4  mx-[5.5rem] ">
         <h1 className="text-[#201F54] py-2 font-bold">Update Gallary</h1>
         <img className="w-[2rem] h-[2rem]" src="/images/edit_form.svg"></img>
       </div>

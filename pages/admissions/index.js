@@ -1,14 +1,24 @@
-import React from 'react'
-import AdmissionBBA from '../../components/AdmissionDetail/AdmissionBBA'
+// import React from 'react'
+// import AdmissionBBA from '../../components/AdmissionDetail/AdmissionBBA'
 
-const AdmitForm = () => {
+// const AdmitForm = () => {
+//   return (
+//     <div>
+//         <AdmissionBBA/>
+//     </div>
+//   )
+// }
+
+// export default AdmitForm
+
+
+
+import React from 'react'
+
+const index = () => {
   return (
-    <div>
-        <AdmissionBBA/>
-    </div>
+    <div>index</div>
   )
 }
 
-export default AdmitForm
-
-
+export default index

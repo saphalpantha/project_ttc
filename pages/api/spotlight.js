@@ -62,9 +62,9 @@ const readFile = (req, saveLocally) => {
 const handler = async (req,res) => {
 
     if(req.method === 'GET'){
-
+      
         const db = await getDb()
-        db.query('SELECT * FROM spotlight').then(result => {
+        db.query('SELECT * FROM spotlight ORDER BY id desc limit 1').then(result => {
             res.status(200).json({msg:result[0]})
             db.end();
         }).catch(err => {
