@@ -60,14 +60,14 @@ export const ChooseFac = ({ handleSubmit, handleChange, values }) => {
   return (
     <div>
       {console.log(values,'faculty')}
-      <h1 className="w-[95%]  mx-auto my-4 py-3  text-center font-bold bg-[#FF9900] text-white">
+      <h1 className="w-[71%]  mx-auto my-4 py-3  text-center font-bold bg-[#FF9900] text-white">
         Admission Form
       </h1>
       {/* <form encType="multipart/form-data" onSubmit={handleSubmit}> */}
       <div id="first">
-        <div className="flex justify-center py-2 md:py-[5rem] flex-col  md:flex-row gap-2 md:gap-32 items-center">
+        <div className="flex justify-center py-2 md:py-[4rem] flex-col  md:flex-row gap-2 md:gap-32 items-center">
           <div className="flex flex-col space-y-2">
-            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+            <label className={`text-xl pl-3  text-[#201F54a] ${classes.req}`}>
               Faculty
             </label>
             <select
@@ -94,28 +94,28 @@ export const ChooseFac = ({ handleSubmit, handleChange, values }) => {
 const B1 = ({formik, handleChange, values}) => {
   {console.log(values,'b1')}
   return(
-    <div className="">
-      <h1 className="w-[80%]  mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
-        Basic Information {values.faculty}
+    <div className="my-[1rem]">
+      <h1 className="w-[71%]  mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+        Basic Information ({values.faculty})
       </h1>
 
-      <div className="w-[70%] py-2 mx-auto ">
+      <div className="w-[71%] py-5 mx-auto ">
         <label
           className={`text-xl pl-3 pt-2 text-[#201F54] ${classes.req}`}
         >
           Name in Block Letter
         </label>
       </div>
-      <div className="flex flex-col justify-center items-center gap-4 pb-2 place-items-center">
+      <div className="flex flex-col justify-center items-center gap-5 pb-2 place-items-center">
         <input
         onChange={handleChange}
         name="nameinblock"
           required
-          className="rounded-[0.3rem] pl-3 py-2 w-[70%] border-2 border-[#201F54]"
+          className="rounded-[0.3rem] pl-3 py-2 w-[71%] border-2 border-[#201F54]"
         ></input>
       </div>
 
-      <div className="w-[70%] py-2 mx-auto ">
+      <div className="w-[71%] py-2 mx-auto ">
         <label className={`text-xl pl-3 pt-2 text-[#201F54]`}>
           Name in Devanagari
         </label>
@@ -124,11 +124,11 @@ const B1 = ({formik, handleChange, values}) => {
         <input
           onChange={handleChange}
           name="nameindevanagari"
-          className="rounded-[0.3rem] pl-3 py-2 w-[70%] border-2 border-[#201F54]"
+          className="rounded-[0.3rem] pl-3 py-2 w-[71%] border-2 border-[#201F54]"
         ></input>
       </div>
 
-      <div className="grid justify-center place-items-center px-[5rem]  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2 ">
+      <div className="grid justify-center place-items-center px-[5.7rem]  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2 ">
         <div className="flex flex-col space-y-1">
           <label className={`text-xl pl-3 text-[#201F54] `}>
             Date of Birth (B.S)
@@ -160,10 +160,10 @@ const B2 = ({handleChange,values}) => {
   return(
     <div className="py-[1rem]">
             {console.log(values,'b2')}
-      <h1 className="w-[80%]  mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+      <h1 className="w-[71%]  mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
         Basic Information
       </h1>
-      <div className="grid justify-center place-items-center px-[5rem]  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-5  md:grid-row-2 ">
+      <div className="grid justify-center place-items-center px-[5rem]  py-7  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-5  md:grid-row-2 ">
 
       <div className="flex flex-col space-y-1">
           {" "}
@@ -221,10 +221,10 @@ const A1 = ({handleChange, values, handleBlur, handleReset}) => {
 return(
     <div className="py-[1rem]">
       {console.log(values, 'a1')}
-    <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+    <h1 className="w-[71%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Address
         </h1>
-        <div className="grid justify-center place-items-center px-5  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
+        <div className="grid justify-center place-items-center px-[5.5rem]  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               Ward Number:
@@ -272,7 +272,7 @@ return(
 const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
   return(
     <div className="py-[1rem]">
-       <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+       <h1 className="w-[71%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Academic Information
         </h1>
         
@@ -294,12 +294,12 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
               onReset={handleReset}
               name="nameofprevschool"
               required
-              className=" rounded-[0.3rem] pl-3 py-2 w-[150%] border-2 border-[#201F54]"
+              className=" rounded-[0.3rem] pl-3 py-2  w-[75%]  md:w-[190%] border-2 border-[#201F54]"
             ></input>
           </div>
         </div>
           
-          <div className="flex justify-center items-center space-y-2  w-full flex-col">
+          <div className="flex justify-center items-center space-y-2  w-[75%] flex-col">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               +2 GPA
             </label>{" "}
@@ -309,11 +309,10 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
               onReset={handleReset}
               name="sendUpGpa"
               required
-              className="  w-[150%] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
+              className=" w-full h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
               type="text"
             ></input>
           </div>
-        
             </div>
         
     </div>
@@ -323,7 +322,7 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
 const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, page }) => {
   return (
       
-    <div className="w-[95vw] border-[1px]  shadow-sm rounded-[0.4rem] h-[100vh] md:h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh] md:max-h-[40rem]  md:h-[80%] flex flex-col">
+    <div className="w-[95vw] border-[1px]  shadow-sm rounded-[0.4rem] h-[100vh] md:h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh] md:h-[34.5rem]  flex flex-col">
       <div className="flex justify-center items-center py-[0.5rem]">
       <Logo/>
       </div>
@@ -331,6 +330,7 @@ const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, pag
       <div className="absolute bottom-1 md:bottom-[2%]   w-full justify-center items-center flex md:gap-32 gap-20">
       <button
       onClick={prevHandler}
+      type="button"
             className="py-2  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in  shadow-md  "
           >
               Prev
@@ -345,6 +345,7 @@ const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, pag
           </button>
         </div> : 
         <button
+        type="button"
         onClick={nxtHandler}
               className="py-2  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in  shadow-md  "
             >
@@ -357,7 +358,7 @@ const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, pag
 };
 
 
-const Helper = ({page, handleSubmit, values,handleChange,handleBlur}) => {
+const Helper = ({page, values,handleChange,handleBlur}) => {
   if(page == 1){
     return <ChooseFac  values={values} handleChange={handleChange}/>
   }
@@ -373,7 +374,7 @@ const Helper = ({page, handleSubmit, values,handleChange,handleBlur}) => {
         return <A1 handleChange={handleChange}  handleBlur={handleBlur} values={values}/>
       }
       if(page == 5){
-        return <A2 handleChange={handleChange} handleSubmit={handleSubmit}  handleBlur={handleBlur} values={values}/>
+        return <A2 handleChange={handleChange}   handleBlur={handleBlur} values={values}/>
       }
 
 }

@@ -12,7 +12,7 @@ const NewsNotice = () => {
         <section className={` py-2 md:py-0 md:pb-[10rem]`}>
           <div className="relative">
             <div className="flex justify-center items-center">
-            <h1 className="text-3xl md:text-5xl relative md:absolute text-[#FF9900] md:text-[#FFF]  md:top-[10%] font-bold  z-[100] w-fit  left-[-2.8rem] md:left-[3.5%] ]">NEWS AND NOTICE</h1>
+            <h1 className="text-3xl md:text-5xl relative md:absolute text-[#FF9900] md:text-[#FFF]  md:top-[10%] font-bold  z-[100] w-full  left-[0.6rem] md:left-[3.5%] ]">NEWS AND NOTICE</h1>
             <Link href={"/newsnotice"}>  <img className=" z-[100] w-[3rem] h-[3rem] text-3xl md:text-5xl relative md:absolute text-[#FFF] md:top-[10%] font-bold z-[100] w-fit right-[5%]" src="/images/news_arrow.svg" ></img></Link>
             </div>
             <img

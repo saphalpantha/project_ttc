@@ -74,7 +74,7 @@ const Header = () => {
 
             {/* <MobileNav/> */}
             <div className='bg-white relative flex md:hidden items-center  px-[1rem] h-[7rem] '> 
-                <div className={`${!isAdmissionOpen ? 'mt-[0rem]': 'mt-[1.3rem]' } ml-[1rem]`}>
+                <div className={`${!isAdmissionOpen ? 'mt-[0rem]': 'mt-[1.3rem]' } ml-[0.5rem]`}>
 
              <a href="/">  <Logo/> </a>
                 <h1 onClick={() => setIsOpen(true)} className={`absolute  ${ !isAdmissionOpen ? 'top-[2.5rem]': 'top-[3.2rem]'} right-[2.2rem] w-[3rem] h-[3rem]`}><MenuIcon fontSize='large'  /></h1>
