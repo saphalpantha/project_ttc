@@ -35,7 +35,10 @@ const Hero = () => {
     <Container>
           <motion.div initial="offscreen" whileInView="onscreen" viewport={{once:true, amount:0.8}} className='max-w-full   relative'>
       {/* <Image  className=' z-20 w-[100%] h-[100%] object-contain' src="/images/main_photo.svg" width={500} height={500} ></Image> */}
-      <Carousel/>
+      <div className='w-full h-[100vh]'>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/W2GAo7EWkSs?si=DF60aqQbcSuNBoCf" title="YouTube video player" frameborder="0" controls="0" autoplay="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      {/* <Carousel/> */}
     </motion.div>
           {!getCookie('open')  && <Modal isOpen={isOpen} img={spotlightData}  onClose={spotlightCloseHandler} />  }
 

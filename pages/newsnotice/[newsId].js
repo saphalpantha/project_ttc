@@ -14,25 +14,27 @@ const NewsDetail = () => {
     _api_main:'/api/news-notice/',
     _api_sec:'/api/get-images/notice-uploads/',
   }
-  const notice1 = useGetData(state_data);
-  console.log(notice1,'hte noodsiboi')
-  if(!notice1){
+  const notice = useGetData(state_data);
+  if(!notice){
     return;
   }
 
   useEffect(() => {
-    findNewsById(newsId)
+    findNewsById(newsId);
   },[newsId])
 
-  const findNewsById = async (id) => {
   
-    const singleNotice = notice1.find(item => item.id ===  id)
-    setNewsData(singleNotice)
+  const findNewsById = async (id) => {
+    const singleNotice = notice.find(item => item.id ==  id)
+    singleNotice && setNewsData(singleNotice);
+
   }
 
   return (
     <Container>
-      <div className="flex flex-col justify-center mx-2 mx:px-32 gap-5 items-center py-[2rem] pb-[5rem]">
+      {
+        Object.keys(newsData).length > 0 ?  
+        <div className="flex flex-col justify-center mx-2 mx:px-32 gap-5 items-center py-[2rem] pb-[5rem]">
         <div className=" h-[50vh] md:h-[100vh]">
           
           <img src={`${newsData?.img_code}`} className="w-[100%] h-[100%]"></img>
@@ -43,7 +45,8 @@ const NewsDetail = () => {
            {/* {newsData?.para} */}
           </p>
         </div>
-      </div>
+      </div>:<h1>Loading...</h1>
+      }
     </Container>
   );
 };

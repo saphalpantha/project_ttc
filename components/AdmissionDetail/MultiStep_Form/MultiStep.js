@@ -60,7 +60,7 @@ export const ChooseFac = ({ handleSubmit, handleChange, values }) => {
   return (
     <div>
       {console.log(values,'faculty')}
-      <h1 className="w-[71%]  mx-auto my-4 py-3  text-center font-bold bg-[#FF9900] text-white">
+      <h1 className="w-[71%]  mx-auto my-4  py-3  text-center font-bold bg-[#FF9900] text-white">
         Admission Form
       </h1>
       {/* <form encType="multipart/form-data" onSubmit={handleSubmit}> */}
@@ -99,9 +99,9 @@ const B1 = ({formik, handleChange, values}) => {
         Basic Information ({values.faculty})
       </h1>
 
-      <div className="w-[71%] py-5 mx-auto ">
+      <div className="w-[71%] py-2 mx-auto ">
         <label
-          className={`text-xl pl-3 pt-2 text-[#201F54] ${classes.req}`}
+          className={`text-xl pl-3 pt- text-[#201F54] ${classes.req}`}
         >
           Name in Block Letter
         </label>
@@ -116,7 +116,7 @@ const B1 = ({formik, handleChange, values}) => {
       </div>
 
       <div className="w-[71%] py-2 mx-auto ">
-        <label className={`text-xl pl-3 pt-2 text-[#201F54]`}>
+        <label className={`text-xl pl-3 pt- text-[#201F54]`}>
           Name in Devanagari
         </label>
       </div>
@@ -128,7 +128,7 @@ const B1 = ({formik, handleChange, values}) => {
         ></input>
       </div>
 
-      <div className="grid justify-center place-items-center px-[5.7rem]  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2 ">
+      <div className="grid justify-center place-items-center px-[5.7rem]  py-1  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2 ">
         <div className="flex flex-col space-y-1">
           <label className={`text-xl pl-3 text-[#201F54] `}>
             Date of Birth (B.S)
@@ -136,7 +136,7 @@ const B1 = ({formik, handleChange, values}) => {
           <input
             onChange={handleChange}
             name="dob_bs"
-            className={`  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem] `}
+            className={` w-[14.5rem]  md:w-[13.5rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem] `}
             type="text"
           ></input>
         </div>
@@ -148,7 +148,7 @@ const B1 = ({formik, handleChange, values}) => {
             onChange={handleChange}
             name="dob_ad"
             required
-            className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
+            className=" w-[14.5rem] md:w-[13.5rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-[0.3rem]"
             type="date"
           ></input>
         </div>
@@ -281,14 +281,13 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
         <div className="flex flex-col justify-center">
           <div className="w-[100%] py-2 mx-auto ">
             <label
-              className={`text-xl pt-2  whitespace-nowrap    text-[#201F54] ${classes.req}`}
+              className={`text-xl pt-  whitespace-nowrap    text-[#201F54] ${classes.req}`}
             >
               Name of Previous School
             </label>
           </div>
           <div className="flex justify-center items-center space-y-2  w-full flex-col">
             <input
-            
               onChange={handleChange}
               onBlur={handleBlur}
               onReset={handleReset}
@@ -322,12 +321,12 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
 const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, page }) => {
   return (
       
-    <div className="w-[95vw] border-[1px]  shadow-sm rounded-[0.4rem] h-[100vh] md:h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh] md:h-[34.5rem]  flex flex-col">
-      <div className="flex justify-center items-center py-[0.5rem]">
+    <div className="w-[95vw] border-[1px]   shadow-sm rounded-[0.4rem] h-[100vh]  md:h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh]  md:h-[34.5rem]  flex flex-col">
+      <div className="flex justify-center items-center py-[0.3rem]">
       <Logo/>
       </div>
       {children}
-      <div className="absolute bottom-1 md:bottom-[2%]   w-full justify-center items-center flex md:gap-32 gap-20">
+      <div className="absolute bottom-1 md:bottom-[2%]     w-full justify-center items-center flex md:gap-32 gap-20">
       <button
       onClick={prevHandler}
       type="button"

@@ -1,12 +1,14 @@
 import {React} from "react";
 import Container from "../Container/Container";
 import classes from "./About.module.css";
+import Carousel from '../Carousel/Carousel'
 const About = () => {
   return (
     <Container>
-      <div
+      <Carousel/>
+      {/* <div
         className={`max-w-6xl md:max-w-full bg-fixed items-center flex justify-center md:h-[110vh] ${classes.clip} h-[70vh] `}
-      ></div>
+      ></div> */}
       <section
         className={`flex flex-col space-y-5 px-5 py-7 md:space-y-5 md:px-32 md:py-10 justify-center ${classes.stylee}`}
       >
