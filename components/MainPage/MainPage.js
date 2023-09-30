@@ -13,7 +13,9 @@ import ExploreGrid from '../ExploreGrid/ExploreGrid'
 const MainPage = () => {
   return(
   <Fragment>
+        
         <Hero/>
+
           <WhyTtc/>
           <Stream/>
           <NewsNotice/>
