@@ -70,8 +70,10 @@ const useGetData = (compo_data) => {
     
     const stateHandler =  async () => {
       let final_data = [];
+      
       try{
           const {_api_main, _api_sec} =  compo_data;
+          
             const res = await fetch(`${_api_main}/`);
             const res_data = await res.json();
             const d = res_data.msg
@@ -110,6 +112,8 @@ const useGetData = (compo_data) => {
 }
 
 export default useGetData;
+
+
 
 
 

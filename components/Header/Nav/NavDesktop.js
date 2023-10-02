@@ -4,6 +4,7 @@ import Logo from "../../Logo/Logo";
 import { useState } from "react";
 import Backdrop from "../../UI/Nav/Backdrop";
 import { Link } from "@mui/material";
+import classes from './NavBar.module.css'
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
   { id: "i2", name: "Board Members", link: "/faculty/board" },
@@ -38,7 +39,7 @@ const courseData = [
       { id: "m1", link: "/courses/management/introduction", subtitle: "Introduction" },
       { id: "m2", link: "/courses/management/admission", subtitle: "Admission Procedure" },
       { id: "m3", link: "", subtitle: "Scholarship and Fee Structure" },
-      { id: "m4", link: "/courses/management/#faculty_science", subtitle: "Faculty Members" },
+      { id: "m4", link: "/courses/management/#faculty_management", subtitle: "Faculty Members" },
     ],
   },
   {
@@ -48,7 +49,7 @@ const courseData = [
       { id: "b1", link: "/courses/bba/introduction", subtitle: "Introduction" },
       { id: "b2", link: "/courses/bba/admission", subtitle: "Admission Procedure" },
       { id: "b3", link: "", subtitle: "Scholarship and Fee Structure" },
-      { id: "b4", link: "/courses/bba/#faculty_science", subtitle: "Faculty Members" },
+      { id: "b4", link: "", subtitle: "Faculty Members" },
     ],
   },
 ];
@@ -93,7 +94,6 @@ const othersHandler = () => {
 const othersData = [
 
   { id: "i1", link_title: "Preparation Materials", link: "/preparation-material" },
-  // { id: "i2", link_title: "Career Service Center", link: "https://tilottama.careerservicelab.com" },
 ];
 
 
@@ -114,12 +114,12 @@ return (
             setCourse([]);
             setAbout([]);
        }}/>}
-      <nav className=" hidden md:flex py-[0.5rem] relative z-[1000] gap-10 items-center px-[1rem]">
+      <nav  className={`hidden md:flex py-[0.5rem]  relative z-[1000] gap-2 items-center px-[0rem]`}>
         <a href="/"><Logo></Logo></a>
-        <ul className="flex  gap-12">
-         <a href={"/"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Home</li></a>
-          <li className="relative cursor-pointer" onClick={aboutHanlder}>
-            <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">About</span>
+        <ul className="flex justify-center items-center  gap-7">
+         <a href={"/"}>   <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>Home</li></a>
+          <li  className={`relative cursor-pointer`} onClick={aboutHanlder}>
+            <span className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>About</span>
             {(about.length > 0 && active ) && (
               <div className="absolute  border-t-4 border-[#201F54] top-[3.8rem]  left-[-5rem] flex flex-col items-center w-[15rem]  bg-white h-[10rem]">
                { active && <ul className="flex pt-[1rem] flex-col gap-4">
@@ -131,10 +131,10 @@ return (
             )}
           </li>
 
-         <a href={"/multi"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Admission</li> </a>
-          <li className="cursor-pointer" onClick={courseHandler}>
-            <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Course</span>
-
+         <a href={"/admissions"}> <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54]  ${classes.main} `}>Admission</li> </a>
+          <li className={`cursor-pointer `} onClick={courseHandler}>
+            <span className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}>Course</span>
+            
             {(course.length > 0 && active) && (
               <div className="absolute border-t-4 border-[#201F54] top-[6.2rem] left-[50%] translate-x-[-50%] flex flex-col items-center   bg-white h-[20rem]">
                 <div className="flex justify-around px-[2rem] pt-[3rem] w-[85vw]">
@@ -173,8 +173,8 @@ return (
               </div>
             )}
           </li>
-          <li className=" relative cursor-pointer" onClick={resultHandler}>
-            <span>Result</span>
+          <li className={` relative cursor-pointer ${classes.main}`} onClick={resultHandler}>
+            <span className={`${classes.main} `}>Result</span>
             {(result.length > 0 && active) && (
               <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] left-[-5rem]  flex flex-col items-center w-[15rem]  bg-white h-fit pb-[2rem]">
                 <ul className="flex  pt-[1rem] flex-col gap-4">
@@ -185,10 +185,13 @@ return (
               </div>
             )}
           </li>
-        <a href={"/newsnotice"}>  <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Notice</li> </a>
-         <a href={"/gallery"}> <li className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Gallery</li></a>
+        <a href={"/newsnotice"}>  <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}>Notice</li> </a>
+         <a href={"/gallery"}> <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>Gallery</li></a>
+         <a href={"https://tilottama.careerservicelab.com"}> <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>Career Service Center</li></a>
+          
           <li className=" relative cursor-pointer" onClick={othersHandler}>
-            <span className="cursor-pointer hover:border-b-[3px] border-[#201F54] ">Others</span>
+            
+            <span className={`cursor-pointer hover:border-b-[3px]  border-[#201F54] ${classes.main} `}>Others</span>
             {(others.length > 0 && active) && (
               <div className={`absolute border-t-4 border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center w-[15rem]  bg-white h-auto pb-[2rem]`}>
                 <ul className="flex pt-[1rem] flex-col gap-4">

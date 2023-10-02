@@ -25,7 +25,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
   ];
 
   const othersData = [
-    { id: "i1", link_title: "Preparation Materials", link: "/preparation-material" },
+    { id: "i1", name: "Preparation Materials", link: "/preparation-material" },
     // { id: "i2", link_title: "Career Service Center", link: "https://tilottama.careerservicelab.com/" },
   ];
 
@@ -69,7 +69,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
         { id: "m3", link: "", subtitle: "Scholarship and Fee Structure" },
         {
           id: "m4",
-          link: "/courses/management/#faculty_science",
+          link: "/courses/management/#faculty_management",
           subtitle: "Faculty Members",
         },
       ],
@@ -91,7 +91,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
         { id: "b3", link: "", subtitle: "Scholarship and Fee Structure" },
         {
           id: "b4",
-          link: "/courses/bba/#faculty_science",
+          link: "",
           subtitle: "Faculty Members",
         },
       ],
@@ -132,7 +132,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
     setResult([]);
     setCourse([]);
     setAbout([]);
-  };
+  }; 
 
 
   
@@ -165,7 +165,7 @@ const updatedOthersData = [
                   <ArrowRightAltIcon/>
                 </li>
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-               {<Link onClick={() => setIsOpen(false)} href={"/multi"}> <li className="cursor-pointer pl-[1rem] text-left">
+               {<Link onClick={() => setIsOpen(false)} href={"/admissions"}> <li className="cursor-pointer pl-[1rem] text-left">
                   Admission
                 </li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
@@ -189,6 +189,8 @@ const updatedOthersData = [
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                { <Link onClick={() => setIsOpen(false)} href={"/gallery"}> <li className="cursor-pointer pl-[1rem] text-left">Gallery</li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+               { <a onClick={() => setIsOpen(false)} href={"https://tilottama.careerservicelab.com"}> <li className="cursor-pointer pl-[1rem] text-left">Carrier Service Center</li> </a>}
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={othersHandler}
                   className=" flex justify-between  w-full px-[3rem] cursor-pointer pl-[1rem] text-left"
@@ -199,7 +201,7 @@ const updatedOthersData = [
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
               </ul>
                   </ScrollLayout>
-            ) : (
+            ): (
                 <ul className="flex  font-bold justify-center pl-[2rem] pt-[0rem]  gap-14 flex-col">
                 <h1 onClick={() => {
                     Object.keys(activeCourse).length > 0 ? setActiveCourse({}) : setActive({})
@@ -207,16 +209,18 @@ const updatedOthersData = [
                   <KeyboardBackspaceIcon/>
                 </h1>
                 <div className="flex flex-col gap-10">
+                  {console.log(active,'active')}
                   {active.id != "course" &&
-                    active.data?.map((i) => {
-                        {
-                      }
+                    active?.data?.map((i) => {
+                        
+                      {console.log(i,'iiii')}
                       return (
                           <div>
                             <Link onClick={() => setIsOpen(false)} href={`${i.link}`}>
                               <ScrollLayout duration={0.4} x={150} y={0} >
                           <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
-                            {i.link_title}
+                            {console.log(i,'iiii')}
+                            {i.name}
                           </li>
                     </ScrollLayout>
                             </Link>
@@ -239,7 +243,7 @@ const updatedOthersData = [
                            <span> {`${i.title }`
                            }
                            
-                            <div className="w-[75%]   translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
+                            <div className="w-[10rem]   translate-x-[1%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
                            </span> 
                   <ArrowRightAltIcon/>
                           </li>
