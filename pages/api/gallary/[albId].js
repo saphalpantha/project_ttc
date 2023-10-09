@@ -66,6 +66,7 @@ const handler = async (req,res) => {
       const id = req.query.albId;
         let updated = []
         const db = await getDb();
+
         db.query(`SELECT * FROM gallary where id='${id}';select * from gallery_images where gallery_id='${id}';`).then(result => {
           updated = [...result[0][0] , ...result[0][1]];
           console.log(updated)

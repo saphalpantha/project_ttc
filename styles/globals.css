@@ -30,6 +30,13 @@ html{
 }
 
 
+body p{
+  color:#3f3f3f;
+  /* font-weight: 300; */
+  font-weight: 400 !important;
+}
+
+
 .header {
   text-align: center;
 }

@@ -42,7 +42,7 @@ const Stream = () => {
                     </ScrollLayout>
                     <ScrollLayout duration={0.7} x={-250}>
 
-                    <p className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</p>
+                    <article className='max-w-md md:max-w-[692px]' >{updatedItem.desc}</article>
                     </ScrollLayout>
                 <Link href={`/courses/${updatedItem.link}/introduction`}>  <button className=" hover:bg-[#BB7000] transition-all duration-200 ease-in absolute right-[2rem] text-xl font-bold active:opacity-90 active:bg-yellow-600 transition-all  shadow-md bg-[#FF9900] px-3 py-2  md:py-3 md:px-5 rounded-lg  bottom-2 md:bottom-5">See more</button></Link>
                  </div>
