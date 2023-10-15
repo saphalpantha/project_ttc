@@ -148,7 +148,7 @@ const updatedOthersData = [
         {
             isOpen && 
             <NavModel onClick={() => setIsOpen(false)}>
-        <div className="flex flex md:hidden w-[60vw] right-0  fixed  min-h-screen  text-white bg-[#292828] z-[1000] flex-col gap-4">
+        <div className="flex  iportrait:flex  md:hidden w-[60vw] right-0  fixed  min-h-screen  text-white bg-[#292828] z-[1000] flex-col gap-4">
             <h1 onClick={() => setIsOpen(false)} className="cursor-pointer absolute right-[2rem] top-[2rem]"><ClearIcon/></h1>
           <div className="pt-[7rem]">
             {Object.keys(active).length <= 0 ? (

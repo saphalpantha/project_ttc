@@ -73,7 +73,7 @@ const Header = () => {
             {/* <NavLinks/> */}
 
             {/* <MobileNav/> */}
-            <div className='bg-white relative flex md:hidden items-center  px-[1rem] h-[7rem] '> 
+            <div className='bg-white relative flex  iportrait:flex md:hidden items-center  px-[1rem] h-[7rem] '> 
                 <div className={`${!isAdmissionOpen ? 'mt-[0rem]': 'mt-[1.3rem]' } ml-[0.5rem]`}>
 
              <a href="/">  <Logo/> </a>

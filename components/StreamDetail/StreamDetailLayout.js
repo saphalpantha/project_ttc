@@ -28,9 +28,9 @@ const StreamDetailLayout = ({streamData}) => {
 
             ))}
           </div>
-          <div className="p-[2rem]">
+          <div className="p-[2rem]  w-fit md:w-[45rem] h-fit">
             <img
-              className="w-[100%] h-[100%]"
+              className="w-[100%] h-[100%] object-contain"
               src={streamData.section_img}
               alt="."
               ></img>

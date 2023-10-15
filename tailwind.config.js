@@ -11,10 +11,19 @@ module.exports = {
   theme: {
     screens:{
       sm:'440px',
-      md:'768px',
+      md:'1010px',
       lg:'992px',
       xl:'1440px',
+      ilandscape: {
+        min: '740px',
+        max:'1080px',
+      },
+      iportrait: {
+        min: '810px',
+        max: '1011px',
+      },
     },
+    
     extend: {
     },
   },

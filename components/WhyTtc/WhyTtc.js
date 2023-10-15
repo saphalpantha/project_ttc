@@ -93,12 +93,12 @@ const WhyTtc = () => {
   return (
     <Container>
 
-        <div className={`w-full min-h-fit md:min-h-screen  md:h-[33rem] flex flex-col  pt-[1rem] pb-[2rem] md:pb-[0rem]  md:pt-[5rem] object-cover ${classes.main}`}>
+        <div className={`w-full min-h-fit md:min-h-screen iportrait:h-[30rem]  md:h-[33rem] flex flex-col  pt-[1rem] pb-[2rem] md:pb-[0rem]  md:pt-[5rem] object-cover ${classes.main}`}>
         <div className="flex flex-col  justify-center md:space-y-5  max-w-6xl   ">
         <h1 className=" text-3xl py-5  px-[2rem]  md:px-[5rem]  md:py-0 md:text-4xl  text-white  font-bold text-center md:text-start">
              Why Tilottama?
                         </h1>
-           <ul className="flex flex-col gap-1 px-[2rem] md:px-[6rem] list-disc">
+           <ul className="flex flex-col gap-1 iportrait:gap-2 px-[2rem] md:px-[6rem] list-disc">
              {whyTTCList.map((i) => (
               <ScrollLayout duration={0.3} x={-200}>
 
@@ -108,7 +108,7 @@ const WhyTtc = () => {
                </ScrollLayout>
              ))}
            </ul>
-           <div className=" py-2  px-[2rem] md:px-[5rem]">
+           <div className=" my-5 iportrait:my-[5rem] px-[2rem]  md:px-[5rem]">
 
            <h1 className="border-[1px] w-fit text-white uppercase py-1 border-[#A5A5A5] px-[10px] hover:bg-[#A5A5A5] hover:text-black transition-all duration-100 ease-in cursor-pointer">Know More About Us</h1>
            </div>

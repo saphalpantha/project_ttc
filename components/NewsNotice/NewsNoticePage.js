@@ -4,6 +4,7 @@ import Container from "../Container/Container";
 import NewsNoticePageCard from "./NewsNoticePageCard";
 import classes from "../AdmissionDetail/AdmissionDetail.module.css";
 import styles from './NewsNoticePage.module.css'
+import Loader from "../UI/Loader/Loader";
 
 
 const NewsNoticePage = ({newsData}) => {
@@ -39,9 +40,9 @@ const NewsNoticePage = ({newsData}) => {
             News And Notice
           </div>
           <div className="mx-auto  justify-center  items-center  md:items-start flex flex-col gap-2 md:gap-10 pt-20">
-            {currentItems.map((i) => (
+             { currentItems.length >  0 ? currentItems.map((i) => (
               <NewsNoticePageCard para={i.para} id={i.id} heading={i.heading} img={i.img_code} />
-            ))}
+            )) : <div className="flex flex-col mx-auto mb-[2rem] justify-center items-center"> <Loader/> </div>}
           </div>
         </section>
         <ReactPaginate

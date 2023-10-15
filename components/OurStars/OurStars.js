@@ -9,6 +9,7 @@ import { useWindowSize } from 'usehooks-ts';
 import Container from '../Container/Container';
 import classes from './OurStar.module.css'
 import useGetData from '../Helper/Helper';
+import Loader from '../UI/Loader/Loader';
 
 
 
@@ -40,7 +41,7 @@ const OurStars = () => {
 
   const starD = useGetData(state_data);
   if(!starD){
-    return <h1>hello</h1>
+    return;
   }
   
   // const [starD, setStarD] = useState(initalState)
@@ -130,13 +131,13 @@ const OurStars = () => {
       style={{display:'flex' , justifyContent:'space-between', padding:'3rem', justifyItems:'center', alignItems:'center'}}
       pagination={{ clickable: true }}
       >
-          {starD.map(star => {
+          { starD.length>0 ?  starD.map(star => {
             return(
               <SwiperSlide className=''>
                 <Star key={star?.id} typeofscholarship={star?.scholarship_name} nameofstar={star?.name} img={star?.img_code}/>
               </SwiperSlide>
             )
-          })}
+          }) : <div><Loader/></div>}
     </Swiper>
       </div>
       {/* <h1 className='text-3xl text-blue-600'>{width}</h1> */}

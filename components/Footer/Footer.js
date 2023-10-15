@@ -5,11 +5,11 @@ import classes from './Footer.module.css'
 const Footer = () => {
   return (
     <Container>
-      <div className={`max-w-6xl flex flex-col md:max-w-full  items-center justify-center gap-10  pb-[4rem] md:pb-[4rem] pt-[2rem] ${classes.footer}`}>
+      <div className={`max-w-6xl iportrait:text-2xl flex flex-col md:max-w-full  items-center justify-center gap-10  pb-[4rem] md:pb-[4rem] pt-[2rem] ${classes.footer}`}>
         <div className="flex flex-col md:flex-row  md:justify-between px-0 px-[4rem] py-2  md:py-4 justify-center items-center space-y-6 md:space-y-0  gap-5 md:gap-x-32">
-          <div className="max-w-sm flex justify-center items-center flex-col gap-4">
+          <div className="max-w-sm iportrait:max-w-2xl  flex justify-center items-center flex-col gap-4">
             <h1 className="text-3xl font-bold text-white">About us</h1>
-            <p className="w-[100%] text-2xs text-white text-start">
+            <p className="w-[100%]  text-2xs text-white text-start">
               Tilottama Campus was established in 1996 as the first private
               college in Rupandehi by a team of dedicated, experienced and
               enterprising academicians to cater for the growing demands of
@@ -53,16 +53,16 @@ const Footer = () => {
         <div className="flex flex-col justify-between items-center space-y-2">
           <h1 className="text-3xl font-bold text-white">Social Media</h1>
           <ul className="text-center flex gap-2 mx-auto justify-center items-center flex">
-            <li className="w-[2rem] h-[2rem] bg-transparent text-white rounded-full p-1">
+            <li className="w-[2rem] h-[2rem] iportrait:w-[3.5rem] h-[3.5rem] bg-transparent text-white rounded-full p-1">
             <a href="https://www.facebook.com/ttcampus">  <img className="w-[100%] h-[100%]" src="/images/sl_1.svg"></img></a>
             </li>
-            <li className="w-[2rem] h-[2rem] bg-transparent text-white rounded-full p-1">
+            <li className="w-[2rem] h-[2rem] iportrait:w-[3.5rem] h-[3.5rem] bg-transparent text-white rounded-full p-1">
               <img className="w-[100%] h-[100%]" src="/images/sl_2.svg"></img>
             </li>
           </ul>
         </div>
       </div>
-      <div className="w-[100%] h-[48px] flex flex-col justify-center items-center bg-[#FF9900] text-white font-bold text-center">
+      <div className="w-[100%] iportrait:text-xl h-[48px] flex flex-col justify-center items-center bg-[#FF9900] text-white font-bold text-center">
         © Copyright 2023 Tilottama Campus, Rupandehi All Rights Reserved
       </div>
     </Container>

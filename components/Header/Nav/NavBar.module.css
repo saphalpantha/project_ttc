@@ -1,17 +1,21 @@
 /* NavBar.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700@600&display=swap');
 
 .main{
   
   
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
-  color:#4f4f4f;
+  color:#4f4f4f !important;
+  
 }
 
 
+.main li{
+    
+}
 
 
 .dropdown {
