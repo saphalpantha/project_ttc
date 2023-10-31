@@ -36,7 +36,7 @@ const ResultForInt = () => {
   
       const data = await response.json();
   
-      if (data.success) {
+      if (response.ok) {
         setIsOpen(true);
         setResult(data.msg);
       } else {
