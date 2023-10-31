@@ -6,6 +6,8 @@ const handler = async (req,res) => {
         // console.log(req.body)
         
 
+        
+
         try{
             const db = await getDb();
             const db_data = await db.query(`SELECT * FROM internal_result where stream='${stream}' AND section='${section}' AND class='${enteredclass}' AND roll_no='${regNo}'`);

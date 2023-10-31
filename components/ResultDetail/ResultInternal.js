@@ -36,6 +36,10 @@ const ResultForInt = () => {
         body: JSON.stringify(enteredData),
       });
 
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       const data = await response.json();
       console.log(data,'the dataaaaaaaaaa')
       if (data.success === true) {
