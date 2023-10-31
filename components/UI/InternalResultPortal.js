@@ -68,7 +68,7 @@ const InternalResultPortal = ({ isOpen, onClose, result }) => {
               </h1>
 
               <span className="font-semibold text-3xl">
-                <h1>{`Percentage: ${parseFloat(result.percentage)}%`}</h1>
+                <h1>{`Percentage: ${parseFloat(result.percentage).toFixed(2)}%`}</h1>
               </span>
 
               <table className="border border-[2px] border-black  w-full">

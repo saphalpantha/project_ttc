@@ -142,10 +142,10 @@ const ResultForInt = () => {
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
                       value={section}
                     >
-                      {renderSections().length > 0 ? (
+                      <option>Select Section</option>
+                      {renderSections().length > 0 && (
                         renderSections().map((i) => <option>{i}</option>)
-                      ) : (
-                        <option>Select Section</option>
+                
                       )}
                     </select>
                   </div>
