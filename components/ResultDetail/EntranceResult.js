@@ -41,7 +41,7 @@ const EntranceResult = () => {
         alert('Something Went Wrong !')
       }
   }
-
+  
   return (
     <Fragment>
       {result && <Modal  result={result} isOpen={isOpen} img={"/images/banner.png"} onClose={() => setIsOpen(false)} />}

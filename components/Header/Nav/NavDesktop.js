@@ -12,7 +12,7 @@ const aboutData = [
 ];
 const resultData = [
   { id: "i1", name: "Internal Exam Result", link: "/results/internal-result" },
-  { id: "i3", name: "Entrance Exam Result", link: "/entrance-results/" },
+  { id: "i3", name: "Entrance Exam Result", link: "/results/entrance-result/" },
 ];
 
 

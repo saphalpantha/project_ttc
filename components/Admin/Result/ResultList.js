@@ -103,13 +103,13 @@ const ResultList = () => {
     <div>
             { isOpen &&  <span
           onClick={backHandler}
-          className="font-bold text-white bg-[#201F54] w-fit px-5 cursor-pointer py-2 rounded-full"
+          className="font-bold text-white   bg-[#201F54] w-fit px-5 cursor-pointer py-2 rounded-full"
           >
           Back{" "}
         </span>}
-      <table className="px-[1rem] border-2 py-[5rem]">
+      <table className="px-[1rem] w-[100%] border-2 py-[5rem]">
         <tbody className="flex flex-col px-[3rem] py-[5rem]">
-          <tr className="flex gap-[9.7rem] py-5">
+          <tr className="grid grid-cols-5 text-left gap-[10%]  py-5">
             <th>S.N</th>
             <th>Result Type</th>
             <th>File</th>
@@ -120,7 +120,7 @@ const ResultList = () => {
             return (
               <Fragment>
                 {!load ? (
-                  <tr key={i.id} className="flex gap-32 py-4 px-[1rem]">
+                  <tr key={i.id} className="grid grid-cols-5 gap-[5rem] py-[1rem] ">
                     <td className="text-justify">{indx + 1}</td>
                     <td className="object-cover">
                         {i.result_type}

@@ -21,7 +21,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
       name: "Internal Exam Result",
       link: "/results/internal-result",
     },
-    { id: "i3", name: "Entrance Exam Result", link: "/entrance-results/" },
+    { id: "i3", name: "Entrance Exam Result", link: "/results/entrance-result/" },
   ];
 
   const othersData = [

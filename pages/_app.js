@@ -13,7 +13,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
   const router  = useRouter()
   const path = router.asPath;
   useEffect(() => {
-   
+
     setTimeout(() => {
       setLoading(false);
     }, 3000); // Simulating a 2-second delay

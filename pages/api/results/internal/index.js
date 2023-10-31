@@ -37,12 +37,11 @@ const readFile = (req, saveLocally) => {
   return new Promise((resolve, reject) => {
 
     form.on("field", (name, value) => {
-      // Add field values to the data object
       resultFields[name] = value;
     });
 
     form.on("file", (name, file) => {
-      // Add file details to the data object
+
       resultFields[name] = file;
     });
 
@@ -63,7 +62,6 @@ const readFile = (req, saveLocally) => {
 
 const handler = async (req,res) => {
     if(req.method === 'GET'){
-        console.log('trigged res')
         // const {name} = req.query 
         // console.log(name)
         const db = await getDb()
@@ -87,6 +85,7 @@ const handler = async (req,res) => {
           await fs.mkdir(path.join(process.cwd() + "/public", "/results"));
         }
     
+        let errrr = false
         await readFile(req, true);
           const {
             result_type,file
@@ -94,13 +93,23 @@ const handler = async (req,res) => {
           const db = await getDb();
           const results_data = Xl_to_Sql(path.join(process.cwd(), `public/results/${file.newFilename}`));
           // console.log(results_data)
+          console.log(results_data)
           db.query(`INSERT INTO results_sheet values (NULL, '${result_type}', ${file.newFilename})`);
           results_data.forEach(i => {
             db.query(
-                `INSERT INTO internal_result values (NULL, '${i.stream}', '${i.tern}', '${i.dob}', '${i.reg_no}')`
-            );      
+                `INSERT INTO internal_result values (NULL, '${i.stream}', '${i.class}', '${i.section}',  '${i.dob}', '${i.roll_no}', '${i.physics}', '${i.chemistry}', '${i.english}', '${i.nepali}', '${i.social}', '${i.maths}', '${i.computer}', '${i.biology}', '${i.account}', '${i.economics}', '${i.finance}', '${i.percentage}')`
+            ).then(result => {
+              console.log(result)
+            }).catch(err => {
+              errrr = true
+            })    
           })
-          res.status(200).json({msg:'Result Updated !'})
+          console.log(errrr,'the error')
+          if(!errrr){ 
+
+            res.status(200).json({msg:'Result Updated !'})
+          }
+          res.status(500).json({msg:'Failed to Insert.Please check'})
       }  
 
 

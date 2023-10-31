@@ -3,6 +3,9 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from 'bcryptjs'
 import { getDb } from "./ttc_db";
 
+
+
+
 export  const authOptions = {
     session:{
         jwt:true,

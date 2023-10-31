@@ -321,12 +321,12 @@ const A2 = ({handleBlur, handleChange,handleReset,values, loading}) => {
 const Wrapper = ({ children, prevHandler, nxtHandler, handleSubmit, loading, page }) => {
   return (
       
-    <div className="w-[95vw] border-[1px]   shadow-sm rounded-[0.4rem] h-[100vh]  md:h-fit items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[56%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh]  md:h-[34.5rem]  flex flex-col">
+    <div className="w-[95vw] border-[1px]   shadow-sm rounded-[0.4rem] h-[100vh]  py-[2rem] items-center md:items-stretch  md:justify-start   px-[2rem] relative  md:absolute  pb-[7rem] md:pb-[3rem]  mt-[1rem] md:mt-0 md:top-[55%] translate-y-0 md:translate-y-[-30%]  px-[3rem] md:w-1/2 mx-auto md:px-0 bg-white max-h-[100vh]  md:h-[34.5rem]  flex flex-col">
       <div className="flex justify-center items-center py-[0.3rem]">
       <Logo/>
       </div>
       {children}
-      <div className="absolute bottom-1 md:bottom-[2%]     w-full justify-center items-center flex md:gap-32 gap-20">
+      <div className="absolute bottom-1 md:bottom-[5%]     w-full justify-center items-center flex md:gap-32 gap-20">
       <button
       onClick={prevHandler}
       type="button"
@@ -384,6 +384,7 @@ const MultiStep = () => {
   const [marksheet,setMarkSheet] = useState('');
   const [photo,setPhoto] = useState('');
   const [loading,setLoading] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
   const formik = useFormik({
     initialValues,
     onSubmit: (values) => {
@@ -405,12 +406,17 @@ const MultiStep = () => {
     setPage((prev) => prev - 1);
   };
   const submitHandler = async (formD) => {
+
+
     setLoading(true)
     formD.hobby.push(formD.others);
     const hobbies_string = formD.hobby.join(" ");
     const formData = new FormData();
     for (const key in formD) {
       if (formD.hasOwnProperty(key)) {
+        if(!formD[key]){
+          setIsFilled(true)
+        }
         formData.append(key, formD[key]);
       }
     }
@@ -418,6 +424,10 @@ const MultiStep = () => {
     formData.append("marksheet", marksheet);
     formData.append("photo", photo);
 
+    if(isFilled){
+      alert('Please Fill all the requied inputs !');
+      return;
+    }
     try {
       const response = await axios.post("/api/admission-forms", formData, {
         headers: {
@@ -441,12 +451,12 @@ const MultiStep = () => {
  
 
   return (
-    <div className="min-h-[100vh]  bg-white w-full">
+    <div className="min-h-[120vh]  bg-white w-full">
       <div className=" h-fit md:h-[40vh] bg-[#201F54] flex flex-col justify-center items-center">
         <div>
-          <div className="min-h-screen  w-full">
-            <div className="required: md:h-[40vh] bg-[#201F54] flex flex-col justify-center items-center">
-              <form className="required: md:h-[45vh]  bg-[#201F54] flex flex-col justify-center items-center"  encType="multipart/form-data" onSubmit={handleSubmit}>
+          <div className="w-full">
+            <div className="required: md:h-[45vh] bg-[#201F54] flex flex-col justify-center items-center">
+              <form className="required: md:h-[50vh]  bg-[#201F54] flex flex-col justify-center items-center"  encType="multipart/form-data" onSubmit={handleSubmit}>
               <Wrapper prevHandler={prevHandler} loading={loading} page={page} nxtHandler={nxtHandler}>
                   <Helper values={values}  handleSubmit={handleSubmit} handleChange={handleChange} page={page}/>
               </Wrapper>

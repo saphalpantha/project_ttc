@@ -60,6 +60,7 @@ const Result = () => {
           <div className="flex flex-col gap-2">
             <label>Result Type</label>
             <select
+            required
               onChange={(e) => setResultType(e.target.value)}
               className="w-[14rem]  h-[2.6rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-xl"
             >
@@ -73,6 +74,7 @@ const Result = () => {
           <div className="flex flex-col  gap-2">
             <label>Upload Excel File</label>
             <input
+            required
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}
@@ -81,7 +83,7 @@ const Result = () => {
             />
           </div>
         <div className="flex flex-col flex justify-center items-center  gap-2">
-          <button className="w-[5rem]  py-[0.36rem]  border-2 bg-white border-[#201F54] hover:bg-[#201F54] hover:text-white text-black px-[1rem] rounded-xl">{loading ? 'Submitting' : 'Submit'}</button>
+          <button className="w-fit px-[2rem] py-[0.36rem]  border-2 bg-white border-[#201F54] hover:bg-[#201F54] hover:text-white text-black px-[1rem] rounded-xl">{loading ? 'Submitting' : 'Submit'}</button>
         </div>
         </div>
       </form>

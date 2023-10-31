@@ -47,7 +47,7 @@ import React from 'react'
 
 const ResultDetail = () => {
   return (
-    <div>ResultDetail</div>
+    <div>Please Select Other Page</div>
   )
 }
 
