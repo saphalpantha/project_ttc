@@ -14,29 +14,38 @@ const InternalResultPortal = ({ isOpen, onClose, result }) => {
 
   // if (!isClient || !isOpen) return null;
 
-
-
-
-
-
-  const excludedKeys = ['percentage', 'roll_no', 'class', 'section', 'stream', 'dob' , 'id'];
+  const excludedKeys = [
+    "percentage",
+    "roll_no",
+    "class",
+    "section",
+    "stream",
+    "dob",
+    "id",
+    "total",
+  ];
 
   const getMarks = () => {
     return Object.entries(result)
       .filter(([key, value]) => {
-        return !excludedKeys.includes(key) && (value !== '' && value !== undefined && value != 'null' );
+        return (
+          !excludedKeys.includes(key) &&
+          value !== "" &&
+          value !== undefined &&
+          value != "null"
+        );
       })
       .map(([key, value]) => {
-        if(value !== null){
+        if (value !== null) {
           return (
             <tr className="grid  grid-cols-2 px-2 md:px-[7rem]" key={key}>
               <td>{key}</td>
               <td>{value}</td>
             </tr>
-          )
+          );
         }
       });
-  }
+  };
   return (
     <>
       {console.log(result, "from model")}
@@ -57,23 +66,19 @@ const InternalResultPortal = ({ isOpen, onClose, result }) => {
                   {result.roll_no}
                 </span>
               </h1>
-          
-                <span className="font-semibold text-3xl">
-                  
-                    <h1>{`Percentage: ${result.percentage}%`}</h1>
-                  
-                
-                </span>
-            
+
+              <span className="font-semibold text-3xl">
+                <h1>{`Percentage: ${parseFloat(result.percentage)}%`}</h1>
+              </span>
 
               <table className="border border-[2px] border-black  w-full">
-                <caption className="text-xl" > Marks</caption>
+                <caption className="text-xl"> Marks</caption>
                 <tbody className="flex gap-1 px-2 py-2 flex-col">
-                  <th className="grid grid-cols-2 gap-2 px-2 md:px-[7rem]" >
+                  <th className="grid grid-cols-2 gap-2 px-2 md:px-[7rem]">
                     <td>Subject</td>
                     <td>ObtainedMarks</td>
                   </th>
-                {getMarks().map(i => i)}
+                  {getMarks().map((i) => i)}
                 </tbody>
               </table>
             </div>

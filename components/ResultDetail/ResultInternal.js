@@ -37,15 +37,17 @@ const ResultForInt = () => {
       });
 
       const data = await response.json();
+      console.log(data,'the dataaaaaaaaaa')
       if (data.success === true) {
         setIsOpen(true);
         setResult(data.msg);
+        return;
       } else {
+        console.log(data)
         alert('Incorrect Input.Please try again')
       }
     } catch (err) {
       alert("Something Went Wrong !");
-      return;
     } finally {
       setisLoading(false);
     }
@@ -124,7 +126,7 @@ const ResultForInt = () => {
                       required
                       onClick={(e) => setEnteredClass(e.target.value)}
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
-                      value={enteredclass}
+                      value={enteredData.enteredclass}
                     >
                       <option>Select Class</option>
                       <option>11</option>
@@ -137,7 +139,7 @@ const ResultForInt = () => {
                     </label>
                     <select
                       required
-                      onClick={(e) => setSection(e.target.value)}
+                      onChange={(e) => setSection(e.target.value)}
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
                       value={section}
                     >

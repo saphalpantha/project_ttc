@@ -97,7 +97,7 @@ const handler = async (req,res) => {
           db.query(`INSERT INTO results_sheet values (NULL, '${result_type}', ${file.newFilename})`);
           results_data.forEach(i => {
             db.query(
-                `INSERT INTO internal_result values (NULL, '${i.stream}', '${i.class}', '${i.section}',  '${i.dob}', '${i.roll_no}', '${i.physics}', '${i.chemistry}', '${i.english}', '${i.nepali}', '${i.social}', '${i.maths}', '${i.computer}', '${i.biology}', '${i.account}', '${i.economics}', '${i.finance}', '${i.percentage}')`
+                `INSERT INTO internal_result values (NULL, '${i.stream}', '${i.class}', '${i.section}',  '1999-01-01', '${i.roll_no}', '${i.physics}', '${i.chemistry}', '${i.english}', '${i.nepali}', '${i.social}', '${i.maths}', '${i.computer}', '${i.biology}', '${i.account}', '${i.economics}', '${i.finance}', '${i.percentage}', '${i.total}')`
             ).then(result => {
               console.log(result)
             }).catch(err => {
