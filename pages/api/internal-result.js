@@ -19,11 +19,15 @@ const handler = async (req,res) => {
         catch(err){
             console.log(err)
 <<<<<<< HEAD
+<<<<<<< HEAD
         
             res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later', success:false});
 =======
             return res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later', success:false})
 >>>>>>> 5b9bc0e1abd48a8c0b1f0a56906f3d7381489a58
+=======
+            return res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later'})
+>>>>>>> parent of 5b9bc0e (Update internal-result.js)
         }
     }
 }
