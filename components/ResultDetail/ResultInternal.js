@@ -22,7 +22,6 @@ const ResultForInt = () => {
     regNo,
   };
 
-
   const submitHandler = async (e) => {
     e.preventDefault();
     setisLoading(true);
@@ -32,29 +31,26 @@ const ResultForInt = () => {
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify(enteredData),
       });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
+  
       const data = await response.json();
-      console.log(data,'the dataaaaaaaaaa')
+  
       if (data.success) {
         setIsOpen(true);
         setResult(data.msg);
       } else {
         console.log(data)
-        alert('Incorrect Input.Please try again')
+        alert('Incorrect Input. Please try again');
       }
     } catch (err) {
-      alert("Something Went Wrong   !!");
+      console.log(err)
+      alert("Something Went Wrong!!");
     } finally {
       setisLoading(false);
     }
   };
+  
 
   const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
   const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
