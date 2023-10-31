@@ -18,7 +18,7 @@ const handler = async (req,res) => {
         }
         catch(err){
             console.log(err)
-            return res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later'})
+            return res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later', success:false})
         }
     }
 }
