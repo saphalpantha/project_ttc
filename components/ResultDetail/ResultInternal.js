@@ -41,20 +41,19 @@ const ResultForInt = () => {
       if (data.success === true) {
         setIsOpen(true);
         setResult(data.msg);
-        return;
       } else {
         console.log(data)
         alert('Incorrect Input.Please try again')
       }
     } catch (err) {
-      alert("Something Went Wrong ! ");
+      alert("Something Went Wrong   !!");
     } finally {
       setisLoading(false);
     }
   };
 
-  const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
-  const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J", "K"];
+  const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
+  const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
   const managementSecList_11 = ["A", "B", "Morning"];
   const managementSecList_12 = ["A", "B", "Morning"];
 
@@ -111,7 +110,7 @@ const ResultForInt = () => {
                       required
                       onChange={(e) => setStream(e.target.value)}
                       className="w-[15rem] h-[2.5rem] bg-white border-2 border-[#201F54] text-black px-[1rem] rounded-full"
-                      value={enteredData.stream}
+                      value={stream}
                     >
                       <option>Select Faculty</option>
                       <option>Science</option>
@@ -124,13 +123,9 @@ const ResultForInt = () => {
                     </label>
                     <select
                       required
-                      onChange={(e) => setEnteredClass(e.target.value)}
+                      onClick={(e) => setEnteredClass(e.target.value)}
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
-<<<<<<< HEAD
                       value={enteredData.enteredclass}
-=======
-                      value={enteredData.enteredClass}
->>>>>>> 5b9bc0e1abd48a8c0b1f0a56906f3d7381489a58
                     >
                       <option>Select Class</option>
                       <option>11</option>
@@ -145,7 +140,7 @@ const ResultForInt = () => {
                       required
                       onChange={(e) => setSection(e.target.value)}
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
-                      value={enteredData.section}
+                      value={section}
                     >
                       {renderSections().length > 0 ? (
                         renderSections().map((i) => <option>{i}</option>)
