@@ -51,8 +51,8 @@ const ResultForInt = () => {
     }
   };
 
-  const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
-  const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
+  const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+  const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H", "I" ,"J", "K"];
   const managementSecList_11 = ["A", "B", "Morning"];
   const managementSecList_12 = ["A", "B", "Morning"];
 
@@ -109,7 +109,7 @@ const ResultForInt = () => {
                       required
                       onChange={(e) => setStream(e.target.value)}
                       className="w-[15rem] h-[2.5rem] bg-white border-2 border-[#201F54] text-black px-[1rem] rounded-full"
-                      value={stream}
+                      value={enteredData.stream}
                     >
                       <option>Select Faculty</option>
                       <option>Science</option>
@@ -139,7 +139,7 @@ const ResultForInt = () => {
                       required
                       onClick={(e) => setSection(e.target.value)}
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
-                      value={section}
+                      value={enteredData.section}
                     >
                       {renderSections().length > 0 ? (
                         renderSections().map((i) => <option>{i}</option>)
