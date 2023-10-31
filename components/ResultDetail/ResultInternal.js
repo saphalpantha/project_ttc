@@ -42,7 +42,7 @@ const ResultForInt = () => {
 
       const data = await response.json();
       console.log(data,'the dataaaaaaaaaa')
-      if (data.success === true) {
+      if (data.success) {
         setIsOpen(true);
         setResult(data.msg);
       } else {
