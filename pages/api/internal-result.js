@@ -11,15 +11,19 @@ const handler = async (req,res) => {
             const db_data = await db.query(`SELECT * FROM internal_result where stream='${stream}' AND section='${section}' AND class='${enteredclass}' AND roll_no='${regNo}'`);
             // console.log(db_data)
             if(db_data[0].length === 0){
-                res.status(404).json({msg:'No Result Found. Please Check Your Roll No Again'})
+                return res.status(404).json({msg:'No Result Found. Please Check Your Roll No Again'})
             }
             // console.log(db_data[0][0])
-            res.status(201).json({msg:db_data[0][0], success:true});
+            return res.status(201).json({msg:db_data[0][0], success:true});
         }
         catch(err){
             console.log(err)
+<<<<<<< HEAD
         
             res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later', success:false});
+=======
+            return res.status(404).json({msg:'Failed to connect to Database. Please Try Again Later', success:false})
+>>>>>>> 5b9bc0e1abd48a8c0b1f0a56906f3d7381489a58
         }
     }
 }
