@@ -123,7 +123,7 @@ const ResultForInt = () => {
                     </label>
                     <select
                       required
-                      onClick={(e) => setEnteredClass(e.target.value)}
+                      onChange={(e) => setEnteredClass(e.target.value)}
                       className="w-[15rem] h-[2.5rem] border-2 bg-white border-[#201F54] text-black px-[1rem] rounded-full"
                       value={enteredclass}
                     >
