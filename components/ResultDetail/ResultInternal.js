@@ -52,8 +52,8 @@ const ResultForInt = () => {
   };
   
 
-  const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
-  const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
+  const scienceSecList_11 = ["A", "B", "C", "D", "E", "F", "G", "H","I", "J", "K"];
+  const scienceSecList_12 = ["A", "B", "C", "D", "E", "F", "G", "H","I", "J", "K"];
   const managementSecList_11 = ["A", "B", "Morning"];
   const managementSecList_12 = ["A", "B", "Morning"];
 
