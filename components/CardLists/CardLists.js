@@ -17,7 +17,6 @@ const CardLists = () => {
   const [isAdmissionOpen, setIsAdmissionOpen] = useState()
   useEffect(() => {
     fetch('/api/admission-status/').then(res => res.json()).then(data => {
-      console.log(data)
       const admission_status = data.msg[0].admission_open;
       setIsAdmissionOpen(+admission_status);
     }).catch(err => {})
@@ -26,7 +25,6 @@ const CardLists = () => {
     <div className='max-w-6xl md:max-w-full  md:w-[100%] bg-[#EEEEEE] flex justify-center py-8 items-center'>
 
     <div className='w-[100%] bg-[#EEEEEE]'>
-      {console.log(isAdmissionOpen, 'from card list')}
       <div className='text-black translate-x-[-2%] left-[2%] flex flex-col md:flex-row  py-2 md:py-0  items-center md:items-baseline justify-center items-center md:gap-[50px] gap-[20px]'>
         {card_data.map(item => (
           

@@ -1,3 +1,4 @@
+import { getSession } from "next-auth/react";
 import { getDb } from "../../ttc_db";
 
 import bcrypt from "bcryptjs";
@@ -35,7 +36,7 @@ const handler = async (req, res) => {
             const response = await db.query(
                 `UPDATE users SET password='${newpass_hash}' where username='${username}'`
               );
-              console.log(response)
+              // console.log(response)
             res.status(201).json({msg:'Password Changed Succesfully'});
         }
         catch(err){

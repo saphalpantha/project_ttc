@@ -53,7 +53,6 @@ const FacultyDetail = () => {
         const response = await fetch('/api/faculty');
         const resData = await response.json();
         const data = resData.msg
-        console.log(data)
         setDeptData({
           physicsDept: data.filter(i => i.dept === 'Physics'),
           chemDept: data.filter(i => i.dept === 'Chemistry'),
@@ -68,7 +67,7 @@ const FacultyDetail = () => {
         });
       }
       catch(err){
-        console.log(err)
+        // console.log(err)
       }
     }
     fetchData()

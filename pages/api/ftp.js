@@ -16,7 +16,7 @@ const handler =  (req,res) => {
             
             res.send(filesDir);
         });
-        console.log(filesDir);
+        // console.log(filesDir);
         // res.send({msg:filesDir});
     }
 }

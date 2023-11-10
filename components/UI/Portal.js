@@ -17,7 +17,6 @@ const Modal = ({ isOpen, onClose, img }) => {
 
   return (
     <>
-    {console.log(img,'from portal')}
      <div className={classes.backdrop} onClick={closeModal} />
 <div className={classes.modal}>
   <div className={classes["close-icon"]} onClick={closeModal}>

@@ -12,7 +12,7 @@ const AdmissionForm = () => {
   const [marksheet, setMarksheet] = useState(null);
   const [tc, setTC] = useState(null);
   const [cc, setCC] = useState(null);
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const initialValues = {
     faculty: "",
@@ -59,9 +59,8 @@ const AdmissionForm = () => {
     hobby: [],
   };
 
-
   const submitHandler = async (formD) => {
-    setLoading(true)
+    setLoading(true);
     formD.hobby.push(formD.others);
     const hobbies_string = formD.hobby.join(" ");
     const formData = new FormData();
@@ -77,39 +76,16 @@ const AdmissionForm = () => {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      }); 
-      setLoading(false)
-      alert('Form Submission SucessFully');
+      });
+      setLoading(false);
+      alert("Form Submission SucessFully");
     } catch (err) {
-      setLoading(false)
-      alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
-      
+      setLoading(false);
+      alert(
+        `${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`
+      );
     }
   };
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-  
-  
 
   const formik = useFormik({
     initialValues,
@@ -144,45 +120,54 @@ const AdmissionForm = () => {
                 <option>Select Faculty</option>
                 <option>Science</option>
                 <option>Management</option>
+                <option>BBA</option>
               </select>
             </div>
-            <div className="flex flex-col space-y-2">
-              <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                Grade
-              </label>
-              <select
-                onChange={handleChange}
-                onBlur={handleBlur}
-                onReset={handleReset}
-                name="grade"
-                required
-                className="w-[14rem] h-[2.6rem]  border-2 bg-white  border-[#201F54] text-black px-[1rem] rounded-xl"
-                value={values.grade}
-              >
-                <option>select grade</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-                Choose Shift
-              </label>
-              <select
-                onChange={handleChange}
-                onBlur={handleBlur}
-                onReset={handleReset}
-                name="shift"
-                required
-                className="  w-[14rem] h-[2.6rem] bg-white  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
-                value={values.shift}
-              >
-                <option>Select Shift</option>
-                <option>Morning</option>
-                <option>Day</option>
-                <option>Mid Day</option>
-              </select>
-            </div>
+            {values.faculty != "BBA" && (
+              <div className="flex flex-col space-y-2">
+                <label
+                  className={`text-xl pl-3  text-[#201F54] ${classes.req}`}
+                >
+                  Grade
+                </label>
+                <select
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onReset={handleReset}
+                  name="grade"
+                  required
+                  className="w-[14rem] h-[2.6rem]  border-2 bg-white  border-[#201F54] text-black px-[1rem] rounded-xl"
+                  value={values.grade}
+                >
+                  <option>select grade</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+            )}
+            {values.faculty != "BBA" && (
+              <div className="flex flex-col space-y-2">
+                <label
+                  className={`text-xl pl-3  text-[#201F54] ${classes.req}`}
+                >
+                  Choose Shift
+                </label>
+                <select
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onReset={handleReset}
+                  name="shift"
+                  required
+                  className="  w-[14rem] h-[2.6rem] bg-white  border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
+                  value={values.shift}
+                >
+                  <option>Select Shift</option>
+                  <option>Morning</option>
+                  <option>Day</option>
+                  <option>Mid Day</option>
+                </select>
+              </div>
+            )}
           </div>
         </div>
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
@@ -352,161 +337,171 @@ const AdmissionForm = () => {
             ></input>
           </div>
         </div>
-        <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
-          Family Information
-        </h1>
-        <div className="grid justify-center place-items-center px-2 md:px-32 py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
-          <div className="flex flex-col space-y-1">
-            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-              Fathers Name
-            </label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="fathers_name"
-              required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
+        {values.faculty != "BBA" && (
+          <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+            Family Information
+          </h1>
+        )}
+        {values.faculty != "BBA" && (
+          <div className="grid justify-center place-items-center px-2 md:px-32 py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+            <div className="flex flex-col space-y-1">
+              <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+                Fathers Name
+              </label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="fathers_name"
+                required
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">
-              Occupation Name
-            </label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="fathers_occupation"
-              className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">
+                Occupation Name
+              </label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="fathers_occupation"
+                className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="fathers_cellno"
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="number"
-            ></input>
-          </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="fathers_cellno"
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="number"
+              ></input>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-              Mothers Name
-            </label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="mothers_name"
-              required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
+            <div className="flex flex-col space-y-1">
+              <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+                Mothers Name
+              </label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="mothers_name"
+                required
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Occupation</label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="mothers_occupation"
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Cell No</label>
-            {""}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="mothers_cellno"
-              required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="number"
-            ></input>
-          </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Occupation</label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="mothers_occupation"
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Cell No</label>
+              {""}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="mothers_cellno"
+                required
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="number"
+              ></input>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">
-              Local Gurdain's Name
-            </label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="localgurdain_name"
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">
+                Local Gurdain's Name
+              </label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="localgurdain_name"
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Occupation</label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="localgurdain_occupation"
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Occupation</label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="localgurdain_occupation"
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="localgurdain_cellno"
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="number"
+              ></input>
+            </div>
           </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Cell No</label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="localgurdain_cellno"
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="number"
-            ></input>
-          </div>
-        </div>
-        <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
-          Bus Faculty
-        </h1>
+        )}
+        {values.faculty != "BBA" && (
+          <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+            Bus Faculty
+          </h1>
+        )}
 
-        <div className="grid justify-center place-items-center px-2 md:px-32  py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
-          <div className="flex flex-col space-y-2">
-            <label className="text-xl pl-3  text-[#201F54]">Bus faculty</label>
-            <select
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="bus_faculty"
-              className="w-[14rem]  bg-white h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
-              value={values.bus_faculty}
-            >
-              <option>Select Bus Faculty</option>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </div>
+        {values.faculty != "BBA" && (
+          <div className="grid justify-center place-items-center px-2 md:px-32  py-5 grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+            <div className="flex flex-col space-y-2">
+              <label className="text-xl pl-3  text-[#201F54]">
+                Bus faculty
+              </label>
+              <select
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="bus_faculty"
+                className="w-[14rem]  bg-white h-[2.6rem] border-2 border-[#201F54] text-black px-[1rem] rounded-xl"
+                value={values.bus_faculty}
+              >
+                <option>Select Bus Faculty</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Bus Stop</label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="bus_stop"
-              className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Bus Stop</label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="bus_stop"
+                className="w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
           </div>
-        </div>
+        )}
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Academic Information
         </h1>
@@ -529,10 +524,10 @@ const AdmissionForm = () => {
             ></input>
           </div>
         </div>
-        <div className="grid justify-center place-items-center px-2 md:px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
-          <div className="flex   flex-col space-y-1">
+        <div className="grid  justify-center place-items-center px-2 md:px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
+          <div className="flex    flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-              Send-up CGPA
+              {values.faculty != 'BBA' ? '+2 Gpa' : 'SendupGpa'}
             </label>{" "}
             <input
               onChange={handleChange}
@@ -544,7 +539,7 @@ const AdmissionForm = () => {
               type="text"
             ></input>
           </div>
-          <div className="flex flex-col space-y-1">
+         { values.faculty != 'BBA' && <div className="flex flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               SEE Board CGPA
             </label>{" "}
@@ -557,8 +552,8 @@ const AdmissionForm = () => {
               className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="text"
             ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
+          </div>}
+         { values.faculty != 'BBA'&& <div className="flex flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               Grade letter/Division:
             </label>{" "}
@@ -571,130 +566,134 @@ const AdmissionForm = () => {
               className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="text"
             ></input>
-          </div>
+          </div>}
         </div>
-        <div className="grid justify-center place-items-center px-1 md:px-[15rem] py-5  gap-5  grid-cols-1 mx-auto  md:grid-cols-6 gap-2 md:gap-y-3  md:grid-row-2">
-          <label className="text-xl pl-3 text-[#201F54]">Sendup</label>
+        {values.faculty != "BBA" && (
+          <div className="grid justify-center place-items-center px-1 md:px-[15rem] py-5  gap-5  grid-cols-1 mx-auto  md:grid-cols-6 gap-2 md:gap-y-3  md:grid-row-2">
+            <label className="text-xl pl-3 text-[#201F54]">Sendup</label>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">English</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="sendup_eng"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">C.Maths</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="sendup_cmath"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Opt.Maths</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="sendup_optmath"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Science</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="sendup_science"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Account</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="sendup_account"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">English</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="sendup_eng"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">C.Maths</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="sendup_cmath"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Opt.Maths</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="sendup_optmath"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Science</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="sendup_science"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Account</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="sendup_account"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
 
-          <label className="text-xl pl-3 text-[#201F54]">SEE</label>
+            <label className="text-xl pl-3 text-[#201F54]">SEE</label>
 
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">English</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="see_eng"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">English</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="see_eng"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">C.Maths</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="see_cmath"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Opt.Maths</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="see_optmath"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Science</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="see_science"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label className="text-xl pl-3 text-[#201F54]">Account</label>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="see_account"
+                className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
           </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">C.Maths</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="see_cmath"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Opt.Maths</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="see_optmath"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Science</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="see_science"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-xl pl-3 text-[#201F54]">Account</label>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="see_account"
-              className="  w-[119px] h-[2.7rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>
-        </div>
-        <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
-          Documents
-        </h1>
+        )}
+        {values.faculty != "BBA" && (
+          <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+            Documents
+          </h1>
+        )}
 
-        <div className="grid justify-center place-items-center px-[5rem] md:px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
+        { values.faculty != 'BBA' && <div className="grid justify-center place-items-center px-[5rem] md:px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex flex-col space-y-2 text-center">
             <label className={`font-bold ${classes.req}`}>Valid Photo</label>
             <input
@@ -722,34 +721,38 @@ const AdmissionForm = () => {
             ></input>
           </div>
           {/* <div className="flex flex-col space-y-2 text-center">
-          <label className={`text-[#201F54] font-bold ${classes.req}`}>
-            See transfer Certificate
-          </label>
-          <input onChange={(e) => setTC(e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
-            required
-            className="   py-4  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="file"
-            
-            name="see_tc"
-          ></input>
-        </div> */}
+            <label className={`text-[#201F54] font-bold ${classes.req}`}>
+              See transfer Certificate
+            </label>
+            <input
+              onChange={(e) => setTC(e.target.files[0])}
+              onBlur={handleBlur}
+              onReset={handleReset}
+              required
+              className="   py-4  w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              type="file"
+              name="see_tc"
+            ></input>
+          </div> */}
           {/* <div className="flex flex-col space-y-2 text-center">
-          <label className={`text-[#201F54] font-bold ${classes.req}`}>
-            SEE Character Certificate
-          </label>
-          <input onChange={(e) => setCC(e.target.files[0])} onBlur={handleBlur} onReset={handleReset}
-            required
-            className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-            type="file"
-            
-            name="see_cc"
-          ></input>
-        </div> */}
-        </div>
-        <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+            <label className={`text-[#201F54] font-bold ${classes.req}`}>
+              SEE Character Certificate
+            </label>
+            <input
+              onChange={(e) => setCC(e.target.files[0])}
+              onBlur={handleBlur}
+              onReset={handleReset}
+              required
+              className="   py-4 w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+              type="file"
+              name="see_cc"
+            ></input>
+          </div> */}
+        </div>}
+       { values.faculty != 'BBA' && <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Interest on Extra Activities
-        </h1>
-        <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
+        </h1>}
+         { values.faculty != 'BBA' &&  <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
           <div className="flex space-x-4 text-center">
             <input
               onChange={handleChange}
@@ -759,7 +762,6 @@ const AdmissionForm = () => {
               className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
               type="checkbox"
               value={"BasketBall"}
-              
             ></input>
             <label className={"font-bold"}>Basketball</label>
           </div>
@@ -772,7 +774,6 @@ const AdmissionForm = () => {
               type="checkbox"
               name="hobby"
               value={"VolleyBall"}
-              
             ></input>
             <label className={"font-bold"}>Volley Ball</label>
           </div>
@@ -785,7 +786,6 @@ const AdmissionForm = () => {
               type="checkbox"
               name="hobby"
               value={"TableTennis"}
-              
             ></input>
             <label className={"font-bold"}>Table Tennis</label>
           </div>
@@ -798,7 +798,6 @@ const AdmissionForm = () => {
               type="checkbox"
               name="hobby"
               value={"Football"}
-              
             ></input>
             <label className={"font-bold"}>Football</label>
           </div>
@@ -850,8 +849,8 @@ const AdmissionForm = () => {
             ></input>
             <label className={"font-bold"}>Chess</label>
           </div>
-        </div>
-        <div className="flex space-x-3 gap-5 justify-center items-center">
+        </div>}
+        { values.faculty != 'BBA' && <div className="flex space-x-3 gap-5 justify-center items-center">
           <label className="text-xl  text-[#201F54]">Others</label>
           <input
             onChange={handleChange}
@@ -862,7 +861,7 @@ const AdmissionForm = () => {
             name="others"
             value={values.others}
           ></input>
-        </div>
+        </div>}
         <div className="flex items-center px-5 py-5 md:px-0  justify-center  space-x-3 text-center">
           <input
             onChange={handleChange}
@@ -880,13 +879,13 @@ const AdmissionForm = () => {
             edited after submission
           </label>
         </div>
-        <div className="w-[90%] flex py-5 flex-col justify-center items-center">
+        <div className="w-[100%] flex py-5 flex-col justify-center items-center">
           <button
             type="submit"
             disabled={loading}
             className="py-3  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
           >
-            {loading ? 'Submitting' : 'Submit'}
+            {loading ? "Submitting" : "Submit"}
           </button>
         </div>
       </form>

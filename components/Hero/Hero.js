@@ -34,7 +34,6 @@ const Hero = () => {
   }
   const spotlightData = useGetData(state_data);
   
-  console.log(spotlightData)
 
   
   const spotlightCloseHandler = () => {

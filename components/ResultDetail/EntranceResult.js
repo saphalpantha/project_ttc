@@ -18,7 +18,7 @@ const EntranceResult = () => {
   const submitHandler = async (e) => {
       e.preventDefault();
       setisLoading(true)
-    console.log(enteredRollno)
+    // console.log(enteredRollno)
       try{
         const response = await fetch('/api/entrance-result', {
           method:'POST',

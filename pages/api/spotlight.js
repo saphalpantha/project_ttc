@@ -68,7 +68,7 @@ const handler = async (req,res) => {
             res.status(200).json({msg:result[0]})
             db.end();
         }).catch(err => {
-            console.log(err)
+            // console.log(err)
             db.end()
         })
         // db.query(`select * from users`).then(result => {
@@ -91,7 +91,7 @@ const handler = async (req,res) => {
             image
           } = spotlightFields;
           
-          console.log('this is api trigeed',spotlightFields)
+          // console.log('this is api trigeed',spotlightFields)
           const db = await getDb();
         db.query(
           `INSERT INTO spotlight values (NULL,  '${image.newFilename}')`
@@ -100,7 +100,7 @@ const handler = async (req,res) => {
             return res.status(200).json({ msg: "form submitted successfully", data: result });
           })
           .catch((err) => {
-            console.log(err);   
+            // console.log(err);   
            return res.status(400).json({ msg: "form not submitted", errMsg: err });
           });
 

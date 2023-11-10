@@ -3,8 +3,7 @@ const handler = async (req,res) => {
     if(req.method === 'POST'){
         const {enteredclass, stream, regNo, dob, section} = req.body;
         // console.log(data)
-        // console.log(req.body)
-        
+        // console.log(req.body
         try{
             const db = await getDb();
             const db_data = await db.query(`SELECT * FROM internal_result where stream='${stream}' AND section='${section}' AND class='${enteredclass}' AND roll_no='${regNo}'`);

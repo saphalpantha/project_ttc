@@ -118,7 +118,6 @@ const ExploreGrid = () => {
     _api_sec:'/api/get-images/gallary/',
   }
   const grid = useGetData(state_data);
-  console.log('the grid', grid)
   if(!grid){
     return;
   }

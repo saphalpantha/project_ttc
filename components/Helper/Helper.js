@@ -95,7 +95,7 @@ const useGetData = (compo_data) => {
             }
           }
           catch(err){
-            console.log(err);
+            // console.log(err);
           }
           finally{
             setUpdatedData(prev => {
@@ -108,7 +108,7 @@ const useGetData = (compo_data) => {
          
       }
       catch(err){
-        console.log(err);
+        // console.log(err);
       }
     }
     return updatedData.state

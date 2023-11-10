@@ -15,7 +15,7 @@ const handler = async (req,res) => {
             res.status(200).json({msg:result[0]})
             db.end();
         }).catch(err => {
-            console.log(err)
+            // console.log(err)
             db.end()
         })
         
@@ -26,7 +26,7 @@ const handler = async (req,res) => {
     db.query(`UPDATE admission_status set admission_open=${admission_open.isAdmissionOpen} where id=1`).then(result => {
       res.status(200).json({msg:'Admission Status Updated'});
     }).catch(err => {
-      console.log(err)
+    //   console.log(err)
       res.status(404).json({msg:'Failed to delete '});
       db.end();
     })

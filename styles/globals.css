@@ -104,12 +104,19 @@ body p{
   margin-right: 1px;
 }
 
+input{
+  border: 1px solid #201F54;
+  border-radius: 4px;
+  padding-left: 1rem;
+}
 
 
 table {
     /* border: 2px solid forestgreen; */
     width: 800px;
     height: 200px;
+    border: 2px solid #201F54;
+    border-radius: 15px !important;
 }
  
 th {

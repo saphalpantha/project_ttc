@@ -1,4 +1,5 @@
-import { Fragment, forwardRef } from "react";
+import { Fragment, forwardRef, useEffect, useState } from "react";
+
 export const PrintButton = ({ className, title }) => {
   return (
     <button className={className} onClick={printButtonHandler}>
@@ -12,6 +13,11 @@ const printButtonHandler = () => {
 };
 
 const UserFormat = forwardRef((props, ref) => {
+  const [studentDocs,setStudentDocs] = useState({
+    photo:'',
+    see_marksheet:'',
+  })
+
   const {
     faculty,
     grade,
@@ -57,16 +63,57 @@ const UserFormat = forwardRef((props, ref) => {
     photo,
     see_cc,
     see_tc,
-    see_marksheet,
+    marksheet,
   } = props.data;
 
+
+  
+  useEffect(() => {
+    fetch(`/api/get-images/uploads/${props.data?.photo}`).then(res =>  res.json()).then(data => {
+      
+      const imgFile = `data:image/${data.ext};base64, ${data.msg}`;
+      if(!imgFile){
+        return;
+      }
+  
+      setStudentDocs((prevDocs) => {
+        return{
+          ...prevDocs,
+          photo:imgFile
+        }
+      })
+      console.log(studentDocs,'sudent Docs')
+    }).catch(err => {})
+    fetch(`/api/get-images/uploads/${props.data?.marksheet}`).then(res =>  res.json()).then(data => {
+      const imgFile = `data:image/${data.ext};base64, ${data.msg}`;
+      if(!imgFile){
+        return;
+      }
+      setStudentDocs((prevDocs) => {
+        return{
+          ...prevDocs,
+          see_marksheet:imgFile
+        }
+      })
+    }).catch(err => {})
+  },[props].data)
+
+ 
+
+
+  console.log(props.data,'the data')
+
+
+  
+  
 
 
   return (
     <Fragment>
+      {console.log(studentDocs,'student Docs')}
       <div ref={ref}>
         <div className={`p-4 text-[2rem]`}>
-          <div className="text-lg text-[2.5rem] font-bold">BBA Admission Form</div>
+          <div className="text-lg text-[2.5rem] font-bold">{faculty == 'BBA' && 'BBA Admission Form' || faculty === 'Science' && 'Science Admission Form' || faculty == 'Management Admission Form' && 'Management'  }</div>
           <div className="grid grid-cols-1 gap-10 justify-center items-center pt-[1rem]">
             {/* <div className="flex items-center">
               <label className="mr-2">Grade:</label>
@@ -76,9 +123,19 @@ const UserFormat = forwardRef((props, ref) => {
               <label className="mr-2">Shift:</label>
               <span>{shift}</span>
             </div> */}
+            <div className="w-full flex justify-between">
+
             <div className="flex flex-col gap-2 ">
               <label className="mr-2">Name in Block Letter:</label>
               <div className="font-bold">{nameinblock}</div>
+            </div>
+            <div className="flex flex-col gap-2 ">
+          <a href={`/images/uploads/${photo}`}>    <div className="w-[10rem] h-[12rem] object-cover  bg-gray-300 rounded-md" >
+                <img className="w-[100%] h-[100%]" src={studentDocs.photo} alt="profile" ></img>
+              </div></a>
+              <a  href={`/images/uploads/${marksheet}`} className="mr-2 text-[1.1rem] underline">Download Marksheet</a >
+              
+            </div>
             </div>
             <div className="flex flex-col gap-2">
               <label className="mr-2">Name in Devanagari:</label>

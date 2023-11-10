@@ -83,7 +83,7 @@ const AddLinks = () => {
         <button
           disabled={loading}
           type="submit"
-          className="border-2 px-6 py-2 w-fit"
+          className="border-2 border-[#201F54] px-6 py-2 w-fit"
           >
           {loading ? "Submitting" : "Submit"}
         </button>

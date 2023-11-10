@@ -47,7 +47,7 @@ export const getAllNotice =  async () => {
       }
   
       data.push(rowData);
-      console.log(data,'workbook data ###########################3')
+      // console.log(data,'workbook data ###########################3')
     }
     return data;
   };

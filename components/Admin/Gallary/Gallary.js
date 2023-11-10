@@ -80,7 +80,7 @@ const Gallary = () => {
         <label>Upload Images</label>
         <input  onChange={handleFile } className='border-2 py-2 pl-5' multiple type='file'></input>
         <div className='flex flex-col justify-center items-center'>
-        <button disabled={loading}  type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
+        <button disabled={loading}  type='submit' className='border-2 border-[#201F54] px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>}
     

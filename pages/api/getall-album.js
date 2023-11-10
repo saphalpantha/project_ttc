@@ -9,7 +9,7 @@ const handler = async (req, res) => {
         db.end();
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         db.end();
       });
   }

@@ -56,10 +56,10 @@ const Header = () => {
   useEffect(() => {
     
     fetch('/api/custom-link').then(res => res.json()).then(data => {
-      console.log(data.msg);
+      // console.log(data.msg);
       setLinksData(data.msg)
     }).catch(err => {
-      console.log(err);
+      // console.log(err);
     })
   },[])
   return ( 

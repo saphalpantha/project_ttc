@@ -231,8 +231,8 @@ className="flex  border-[1px] rounded-3xl border-[#201F54] flex-col justify-cent
   <input multiple onChange={(e) => setPhotos(e.target.files)} type="file"></input>
   <div className="flex gap-10">
 
-  <button  onClick={() => setIsOpen(false) } className="border-2 px-2 w-fit py-2">Back</button>
-  <button disabled={loading} type="submit" className="border-2 px-2 w-fit py-2">{loading ? 'Submitting' : 'Submit'}</button>
+  <button  onClick={() => setIsOpen(false) } className="border-2  border-[#201F54] px-2 w-fit py-2">Back</button>
+  <button disabled={loading} type="submit" className="border-2    border-[#201F54] px-2 w-fit py-2">{loading ? 'Submitting' : 'Submit'}</button>
   </div>
 </div>
 </form>

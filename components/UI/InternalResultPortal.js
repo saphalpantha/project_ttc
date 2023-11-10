@@ -48,7 +48,6 @@ const InternalResultPortal = ({ isOpen, onClose, result }) => {
   };
   return (
     <>
-      {console.log(result, "from model")}
       <div className={classes.backdrop} onClick={closeModal} />
       <div className={`${classes.modal}`}>
         <div className={classes["close-icon"]} onClick={closeModal}>

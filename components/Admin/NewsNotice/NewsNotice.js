@@ -84,7 +84,7 @@ const NewsNotice = () => {
         <label>Upload Image</label>
         <input  onChange={(e) => setImage(e.target.files[0])} className='border-2 py-2 pl-5' type='file'></input>
         <div className='flex flex-col justify-center items-center'>
-        <button  disabled={loading} type='submit' className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
+        <button  disabled={loading} type='submit' className='border-2   border-[#201F54] px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>}
     <section className='min-h-screen pt-[2rem]'>

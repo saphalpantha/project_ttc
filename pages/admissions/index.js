@@ -1,10 +1,10 @@
 import React from 'react'
-import MultiStep from '../../components/AdmissionDetail/MultiStep_Form/MultiStep'
+import AdmissionForm from '../../components/AdmissionDetail/AdmissionForm'
 
 const AdmitForm = () => {
   return (
     <div>
-        <MultiStep/>
+        <AdmissionForm/>
     </div>
   )
 }

@@ -40,11 +40,11 @@ const ResultForInt = () => {
         setIsOpen(true);
         setResult(data.msg);
       } else {
-        console.log(data)
+        // console.log(data)
         alert('Incorrect Input. Please try again');
       }
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       alert("Something Went Wrong!!");
     } finally {
       setisLoading(false);

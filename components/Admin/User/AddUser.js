@@ -47,7 +47,7 @@ const AddUser = () => {
         <input  onChange={(e) => setPassword(e.target.value)} className='border-2 ' type='password'></input>
         </div>
         <div className='flex flex-col justify-center items-center'>
-        <button disabled={loading}  className='border-2 px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
+        <button disabled={loading}  className='border-2 border-[#201F54] px-6 py-2 w-fit'>{loading ? 'Submitting' : 'Submit'}</button>
         </div>
     </form>
 </div>

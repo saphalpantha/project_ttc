@@ -66,12 +66,11 @@ import Card from 'react-bootstrap/Card';
 import ScrollLayout from '../UI/ScrollLayout';
 
 const SingleCard = ({img, title, admission_status , link}) =>  {
-  console.log(admission_status ,' from the card')
   return (
     <Card className='' style={{ width: '22rem' , height:'13.5rem' }}>
       <Card.Body>
        
-      <Link href={link ? link :'/'}>
+      <Link href={  link && admission_status ? link :'/'}>
         <ScrollLayout duration={1.5}>
 
       <div className=' w-[23rem] h-[13.5rem] shadow-md hover:bg-gray-200 bg-[#FFFFFF] flex  items-center justify-center flex-col space-y-6'>

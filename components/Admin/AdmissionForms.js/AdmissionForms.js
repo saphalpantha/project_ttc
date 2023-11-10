@@ -3,17 +3,19 @@ import {React, useState, useRef ,useEffect} from "react";
 import { CSVLink } from "react-csv";
 import ReactToPrint from "react-to-print/";
 import UserFormat from "./UserFormat";
-
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 const AdmissionForms = () => {
   const [admissionResult, setAdmissionResult] = useState([]);
   const [originalResult, setOriginalResult] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
   const [filterOrder, setFilterOrder] = useState("Management");
   const [isAdmissionOpen, setIsAdmissionOpen ] = useState(true);
+  const [filterBatches, setFilterBatches ] = useState(new Date().getFullYear().toString());
   const componentRef = useRef();
 
   const printComponentRef = useRef();
   const [sortOrder, setSortOrder] = useState("asc");
+
   useEffect(() => {
     // console.log(isAdmissionOpen, 'ADM C OR O')
     fetch("/api/admission-forms")
@@ -39,11 +41,19 @@ const AdmissionForms = () => {
   //   setIsDownloadable(true)
   // }
 
+
   const allFormDisplayHandler = () => {
     // Reset admissionResult to the originalResult
     setAdmissionResult(originalResult);
   };
 
+
+  const filterBatchesHandler = (e) => {
+    console.log( new Date(originalResult[0].created_at).getFullYear().toString() , filterBatches )
+    setFilterBatches(e.target.value)
+    const filteredResults =originalResult.filter(i =>  new Date(i.created_at).getFullYear().toString() == filterBatches);
+    setAdmissionResult(filteredResults)
+  }
   const scienceFacultyFormHandler = () => {
     const updatedResult = originalResult.filter(
       (item) => item.faculty === "Science"
@@ -144,6 +154,7 @@ const AdmissionForms = () => {
   }
 
   
+  const batches = ["2019","2020","2021","2022","2023","2024","2025","2026","2027","2028","2029","2030"]
 
   return (
     <div className="min-h-screen py-10  flex  bg-[#F0F0F0]  w-[100vw] pl-[22%] flex-col  pr-[3rem]">
@@ -185,7 +196,14 @@ const AdmissionForms = () => {
         </span>
       </div>
 
+
       <div className="flex gap-4  py-5 justify-end">
+      <div className="flex w-[20%] justify-start right-0 items-center gap-2 shadow-md bg-white rounded-xl  font-bold tracking-wide">
+          <select value={filterBatches} onChange={filterBatchesHandler} className="w-full  bg-transparent pl-2 h-full bg-none outline-none">
+            <option>Filter by Batch</option>
+            {batches.map(i => <option>{i}</option>)}
+          </select>
+        </div>
         <div className="flex w-[20%] justify-center items-center gap-2 shadow-md bg-white rounded-xl py-2 px-8 font-bold tracking-wide">
           <img className="w-[2rem] h-[2rem]" src="/images/download.svg"></img>
           <CSVLink data={admissionResult} filename="admissionForms">
