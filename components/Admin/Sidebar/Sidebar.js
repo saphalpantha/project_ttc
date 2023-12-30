@@ -19,7 +19,7 @@ const Sidebar = () => {
     {id:'i5', title:'Change Password',icon:'changepass', link:'/user/change-password'},
     {id:'i6', title:'Faculty',icon:'star', link:'/faculty'},
     {id:'i6', title:'Add Links',icon:'star', link:'/add-link'},
-    {id:'i7', title:'Backup Data',icon:'star', link:'/backup'},
+    {id:'i7', title:'Slider',icon:'star', link:'/slider'},
   ]
   const logoutHandler = async () => {
     await signOut({redirect:true})

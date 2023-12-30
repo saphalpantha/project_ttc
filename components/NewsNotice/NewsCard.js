@@ -3,8 +3,8 @@ import Link from "next/link";
 import ScrollLayout from "../UI/ScrollLayout";
 const NewsCard = ({heading, desc, photo, link, id}) => {
   return (
-    <div className="flex flex-col pb-10 group justify-center  gap-4  items-baseline   w-[23.7rem] h-[495px] shadow-2xl relative ">
-      <div className="bg-black relative  object-cover w-[23.7rem] overflow-hidden  h-[230px] ">
+    <div className="flex flex-col pb-10 group justify-center bg-white  gap-4  items-baseline   w-[23.7rem] h-[495px] shadow-2xl relative ">
+      <div className="bg-black relative  object-cover w-[23.7rem] overflow-hidden  h-[260px] ">
         <div className="w-full  flex justify-center items-center h-full top-0 left-0 bg-[#232264E5]  opacity-0 group-hover:opacity-100  absolute">
           <Link className="z-[100]" href={ `/newsnotice/${id}`}>
           <h1 className="text-white border-[1px] border-[#A5A5A5] py-2 px-4 w-fit">Read More</h1>

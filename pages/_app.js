@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Sidebar from "../components/Admin/Sidebar/Sidebar";
 import Preloader from "../components/UI/Preloader";
 import {SessionProvider} from 'next-auth/react'
+import Head from "next/head";
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
   const [isAdminComp, setIsAdminComp] = useState(false);
@@ -45,6 +46,12 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
 
     <SessionProvider session={session}>
     <Fragment>
+    <Head>
+            <meta name="viewport" content="initial-scale=1.0 width=device-width"/>
+            <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
+        <title>Tilottama Campus</title>
+        <meta name="description" content="Tilottoma Campus"></meta>
+    </Head>
         {loading ? <Preloader/> :  <div>
 
     <div>

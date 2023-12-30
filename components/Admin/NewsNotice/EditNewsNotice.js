@@ -42,6 +42,7 @@ const StarList = () => {
     formData.append("desc", editorRef.current.getContent());
     formData.append("image", image);
     // console.log(formData);
+    
     try {
       const response = await axios.put(`/api/news-notice/edit/${selectedAlbum.id}`, formData, {
         headers: {
@@ -53,7 +54,7 @@ const StarList = () => {
       setDummy(response.data)
 
 
-      alert('Form Submission SucessFully');
+      alert('Form Submission Sucessfully');
     } catch (err) {
       setLoading(false)
       alert('Form Submission SucessFully123');

@@ -52,7 +52,6 @@ const Products = () => {
     }
   
 
-      console.log(notices)
 //   SwiperCore.use([Autoplay])
   const { width } = useWindowSize();
   return (
@@ -87,11 +86,11 @@ const Products = () => {
             // onSlideChange={() => console.log('slide change')}
           >
 
-            {notices.map((product) => {
+            {notices?.map((product) => {
               console.log(product,'the item')
                 return (
                   <SwiperSlide className="">
-                  <ProductCard image={product.img_code} />
+                  <ProductCard image={product?.img_code} />
                 </SwiperSlide>
               );
             })}
@@ -127,7 +126,7 @@ const Products = () => {
             {notices.slice(1,-1).map((product) => {
               return (
                 <SwiperSlide className="">
-                  <GalleryNav  image={product.img_code} />
+                  <GalleryNav  image={product?.img_code} />
                 </SwiperSlide>
               );
             })}

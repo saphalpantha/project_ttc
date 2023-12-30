@@ -28,7 +28,6 @@ const courseData = [
     items: [
       { id: "s1", link: "/courses/science/introduction", subtitle: "Introduction" },
       { id: "s2", link: "/courses/science/admission", subtitle: "Admission Procedure" },
-      { id: "s3", link: "", subtitle: "Scholarship and Fee Structure" },
       { id: "s4", link: "/courses/science/#faculty_science", subtitle: "Faculty Members" },
     ],
   },
@@ -38,7 +37,6 @@ const courseData = [
     items: [
       { id: "m1", link: "/courses/management/introduction", subtitle: "Introduction" },
       { id: "m2", link: "/courses/management/admission", subtitle: "Admission Procedure" },
-      { id: "m3", link: "", subtitle: "Scholarship and Fee Structure" },
       { id: "m4", link: "/courses/management/#faculty_management", subtitle: "Faculty Members" },
     ],
   },
@@ -48,7 +46,6 @@ const courseData = [
     items: [
       { id: "b1", link: "/courses/bba/introduction", subtitle: "Introduction" },
       { id: "b2", link: "/courses/bba/admission", subtitle: "Admission Procedure" },
-      { id: "b3", link: "", subtitle: "Scholarship and Fee Structure" },
       { id: "b4", link: "", subtitle: "Faculty Members" },
     ],
   },
@@ -176,7 +173,7 @@ return (
             )}
           </li>
           <li className={` relative cursor-pointer ${classes.main}`} onClick={resultHandler}>
-            <span className={`${classes.main} `}>Result</span>
+            <span className={`${classes.main}   hover:border-b-[3px] border-[#201F54]`}>Result</span>
             {(result.length > 0 && active) && (
               <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] left-[-5rem]  flex flex-col items-center w-[15rem]  bg-white h-fit pb-[2rem]">
                 <ul className="flex  pt-[1rem] flex-col gap-4">
@@ -195,8 +192,8 @@ return (
             
             <span className={`cursor-pointer hover:border-b-[3px]  border-[#201F54] ${classes.main} `}>Others</span>
             {(others.length > 0 && active) && (
-              <div className={`absolute border-t-4 border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center w-[15rem]  bg-white h-auto pb-[2rem]`}>
-                <ul className="flex pt-[1rem] flex-col gap-4">
+              <div className={`absolute border-t-4   border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center  w-[15rem]  bg-white h-auto`}>
+                <ul className="flex py-[0.5rem] flex-col gap-2">
                   {others.map((i) => (
                    <a href={`${i.link}`} target="_self"> <li className="hover:bg-gray-200 px-2 py-1">{i.link_title}</li> </a>
                   ))}

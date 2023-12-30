@@ -6,17 +6,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import useGetData from '../Helper/Helper';
 
 
 
-const sliderData = [
-  {id:'s1', img:'/images/stream/college_pics/ci_2.JPG', subtitle:'Welcome to Mega Imperial Consultancy Services.We Provide : ', heading:["Bank Job Certification Course", "Management Consulting", "Study Abroad-Australia,Canada,UK and USA"] },
-  {id:'s2', img:'/images/stream/college_pics/ci_5.JPG', subtitle:'Your Journey to study Abroad in Australia , UK , Canada and US. Begins with', heading:["Mega Imperial Consultancy Services"] },
-  {id:'s3', img:'/images/stream/college_pics/ci_6.JPG', subtitle:'We are all about helping you reach your next working goals at best companies. Experience in -', heading:["Job Certification course in Administration and Management Field."], },
-
-]
 
 const DisplayImage = ({subtitle, heading, img}) => {
+
 
   return(
 
@@ -33,6 +29,12 @@ const DisplayImage = ({subtitle, heading, img}) => {
 }
 
 export default   () => {
+
+  const state_data = {
+    _api_main:'/api/slider/get',
+    _api_sec:'/api/get-images/slider-uploads/',
+  }
+  const sliderData = useGetData(state_data);
   SwiperCore.use([Autoplay])
   return (
     <Swiper
@@ -51,11 +53,11 @@ export default   () => {
       onSwiper={(swiper) => {}}
       onSlideChange={() => {}}
     >
-      
-      {sliderData.map(i => {
+       
+      {sliderData.filter(i => i.active == 1).map(i => {
         return(
           <SwiperSlide>
-            <DisplayImage img={i.img} subtitle={i.subtitle} heading={i.heading}/>
+            <DisplayImage img={i.img_code} subtitle={'img'} heading={i.heading}/>
           </SwiperSlide>
         )
       })}

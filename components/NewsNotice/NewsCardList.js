@@ -24,7 +24,7 @@ const NewsCardList = () => {
   const isTab = width <= '1200' && width>= '800' 
   const noticeState =  notice.length > 0 ? notice.slice(0,isTab ? 2 : 3).map(i => (<NewsCard  id={i.id} key={i.id} heading={i.heading} desc={i.para} photo={i.img_code} link={i.link} />)) : <div className=' mt-[2rem] w-[100vw] flex justify-center items-center mx-auto  md:mt-[15rem] '><Loader/></div>
   return (
-    <div className={`flex flex-col justify-center  items-center  iportrait:grid  iportrait:grid-cols-2  ilandscape:grid-cols-2   md:flex-row justify-between gap-5  iportrait:w-full  ilandscape:gap-18 ilandscape:w-full  iportrait:place-items-center  md:gap-5`}>
+    <div className={`flex flex-col  place-content-center items-center justify-center  iportrait:grid  iportrait:grid-cols-2  ilandscape:grid-cols-2   md:flex-row justify-between gap-5  iportrait:w-full  ilandscape:gap-18 ilandscape:w-full  iportrait:place-items-center  md:gap-5`}>
         {noticeState}
        
     </div>

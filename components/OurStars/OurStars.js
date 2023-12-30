@@ -19,7 +19,7 @@ export const Star = ({nameofstar, typeofscholarship, img}) => {
   return(
       <div className='w-[200px]  h-[220px] flex flex-col justify-center items-center'>
           <div className='w-[10rem]  h-[10rem] overflow-clip border-2 border-[#FF9900] rounded-full flex justify-center items-center'>
-              <img className='w-[100%] object-cover rounded-full h-[100%]' alt="img" src={img}></img>
+              <img className='w-[100%] object-cover rounded-full h-[100%]' alt={nameofstar} src={img}></img>
           </div>
           <span className='text-2xs text-#201F54 tracking-tight'>{nameofstar}</span>
           <span className='font-bold text-2xs text-[#FF9900]'>{`${typeofscholarship}`}</span>
@@ -124,7 +124,7 @@ const OurStars = () => {
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, A11y]}
-      spaceBetween={100}
+      spaceBetween={ width < 1280 ? 100 : 220 }
       loop={true}
       slidesPerView={width > 768 && width <= 1280 && 4 || width < 768 && 1 || width > 1280 && 6}
       navigation

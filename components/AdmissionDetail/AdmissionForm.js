@@ -139,7 +139,7 @@ const AdmissionForm = () => {
                   className="w-[14rem] h-[2.6rem]  border-2 bg-white  border-[#201F54] text-black px-[1rem] rounded-xl"
                   value={values.grade}
                 >
-                  <option>select grade</option>
+                  <option>Select Grade</option>
                   <option>11</option>
                   <option>12</option>
                 </select>

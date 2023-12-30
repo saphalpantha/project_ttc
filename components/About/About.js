@@ -65,7 +65,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row space-y-20 md:space-y-0  py-4  justify-center items-center gap-16  md:py-10 bg-scroll">
+      <section className="flex flex-col md:flex-row space-y-5 md:space-y-0  py-4  justify-between gap-20 max-w-5xl mx-auto  items-center  md:py-10 bg-scroll">
         <div className="flex flex-col max-w-md w-[100%] md:px-0 px-[1.2rem] space-y-5">
           <h1 className="text-[#FF9900] text-4xl font-semibold">Location</h1>
           <p className="text-xl   leading-9 font-light text-justify">
@@ -85,7 +85,7 @@ const About = () => {
           ></iframe>
         </div>
       </section>
-      <section className="flex flex-col px-[1.2rem] md:px-[0rem] space-y-5 md:space-y-10  py-4 justify-evenly max-w-5xl mx-auto md:py-10 bg-scroll">
+      <section className="flex flex-col px-[1.2rem] md:px-0 space-y-5 md:space-y-10  py-4 justify-evenly max-w-5xl mx-auto md:py-10 bg-scroll">
         <h1 className="text-[#FF9900] text-4xl font-semibold">
           College Infrastructure
         </h1>

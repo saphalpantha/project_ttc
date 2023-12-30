@@ -231,7 +231,7 @@ return (
      
       <div key={index} className={` relative  bg-slate-500 w-[${image.width}]    ${index === 1 ? ' col-span-3 md:col-span-2 row-span-3 md:row-span-1' : ''} ${index === 2 ? 'col-span-2' : ''}`}>
         <div className=' transition-all  group duration-200 ease flex hover:bg-[#201F54]  hover:opacity-95  absolute  flex-col w-full justify-center  items-center h-full'>
-        <Link href={`/gallery`}>
+        <Link href={`/gallery/`}>
           <h1 className='text-3xl  opacity-0 group-hover:opacity-100 text-center text-white'>{image.alb_name}</h1>
           </Link>
         </div>
