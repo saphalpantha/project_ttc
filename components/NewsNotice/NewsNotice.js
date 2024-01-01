@@ -5,6 +5,7 @@ import NewsCardList from "./NewsCardList";
 import Link from "next/link";
 
 
+
 const NewsNotice = () => {
   return (
     <Container>

@@ -31,9 +31,9 @@ const NewsNoticePage = ({newsData}) => {
       <div className="max-w-6xl md:max-w-full">
         <section className={` relative ${classes.main}`}>
           <div className="">
-            <img
-              className="w-[100vw] h-[30vh] bg-cover opacity-80  "
-              src="/images/stream/science/sci_stream_cover.png"
+          <img
+              className="object-contain w-[100vw] bg-contain opacity-100 "
+              src="/images/cover_newsnotice.png"
             ></img>
           </div>
           <div className="left-[50%] font-bold mx-auto w-[80%] bg-[#FF9900] py-2 font-bold text-2xl text-center text-white rounded-full">

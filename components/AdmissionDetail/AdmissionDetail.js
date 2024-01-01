@@ -17,7 +17,7 @@ const AdmissionDetail = () => {
             <h1 className="text-4xl text-[#FF9900] font-bold">
               Eligibility Criteria
             </h1>
-            <p className="w-[90%] py-[1rem]">
+            <p className="w-[90%]  text-justify py-[1rem]">
               Students must have passed SEE examination or equivalent, at least
               B Grade for science (B+ in Comp. Maths, Opt. Maths, Science and
               English). Students have to pass the entrance examination conducted
@@ -29,7 +29,7 @@ const AdmissionDetail = () => {
               <h1 className="text-4xl text-[#FF9900] font-bold">
                 Entrance Exam
               </h1>
-              <p className="max-w-6xl w-[90%] md:w-[100%] leading-9 py-[1rem]">
+              <p className="max-w-6xl w-[90%] text-justify md:w-[100%] leading-9 py-[1rem]">
                 Tilottama Secondary School conducts a comprehensive evaluation
                 system including written examination to select highly motivated
                 group of students. The question format for the entrance

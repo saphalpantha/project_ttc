@@ -44,7 +44,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
           link: "/courses/science/admission",
           subtitle: "Admission Procedure",
         },
-        { id: "s3", link: "", subtitle: "Scholarship and Fee Structure" },
+      
         {
           id: "s4",
           link: "/courses/science/#faculty_science",
@@ -66,7 +66,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
           link: "/courses/management/admission",
           subtitle: "Admission Procedure",
         },
-        { id: "m3", link: "", subtitle: "Scholarship and Fee Structure" },
+       
         {
           id: "m4",
           link: "/courses/management/#faculty_management",
@@ -88,7 +88,6 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
           link: "/courses/bba/admission",
           subtitle: "Admission Procedure",
         },
-        { id: "b3", link: "", subtitle: "Scholarship and Fee Structure" },
         {
           id: "b4",
           link: "",

@@ -1,29 +1,43 @@
-import { getSession } from "next-auth/react";
-import path from "path";
-import fs from "fs";
+import JSZip from 'jszip';
+import fs from 'fs';
+import path from 'path';
 
-const handler = (req, res) => {
-  let backupFiles = [];
-  const sesson = getSession({ req: req });
-  if (!sesson) {
-    return res.redirect("/");
-  }
-  if (req.method == "GET") {
+const handler = async (req, res) => {
+  if (req.method === 'GET') {
     try {
-      const backupDir = path.join(process.cwd(), "/public", "/backups");
-      if (!fs.existsSync(backupDir)) {
-        res.status(500).json({ msg: "No Backup Folder Exists" });
+      const currentDate = new Date();
+      const zipFileName = `backup-${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getSeconds()}.zip`;
+      const zip = new JSZip();
+
+      const publicFolder = path.join(process.cwd(), 'public');
+
+      // Check if the 'public' folder exists
+      if (!fs.existsSync(publicFolder)) {
+        return res.status(500).json({ error: 'Public folder not found' });
       }
-      const files = fs.readdirSync(backupDir);
-      for (let i = 0; i < files.length; i++) {
-        backupFiles.push(files[i]);
+
+      const files = fs.readdirSync(publicFolder, { recursive: true });
+      for (const file of files) {
+        const filePath = path.join(publicFolder, file);
+        const stats = fs.statSync(filePath);
+        if (stats.isFile()) {
+          const fileData = fs.readFileSync(filePath);
+          zip.file(file, fileData);
+        }
       }
-      if(backupFiles.length > 0){
-          res.status(200).json({ msg: backupFiles });
-      }
+
+      const zipContent = await zip.generateAsync({ type: 'nodebuffer' });
+
+      res.setHeader('Content-Type', 'application/zip');
+      res.setHeader('Content-Disposition', `attachment; filename="${zipFileName}"`);
+      res.write(zipContent, 'binary');
+      res.end(null, 'binary');
     } catch (err) {
-      res.status(500).json({ msg: "Failed to Backup !" });
+      console.error('Error creating backup:', err);
+      res.status(500).json({ error: 'Failed to create backup' });
     }
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
   }
 };
 
