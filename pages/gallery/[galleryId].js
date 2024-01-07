@@ -53,7 +53,9 @@ const Products = () => {
   return (
     <div className="">
       <Container>
-        <h1 className="text-white  text-center font-bold max-w-6xl bg-[#FF9900] mt-[2rem] py-3 mx-auto w-full uppercase">{`${notices[0]?.album_name} Album`}</h1>
+        <h1 className="text-white  text-center font-bold max-w-6xl bg-[#FF9900] mt-[2rem] py-3 mx-auto w-full uppercase">{`${
+          notices[0]?.album_name || "Gallery"
+        } Album`}</h1>
         {/* <h1 className="text-3xl md:text-4xl font-semibold text-center py-4 uppercase "></h1> */}
         <div
           className={`max-w-6xl mx-auto px-2 md:px-32  md:max-w-full min-h-screen  pt-[2rem]  bg-[#f8f9fa] `}

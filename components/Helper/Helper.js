@@ -77,11 +77,7 @@ const useGetData = (compo_data) => {
       // return d;
       d.map(async (i) => {
         try {
-          const res = await fetch(
-            `${_api_sec}/${
-              _api_sec === "/api/get-images/gallary/" ? i.cover_image : i.photo
-            }`
-          );
+          const res = await fetch(`${_api_sec}/${i.photo}`);
           if (!res.ok) {
             return null;
           }

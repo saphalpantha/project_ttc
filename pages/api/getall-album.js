@@ -5,7 +5,7 @@ const handler = async (req, res) => {
   if (req.method === "GET") {
     const db = await getDb();
     await db
-      .query("SELECT * FROM gallary order by 1 desc limit 5")
+      .query("SELECT * FROM gallary order by 1 desc ")
       .then((result) => {
         res.status(200).json({ msg: result[0] });
       })
