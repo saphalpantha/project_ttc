@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "PORT=3002 next start",
-    "saphal": "npm run build && npm run start",
+    "dev_start": "next start",
+    "saphal": "npm run build && npm run dev_start",
     "lint": "next lint"
   },
   "dependencies": {

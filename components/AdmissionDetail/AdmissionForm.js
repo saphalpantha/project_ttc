@@ -1,17 +1,12 @@
 import React from "react";
-import { Fragment } from "react";
 import classes from "./AdmissionDetail.module.css";
-import { Form, useFormik } from "formik";
-import { JoinFull } from "@mui/icons-material";
-import { headers } from "next/dist/client/components/headers";
+import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import Container from "../Container/Container";
 const AdmissionForm = () => {
   const [photo, setPhoto] = useState(null);
   const [marksheet, setMarksheet] = useState(null);
-  const [tc, setTC] = useState(null);
-  const [cc, setCC] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
@@ -527,7 +522,7 @@ const AdmissionForm = () => {
         <div className="grid  justify-center place-items-center px-2 md:px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-3 gap-2 md:gap-y-3  md:grid-row-2">
           <div className="flex    flex-col space-y-1">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-              {values.faculty != 'BBA' ? '+2 Gpa' : 'SendupGpa'}
+              {values.faculty != "BBA" ? "+2 Gpa" : "SendupGpa"}
             </label>{" "}
             <input
               onChange={handleChange}
@@ -539,34 +534,38 @@ const AdmissionForm = () => {
               type="text"
             ></input>
           </div>
-         { values.faculty != 'BBA' && <div className="flex flex-col space-y-1">
-            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-              SEE Board CGPA
-            </label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="see_cgpa"
-              required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>}
-         { values.faculty != 'BBA'&& <div className="flex flex-col space-y-1">
-            <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
-              Grade letter/Division:
-            </label>{" "}
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="grade_div"
-              required
-              className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="text"
-            ></input>
-          </div>}
+          {values.faculty != "BBA" && (
+            <div className="flex flex-col space-y-1">
+              <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+                SEE Board CGPA
+              </label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="see_cgpa"
+                required
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+          )}
+          {values.faculty != "BBA" && (
+            <div className="flex flex-col space-y-1">
+              <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
+                Grade letter/Division:
+              </label>{" "}
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="grade_div"
+                required
+                className="  w-[14rem] h-[2.6rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="text"
+              ></input>
+            </div>
+          )}
         </div>
         {values.faculty != "BBA" && (
           <div className="grid justify-center place-items-center px-1 md:px-[15rem] py-5  gap-5  grid-cols-1 mx-auto  md:grid-cols-6 gap-2 md:gap-y-3  md:grid-row-2">
@@ -693,34 +692,35 @@ const AdmissionForm = () => {
           </h1>
         )}
 
-        { values.faculty != 'BBA' && <div className="grid justify-center place-items-center px-[5rem] md:px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
-          <div className="flex flex-col space-y-2 text-center">
-            <label className={`font-bold ${classes.req}`}>Valid Photo</label>
-            <input
-              onChange={(e) => setPhoto(e.target.files[0])}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              required
-              className="py-4 w-[250px]  md:w-[376px]  placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="file"
-              name="photo"
-            ></input>
-          </div>
-          <div className="flex  flex-col space-y-2 text-center">
-            <label className={`text-[#201F54] font-bold ${classes.req}`}>
-              SEE marksheet
-            </label>
-            <input
-              onChange={(e) => setMarksheet(e.target.files[0])}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              required
-              className="py-4 w-[250px] md:w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="file"
-              name="see_marksheet"
-            ></input>
-          </div>
-          {/* <div className="flex flex-col space-y-2 text-center">
+        {values.faculty != "BBA" && (
+          <div className="grid justify-center place-items-center px-[5rem] md:px-[15rem]  py-5 gap-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
+            <div className="flex flex-col space-y-2 text-center">
+              <label className={`font-bold ${classes.req}`}>Valid Photo</label>
+              <input
+                onChange={(e) => setPhoto(e.target.files[0])}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                required
+                className="py-4 w-[250px]  md:w-[376px]  placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="file"
+                name="photo"
+              ></input>
+            </div>
+            <div className="flex  flex-col space-y-2 text-center">
+              <label className={`text-[#201F54] font-bold ${classes.req}`}>
+                SEE marksheet
+              </label>
+              <input
+                onChange={(e) => setMarksheet(e.target.files[0])}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                required
+                className="py-4 w-[250px] md:w-[376px] placeholder:choose file h-[3.5rem] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="file"
+                name="see_marksheet"
+              ></input>
+            </div>
+            {/* <div className="flex flex-col space-y-2 text-center">
             <label className={`text-[#201F54] font-bold ${classes.req}`}>
               See transfer Certificate
             </label>
@@ -734,7 +734,7 @@ const AdmissionForm = () => {
               name="see_tc"
             ></input>
           </div> */}
-          {/* <div className="flex flex-col space-y-2 text-center">
+            {/* <div className="flex flex-col space-y-2 text-center">
             <label className={`text-[#201F54] font-bold ${classes.req}`}>
               SEE Character Certificate
             </label>
@@ -748,120 +748,127 @@ const AdmissionForm = () => {
               name="see_cc"
             ></input>
           </div> */}
-        </div>}
-       { values.faculty != 'BBA' && <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
-          Interest on Extra Activities
-        </h1>}
-         { values.faculty != 'BBA' &&  <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
-          <div className="flex space-x-4 text-center">
+          </div>
+        )}
+        {values.faculty != "BBA" && (
+          <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
+            Interest on Extra Activities
+          </h1>
+        )}
+        {values.faculty != "BBA" && (
+          <div className="grid justify-center w-[55%] gap-5 py-5   grid-cols-1 mx-auto  md:grid-cols-4 gap-2 md:gap-y-5 ">
+            <div className="flex space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="hobby"
+                className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                value={"BasketBall"}
+              ></input>
+              <label className={"font-bold"}>Basketball</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                name="hobby"
+                value={"VolleyBall"}
+              ></input>
+              <label className={"font-bold"}>Volley Ball</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                name="hobby"
+                value={"TableTennis"}
+              ></input>
+              <label className={"font-bold"}>Table Tennis</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                name="hobby"
+                value={"Football"}
+              ></input>
+              <label className={"font-bold"}>Football</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="hobby"
+                className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                value={"Quiz"}
+              ></input>
+              <label className={"font-bold"}>Quiz</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                name="hobby"
+                value={"Speech"}
+              ></input>
+              <label className={"font-bold"}>Speech</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                name="hobby"
+                value={"Cricket"}
+              ></input>
+              <label className={"font-bold"}>Cricket</label>
+            </div>
+            <div className="flex  space-x-4 text-center">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
+                type="checkbox"
+                name="hobby"
+                value={"Chess"}
+              ></input>
+              <label className={"font-bold"}>Chess</label>
+            </div>
+          </div>
+        )}
+        {values.faculty != "BBA" && (
+          <div className="flex space-x-3 gap-5 justify-center items-center">
+            <label className="text-xl  text-[#201F54]">Others</label>
             <input
               onChange={handleChange}
               onBlur={handleBlur}
               onReset={handleReset}
-              name="hobby"
-              className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              value={"BasketBall"}
+              className=" w-[45%]  h-[3rem] border-2 border-[#000] px-[1rem] text-black rounded-xl"
+              type="text"
+              name="others"
+              value={values.others}
             ></input>
-            <label className={"font-bold"}>Basketball</label>
           </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              name="hobby"
-              value={"VolleyBall"}
-            ></input>
-            <label className={"font-bold"}>Volley Ball</label>
-          </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              name="hobby"
-              value={"TableTennis"}
-            ></input>
-            <label className={"font-bold"}>Table Tennis</label>
-          </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              name="hobby"
-              value={"Football"}
-            ></input>
-            <label className={"font-bold"}>Football</label>
-          </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="hobby"
-              className="  w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              value={"Quiz"}
-            ></input>
-            <label className={"font-bold"}>Quiz</label>
-          </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              name="hobby"
-              value={"Speech"}
-            ></input>
-            <label className={"font-bold"}>Speech</label>
-          </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              name="hobby"
-              value={"Cricket"}
-            ></input>
-            <label className={"font-bold"}>Cricket</label>
-          </div>
-          <div className="flex  space-x-4 text-center">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              className="w-[24px]  h-[24px] border-2 border-[#201F54] px-[1rem] text-black rounded-xl"
-              type="checkbox"
-              name="hobby"
-              value={"Chess"}
-            ></input>
-            <label className={"font-bold"}>Chess</label>
-          </div>
-        </div>}
-        { values.faculty != 'BBA' && <div className="flex space-x-3 gap-5 justify-center items-center">
-          <label className="text-xl  text-[#201F54]">Others</label>
-          <input
-            onChange={handleChange}
-            onBlur={handleBlur}
-            onReset={handleReset}
-            className=" w-[45%]  h-[3rem] border-2 border-[#000] px-[1rem] text-black rounded-xl"
-            type="text"
-            name="others"
-            value={values.others}
-          ></input>
-        </div>}
+        )}
         <div className="flex items-center px-5 py-5 md:px-0  justify-center  space-x-3 text-center">
           <input
             onChange={handleChange}

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import classes from "../AdmissionDetail/AdmissionDetail.module.css";
-import { useScreen } from "usehooks-ts";
 const Preparation = () => {
-  const [activeTitle, setActiveTitle] = useState( {
+  const [activeTitle, setActiveTitle] = useState({
     id: "m1",
     title: "class 11",
     subjects: [
@@ -31,17 +30,13 @@ const Preparation = () => {
         ],
       },
     ],
-  },);
+  });
   const [activeSubjectName, setActiveSubjectName] = useState();
   const titleSelectHandler = (item) => {
     setActiveTitle(item);
-  };  
+  };
 
-
-  const toggleSubjectsHandler = () => {
-
-  }
-
+  const toggleSubjectsHandler = () => {};
 
   const materialData = [
     {
@@ -204,30 +199,32 @@ const Preparation = () => {
                   >
                     {item.title}
                   </span>
-                 
                 </div>
               ))}
             </div>
             <div className="w-full px-2 py-2 flex flex-col gap-2">
               <div className="flex flex-col gap-2">
-              {
-                activeTitle.subjects.map(item => (
+                {activeTitle.subjects.map((item) => (
                   <div className="gap-2 flex flex-col">
-                  <h1  onClick={() => setActiveSubjectName(item.subName)} className={`border-[#201F54]  border-[0.2rem] pl-[1rem] py-1  ${activeSubjectName == item.subName && 'bg-[#201F54] text-white'}`}>
-                  {item.subName}
-                </h1> 
-                {
-                  activeSubjectName === item.subName && 
-      <ul className=" grid grid-cols-2 justify-center items-center pl-10 border-2 p-4 border-[#201F54] ">
-                     {item.subLists.map(i => <li>{i}</li>)}
-                 </ul>
-                 }
-                    </div>
-                ))
-              }
-
-                </div>  
-
+                    <h1
+                      onClick={() => setActiveSubjectName(item.subName)}
+                      className={`border-[#201F54]  border-[0.2rem] pl-[1rem] py-1  ${
+                        activeSubjectName == item.subName &&
+                        "bg-[#201F54] text-white"
+                      }`}
+                    >
+                      {item.subName}
+                    </h1>
+                    {activeSubjectName === item.subName && (
+                      <ul className=" grid grid-cols-2 justify-center items-center pl-10 border-2 p-4 border-[#201F54] ">
+                        {item.subLists.map((i) => (
+                          <li>{i}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -238,12 +235,12 @@ const Preparation = () => {
 
 export default Preparation;
 
-
-
-{/* <div className="w-full">
+{
+  /* <div className="w-full">
 {activeTitle === item.id && <div className="flex flex-col w-[100%] p-2 gap-2">
   {item.subjects.map(sub => (
 
   ))}
 </div>}
-  </div> */}
+  </div> */
+}

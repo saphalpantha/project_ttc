@@ -3,8 +3,7 @@ import { Fragment } from "react";
 import Logo from "../../Logo/Logo";
 import { useState } from "react";
 import Backdrop from "../../UI/Nav/Backdrop";
-import { Link } from "@mui/material";
-import classes from './NavBar.module.css'
+import classes from "./NavBar.module.css";
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
   { id: "i2", name: "Board Members", link: "/faculty/board" },
@@ -15,29 +14,47 @@ const resultData = [
   { id: "i3", name: "Entrance Exam Result", link: "/results/entrance-result/" },
 ];
 
-
-
-
-
-
 const courseData = [
-
   {
     id: "i1",
     title: "Science",
     items: [
-      { id: "s1", link: "/courses/science/introduction", subtitle: "Introduction" },
-      { id: "s2", link: "/courses/science/admission", subtitle: "Admission Procedure" },
-      { id: "s4", link: "/courses/science/#faculty_science", subtitle: "Faculty Members" },
+      {
+        id: "s1",
+        link: "/courses/science/introduction",
+        subtitle: "Introduction",
+      },
+      {
+        id: "s2",
+        link: "/courses/science/admission",
+        subtitle: "Admission Procedure",
+      },
+      {
+        id: "s4",
+        link: "/courses/science/#faculty_science",
+        subtitle: "Faculty Members",
+      },
     ],
   },
   {
     id: "i2",
     title: "Management",
     items: [
-      { id: "m1", link: "/courses/management/introduction", subtitle: "Introduction" },
-      { id: "m2", link: "/courses/management/admission", subtitle: "Admission Procedure" },
-      { id: "m4", link: "/courses/management/#faculty_management", subtitle: "Faculty Members" },
+      {
+        id: "m1",
+        link: "/courses/management/introduction",
+        subtitle: "Introduction",
+      },
+      {
+        id: "m2",
+        link: "/courses/management/admission",
+        subtitle: "Admission Procedure",
+      },
+      {
+        id: "m4",
+        link: "/courses/management/#faculty_management",
+        subtitle: "Faculty Members",
+      },
     ],
   },
   {
@@ -45,117 +62,149 @@ const courseData = [
     title: "BBA",
     items: [
       { id: "b1", link: "/courses/bba/introduction", subtitle: "Introduction" },
-      { id: "b2", link: "/courses/bba/admission", subtitle: "Admission Procedure" },
+      {
+        id: "b2",
+        link: "/courses/bba/admission",
+        subtitle: "Admission Procedure",
+      },
       { id: "b4", link: "", subtitle: "Faculty Members" },
     ],
   },
 ];
 
-const NavDesktop = ({linksData}) => {
+const NavDesktop = ({ linksData }) => {
   const [about, setAbout] = useState([]);
   const [course, setCourse] = useState([]);
   const [result, setResult] = useState([]);
   const [others, setOthers] = useState([]);
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
 
   const aboutHanlder = () => {
     setAbout(aboutData);
-    setActive(true)
+    setActive(true);
     setCourse([]);
     setOthers([]);
     setResult([]);
-};
-const courseHandler = () => {
+  };
+  const courseHandler = () => {
     setCourse(courseData);
-    setActive(true)
+    setActive(true);
     setAbout([]);
     setOthers([]);
     setResult([]);
-};
-const resultHandler = () => {
+  };
+  const resultHandler = () => {
     setResult(resultData);
-    setActive(true)
+    setActive(true);
     setCourse([]);
     setAbout([]);
     setOthers([]);
-};
-const othersHandler = () => {
+  };
+  const othersHandler = () => {
     setOthers(updatedOthersData);
-    setActive(true)
+    setActive(true);
     setResult([]);
     setCourse([]);
     setAbout([]);
-};
+  };
 
+  const othersData = [
+    {
+      id: "i1",
+      link_title: "Preparation Materials",
+      link: "/preparation-material",
+    },
+  ];
 
-const othersData = [
+  const updatedOthersData = [...linksData, ...othersData];
 
-  { id: "i1", link_title: "Preparation Materials", link: "/preparation-material" },
-];
-
-
-const updatedOthersData = [
-  ...linksData, ...othersData
-]
-
-
-
-
-
-return (
+  return (
     <Fragment>
-       { active &&  <Backdrop onClick={() => {
+      {active && (
+        <Backdrop
+          onClick={() => {
             setOthers([]);
-            setActive(false)
+            setActive(false);
             setResult([]);
             setCourse([]);
             setAbout([]);
-       }}/>}
-      <nav  className={`hidden iportrait:hidden md:flex py-[1.1rem]  relative z-[1000] gap-4 items-center px-[1rem]`}>
+          }}
+        />
+      )}
+      <nav
+        className={`hidden iportrait:hidden md:flex py-[1.1rem]  relative z-[1000] gap-4 items-center px-[1rem]`}
+      >
         <div className="w-[20rem]">
-        <Logo w={''}/>
+          <Logo w={""} />
         </div>
         <ul className="flex justify-center items-center  gap-7">
-         <a className="w-fit" href={"/"}>   <li className={`cursor-pointer  hover:border-b-[3px] border-[#201F54] ${classes.main} `}>Home</li></a>
-          <li  className={`relative cursor-pointer`} onClick={aboutHanlder}>
-            <span className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>About</span>
-            {(about.length > 0 && active ) && (
+          <a className="w-fit" href={"/"}>
+            {" "}
+            <li
+              className={`cursor-pointer  hover:border-b-[3px] border-[#201F54] ${classes.main} `}
+            >
+              Home
+            </li>
+          </a>
+          <li className={`relative cursor-pointer`} onClick={aboutHanlder}>
+            <span
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
+            >
+              About
+            </span>
+            {about.length > 0 && active && (
               <div className="absolute  border-t-4 border-[#201F54] top-[3.8rem]  left-[-5rem] flex flex-col items-center w-[15rem]  bg-white h-[10rem]">
-               { active && <ul className="flex pt-[1rem] flex-col gap-4">
-                  {about.map((i) => (
-                    <a href={i.link}><li className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">{i.name}</li></a>
-                  ))}
-                </ul>}
+                {active && (
+                  <ul className="flex pt-[1rem] flex-col gap-4">
+                    {about.map((i) => (
+                      <a href={i.link}>
+                        <li className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">
+                          {i.name}
+                        </li>
+                      </a>
+                    ))}
+                  </ul>
+                )}
               </div>
             )}
           </li>
 
-         <a href={"/admissions"}> <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54]  ${classes.main} `}>Admission</li> </a>
+          <a href={"/admissions"}>
+            {" "}
+            <li
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54]  ${classes.main} `}
+            >
+              Admission
+            </li>{" "}
+          </a>
           <li className={`cursor-pointer `} onClick={courseHandler}>
-            <span className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}>Course</span>
-            
-            {(course.length > 0 && active) && (
+            <span
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}
+            >
+              Course
+            </span>
+
+            {course.length > 0 && active && (
               <div className="absolute border-t-4 border-[#201F54] top-[6.2rem] left-[50%] translate-x-[-50%] flex flex-col items-center   bg-white h-[20rem]">
                 <div className="flex justify-around px-[2rem] pt-[3rem] w-[85vw]">
-
-
-
-                  {
-                      course.map(od => { 
-                        return(
-
-                            <div className='flex flex-col'>
-                                        <h1 className="font-bold text-[1.1rem]">{od.title}</h1>
-                                        <ul className='flex  gap-2 pt-[1rem] flex-col' >
-
-                                            {od.items.map(id => <div className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;] py-1"><a  href={id.link}> <li>{id.subtitle}</li></a> </div>)}
-                                        </ul>
-                                        </div>
-                                            )
-                                    })
-                                    
-                                }
-                                </div>
+                  {course.map((od) => {
+                    return (
+                      <div className="flex flex-col">
+                        <h1 className="font-bold text-[1.1rem]">{od.title}</h1>
+                        <ul className="flex  gap-2 pt-[1rem] flex-col">
+                          {od.items.map((id) => (
+                            <div className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;] py-1">
+                              <a href={id.link}>
+                                {" "}
+                                <li>{id.subtitle}</li>
+                              </a>{" "}
+                            </div>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
                 {/* <div className=''>
                                     {course.map(one => {
                                         <div>
@@ -172,30 +221,71 @@ return (
               </div>
             )}
           </li>
-          <li className={` relative cursor-pointer ${classes.main}`} onClick={resultHandler}>
-            <span className={`${classes.main}   hover:border-b-[3px] border-[#201F54]`}>Result</span>
-            {(result.length > 0 && active) && (
+          <li
+            className={` relative cursor-pointer ${classes.main}`}
+            onClick={resultHandler}
+          >
+            <span
+              className={`${classes.main}   hover:border-b-[3px] border-[#201F54]`}
+            >
+              Result
+            </span>
+            {result.length > 0 && active && (
               <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] left-[-5rem]  flex flex-col items-center w-[15rem]  bg-white h-fit pb-[2rem]">
                 <ul className="flex  pt-[1rem] flex-col gap-4">
                   {result.map((i) => (
-                  <a href={i.link}>  <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li></a>
+                    <a href={i.link}>
+                      {" "}
+                      <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li>
+                    </a>
                   ))}
                 </ul>
               </div>
             )}
           </li>
-        <a href={"/newsnotice"}>  <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}>Notice</li> </a>
-         <a href={"/gallery"}> <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>Gallery</li></a>
-         <a href={"https://tilottama.careerservicelab.com"}> <li className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}>Career Service Center</li></a>
-          
+          <a href={"/newsnotice"}>
+            {" "}
+            <li
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}
+            >
+              Notice
+            </li>{" "}
+          </a>
+          <a href={"/gallery"}>
+            {" "}
+            <li
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
+            >
+              Gallery
+            </li>
+          </a>
+          <a href={"https://tilottama.careerservicelab.com"}>
+            {" "}
+            <li
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
+            >
+              Career Service Center
+            </li>
+          </a>
+
           <li className=" relative cursor-pointer" onClick={othersHandler}>
-            
-            <span className={`cursor-pointer hover:border-b-[3px]  border-[#201F54] ${classes.main} `}>Others</span>
-            {(others.length > 0 && active) && (
-              <div className={`absolute border-t-4   border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center  w-[15rem]  bg-white h-auto`}>
+            <span
+              className={`cursor-pointer hover:border-b-[3px]  border-[#201F54] ${classes.main} `}
+            >
+              Others
+            </span>
+            {others.length > 0 && active && (
+              <div
+                className={`absolute border-t-4   border-[#201F54] top-[3.8rem] right-[-4rem] flex flex-col items-center  w-[15rem]  bg-white h-auto`}
+              >
                 <ul className="flex py-[0.5rem] flex-col gap-2">
                   {others.map((i) => (
-                   <a href={`${i.link}`} target="_self"> <li className="hover:bg-gray-200 px-2 py-1">{i.link_title}</li> </a>
+                    <a href={`${i.link}`} target="_self">
+                      {" "}
+                      <li className="hover:bg-gray-200 px-2 py-1">
+                        {i.link_title}
+                      </li>{" "}
+                    </a>
                   ))}
                 </ul>
               </div>

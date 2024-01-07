@@ -301,9 +301,6 @@ export function DropdownMenu({ title, links }) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [isSciOpen, setIsSciOpen] = useState(false);
-  const [isMgmtOpen, setIsMgmtOpen] = useState(false);
-  const [isBBAOpen, setIsBBAOpen] = useState(false);
 
   return (
     <nav
@@ -392,9 +389,7 @@ export default function Navbar() {
             }`}
           />
         </div>
-        <div
-          className={`hidden  pl-[6rem]  gap-2 ${styles.desktopMenu}`}
-        >
+        <div className={`hidden  pl-[6rem]  gap-2 ${styles.desktopMenu}`}>
           <NavLink to="/">Home</NavLink>
           {/* <NavLink to="/about" >About</NavLink> */}
           <DropdownMenu title="About" links={aboutDropdownLinks} />

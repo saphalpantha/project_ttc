@@ -1,4 +1,3 @@
-import SingleCard from "../CardLists/Card";
 import Container from "../Container/Container";
 import React from "react";
 

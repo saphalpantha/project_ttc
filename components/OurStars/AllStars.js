@@ -2,8 +2,7 @@ import React from "react";
 // import StarCard from "./StarCard";
 import Container from "../Container/Container";
 // import {Container} from '../../components/Container/Container'
-import StyleCover from "../StyleCover/StyleCover";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import StarCard from "./StarCard";
 const users = [
   {
@@ -46,7 +45,6 @@ const AllStars = () => {
         const response = await fetch("/api/our-stars");
         const resData = await response.json();
         const data = resData.msg;
- 
 
         setAchievement({
           ioe: data.filter((i) => i.scholarship_name.toLowerCase() === "ioe"),
@@ -59,9 +57,7 @@ const AllStars = () => {
             (i) => i.scholarship_name.toLowerCase() === "indian embassy"
           ),
         });
-      } catch (err) {
- 
-      }
+      } catch (err) {}
     };
     fetchData();
   }, []);
@@ -129,8 +125,7 @@ const AllStars = () => {
         id="add_one"
         className="max-w-[60.313] mx-auto py-[1rem] justify-center items-center"
       >
-
-<div className="flex flex-col justify-between space-y-[2rem]">
+        <div className="flex flex-col justify-between space-y-[2rem]">
           <h1 className="text-[#FF9900] font-semibold text-3xl text-center ">
             SII Scholarship
           </h1>
@@ -155,7 +150,6 @@ const AllStars = () => {
             </div>
           </div>
         </div>
-
       </section>
     </Container>
   );

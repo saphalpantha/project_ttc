@@ -7,10 +7,7 @@ import Container from "../Container/Container";
 const AdmissionBBA = () => {
   const [photo, setPhoto] = useState(null);
   const [marksheet, setMarksheet] = useState(null);
-  const [tc, setTC] = useState(null);
-  const [cc, setCC] = useState(null);
-  const [loading,setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false);
 
   const initialValues = {
     faculty: null,
@@ -57,7 +54,6 @@ const AdmissionBBA = () => {
     hobby: [],
   };
 
-
   const submitHandler = async (formD) => {
     formD.hobby.push(formD.others);
     const hobbies_string = formD.hobby.join(" ");
@@ -70,61 +66,23 @@ const AdmissionBBA = () => {
     formData.append("marksheet", marksheet);
     formData.append("photo", photo);
     try {
-      setLoading(true)
+      setLoading(true);
       const response = await axios.post("/api/admission-forms", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      }); 
+      });
 
-      
-      alert('Form Submission SucessFully');
-      setLoading(false)
-
+      alert("Form Submission SucessFully");
+      setLoading(false);
     } catch (err) {
-      setLoading(false)
-      alert('Failed to submit form. Please Try again.')
-      alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
-      
+      setLoading(false);
+      alert("Failed to submit form. Please Try again.");
+      alert(
+        `${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`
+      );
     }
   };
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   const formik = useFormik({
     initialValues,
@@ -353,29 +311,28 @@ const AdmissionBBA = () => {
         <h1 className="w-[80%] mx-auto text-center  py-3 bg-[#201F54] text-white font-bold">
           Academic Information
         </h1>
-        
+
         <div className="grid justify-center place-items-center items-center px-2 md:px-32  py-5  grid-cols-1 mx-auto  md:grid-cols-2 gap-2 md:gap-y-3  md:grid-row-2">
-          
-        <div className="flex flex-col justify-center">
-          <div className="w-[100%] py-2 mx-auto ">
-            <label
-              className={`text-xl pt-2  whitespace-nowrap    text-[#201F54] ${classes.req}`}
-            >
-              Name of Previous School
-            </label>
+          <div className="flex flex-col justify-center">
+            <div className="w-[100%] py-2 mx-auto ">
+              <label
+                className={`text-xl pt-2  whitespace-nowrap    text-[#201F54] ${classes.req}`}
+              >
+                Name of Previous School
+              </label>
+            </div>
+            <div className="flex justify-center items-center space-y-2  w-full flex-col">
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="nameofprevschool"
+                required
+                className=" rounded-xl pl-3 py-2 w-[150%] border-2 border-[#201F54]"
+              ></input>
+            </div>
           </div>
-          <div className="flex justify-center items-center space-y-2  w-full flex-col">
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onReset={handleReset}
-              name="nameofprevschool"
-              required
-              className=" rounded-xl pl-3 py-2 w-[150%] border-2 border-[#201F54]"
-            ></input>
-          </div>
-        </div>
-          
+
           <div className="flex  flex-col justify-center">
             <label className={`text-xl pl-3  text-[#201F54] ${classes.req}`}>
               +2 GPA
@@ -390,15 +347,14 @@ const AdmissionBBA = () => {
               type="text"
             ></input>
           </div>
-        
-            </div>
+        </div>
         <div className="w-[90%] flex py-5 flex-col justify-center items-center">
           <button
-          disabled={loading}
+            disabled={loading}
             type="submit"
             className="py-3  px-8 w-fit text-center bg-[#201F54] hover:bg-[#FF9900] text-white transition-all duration-200 ease-in rounded-full shadow-md  "
           >
-            {!loading ? 'Submit' : 'Submitting'}
+            {!loading ? "Submit" : "Submitting"}
           </button>
         </div>
       </form>
