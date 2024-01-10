@@ -3,11 +3,19 @@ let _db;
 
 export async function connectToDb() {
   const dbConnect = await mysql.createConnection({
+<<<<<<< HEAD
       host:"127.0.0.1",
       database:"tilottama_edu",
       user:"tilottama_edu_user",
       password:"RPvt9OP4uxParxXHzS8Y"
   })
+=======
+    host: "127.0.0.1",
+    database: "tilottama_edu",
+    user: "tilottama_edu_user",
+    password: "RPvt9OP4uxParxXHzS8Y",
+  });
+>>>>>>> 839104f4ab2dbd2bee10c121bb4a271d029a8c75
 
   // const dbConnect = await mysql.createConnection({
   //   host: "127.0.0.1",
@@ -16,6 +24,10 @@ export async function connectToDb() {
   //   password: "",
   //   multipleStatements: true,
   // });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 839104f4ab2dbd2bee10c121bb4a271d029a8c75
   // const dbConnect = await mysql.createConnection({
   //     host:"db4free.net",
   //     database:"ttc_test_db",
