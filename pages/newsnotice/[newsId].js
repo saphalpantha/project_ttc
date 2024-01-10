@@ -96,8 +96,6 @@ const NewsDetail = () => {
       return;
     }
     // get data type  of  notice
-    console.log(typeof notice);
-    console.log(id, notice, "aaaaaaaaaaa");
     notice.forEach((element) => {
       if (element.id == id) {
         console.log(element);
@@ -125,24 +123,22 @@ const NewsDetail = () => {
   return (
     <Container>
       {Object.keys(notice).length > 0 ? (
-        <div className="flex flex-col justify-center mx-2 mx:px-32 gap-5 items-center py-[2rem] pb-[5rem]">
-          <div className="h-[50vh] md:h-[100vh]">
-            <img
-              src={`${newsData?.img_code}`}
-              className="w-[100%] h-[100%]"
-              alt="Loading"
-            />
-          </div>
-          <div className="flex flex-col space-y-2 px-2 md:px-0 max-w-7xl justify-center items-center gap-10">
-            <h1 className="text-3xl text-[#201F54] text-center font-bold">
-              {newsData?.heading}
-            </h1>
-            <p
-              dangerouslySetInnerHTML={{ __html: newsData?.para }}
-              className="tracking-wide text-2xs md:text-xl w-[100%] mx-auto leading-9 tracking-wider"
-            />
+        <section className="mx-auto py-[1rem] md:py-[1rem] justify-center items-center max-w-6xl">
+        <div className="">
+          <div className="flex  flex-col md:flex-row gap-2 justify-center  md:items-start items-center md:gap-16 px-2 md:px-0 space-y-[3%]  space-y-3">
+            <div className=" flex flex-col space-y-2 w-[20rem] h-[25rem] py-2 pt-[3rem]">
+              <img
+                className="w-[100%] h-[100%]"
+                src={newsData?.img_code}
+              ></img>
+              <span className="font-bold text-[#201F54] tracking-wide text-center">
+                {newsData?.heading}
+              </span>
+            </div>
+            <p  style={{ wordWrap: 'break-word' }} className="leading-8 w-full px-[2rem] md:px-[0rem] md:w-[40%] tracking-wide"  dangerouslySetInnerHTML={{ __html: newsData?.para }}/>
           </div>
         </div>
+      </section>
       ) : (
         <div className="w-full h-[100vh] flex flex-col justify-center items-center">
           <Loader />
@@ -153,3 +149,16 @@ const NewsDetail = () => {
 };
 
 export default NewsDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+

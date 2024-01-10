@@ -11,7 +11,7 @@ const AdmissionDetail = () => {
           title={"Admission procedure (Science)"}
         />
       </section>
-      <section className="max-w-6xl flex  md:max-w-full  mx-5 pb-10">
+      <section className="max-w-6xl justify-center items-center flex  md:max-w-full  mx-5 pb-10">
         <div className="max-w-6xl mx-auto px-0 flex flex-col justify-between space-y-5 py-[3rem]">
           <div className="pb-[1rem]">
             <h1 className="text-4xl text-[#FF9900] font-bold">

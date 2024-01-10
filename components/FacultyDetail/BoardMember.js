@@ -27,14 +27,14 @@ const users = [
     id: "i3",
     name: "Mr Badri Panthi",
     phoneNo: "+977-9812367458",
-    post: "member",
+    post: "Member",
     photo: "board4",
   },
   {
     id: "i4",
     name: "Mr Shiva Prasad Gyawali",
     phoneNo: "+977-9812367458",
-    post: "member",
+    post: "Member",
     photo: "board5",
   },
 ];
@@ -80,7 +80,7 @@ const BoardMember = () => {
               <span className="text-center">Founder Principal</span>
             </div>
 
-            <p className=" text-center md:text-start text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
+            <p className="text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
               {" "}
               Tilottama campus, established in 2053 has exemplified excellence
               in science and mangaement by providing quality and value based
@@ -119,7 +119,7 @@ const BoardMember = () => {
               <span className="text-center">Vice Principal</span>
             </div>
 
-            <p className="md:text-start text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
+            <p className="text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
               {" "}
               I am immensely pleased to welcome you at Tilottama Campus. The
               Campus is popularly known not only throughout the nation but also
@@ -155,7 +155,7 @@ const BoardMember = () => {
               <span className="text-center">Vice Principal</span>
             </div>
 
-            <p className="md:text-start text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
+            <p className=" text-justify px-[2rem] max-w-xl leading-8 tracking-wide">
               {" "}
               I respect you for your interest at Tilottama Campus. We understand
               the challenges facing your generation and guide you properly to
