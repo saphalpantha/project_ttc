@@ -3,6 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
 import ScrollLayout from '../UI/ScrollLayout'
+import Image from 'next/image'
 const streamData = [
     {id:'s1', title:'Science Stream at Tilottama', desc:'The Faculty of Science at Tilottama has been instigated since its establishment. Its primary goal of it is to provide advanced and pragmatic in-depth knowledge of science to produce high-caliber science scholars. It aims to create a foundation for future doctors, engineers, agriculturists, forest officials, and scientists. To meet its goal Tilottama provides the best quality education which assists to visualize the true potential of students in various fields of science. It was established by reputed and professional academicians in the field of Science who are committed to imparting need-based quality education so as to ensure academic par excellence and attain outstanding results in board exams. Our proficient and professional teachers deliver theory lectures along with practical demonstrations in our sophisticated and well-equipped modern laboratory to retain practical know-how to the students and strengthen their understanding.', link:'Science', src:'/images/stream/science/sci_stream_cover.jpg'},
     {id:'s2', title:'Management Stream at Tilottama', desc:'The Faculty of Management at Tilottama has been instigated since its establishment. Its primary goal of it is to provide advanced and pragmatic in-depth knowledge of science to produce high-caliber science scholars. It aims to create a foundation for future managers,CA and aspiring positions. To meet its goal Tilottama provides the best quality education which assists to visualize the true potential of students in various fields of management. It was established by reputed and professional academicians in the field of Management who are committed to imparting need-based quality education so as to ensure academic par excellence and attain outstanding results in board exams.', link:'Management', src:'/images/stream/bba/bba_1.jpg'},
@@ -28,8 +29,8 @@ const Stream = () => {
         <h1 className='font-bold text-[#FF9900] text-3xl md:text-5xl uppercase'>COURSE OFFERRED</h1>
         <div className='w-[100%] bg-[#D9D9D9] mx-auto md:h-[35rem]  flex flex-col md:flex-row overflow-scroll'>
             <div className='items-start object-cover w-[30rem] hidden md:block'>
-            <img  className='w-[100%] object-cover h-[100%]' src={updatedItem.src} alt='img'></img>
-            </div>
+            {/* <img  className='w-[100%] object-cover h-[100%]' src={updatedItem.src} alt='img'></img> */}
+            <Image  className='w-[100%] object-cover h-[100%]' src={updatedItem.src} alt='img' width={500} height={500}/></div>
                 <div className='w-[100%]  md:w-[60%] flex flex-col'>
                  <div className='w-[8rem] md:w-[30rem]'>
                     <ul className='flex justify-between font-bold'>

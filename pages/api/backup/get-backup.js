@@ -27,7 +27,7 @@ const handler = async (req, res) => {
       }
 
       const zipContent = await zip.generateAsync({ type: 'nodebuffer' });
-
+      
       res.setHeader('Content-Type', 'application/zip');
       res.setHeader('Content-Disposition', `attachment; filename="${zipFileName}"`);
       res.write(zipContent, 'binary');

@@ -4,6 +4,7 @@ import SubjectListCardForplus2 from "./SubjectListCard";
 import Container from "../Container/Container";
 import StyleCover from "../StyleCover/StyleCover";
 import Link from "next/link";
+import Image from "next/image";
 
 const StreamDetailLayout = ({ streamData }) => {
   return (
@@ -28,11 +29,19 @@ const StreamDetailLayout = ({ streamData }) => {
             ))}
           </div>
           <div className="p-[2rem]  w-fit md:w-[45rem] h-fit">
-            <img
+            {/* <img
               className="w-[100%] h-[100%] object-contain"
               src={streamData.section_img}
               alt="."
-            ></img>
+            ></img> */}
+            <Image
+              className="w-[100%] h-[100%] object-contain"
+              src={streamData.section_img}
+              alt="."
+              width={400}
+              height={400}
+            />
+
           </div>
         </div>
         <div className="flex flex-col pb-[1rem] px-[2.1rem] md:px-[5.4rem] justify-center space-y-5">

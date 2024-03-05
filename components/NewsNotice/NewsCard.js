@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "next/link";
 import ScrollLayout from "../UI/ScrollLayout";
+import Image from "next/image";
 const NewsCard = ({heading, desc, photo, link, id}) => {
   return (
     <div className="flex flex-col pb-10 group justify-center bg-white  gap-4  items-baseline   w-[23.7rem] h-[30rem] shadow-2xl relative ">
@@ -10,10 +11,11 @@ const NewsCard = ({heading, desc, photo, link, id}) => {
           <h1 className="text-white border-[1px] border-[#A5A5A5] py-2 px-4 w-fit">Read More</h1>
           </Link>
         </div>
-        <img className=" w-full object-cover group-hover: h-full opacity-100  group-hover:opacity-0 group-hover:cursor-pointer " src={`${photo}`}/>
+        {/* <img className=" w-full object-cover group-hover: h-full opacity-100  group-hover:opacity-0 group-hover:cursor-pointer " src={`${photo}`}/> */}
+        <Image className=" w-full object-cover group-hover: h-full opacity-100  group-hover:opacity-0 group-hover:cursor-pointer " src={`${photo}`} width={400} height={400}/>
       </div>
       <ScrollLayout opacity={1} duration={2} x={0}>
-
+        
       <h1 className=" pl-[1rem] text-2xl md:text-3xl">{heading}</h1>
       <p dangerouslySetInnerHTML={{__html:desc}} className="text-2xs pl-[1rem] font-light overflow-clip w-[359px] h-[149px]">
         {/* {desc} */}

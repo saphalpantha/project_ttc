@@ -73,7 +73,12 @@ const BoardMember = () => {
               <img
                 className="w-[100%] h-[100%]"
                 src="/images/board/founder.jpg"
+                width={240} height={250}
               ></img>
+              {/* <img
+                className="w-[100%] h-[100%]"
+                src="/images/board/founder.jpg"
+              ></img> */}
               <span className="font-bold text-[#201F54] tracking-wide text-center">
                 Dr Ram Chandra Acharya
               </span>
@@ -112,7 +117,8 @@ const BoardMember = () => {
           </h1>
           <div className="flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-3">
             <div className="flex flex-col space-y-2 w-[20rem] h-[25rem]">
-              <img src="/images/board/vice_2.jpg"></img>
+              <img src="/images/board/vice_2.jpg" width={340} height={250}></img>
+              {/* <img src="/images/board/vice_2.jpg"></img> */}
               <span className="font-bold text-[#201F54] tracking-wide text-center">
                 Mr Navendu Dhakal
               </span>
@@ -147,8 +153,9 @@ const BoardMember = () => {
             Message From Vice-Principal
           </h1>
           <div className="flex flex-col md:flex-row gap-2 justify-center md:items-start  items-center md:gap-10 px-2 md:px-0 md:space-y-0 space-y-10">
-            <div className="flex flex-col space-y-2 w-[20rem] h-[27rem] py-2 pt-[3rem]">
-              <img src="/images/board/vice_principle.jpg"></img>
+            <div className="flex flex-col space-y-2 w-[20rem] h-[27rem] py-2">
+              <img src="/images/board/vice_principle.jpg" width={340} height={250}></img>
+              {/* <img src="/images/board/vice_principle.jpg"></img> */}
               <span className="font-bold text-[#201F54] tracking-wide text-center">
                 Mr Mukunda Acharya
               </span>

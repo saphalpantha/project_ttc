@@ -6,6 +6,13 @@ import { useState } from "react";
 import { setCookie, getCookie } from "cookies-next";
 import useGetData from "../Helper/Helper";
 
+
+
+
+
+
+// const hero = dynamic(() => import("../../public/videos/hero.mp4"))
+
 export const Video = () => {
   return (
     <div className="w-[100%] h-[100%]">
@@ -17,7 +24,7 @@ export const Video = () => {
         class="video-player-tag"
         loop="1"
         autoplay="1"
-        src={"/videos/hero.mp4"}
+        src={'/videos/hero.mp4'}
         controlslist="nodownload"
       ></video>
     </div>

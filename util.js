@@ -1,7 +1,5 @@
 import { readFile,utils } from 'xlsx';
-import { join } from 'path';
-import { cwd } from 'process';
-import { useEffect } from 'react';
+
 
 export const getAllNotice =  async () => {
   

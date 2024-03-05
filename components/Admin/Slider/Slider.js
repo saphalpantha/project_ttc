@@ -22,6 +22,7 @@ const Slider = () => {
     if (sliderData) {
       setUpdatedSlider(sliderData);
     }
+    
   }, [sliderData]);
 
   const pushToDb = async (e) => {

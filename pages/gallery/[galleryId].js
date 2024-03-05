@@ -9,6 +9,7 @@ import { useWindowSize } from "usehooks-ts";
 import { useRouter } from "next/router";
 import Container from "../../components/Container/Container";
 import useGetData from "../../components/Helper/Helper";
+import Image from "next/image";
 
 export const ProductCard = ({ image }) => {
   return (
@@ -24,11 +25,13 @@ export const ProductCard = ({ image }) => {
 export const GalleryNav = ({ image }) => {
   return (
     <div className="overflow-hidden group shadow-md w-[8rem] mx-auto h-[8rem]">
-      <img
+      <Image
+      width={400}
+      height={400}
         className="w-[100%] group-hover:scale-125 duration-150 ease-in h-[100%]"
         alt="img"
         src={`${image}`}
-      ></img>
+      />
     </div>
   );
 };
