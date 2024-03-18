@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Fragment } from "react";
 import Logo from "../../Logo/Logo";
 import { useState } from "react";
 import Backdrop from "../../UI/Nav/Backdrop";
 import classes from "./NavBar.module.css";
+import Link from "next/link";
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
   { id: "i2", name: "Board Members", link: "/faculty/board" },
@@ -13,6 +14,9 @@ const resultData = [
   { id: "i1", name: "Internal Exam Result", link: "/results/internal-result" },
   { id: "i3", name: "Entrance Exam Result", link: "/results/entrance-result/" },
 ];
+
+
+
 
 const courseData = [
   {
@@ -79,6 +83,8 @@ const NavDesktop = ({ linksData }) => {
   const [others, setOthers] = useState([]);
   const [active, setActive] = useState(false);
 
+
+  
   const aboutHanlder = () => {
     setAbout(aboutData);
     setActive(true);
@@ -118,6 +124,17 @@ const NavDesktop = ({ linksData }) => {
 
   const updatedOthersData = [...linksData, ...othersData];
 
+
+
+
+
+
+  const dropdownLinkClickHandler = (e) => {
+    e.stopPropagation()
+    setActive(false); 
+  };
+
+  
   return (
     <Fragment>
       {active && (
@@ -135,17 +152,17 @@ const NavDesktop = ({ linksData }) => {
         className={`hidden iportrait:hidden md:flex py-[1.1rem]  relative z-[1000] gap-4 items-center px-[1rem]`}
       >
         <div className="w-[20rem]">
-          <Logo w={""} />
+          <Logo  />
         </div>
         <ul className="flex justify-center items-center  gap-7">
-          <a className="w-fit" href={"/"}>
+          <Link className="w-fit" href={"/"}>
             {" "}
             <li
               className={`cursor-pointer  hover:border-b-[3px] border-[#201F54] ${classes.main} `}
             >
               Home
             </li>
-          </a>
+          </Link>
           <li className={`relative cursor-pointer`} onClick={aboutHanlder}>
             <span
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
@@ -157,11 +174,11 @@ const NavDesktop = ({ linksData }) => {
                 {active && (
                   <ul className="flex pt-[1rem] flex-col gap-4">
                     {about.map((i) => (
-                      <a href={i.link}>
-                        <li className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">
+                      <Link  href={ i.link } key={i.id} onClick={dropdownLinkClickHandler} >
+                        <li  className="hover:bg-gray-200 px-14                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">
                           {i.name}
                         </li>
-                      </a>
+                      </Link>
                     ))}
                   </ul>
                 )}
@@ -169,14 +186,14 @@ const NavDesktop = ({ linksData }) => {
             )}
           </li>
 
-          <a href={"/admissions"}>
+          <Link href={"/admissions"}  onClick={dropdownLinkClickHandler}>
             {" "}
             <li
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54]  ${classes.main} `}
             >
               Admission
             </li>{" "}
-          </a>
+          </Link>
           <li className={`cursor-pointer `} onClick={courseHandler}>
             <span
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}
@@ -194,10 +211,10 @@ const NavDesktop = ({ linksData }) => {
                         <ul className="flex  gap-2 pt-[1rem] flex-col">
                           {od.items.map((id) => (
                             <div className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;] py-1">
-                              <a href={id.link}>
+                              <Link onClick={dropdownLinkClickHandler} href={id.link}>
                                 {" "}
                                 <li>{id.subtitle}</li>
-                              </a>{" "}
+                              </Link>{" "}
                             </div>
                           ))}
                         </ul>
@@ -234,39 +251,39 @@ const NavDesktop = ({ linksData }) => {
               <div className="absolute border-t-4 border-[#201F54] top-[3.8rem] left-[-5rem]  flex flex-col items-center w-[15rem]  bg-white h-fit pb-[2rem]">
                 <ul className="flex  pt-[1rem] flex-col gap-4">
                   {result.map((i) => (
-                    <a href={i.link}>
+                    <Link onClick={dropdownLinkClickHandler} href={i.link}>
                       {" "}
                       <li className="hover:bg-gray-200 px-2 py-1">{i.name}</li>
-                    </a>
+                    </Link>
                   ))}
                 </ul>
               </div>
             )}
           </li>
-          <a href={"/newsnotice"}>
+          <Link onClick={dropdownLinkClickHandler} href={"/newsnotice"}>
             {" "}
             <li
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}
             >
               Notice
             </li>{" "}
-          </a>
-          <a href={"/gallery"}>
+          </Link>
+          <Link onClick={dropdownLinkClickHandler} href={"/gallery"}>
             {" "}
             <li
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
             >
               Gallery
             </li>
-          </a>
-          <a href={"https://tilottama.careerservicelab.com"}>
+          </Link>
+          <Link onClick={dropdownLinkClickHandler} target="_blank" href={"https://tilottama.careerservicelab.com"}>
             {" "}
             <li
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
             >
               Career Service Center
             </li>
-          </a>
+          </Link>
 
           <li className=" relative cursor-pointer" onClick={othersHandler}>
             <span
@@ -280,12 +297,12 @@ const NavDesktop = ({ linksData }) => {
               >
                 <ul className="flex py-[0.5rem] flex-col gap-2">
                   {others.map((i) => (
-                    <a href={`${i.link}`} target="_self">
+                    <Link onClick={dropdownLinkClickHandler} href={`${i.link}`} target="_self">
                       {" "}
                       <li className="hover:bg-gray-200 px-2 py-1">
                         {i.link_title}
                       </li>{" "}
-                    </a>
+                    </Link>
                   ))}
                 </ul>
               </div>

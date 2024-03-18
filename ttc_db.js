@@ -62,6 +62,19 @@ export async function connectToDb() {
   }
 
 
+
+  
+  // if(!_db){
+  //   _db = mysql.createPool({
+  //     host:"db4free.net",
+  //     database:"ttc_test_db",
+  //     user:"sulabh_ttc",
+  //     password:"tilottoma",
+  //     multipleStatements: true
+  //   })
+  // }
+
+
   // const dbConnect = await mysql.createConnection({
 
   //     host:"127.0.0.1",

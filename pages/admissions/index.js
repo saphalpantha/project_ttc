@@ -1,10 +1,12 @@
 import React from 'react'
 import AdmissionForm from '../../components/AdmissionDetail/AdmissionForm'
+import UpdatedForm from '../../components/AdmissionDetail/UpdatedForm'
 
 const AdmitForm = () => {
   return (
     <div>
-        <AdmissionForm/>
+        {/* <AdmissionForm/> */}
+        <UpdatedForm/>
     </div>
   )
 }

@@ -86,10 +86,9 @@ const Header = () => {
             !isAdmissionOpen ? "mt-[0rem]" : "mt-[1.3rem]"
           } ml-[0.5rem]`}
         >
-          <a href="/">
-            {" "}
-            <Logo />{" "}
-          </a>
+          <Link href="/">
+            <Logo />
+          </Link>
           <h1
             onClick={() => setIsOpen(true)}
             className={`absolute  ${

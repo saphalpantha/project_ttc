@@ -10,7 +10,7 @@ const About = () => {
         className={`max-w-6xl md:max-w-full bg-fixed items-center flex justify-center md:h-[110vh] ${classes.clip} h-[70vh] `}
       ></div> */}
       <section
-        className={`flex flex-col space-y-5 px-5 py-7 md:space-y-5 md:px-32 md:py-10 justify-center ${classes.stylee}`}
+        className={`flex flex-col items-center space-y-5 px-5 py-7 md:space-y-5 md:px-32 md:py-10 justify-center ${classes.stylee}`}
       >
         <h1 className="text-[#FF9900] text-5xl font-semibold">
           About Tilottama

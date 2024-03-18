@@ -19,7 +19,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
     {
       id: "i1",
       name: "Internal Exam Result",
-      link: "/results/internal-result",
+      link: "/results/internal-result", 
     },
     { id: "i3", name: "Entrance Exam Result", link: "/results/entrance-result/" },
   ];
@@ -188,7 +188,7 @@ const updatedOthersData = [
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                { <Link onClick={() => setIsOpen(false)} href={"/gallery"}> <li className="cursor-pointer pl-[1rem] text-left">Gallery</li> </Link>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-               { <a onClick={() => setIsOpen(false)} href={"https://tilottama.careerservicelab.com"}> <li className="cursor-pointer pl-[1rem] text-left">Carrier Service Center</li> </a>}
+               { <a onClick={() => setIsOpen(false)} target="_blank" href={"https://tilottama.careerservicelab.com"}> <li className="cursor-pointer pl-[1rem] text-left">Carrier Service Center</li> </a>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={othersHandler}

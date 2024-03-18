@@ -556,6 +556,7 @@ const AdmissionForm = () => {
                 Grade letter/Division:
               </label>{" "}
               <input
+                
                 onChange={handleChange}
                 onBlur={handleBlur}
                 onReset={handleReset}
