@@ -7,6 +7,7 @@ import Link from "next/link";
 
 
 const NewsNotice = () => {
+
   return (
     <Container>
       <div className="flex flex-col md:flex-row  mx-auto md:pb-[15rem] pb-[1rem] justify-center items-center">

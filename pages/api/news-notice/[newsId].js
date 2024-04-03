@@ -13,7 +13,7 @@ const handler = async (req, res) => {
         console.log(err);
         res.status(400).json({ msg: "error fetching data" });
       });
-    await db.end();
+    await db.release();
   }
 };
 

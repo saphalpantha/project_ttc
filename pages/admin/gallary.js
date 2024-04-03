@@ -1,6 +1,7 @@
 import React from 'react'
-import Gallary from '../../components/Admin/Gallary/Gallary'
 import { requireAuth } from '../../lib/requireAuth'
+import dynamic from 'next/dynamic'
+const Gallary = dynamic(() => import ('../../components/Admin/Gallary/Gallary'))
 const gallary = () => {
   return (
     <Gallary/>

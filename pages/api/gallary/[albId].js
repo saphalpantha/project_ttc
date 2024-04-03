@@ -38,7 +38,7 @@ const readFile = (req, saveLocally) => {
       reject(err);
     });
 
-    form.on("end", () => {
+    form.on("release", () => {
       resolve(gallaryFields);
     });
 
@@ -63,14 +63,14 @@ const handler = async (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    await db.end();
+    await db.release();
     resolve();
     // db.query('SELECT * FROM gallary').then(result => {
     //     res.status(200).json({msg:result[0]})
-    //     db.end();
+    //     db.release();
     // }).catch(err => {
     //     console.log(err)
-    //     db.end()
+    //     db.release()
     // })
   }
   if (req.method === "POST") {

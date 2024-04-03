@@ -41,11 +41,6 @@
 
 
 
-
-
-
-
-
 import mysql from "mysql2/promise";
 let _db
 
@@ -70,6 +65,9 @@ export async function connectToDb() {
   //     database:"ttc_test_db",
   //     user:"sulabh_ttc",
   //     password:"tilottoma",
+  //     connectionLimit: 5,
+  //     queueLimit: 0,
+  //     waitForConnections:true,
   //     multipleStatements: true
   //   })
   // }
@@ -108,5 +106,6 @@ export async function getDb() {
 
   const pool = await connectToDb();
   const connection = await pool.getConnection()
+
   return connection;
 }

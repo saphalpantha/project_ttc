@@ -1,7 +1,8 @@
 import React from 'react'
-import OurStar from '../../components/Admin/OurStar/OurStar'
 
 import { requireAuth } from '../../lib/requireAuth'
+import dynamic from 'next/dynamic'
+const OurStar = dynamic(() => import ('../../components/Admin/OurStar/OurStar') )
 const ourStar = () => {
   return (
    <OurStar/>

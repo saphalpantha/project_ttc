@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
 
 
 
@@ -15,6 +15,7 @@ const nextConfig = {
     domains:['c2.staticflickr.com']
   }
 }
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })

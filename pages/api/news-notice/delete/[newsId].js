@@ -11,7 +11,7 @@ const handler = async (req, res) => {
     }).catch(err => {
       console.log(err)
       res.status(404).json({msg:'Failed to Notice'});
-      db.end();
+      db.release();
     })
   }
 };

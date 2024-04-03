@@ -1,6 +1,7 @@
 import React from 'react'
-import AllStars from '../components/OurStars/AllStars'
+import dynamic from 'next/dynamic'
 
+const AllStars = dynamic(() => import ('../components/OurStars/AllStars'))
 const allstar = () => {
   return (
     <AllStars/>

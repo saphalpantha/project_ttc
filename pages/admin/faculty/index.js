@@ -1,7 +1,9 @@
 import React from 'react'
 
-import OurFaculty from '../../../components/Admin/OurFaculty/OurFaculty'
+import dynamic from 'next/dynamic'
 import { requireAuth } from '../../../lib/requireAuth'
+
+const OurFaculty = dynamic(() => import ( '../../../components/Admin/OurFaculty/OurFaculty'))
 const faculty = () => {
   return (
    <OurFaculty/>
@@ -9,7 +11,6 @@ const faculty = () => {
 }
 
 export default faculty
-
 
 export const getServerSideProps = async (ctx) => {
   return requireAuth(ctx,({session}) => {

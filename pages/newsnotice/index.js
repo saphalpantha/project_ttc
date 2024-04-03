@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import NewsNoticePage from "../../components/NewsNotice/NewsNoticePage";
-import { useEffect } from "react";
+import React from "react";
 import useGetData from "../../components/Helper/Helper";
+import dynamic from "next/dynamic";
+const NewsNoticePage = dynamic(() => import ('../../components/NewsNotice/NewsNoticePage'))
 // const data = [
 //   {
 //     id: "n1",

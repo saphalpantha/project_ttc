@@ -1,5 +1,6 @@
 import React from 'react'
-import About from '../components/About/About'
+import dynamic from 'next/dynamic'
+const About =  dynamic(() => import ('../components/About/About'))
 
 const about = () => {
   return (

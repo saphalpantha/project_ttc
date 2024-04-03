@@ -14,7 +14,7 @@ const handler = async (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    await db.end();
+    await db.release();
     resolve();
   }
   if (req.method === "PUT") {
@@ -29,7 +29,7 @@ const handler = async (req, res) => {
       .catch((err) => {
         //   console.log(err)
         res.status(404).json({ msg: "Failed to delete " });
-        db.end();
+        db.release();
       });
   }
 };

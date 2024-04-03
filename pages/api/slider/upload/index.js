@@ -49,7 +49,7 @@ const readFile = (req, saveLocally) => {
       reject(err);
     });
 
-    form.on("end", () => {
+    form.on("release", () => {
       resolve(starFields);
     });
 
@@ -69,10 +69,10 @@ const handler = async (req,res) => {
         const db = await getDb()
         db.query('SELECT * FROM slider_data').then(result => {
             res.status(200).json({msg:result[0]})
-            db.end();
+            db.release();
         }).catch(err => {
             console.log(err)
-            db.end()
+            db.release()
         })
         // db.query(`select * from users`).then(result => {
         //     res.status(200).json({msg:result[0]})
@@ -107,7 +107,7 @@ const handler = async (req,res) => {
           }).catch(err => {
             console.log(err)
             res.status(404).json({msg:'Failed to Update Image'});
-            db.end();
+            db.release();
           })
           // db.query(
         //   `INSERT INTO slider values (NULL, '${name}', '${scholarship}', '${image.newFilename}')`

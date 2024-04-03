@@ -86,7 +86,7 @@ const Header = () => {
             !isAdmissionOpen ? "mt-[0rem]" : "mt-[1.3rem]"
           } ml-[0.5rem]`}
         >
-          <Link href="/">
+          <Link prefetch={false} href="/">
             <Logo />
           </Link>
           <h1

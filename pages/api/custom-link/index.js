@@ -13,7 +13,7 @@ const handler = async (req, res) => {
         console.log(err);
       });
 
-    await db.end();
+    await db.release();
     resolve();
   }
 
@@ -32,7 +32,7 @@ const handler = async (req, res) => {
       .then((result) => {
         console.log(result[0]);
         res.status(200).json({ msg: "Inserted Succesfull" });
-        db.end();
+        db.release();
       })
       .catch((err) => {
         console.log(err);

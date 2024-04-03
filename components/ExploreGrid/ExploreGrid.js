@@ -114,7 +114,7 @@ const images = [
 const ExploreGrid = () => {
 
   const state_data = {
-    _api_main:'/api/getall-album',
+    _api_main:'/api/getall-album?limit=7',
     _api_sec:'/api/get-images/gallary/',
   }
   const grid = useGetData(state_data);

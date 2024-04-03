@@ -1,9 +1,9 @@
 import React from 'react'
-import Gallery from '../../components/Gallery/Gallery'
 
-import { useEffect, useState } from 'react';
-import { data } from 'autoprefixer';
+
 import useGetData from '../../components/Helper/Helper';
+import dynamic from 'next/dynamic';
+const Gallery = dynamic(() => import('../../components/Gallery/Gallery'))
 const images = [
   {
      src: "/images/stream/bba/bba_2.JPG",

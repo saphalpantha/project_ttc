@@ -1,6 +1,7 @@
 import React from 'react'
-import FacultyDetail from '../../components/FacultyDetail/FacultyDetail'
+import dynamic from 'next/dynamic'
 
+const FacultyDetail  = dynamic(() => import ('../../components/FacultyDetail/FacultyDetail'))
 const Faculty = () => {
   return (
     <div>

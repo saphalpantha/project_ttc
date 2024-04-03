@@ -57,7 +57,7 @@ const handler = async (req, res) => {
         // console.log(err)
         res.status(400).json({ msg: "form not submitted", errMsg: err });
       });
-    await db.end();
+    await db.release();
     resolve();
     // db.query(`select * from users`).then(result => {
     //     res.status(200).json({msg:result[0]})
@@ -90,7 +90,7 @@ const handler = async (req, res) => {
           res.status(400).json({ msg: "form not submitted", errMsg: err });
         })
         .finally(() => {
-          db.end(); // Always close the database connection
+          db.release(); // Always close the database connection
         });
     } catch (error) {
       res

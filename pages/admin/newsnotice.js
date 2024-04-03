@@ -1,6 +1,8 @@
 import React from 'react'
-import NewsNotice from '../../components/Admin/NewsNotice/NewsNotice'
+
 import { requireAuth } from '../../lib/requireAuth'
+import dynamic from 'next/dynamic'
+const NewsNotice = dynamic(() => import ('../../components/Admin/NewsNotice/NewsNotice'))
 const newsnotice = () => {
   return (
    <NewsNotice/>

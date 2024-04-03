@@ -54,11 +54,17 @@ const readFile = (req, saveLocally) => {
 
 const handler = async (req, res) => {
   if (req.method === "GET") {
-    // const {name} = req.query
-    // console.log(name)
+    const limited =   req?.query
+    console.log(limited)
+
+    const ifLimited = `SELECT * FROM news_notice order by id desc limit ${+limited.limit}`
     const db = await getDb();
+    const qw = `SELECT * FROM news_notice order by id desc`
+    
+    const NewsNoticeQuery = limited?ifLimited:qw
+    console.log(NewsNoticeQuery)
     await db
-      .query("SELECT * FROM news_notice order by id desc")
+      .query(NewsNoticeQuery)
       .then((result) => {
         res.status(200).json({ msg: result[0] });
         // console.log('from newsnotce db', result[0])
@@ -67,7 +73,7 @@ const handler = async (req, res) => {
         console.log(err);
         res.status(400).json({ msg: "error fetching data" });
       });
-    await db.end();
+    await db.release();
     resolve();
     // db.query(`select * from users`).then(result => {
     //     res.status(200).json({msg:result[0]})

@@ -5,14 +5,19 @@ import Loader from "../UI/Loader/Loader";
 import { useWindowSize } from "usehooks-ts";
 
 const NewsCardList = () => {
+
   const state_data = {
-    _api_main: "/api/news-notice/",
-    _api_sec: "/api/get-images/notice-uploads/",
-  };
+    _api_main:'/api/news-notice?limit=3',
+    _api_sec:'/api/get-images/notice-uploads/',
+  }
+  const notice = useGetData(state_data);
+  if(!notice){
+    return;
+  }
 
   const { width } = useWindowSize();
-  const notice = useGetData(state_data);
-
+  
+  // const notice = []
   const isTab = width <= "1200" && width >= "800";
   const noticeState =
     notice.length > 0 ? (

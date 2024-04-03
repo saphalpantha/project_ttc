@@ -31,6 +31,7 @@ export const Video = () => {
   );
 };
 
+
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [img, setImg] = useState([{ id: 100, photo: "" }]);
@@ -45,6 +46,7 @@ const Hero = () => {
     setIsOpen(false);
   };
 
+  console.log(spotlightData,'sp data')
   return (
     // <Container>
     <Fragment>

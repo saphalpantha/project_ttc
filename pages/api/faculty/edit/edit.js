@@ -46,7 +46,7 @@ const handler = async (req, res) => {
             reject(err);
           });
       
-          form.on("end", () => {
+          form.on("release", () => {
       
             resolve(imageField);
           });
@@ -64,7 +64,7 @@ const handler = async (req, res) => {
     }).catch(err => {
       console.log(err)
       res.status(404).json({msg:'Failed to delete Image'});
-      db.end();
+      db.release();
     })
   }
 
@@ -91,7 +91,7 @@ const handler = async (req, res) => {
     // .catch(err => {
     //   console.log(err)
     //   res.status(404).json({msg:'Failed to Update Image'});
-    //   db.end();
+    //   db.release();
     // })
   }
 };

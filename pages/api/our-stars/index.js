@@ -59,7 +59,7 @@ const handler = async (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    await db.end();
+    await db.release();
     resolve();
     // db.query(`select * from users`).then(result => {
     //     res.status(200).json({msg:result[0]})
