@@ -35,7 +35,6 @@ const readFile = (req, saveLocally) => {
   return new Promise((resolve, reject) => {
 
     form.on("field", (name, value) => {
-      // Add field values to the data object
       resultFields[name] = value;
     });
 
@@ -61,7 +60,8 @@ const readFile = (req, saveLocally) => {
 
 
 const handler = async (req,res) => {
-    if(req.method === 'GET'){
+  if(req.method === 'GET'){
+      console.log(resultFields,'apiiiiiiiiiiiiii')
         console.log('trigged res')
         // const {name} = req.query 
         // console.log(name)
@@ -79,6 +79,7 @@ const handler = async (req,res) => {
         
     } 
     if (req.method === "POST") {
+      console.log(resultFields)
         try{
           await fs.readdir(path.join(process.cwd() + "/public", "/results"));
         }

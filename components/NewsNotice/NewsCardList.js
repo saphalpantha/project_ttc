@@ -17,7 +17,6 @@ const NewsCardList = () => {
 
   const { width } = useWindowSize();
   
-  // const notice = []
   const isTab = width <= "1200" && width >= "800";
   const noticeState =
     notice.length > 0 ? (

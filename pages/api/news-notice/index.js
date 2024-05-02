@@ -54,15 +54,12 @@ const readFile = (req, saveLocally) => {
 
 const handler = async (req, res) => {
   if (req.method === "GET") {
-    const limited =   req?.query
-    console.log(limited)
+    const limited = await  req?.query?.limit
 
-    const ifLimited = `SELECT * FROM news_notice order by id desc limit ${+limited.limit}`
+    const ifLimited = `SELECT * FROM news_notice order by id desc limit ${+limited}`
     const db = await getDb();
     const qw = `SELECT * FROM news_notice order by id desc`
-    
     const NewsNoticeQuery = limited?ifLimited:qw
-    console.log(NewsNoticeQuery)
     await db
       .query(NewsNoticeQuery)
       .then((result) => {

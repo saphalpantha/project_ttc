@@ -68,12 +68,14 @@ const StarList = () => {
     formik;
 
   const state_data = {
-    _api_main: "/api/news-notice/",
+    _api_main: "/api/news-notice/?limit=3",
     _api_sec: "/api/get-images/notice-uploads/",
   };
   const notice = useGetData(state_data);
-  console.log(notice, "notice");
 
+  if(!notice){
+    return;
+  }
   const singleAlbumDeleteHandler = async (item, index) => {
     setLoad(true);
     const id = item.id;
@@ -101,6 +103,7 @@ const StarList = () => {
   };
 
   const gallary = (
+    
     <div>
       {isOpen && (
         <span
@@ -119,7 +122,7 @@ const StarList = () => {
             <th className="flex-[1.3]">Edit</th>
             <th className="flex-[1.1]">Delete</th>
           </tr>
-          {notice.map((i, indx) => {
+          {notice?.map((i, indx) => {
             return (
               <Fragment>
                 {!load ? (

@@ -1,7 +1,9 @@
+import { Console } from "console";
 import { getDb } from "../../ttc_db";
 const handler = async (req,res) => {
     if(req.method === 'POST'){
         const {enteredclass, stream, regNo, dob, section} = req.body;
+        console.log(enteredclass, stream, regNo, dob, section)
         // console.log(data)
         // console.log(req.body
         try{

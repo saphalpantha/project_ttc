@@ -2,7 +2,7 @@ import { getDb } from "../../ttc_db";
 const handler = async (req,res) => {
     if(req.method === 'POST'){
         const entrance_roll = req.body.entrance_roll;
-        // console.log(entrace_roll)
+        console.log(entrance_roll)
         try{
             const db = await getDb();
             const db_data = await db.query(`SELECT * FROM entrance_result where entrance_roll='${entrance_roll}'`);
