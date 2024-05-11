@@ -128,8 +128,9 @@ const handler = async (req, res) => {
 
     const db = await getDb();
     // console.log('this is photottttttttttttttt',photo.filepath);
+
     db.query(
-      `INSERT INTO admission_forms VALUES (NULL, '${faculty}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', '${t_no}', '${p_no}', '${email}', '${ward_no}', '${vdc_mun}', '${district}', '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', '${'1'}', CURRENT_TIMESTAMP, '${grade}', '${shift}' , '${fathers_name}', '${fathers_occupation}', '${fathers_cellno}', '${mothers_name}', '${mothers_occupation}', '${mothers_cellno}', '${localgurdain_name}', '${localgurdain_occupation}', '${localgurdain_cellno}', '${see_cgpa}' , '${grade_div}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'0'}', '${'hobby'}', '${'photo'}', '${'marksheet'}')`
+      `INSERT INTO admission_forms VALUES (NULL, '${faculty}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', '${t_no}', '${p_no}', '${email}', '${ward_no}', '${vdc_mun}', '${district}', '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', CURRENT_TIMESTAMP, '${sendUpGpa}')`
     )
       .then((result) => {
         res

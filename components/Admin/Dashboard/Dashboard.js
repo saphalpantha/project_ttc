@@ -62,10 +62,12 @@ const Dashboard = () => {
     fetch("/api/admission-forms")
       .then((result) => result.json())
       .then((data) => {
+        
         const allForms = data.msg;
+        
         setTotalAdmissions(allForms.length);
         setTotalScience(allForms.filter((i) => i.faculty == "Science").length);
-        setTotalManagement(
+        setTotalManagement( 
           allForms.filter((i) => i.faculty == "Management").length
         );
         setTotalBBA(allForms.filter((i) => i.faculty == "BBA").length);
