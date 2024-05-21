@@ -103,9 +103,13 @@ export async function connectToDb() {
 }
 
 export async function getDb() {
-
-  const pool = await connectToDb();
-  const connection = await pool.getConnection()
-
-  return connection;
+  let connection;
+  try{
+    const pool = await connectToDb();
+    connection = await pool.getConnection()
+    return connection
+  }
+  catch(err){
+    throw new Error('Failed to Connect to db -SERVER')
+  }
 }

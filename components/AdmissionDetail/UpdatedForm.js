@@ -443,6 +443,7 @@ const UpdatedForm = () => {
       });
       setLoading(false);
       alert("Form Submission SucessFully");
+      
     } catch (err) {
       console.log(err)
       setLoading(false);
@@ -456,16 +457,13 @@ const UpdatedForm = () => {
     initialValues,
     onSubmit: (values, resetForm) => {
       submitHandler(values, resetForm);
+      resetForm()
     },
   });
 
   const { values, handleBlur, handleChange, handleReset, handleSubmit } =
     formik;
-
-
-
-
-
+    
   return (
     <Container>
 
@@ -478,7 +476,8 @@ const UpdatedForm = () => {
               <h1 className="text-[#201F54] text-xl md:text-2xl font-semibold">
                 Admission Form
               </h1>
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
+
                 <label className="text-[1.2rem] text-[#494949] ">Faculty {required} </label>
                 <input
                                   onChange={handleChange}
@@ -490,7 +489,26 @@ const UpdatedForm = () => {
                   className="w-full border-2  rounded-md border-[#DCDCDC] outline-none h-[2.2rem] bg-transparent  "
                   type="text"
                 ></input>
-              </div>
+              </div> */}
+              <div className="flex flex-col space-y-2">
+              <label className={`text-[1.2rem] text-[#494949]`}>
+                Faculty {required}
+              </label>
+              <select
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onReset={handleReset}
+                name="faculty"
+                required
+                className=" w-full border-2 pl-2  rounded-md border-[#DCDCDC] outline-none h-[2.2rem] bg-transparent"
+                value={values.faculty}
+              >
+                <option>Select Faculty</option>
+                <option>Science</option>
+                <option>Management</option>
+                <option>BBA</option>
+              </select>
+            </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[1.2rem] text-[#494949]">Grade {required}</label>
                 <input

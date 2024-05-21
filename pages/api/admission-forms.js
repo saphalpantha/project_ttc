@@ -129,19 +129,23 @@ const handler = async (req, res) => {
     const db = await getDb();
     // console.log('this is photottttttttttttttt',photo.filepath);
 
+
     db.query(
-      `INSERT INTO admission_forms VALUES (NULL, '${faculty}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', '${t_no}', '${p_no}', '${email}', '${ward_no}', '${vdc_mun}', '${district}', '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', CURRENT_TIMESTAMP, '${sendUpGpa}')`
-    )
-      .then((result) => {
+      `INSERT INTO admission_forms VALUES (NULL, '${faculty}', '${nameinblock}', '${nameindevanagari}', '${dob_bs}', '${dob_ad}', '${gender}', '${t_no}', '${p_no}', '${email}', '${ward_no}', '${vdc_mun}', '${district}', '${bus_faculty}', '${bus_stop}', '${nameofprevschool}', CURRENT_TIMESTAMP, '${see_cgpa}')`
+    ).then((result) => {
         res
           .status(200)
           .json({ msg: "Form submitted successfully", data: result });
-      })
-      .catch((err) => {
-        // console.log(err);
-        // console.log(studentFields);
-        res.status(400).json({ msg: "form not submitted", errMsg: 'Failed to Submit.Please Try again' });
+
+        })
+        .catch((err) => {
+          console.log(err,'why not submitting ????????????????????????  ?');
+          // console.log(studentFields);
+          res.status(400).json({ msg: "form not submitted", errMsg: 'Failed to Submit.Please Try again' });
+   
       });
+
+
   }
 };
 
