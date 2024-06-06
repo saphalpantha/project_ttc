@@ -37,15 +37,16 @@ export const getAllNotice =  async () => {
   
     for (let row = range.s.r + 1; row <= range.e.r; row++) {
       let rowData = {};
-  
+
       for (let col = range.s.c; col <= range.e.c; col++) {
         let cellAddress = utils.encode_cell({ r: row, c: col });
         let cell = worksheet[cellAddress];
         rowData[columnNames[col]] = cell ? cell.v : null;
       }
-  
+
+    
       data.push(rowData);
-      // console.log(data,'workbook data ###########################3')
+
     }
     return data;
   };

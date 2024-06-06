@@ -26,6 +26,7 @@ const ResultForInt = () => {
     e.preventDefault();
     setisLoading(true);
     try {
+      
       const response = await fetch("/api/internal-result", {
         method: "POST",
         headers: {
