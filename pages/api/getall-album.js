@@ -20,7 +20,7 @@ const handler = async (req,res) =>{
       console.log(err);
     });
   await db.release();
-  resolve();
+  // resolve();
   
   }
   

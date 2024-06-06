@@ -60,7 +60,7 @@ const handler = async (req, res) => {
         console.log(err);
       });
     await db.release();
-    resolve();
+    // resolve();
     // db.query(`select * from users`).then(result => {
     //     res.status(200).json({msg:result[0]})
     // }).catch(err => console.log(err))
