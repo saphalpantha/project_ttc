@@ -27,9 +27,9 @@ const Spotlight = () => {
       alert('Form Submission SucessFully');
     } catch (err) {
       setLoading(false)
-      alert('Form Submission SucessFully123');
+      // alert('Form Submission SucessFully123');
       // console.log(err);
-      // alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
+      alert(`${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`);
       
     }
 

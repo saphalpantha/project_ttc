@@ -14,7 +14,7 @@ const handler = async (req, res) => {
       });
 
     await db.release();
-    resolve();
+    // resolve();
   }
 
   if (req.method === "POST") {
