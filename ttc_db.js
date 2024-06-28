@@ -10,7 +10,6 @@
 //   //     password:"RPvt9OP4uxParxXHzS8Y"
 //   // }),
 
-
 //   // const dbConnect = await mysql.createConnection({
 //   //   host: "127.0.0.1",
 //   //   database: "tilottama",
@@ -18,7 +17,6 @@
 //   //   password: "",
 //   //   multipleStatements: true,
 //   // });
-
 
 //   const dbConnect = await mysql.createConnection({
 //       host:"db4free.net",
@@ -37,16 +35,10 @@
 //   return db;
 // }
 
-
-
-
-
 import mysql from "mysql2/promise";
-let _db
+let _db;
 
 export async function connectToDb() {
-
-
   if(!_db){
     _db = mysql.createPool({
       host:"127.0.0.1",
@@ -56,22 +48,18 @@ export async function connectToDb() {
     })
   }
 
-
-
-  
-  // if(!_db){
+  // if (!_db) {
   //   _db = mysql.createPool({
-  //     host:"db4free.net",
-  //     database:"ttc_test_db",
-  //     user:"sulabh_ttc",
-  //     password:"tilottoma",
+  //     host: "db4free.net",
+  //     database: "ttc_test_db",
+  //     user: "sulabh_ttc",
+  //     password: "tilottoma",
   //     connectionLimit: 5,
   //     queueLimit: 0,
-  //     waitForConnections:true,
-  //     multipleStatements: true
-  //   })
+  //     waitForConnections: true,
+  //     multipleStatements: true,
+  //   });
   // }
-
 
   // const dbConnect = await mysql.createConnection({
 
@@ -81,7 +69,6 @@ export async function connectToDb() {
   //     password:"RPvt9OP4uxParxXHzS8Y"
   // }),
 
-
   // const dbConnect = await mysql.createConnection({
   //   host: "127.0.0.1",
   //   database: "tilottama",
@@ -89,7 +76,6 @@ export async function connectToDb() {
   //   password: "",
   //   multipleStatements: true,
   // });
-
 
   // const dbConnect = await mysql.createConnection({
   //     host:"db4free.net",
@@ -104,12 +90,11 @@ export async function connectToDb() {
 
 export async function getDb() {
   let connection;
-  try{
+  try {
     const pool = await connectToDb();
-    connection = await pool.getConnection()
-    return connection
-  }
-  catch(err){
-    throw new Error('Failed to Connect to db -SERVER')
+    connection = await pool.getConnection();
+    return connection;
+  } catch (err) {
+    throw new Error("Failed to Connect to db -SERVER");
   }
 }

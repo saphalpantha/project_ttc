@@ -3,12 +3,8 @@ import axios from 'axios';
 const getMyData = async (compo_data) => {
   try {
     const { _api_main, _api_sec } = compo_data;
-
-
     const res = await axios.get(`${_api_main}`);
     const d = res.data.msg;
-
-
     const detailPromises = d.map(async (item) => {
       if (item.photo || item.cover_image) {
         try {

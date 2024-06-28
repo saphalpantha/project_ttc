@@ -34,6 +34,7 @@ export const getResultByUserInp = async (roll_no) => {
     const result = db_data.Sheet1.find( i=> i.roll_no == roll_no);
     return result;
 }
+
 const handler = async (req,res) => {
     if(req.method === 'POST'){
         const {enteredclass, stream, regNo, dob, section} = req.body;
