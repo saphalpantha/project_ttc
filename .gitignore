@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 ./ttc_db.js
+./admission_forms.json
 # testing
 /coverage
 

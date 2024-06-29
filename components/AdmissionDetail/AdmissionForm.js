@@ -77,7 +77,7 @@ const AdmissionForm = () => {
     } catch (err) {
       setLoading(false);
       alert(
-        `${err.response.data.errMsg.message} \n\n Error! \n Please Try Again with Correct`
+        `\n\n Error! \n Please Try Again with Correct`
       );
     }
   };
