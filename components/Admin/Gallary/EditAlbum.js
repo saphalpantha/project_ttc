@@ -119,7 +119,7 @@ const EditAlbum = () => {
   const gallary = (
     <div>
       {selectedAlbum.length == 0 ? (
-        <table className={`w-[83%] my-[2rem] mx-auto`}>
+        <table className={`w-[75%] my-[2rem] mx-auto`}>
           <tbody className="flex pt-[1rem] flex-col border-[2px] h-[75vh]  overflow-y-scroll ">
             <tr className="flex justify-between gap-[0rem]">
               <th className="flex-1">S.N</th>

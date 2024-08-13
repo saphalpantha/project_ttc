@@ -409,6 +409,12 @@ const AdmissionForms = () => {
     );
     setAdmissionResult(updatedResult);
   };
+  const mbaFacultyFormHandler = () => {
+    const updatedResult = originalResult.filter(
+      (item) => item.faculty === "MBA"
+    );
+    setAdmissionResult(updatedResult);
+  };
 
   const managementFacultyFormHandler = () => {
     const updatedResult = originalResult.filter(
@@ -536,6 +542,12 @@ const AdmissionForms = () => {
           className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#B65E0C]  hover:text-[#B65E0C] cursor-pointer"
         >
           BBA Faculty
+        </span>
+        <span
+          onClick={mbaFacultyFormHandler}
+          className="text-2xs py-4 tracking-widest font-bold hover:border-b-2 hover:border-[#B65E0C]  hover:text-[#B65E0C] cursor-pointer"
+        >
+          MBA Faculty
         </span>
       </div>
 

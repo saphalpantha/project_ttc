@@ -30,6 +30,7 @@ const Sidebar = () => {
     { id: "i6", title: "Faculty", icon: "star", link: "/faculty" },
     { id: "i6", title: "Add Links", icon: "star", link: "/add-link" },
     { id: "i7", title: "Slider", icon: "star", link: "/slider" },
+    { id: "i8", title: "Payments", icon: "star", link: "/payments" },
   ];
   const logoutHandler = async () => {
     await signOut({ redirect: true });
