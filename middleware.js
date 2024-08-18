@@ -278,19 +278,22 @@ import { NextResponse } from 'next/server';
 
 export const getValidSubdomain = (host) => {
   let subdomain = null;
+
+  // Use the provided host or get it from the window object if in a browser environment
   if (!host && typeof window !== 'undefined') {
     host = window.location.host;
   }
+
   if (host && host.includes('.')) {
-    const candidate = host.split('.')[0];
-    if (candidate && !candidate.includes('localhost')) {
-        console.log(candidate,'candidate,,');
-      subdomain = candidate;
+    const hostParts = host.split('.');
+    // For localhost or Vercel environments, ignore the first part if it's 'localhost' or 'vercel'
+    if (hostParts.length > 2 && !host.includes('localhost')) {
+      subdomain = hostParts[0]; // Extract subdomain
     }
   }
-  return subdomain; 
-};
 
+  return subdomain;
+};
 export function middleware(req) {
   const url = req.nextUrl.clone();
   const host = req.headers.get('host');
