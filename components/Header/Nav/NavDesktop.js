@@ -1,3 +1,6 @@
+'use client'
+
+
 import React, { useEffect } from "react";
 import { Fragment } from "react";
 import Logo from "../../Logo/Logo";
@@ -5,6 +8,8 @@ import { useState } from "react";
 import Backdrop from "../../UI/Nav/Backdrop";
 import classes from "./NavBar.module.css";
 import Link from "next/link";
+import { DropdownMenu } from "./NavBar";
+import {useRouter} from 'next/navigation'
 const aboutData = [
   { id: "i1", name: "About Tilottama", link: "/about" },
   { id: "i2", name: "Board Members", link: "/faculty/board" },
@@ -15,6 +20,12 @@ const resultData = [
   { id: "i3", name: "Entrance Exam Result", link: "/results/entrance-result/" },
 ];
 
+
+const admissionData = [
+  {id:'sc', name:"+2 Admission", link:'/admissions'},
+  {id:'bba', name:"BBA Admission", link:'/admissions'},
+  {id:'mba', name:"MBA Admission", link:'/admissions'},
+]
 
 
 
@@ -62,13 +73,26 @@ const courseData = [
     ],
   },
   {
-    id: "i3",
+    id: "bba",
     title: "BBA",
     items: [
-      { id: "b1", link: "/courses/bba/introduction", subtitle: "Introduction" },
+      { id: "bba1", link: "/courses/bba/introduction", subtitle: "Introduction" },
       {
-        id: "b2",
+        id: "bba2",
         link: "/courses/bba/admission",
+        subtitle: "Admission Procedure",
+      },
+      { id: "bba3", link: "", subtitle: "Faculty Members" },
+    ],
+  },
+  {
+    id: "mba",
+    title: "MBA",
+    items: [
+      { id: "mba1", link: "/courses/mba/introduction", subtitle: "Introduction" },
+      {
+        id: "mba2",
+        link: "/courses/mba/admission",
         subtitle: "Admission Procedure",
       },
       { id: "b4", link: "", subtitle: "Faculty Members" },
@@ -81,15 +105,18 @@ const NavDesktop = ({ linksData }) => {
   const [course, setCourse] = useState([]);
   const [result, setResult] = useState([]);
   const [others, setOthers] = useState([]);
+  const [admission,setAdmission] = useState([]);
   const [active, setActive] = useState(false);
 
 
+  const router = useRouter()
   
   const aboutHanlder = () => {
     setAbout(aboutData);
     setActive(true);
     setCourse([]);
     setOthers([]);
+    setAdmission([]);
     setResult([]);
   };
   const courseHandler = () => {
@@ -98,6 +125,7 @@ const NavDesktop = ({ linksData }) => {
     setAbout([]);
     setOthers([]);
     setResult([]);
+    setAdmission([]);
   };
   const resultHandler = () => {
     setResult(resultData);
@@ -105,6 +133,7 @@ const NavDesktop = ({ linksData }) => {
     setCourse([]);
     setAbout([]);
     setOthers([]);
+    setAdmission([]);
   };
   const othersHandler = () => {
     setOthers(updatedOthersData);
@@ -112,6 +141,18 @@ const NavDesktop = ({ linksData }) => {
     setResult([]);
     setCourse([]);
     setAbout([]);
+    setAdmission([]);
+  };
+
+
+  const admissionHandler = () =>{
+        setOthers([]);
+    setActive(true);
+    setResult([]);
+    setCourse([]);
+    setAbout([]);
+    setAdmission(admissionData);
+    
   };
 
   const othersData = [
@@ -127,14 +168,54 @@ const NavDesktop = ({ linksData }) => {
 
 
 
-
-
   const dropdownLinkClickHandler = (e) => {
     e.stopPropagation()
     setActive(false); 
   };
 
-  
+
+//   const getValidSubdomain = () => {
+//   if (typeof window !== 'undefined') {
+//     const host = window.location.host;
+
+//     // Detect subdomain when not on localhost
+//     if (host !== 'localhost:3000' && host.includes('.')) {
+//       return host.split('.')[0];
+//     }
+    
+//     // Simulate subdomain on localhost using a URL pattern
+//     const path = window.location.pathname;
+//     const match = path.match(/^\/(bba|mba|otherSubdomain)\//);
+    
+//     if (host === 'localhost:3000' && match) {
+//       return match[1];
+//     }
+//   }
+//   return null;
+// };
+
+const host =
+        typeof window !== 'undefined' && window.location.host
+            ? window.location.host
+            : '';
+
+const handleCourseRoute = (e, data) => {
+  dropdownLinkClickHandler(e);
+
+  const { id, link } = data;
+
+  if (id.startsWith('bba') || id.startsWith('mba')) {
+    // Remove the subdomain prefix from the link if it exists
+    const updatedLink = link.replace('/bba', '').replace('/mba', '');
+
+    const subdomain = id.startsWith('bba') ? 'bba' : 'mba' ;
+
+    router.push(`https://${subdomain}.${host}${updatedLink}`);
+  } else {
+    router.push(link);
+  }
+};
+
   return (
     <Fragment>
       {active && (
@@ -174,7 +255,7 @@ const NavDesktop = ({ linksData }) => {
                 {active && (
                   <ul className="flex pt-[1rem] flex-col gap-4">
                     {about.map((i) => (
-                      <Link  href={ i.link } key={i.id} onClick={dropdownLinkClickHandler} >
+                      <Link  href={i.link } key={i.id} onClick={dropdownLinkClickHandler} >
                         <li  className="hover:bg-gray-200 px-14                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">
                           {i.name}
                         </li>
@@ -186,14 +267,29 @@ const NavDesktop = ({ linksData }) => {
             )}
           </li>
 
-          <Link href={"/admissions"}  onClick={dropdownLinkClickHandler}>
-            {" "}
-            <li
-              className={`cursor-pointer hover:border-b-[3px] border-[#201F54]  ${classes.main} `}
+                      <li className={`relative cursor-pointer`} onClick={admissionHandler}>
+            <span
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
             >
               Admission
-            </li>{" "}
-          </Link>
+            </span>
+            {admission.length > 0 && active && (
+              <div className="absolute  border-t-4 border-[#201F54] top-[3.8rem]  left-[-5rem] flex flex-col items-center w-[15rem]  bg-white h-[10rem]">
+                {active && (
+                  <ul className="flex pt-[1rem] flex-col gap-4">
+                    {admission.map((i) => (
+                      
+                      <Link  href={(i.id === "bba" || i.id == "mba" ) ? `https://${i.id}.${host}/admissions` : i.link } prefetch={i.id === "bba" || i.id === "mba" ? false : true} key={i.id} onClick={dropdownLinkClickHandler} >
+                        <li  className="hover:bg-gray-200 px-14                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">
+                          {i.name}
+                        </li>
+                      </Link>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+          </li>
           <li className={`cursor-pointer `} onClick={courseHandler}>
             <span
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}
@@ -210,11 +306,12 @@ const NavDesktop = ({ linksData }) => {
                         <h1 className="font-bold text-[1.1rem]">{od.title}</h1>
                         <ul className="flex  gap-2 pt-[1rem] flex-col">
                           {od.items.map((id) => (
-                            <div className="hover:bg-gray-200 px-14 text-[%=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;] py-1">
-                              <Link onClick={dropdownLinkClickHandler} href={id.link}>
-                                {" "}
-                                <li>{id.subtitle}</li>
-                              </Link>{" "}
+                            <div className="hover:bg-gray-200 px-14">
+                              <a onClick={(e) => handleCourseRoute(e, id)}>{id.subtitle}</a>
+                               {/* <Link onClick={dropdownLinkClickHandler} href={id.link}>
+                                 {" "}
+                                 <li>{id.subtitle}</li>
+                               </Link>{" "} */}
                             </div>
                           ))}
                         </ul>
@@ -282,6 +379,14 @@ const NavDesktop = ({ linksData }) => {
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
             >
               Career Service Center
+            </li>
+          </Link>
+          <Link onClick={dropdownLinkClickHandler} target="_self" href={`https://mba.${host}/pay`}>
+            {" "}
+            <li
+              className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
+            >
+             Fee Payment
             </li>
           </Link>
 

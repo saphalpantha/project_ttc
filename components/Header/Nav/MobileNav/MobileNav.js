@@ -8,6 +8,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ScrollLayout from '../../../UI/ScrollLayout';
 import ClearIcon from '@mui/icons-material/Clear';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { useRouter } from "next/navigation";
 const MobileNav = ({isOpen,setIsOpen, linksData}) => {
 
   const aboutData = [
@@ -30,85 +31,100 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
   ];
 
   const courseData = [
-    {
-      id: "i1",
-      title: "Science",
-      items: [
-        {
-          id: "s1",
-          link: "/courses/science/introduction",
-          subtitle: "Introduction",
-        },
-        {
-          id: "s2",
-          link: "/courses/science/admission",
-          subtitle: "Admission Procedure",
-        },
-      
-        {
-          id: "s4",
-          link: "/courses/science/#faculty_science",
-          subtitle: "Faculty Members",
-        },
-      ],
-    },
-    {
-      id: "i2",
-      title: "Management",
-      items: [
-        {
-          id: "m1",
-          link: "/courses/management/introduction",
-          subtitle: "Introduction",
-        },
-        {
-          id: "m2",
-          link: "/courses/management/admission",
-          subtitle: "Admission Procedure",
-        },
-       
-        {
-          id: "m4",
-          link: "/courses/management/#faculty_management",
-          subtitle: "Faculty Members",
-        },
-      ],
-    },
-    {
-      id: "i3",
-      title: "BBA",
-      items: [
-        {
-          id: "b1",
-          link: "/courses/bba/introduction",
-          subtitle: "Introduction",
-        },
-        {
-          id: "b2",
-          link: "/courses/bba/admission",
-          subtitle: "Admission Procedure",
-        },
-        {
-          id: "b4",
-          link: "",
-          subtitle: "Faculty Members",
-        },
-      ],
-    },
-  ];
+  {
+    id: "i1",
+    title: "Science",
+    items: [
+      {
+        id: "s1",
+        link: "/courses/science/introduction",
+        subtitle: "Introduction",
+      },
+      {
+        id: "s2",
+        link: "/courses/science/admission",
+        subtitle: "Admission Procedure",
+      },
+      {
+        id: "s4",
+        link: "/courses/science/#faculty_science",
+        subtitle: "Faculty Members",
+      },
+    ],
+  },
+  {
+    id: "i2",
+    title: "Management",
+    items: [
+      {
+        id: "m1",
+        link: "/courses/management/introduction",
+        subtitle: "Introduction",
+      },
+      {
+        id: "m2",
+        link: "/courses/management/admission",
+        subtitle: "Admission Procedure",
+      },
+      {
+        id: "m4",
+        link: "/courses/management/#faculty_management",
+        subtitle: "Faculty Members",
+      },
+    ],
+  },
+  {
+    id: "bba",
+    title: "BBA",
+    items: [
+      { id: "bba1", link: "/courses/bba/introduction", subtitle: "Introduction" },
+      {
+        id: "bba2",
+        link: "/courses/bba/admission",
+        subtitle: "Admission Procedure",
+      },
+      { id: "bba3", link: "", subtitle: "Faculty Members" },
+    ],
+  },
+  {
+    id: "mba",
+    title: "MBA",
+    items: [
+      { id: "mba1", link: "/courses/mba/introduction", subtitle: "Introduction" },
+      {
+        id: "mba2",
+        link: "/courses/mba/admission",
+        subtitle: "Admission Procedure",
+      },
+      { id: "b4", link: "", subtitle: "Faculty Members" },
+    ],
+  },
+];
+
+
+const admissionData = [
+  {id:'sc', name:"+2 Admission", link:'/admissions'},
+  {id:'bba', name:"BBA Admission", link:'/admissions'},
+  {id:'mba', name:"MBA Admission", link:'/admissions'},
+]
+
 
   const [about, setAbout] = useState([]);
   const [course, setCourse] = useState([]);
   const [result, setResult] = useState([]);
   const [others, setOthers] = useState([]);
   const [active, setActive] = useState({});
+  const [admission,setAdmission] = useState([]);
   const [activeCourse, setActiveCourse] = useState({});
+  const router = useRouter();
+
   const aboutHandler = () => {
     setAbout(aboutData);
     setActive({ id: "about", data: aboutData });
     setCourse([]);
     setOthers([]);
     setResult([]);
+    setAdmission([]);
   };
   const courseHandler = () => {
     setCourse(courseData);
@@ -117,6 +133,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
     setAbout([]);
     setOthers([]);
     setResult([]);
+    setAdmission([]);
   };
   const resultHandler = () => {
     setResult(resultData);
@@ -124,6 +141,7 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
     setCourse([]);
     setAbout([]);
     setOthers([]);
+    setAdmission([]);
   };
   const othersHandler = () => {
     setOthers(updatedOthersData);
@@ -131,7 +149,42 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
     setResult([]);
     setCourse([]);
     setAbout([]);
+    setAdmission([]);
   }; 
+  
+  const admissionHandler = () =>{
+    setAdmission(admissionData);
+    setActive({ id: "admission", data: admissionData });
+    setOthers([]);
+    setResult([]);
+    setCourse([]);
+    setAbout([]);    
+  };
+
+
+  const host =
+        typeof window !== 'undefined' && window.location.host
+            ? window.location.host
+            : '';
+
+
+  const handleCourseRoute = (e, data) => {
+  setActiveCourse(data)
+
+  const { id, link } = data;
+
+  if (id.startsWith('bba') || id.startsWith('mba')) {
+    // Remove the subdomain prefix from the link if it exists
+    const updatedLink = link.replace('/bba', '').replace('/mba', '');
+
+    const subdomain = id.startsWith('bba') ? 'bba' : 'mba' ;
+
+    router.push(`https://${subdomain}.${host}${updatedLink}`);
+  } else {
+    router.push(link);
+  }
+};
+
 
 
   
@@ -163,10 +216,18 @@ const updatedOthersData = [
                   <span>About</span>
                   <ArrowRightAltIcon/>
                 </li>
-                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+                <li
+                  onClick={admissionHandler}
+                  className=" flex justify-between px-[3rem] w-full cursor-pointer pl-[1rem] text-left"
+                  >
+                  <span>Admission</span>
+                  <ArrowRightAltIcon/>
+                </li>
+                {/* <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                {<Link onClick={() => setIsOpen(false)} href={"/admissions"}> <li className="cursor-pointer pl-[1rem] text-left">
                   Admission
-                </li> </Link>}
+                </li> </Link>} */}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={courseHandler}
@@ -190,6 +251,8 @@ const updatedOthersData = [
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                { <a onClick={() => setIsOpen(false)} target="_blank" href={"https://tilottama.careerservicelab.com"}> <li className="cursor-pointer pl-[1rem] text-left">Carrier Service Center</li> </a>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
+               { <a onClick={() => setIsOpen(false)} target="_blank" href={`https://mba.${host}/pay`}> <li className="cursor-pointer pl-[1rem] text-left">Fee Payment</li> </a>}
+                <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={othersHandler}
                   className=" flex justify-between  w-full px-[3rem] cursor-pointer pl-[1rem] text-left"
@@ -208,17 +271,15 @@ const updatedOthersData = [
                   <KeyboardBackspaceIcon/>
                 </h1>
                 <div className="flex flex-col gap-10">
-                  {console.log(active,'active')}
                   {active.id != "course" &&
                     active?.data?.map((i) => {
                         
-                      {console.log(i,'iiii')}
+
                       return (
                           <div>
-                            <Link onClick={() => setIsOpen(false)} href={`${i.link}`}>
+                            <Link onClick={() => setIsOpen(false)} href={`${(i.id === "bba" || i.id === "mba") ? `http://${i.id === 'bba' ? 'bba' : 'mba'}.${host}/admissions` : i.link  }`}>
                               <ScrollLayout duration={0.4} x={150} y={0} >
                           <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
-                            {console.log(i,'iiii')}
                             {i.name}
                           </li>
                     </ScrollLayout>
@@ -257,9 +318,9 @@ const updatedOthersData = [
                           <div key={i.id}>
                              <ScrollLayout duration={0.4} x={150} y={0} >
 
-  {               <Link onClick={() => setIsOpen(false)} href={`${i.link}`}>      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
+  {               <a onClick={(e) => handleCourseRoute(e,i)} >      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
                             {i.subtitle}
-                          </li> </Link> }
+                          </li> </a> }
                              </ScrollLayout>
                           <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.7rem] bg-gray-300"></div>
                         </div>

@@ -77,6 +77,25 @@ function NavLink({ to, children }) {
     </Link>
   );
 }
+const getValidSubdomain = () => {
+  if (typeof window !== 'undefined') {
+    const host = window.location.host;
+
+    // Detect subdomain when not on localhost
+    if (host !== 'localhost:3000' && host.includes('.')) {
+      return host.split('.')[0];
+    }
+    
+    // Simulate subdomain on localhost using a URL pattern
+    const path = window.location.pathname;
+    const match = path.match(/^\/(bba|mba|otherSubdomain)\//);
+    
+    if (host === 'localhost:3000' && match) {
+      return match[1];
+    }
+  }
+  return null;
+};
 
 import { useEffect, useRef } from "react";
 import Logo from "../../Logo/Logo";
@@ -124,6 +143,15 @@ export function DropdownMenu({ title, links }) {
     }
   };
 
+
+  const routeToLink = (link) => {
+    const subdomain = getValidSubdomain();
+    
+    if(subdomain === 'bba' || subdomain === 'mba'){
+      return `${subdomain}.${'localhost:3000'}/${link.link}`;
+    } 
+  }
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -165,24 +193,24 @@ export function DropdownMenu({ title, links }) {
                     } dropdown-menu ${styles.subDropdownMenu}`}
                   >
                     {link.sublinks.map((sublink) => (
-                      <Link
+                      <a
                         className={`dropdown-item text-left text-black tracking-widest text-2xs ${styles.dropdownLink}`}
                         key={sublink.id}
-                        href={sublink.link}
+                        href={(subdomain) => routeToLink(sublink)}
                       >
                         {sublink.name}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </>
               ) : (
-                <Link
+                <a
                   className={`dropdown-item text-left ${styles.dropdownLink}`}
                   key={link?.id}
                   href={link.link}
                 >
                   {link.name}
-                </Link>
+                </a>
               )}
             </div>
           ))}
