@@ -1,6 +1,5 @@
 //     import { NextResponse } from 'next/server'
 
-import { NextResponse } from "next/dist/server/web/spec-extension/response";
 
  
 
@@ -365,7 +364,7 @@ import { NextResponse } from "next/dist/server/web/spec-extension/response";
 
 // ==========================================================================================
 
-
+import { NextResponse } from 'next/server';
 
 export const getValidSubdomain = (host) => {
   let subdomain = null;
@@ -382,25 +381,37 @@ export const getValidSubdomain = (host) => {
   return subdomain;
 };
 
-
-
 export function middleware(req) {
   const url = req.nextUrl.clone();
   const host = req.headers.get('host');
   const subdomain = getValidSubdomain(host);
 
+  console.log('Host:', host);
+  console.log('Subdomain:', subdomain);
+  console.log('Pathname:', url.pathname);
+
   // Validate subdomain
   if (subdomain && !['bba', 'mba'].includes(subdomain)) {
+    console.log('Invalid subdomain, redirecting to home.');
+    // Handle requests without subdomains or invalid subdomains
+if (!subdomain || !['bba', 'mba'].includes(subdomain)) {
+  // Perform specific handling for the base domain or invalid subdomains
+  if (url.pathname === '/') {
+    return NextResponse.next(); // Allow access to the base domain's root
+  }
+  // Handle other paths or redirect to a specific page
+  return NextResponse.redirect(new URL('/', req.url));
+}
+
     return NextResponse.redirect(new URL('/', req.url));
   }
 
   // Handle /admission routing
   if (url.pathname === '/admission') {
-    if (subdomain === 'bba' || subdomain === 'mba') {
-      return NextResponse.next();
-    } else if (!subdomain) {
+    if (subdomain === 'bba' || subdomain === 'mba' || !subdomain) {
       return NextResponse.next();
     } else {
+      console.log('Invalid /admission path, redirecting to home.');
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
@@ -409,11 +420,13 @@ export function middleware(req) {
   if (url.pathname.startsWith('/courses')) {
     if (subdomain === 'bba' || subdomain === 'mba') {
       const newPathname = `/courses/${subdomain}${url.pathname.replace('/courses', '')}`;
+      console.log('Rewriting path to:', newPathname);
       url.pathname = newPathname;
       return NextResponse.rewrite(url);
     } else if (!subdomain) {
       return NextResponse.next();
     } else {
+      console.log('Invalid /courses path, redirecting to home.');
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
@@ -423,11 +436,10 @@ export function middleware(req) {
     if (subdomain === 'mba') {
       return NextResponse.next();
     } else {
+      console.log('Invalid /pay path or subdomain, redirecting to home.');
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
 
   return NextResponse.next();
 }
-
-
