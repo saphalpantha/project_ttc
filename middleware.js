@@ -276,85 +276,82 @@
 
 
 
-// import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-// export const getValidSubdomain = (host) => {
-//   let subdomain = null;
+export const getValidSubdomain = (host) => {
+  let subdomain = null;
 
-//   // Use the provided host or get it from the window object if in a browser environment
-//   if (!host && typeof window !== 'undefined') {
-//     host = window.location.host;
-//   }
+  // Use the provided host or get it from the window object if in a browser environment
+  if (!host && typeof window !== 'undefined') {
+    host = window.location.host;
+  }
 
-//   if (host && host.includes('.')) {
-//     const hostParts = host.split('.');
-//     // For localhost or Vercel environments, ignore the first part if it's 'localhost' or 'vercel'
-//     if (hostParts.length > 2 && !host.includes('localhost')) {
-//       subdomain = hostParts[0]; // Extract subdomain
-//     }
-//   }
+  if (host && host.includes('.')) {
+    const hostParts = host.split('.');
+    // For localhost or Vercel environments, ignore the first part if it's 'localhost' or 'vercel'
+    if (hostParts.length > 2 && !host.includes('localhost')) {
+      subdomain = hostParts[0]; // Extract subdomain
+    }
+  }
 
-//   return subdomain;
-// };
-// export function middleware(req) {
-//   const url = req.nextUrl.clone();
-//   const host = req.headers.get('host');
-//   const subdomain = getValidSubdomain(host);
+  return subdomain;
+};
+export function middleware(req) {
+  const url = req.nextUrl.clone();
+  const host = req.headers.get('host');
+  const subdomain = getValidSubdomain(host);
 
-//   // Block all routes if subdomain is invalid
-//   if (subdomain && !['bba', 'mba'].includes(subdomain)) {
-//     return NextResponse.redirect(new URL('/', req.url));
-//   }
+  // Block all routes if subdomain is invalid
+  if (subdomain && !['bba', 'mba'].includes(subdomain)) {
+    return NextResponse.redirect(new URL('/', req.url));
+  }
 
-//   // Handle /admission routing
-//   if (url.pathname === '/admission') {
-//     if (subdomain === 'bba' || subdomain === 'mba') {
-//       // Allow bba and mba subdomains to access their respective /admission pages
-//       return NextResponse.next();
-//     } else if (!subdomain) {
-//       // Allow main domain for science and management
-//       return NextResponse.next();
-//     } else {
-//       // Block other subdomains
-//       return NextResponse.redirect(new URL('/', req.url));
-//     }
-//   }
+  // Handle /admission routing
+  if (url.pathname === '/admission') {
+    if (subdomain === 'bba' || subdomain === 'mba') {
+      // Allow bba and mba subdomains to access their respective /admission pages
+      return NextResponse.next();
+    } else if (!subdomain) {
+      // Allow main domain for science and management
+      return NextResponse.next();
+    } else {
+      // Block other subdomains
+      return NextResponse.redirect(new URL('/', req.url));
+    }
+  }
 
-//   // Handle /courses routing
-//   if (url.pathname.startsWith('/courses')) {
-//     // Handle subdomains 'bba' and 'mba'
-//     if (subdomain === 'bba' || subdomain === 'mba') {
-//       // Construct the new URL
-//       const urll = `/courses/${subdomain}${url.pathname.replace('/courses', '')}`;
+  // Handle /courses routing
+  if (url.pathname.startsWith('/courses')) {
+    // Handle subdomains 'bba' and 'mba'
+    if (subdomain === 'bba' || subdomain === 'mba') {
+      // Construct the new URL
+      const urll = `/courses/${subdomain}${url.pathname.replace('/courses', '')}`;
       
-//       // Rewrite the URL to the new path
-//       url.pathname = urll;
-//       return NextResponse.rewrite(url);
-//     } else if (!subdomain) {
-//       // Allow routes for the main domain (science and management)
-//       return NextResponse.next();
-//     } else {
-//       // Redirect invalid subdomains to the home page
-//       return NextResponse.redirect(new URL('/', req.url));
-//     }
-//   }
-//   // Handle /pay routing
-//   if (url.pathname === '/pay') {
-//     if (subdomain === 'mba') {
-//       return NextResponse.next();
-//     } else {
-//       // Block other subdomains and main domain
-//       return NextResponse.redirect(new URL('/', req.url));
-//     }
-//   }
+      // Rewrite the URL to the new path
+      url.pathname = urll;
+      return NextResponse.rewrite(url);
+    } else if (!subdomain) {
+      // Allow routes for the main domain (science and management)
+      return NextResponse.next();
+    } else {
+      // Redirect invalid subdomains to the home page
+      return NextResponse.redirect(new URL('/', req.url));
+    }
+  }
+  // Handle /pay routing
+  if (url.pathname === '/pay') {
+    if (subdomain === 'mba') {
+      return NextResponse.next();
+    } else {
+      // Block other subdomains and main domain
+      return NextResponse.redirect(new URL('/', req.url));
+    }
+  }
 
-//   // Allow all other routes as they are
-//   return NextResponse.next();
-// }
+  // Allow all other routes as they are
+  return NextResponse.next();
+}
 
-// export const config = {
-//   matcher: '/:path*',
-// };
 
 
 
@@ -371,14 +368,5 @@
 
 
 
-
-
-import { NextResponse } from 'next/server';
-
-
-export function middleware(req) {
-  
-  return NextResponse.next();
-}
 
 
