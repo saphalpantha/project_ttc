@@ -31,74 +31,90 @@ const admissionData = [
 
 const courseData = [
   {
-    id: "i1",
-    title: "Science",
-    items: [
+    "id": "i1",
+    "title": "Science",
+    "items": [
       {
-        id: "s1",
-        link: "/courses/science/introduction",
-        subtitle: "Introduction",
+        "id": "s1",
+        "link": "https://tilottama.edu.np/courses/science/introduction",
+        "subtitle": "Introduction"
       },
       {
-        id: "s2",
-        link: "/courses/science/admission",
-        subtitle: "Admission Procedure",
+        "id": "s2",
+        "link": "https://tilottama.edu.np/courses/science/admission",
+        "subtitle": "Admission Procedure"
       },
       {
-        id: "s4",
-        link: "/courses/science/#faculty_science",
-        subtitle: "Faculty Members",
-      },
-    ],
+        "id": "s4",
+        "link": "https://tilottama.edu.np/courses/science/#faculty_science",
+        "subtitle": "Faculty Members"
+      }
+    ]
   },
   {
-    id: "i2",
-    title: "Management",
-    items: [
+    "id": "i2",
+    "title": "Management",
+    "items": [
       {
-        id: "m1",
-        link: "/courses/management/introduction",
-        subtitle: "Introduction",
+        "id": "m1",
+        "link": "https://tilottama.edu.np/courses/management/introduction",
+        "subtitle": "Introduction"
       },
       {
-        id: "m2",
-        link: "/courses/management/admission",
-        subtitle: "Admission Procedure",
+        "id": "m2",
+        "link": "https://tilottama.edu.np/courses/management/admission",
+        "subtitle": "Admission Procedure"
       },
       {
-        id: "m4",
-        link: "/courses/management/#faculty_management",
-        subtitle: "Faculty Members",
-      },
-    ],
+        "id": "m4",
+        "link": "https://tilottama.edu.np/courses/management/#faculty_management",
+        "subtitle": "Faculty Members"
+      }
+    ]
   },
   {
-    id: "bba",
-    title: "BBA",
-    items: [
-      { id: "bba1", link: "/courses/bba/introduction", subtitle: "Introduction" },
+    "id": "bba",
+    "title": "BBA",
+    "items": [
       {
-        id: "bba2",
-        link: "/courses/bba/admission",
-        subtitle: "Admission Procedure",
+        "id": "bba1",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/bba/introduction",
+        "subtitle": "Introduction"
       },
-      { id: "bba3", link: "", subtitle: "Faculty Members" },
-    ],
+      {
+        "id": "bba2",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/bba/admission",
+        "subtitle": "Admission Procedure"
+      },
+      {
+        "id": "bba3",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/bba/#faculty_bba",
+        "subtitle": "Faculty Members"
+      }
+    ]
   },
   {
-    id: "mba",
-    title: "MBA",
-    items: [
-      { id: "mba1", link: "/courses/mba/introduction", subtitle: "Introduction" },
+    "id": "mba",
+    "title": "MBA",
+    "items": [
       {
-        id: "mba2",
-        link: "/courses/mba/admission",
-        subtitle: "Admission Procedure",
+        "id": "mba1",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/mba/introduction",
+        "subtitle": "Introduction"
       },
-      { id: "b4", link: "", subtitle: "Faculty Members" },
-    ],
-  },
-];
+      {
+        "id": "mba2",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/mba/admission",
+        "subtitle": "Admission Procedure"
+      },
+      {
+        "id": "b4",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/mba/#faculty_mba",
+        "subtitle": "Faculty Members"
+      }
+    ]
+  }
+]
 
 const NavDesktop = ({ linksData }) => {
   const [about, setAbout] = useState([]);
@@ -174,48 +190,6 @@ const NavDesktop = ({ linksData }) => {
   };
 
 
-//   const getValidSubdomain = () => {
-//   if (typeof window !== 'undefined') {
-//     const host = window.location.host;
-
-//     // Detect subdomain when not on localhost
-//     if (host !== 'localhost:3000' && host.includes('.')) {
-//       return host.split('.')[0];
-//     }
-    
-//     // Simulate subdomain on localhost using a URL pattern
-//     const path = window.location.pathname;
-//     const match = path.match(/^\/(bba|mba|otherSubdomain)\//);
-    
-//     if (host === 'localhost:3000' && match) {
-//       return match[1];
-//     }
-//   }
-//   return null;
-// };
-
-const host =
-        typeof window !== 'undefined' && window.location.host
-            ? window.location.host
-            : '';
-
-const handleCourseRoute = (e, data) => {
-  dropdownLinkClickHandler(e);
-
-  const { id, link } = data;
-
-  if (id.startsWith('bba') || id.startsWith('mba')) {
-    // Remove the subdomain prefix from the link if it exists
-    const updatedLink = link.replace('/bba', '').replace('/mba', '');
-
-    const subdomain = id.startsWith('bba') ? 'bba' : 'mba' ;
-
-    router.push(`https://${subdomain}.${host}${updatedLink}`);
-  } else {
-    router.push(link);
-  }
-};
-
   return (
     <Fragment>
       {active && (
@@ -267,7 +241,15 @@ const handleCourseRoute = (e, data) => {
             )}
           </li>
 
-                      <li className={`relative cursor-pointer`} onClick={admissionHandler}>
+                    <Link className="w-fit" href={"/admissions"}>
+            <li
+              className={`cursor-pointer  hover:border-b-[3px] border-[#201F54] ${classes.main} `}
+            >
+              Admission
+            </li>
+          </Link>
+
+                      {/* <li className={`relative cursor-pointer`} onClick={admissionHandler}>
             <span
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}
             >
@@ -279,7 +261,7 @@ const handleCourseRoute = (e, data) => {
                   <ul className="flex pt-[1rem] flex-col gap-4">
                     {admission.map((i) => (
                       
-                      <Link  href={(i.id === "bba" || i.id == "mba" ) ? `https://${i.id}.${host}/admissions` : i.link } prefetch={i.id === "bba" || i.id === "mba" ? false : true} key={i.id} onClick={dropdownLinkClickHandler} >
+                      <Link  href={i.link} key={i.id} onClick={dropdownLinkClickHandler} >
                         <li  className="hover:bg-gray-200 px-14                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;]  text-[#4f4f4f] py-1">
                           {i.name}
                         </li>
@@ -289,7 +271,7 @@ const handleCourseRoute = (e, data) => {
                 )}
               </div>
             )}
-          </li>
+          </li> */}
           <li className={`cursor-pointer `} onClick={courseHandler}>
             <span
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main}  `}
@@ -307,7 +289,7 @@ const handleCourseRoute = (e, data) => {
                         <ul className="flex  gap-2 pt-[1rem] flex-col">
                           {od.items.map((id) => (
                             <div className="hover:bg-gray-200 px-14">
-                              <a onClick={(e) => handleCourseRoute(e, id)}>{id.subtitle}</a>
+                              <a onClick={dropdownLinkClickHandler} href={id.link} >{id.subtitle}</a>
                                {/* <Link onClick={dropdownLinkClickHandler} href={id.link}>
                                  {" "}
                                  <li>{id.subtitle}</li>
@@ -381,7 +363,7 @@ const handleCourseRoute = (e, data) => {
               Career Service Center
             </li>
           </Link>
-          <Link onClick={dropdownLinkClickHandler} target="_self" href={`https://mba.${host}/pay`}>
+          <Link onClick={dropdownLinkClickHandler} target="_self" href={`https://tilottamacampus.tilottama.edu.np/mba`}>
             {" "}
             <li
               className={`cursor-pointer hover:border-b-[3px] border-[#201F54] ${classes.main} `}

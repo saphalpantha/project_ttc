@@ -39,27 +39,27 @@ import mysql from "mysql2/promise";
 let _db;
 
 export async function connectToDb() {
-  // if(!_db){
-  //   _db = mysql.createPool({
-  //     host:"127.0.0.1",
-  //     database:"tilottama_edu",
-  //     user:"tilottama_edu_user",
-  //     password:"RPvt9OP4uxParxXHzS8Y"
-  //   })
-  // }
-
-  if (!_db) {
+  if(!_db){
     _db = mysql.createPool({
-      host: "db4free.net",
-      database: "ttc_test_db",
-      user: "sulabh_ttc",
-      password: "tilottoma",
-      connectionLimit: 5,
-      queueLimit: 0,
-      waitForConnections: true,
-      multipleStatements: true,
-    });
+      host:"127.0.0.1",
+      database:"tilottama_edu",
+      user:"tilottama_edu_user",
+      password:"RPvt9OP4uxParxXHzS8Y"
+    })
   }
+
+  // if (!_db) {
+  //   _db = mysql.createPool({
+  //     host: "db4free.net",
+  //     database: "ttc_test_db",
+  //     user: "sulabh_ttc",
+  //     password: "tilottoma",
+  //     connectionLimit: 5,
+  //     queueLimit: 0,
+  //     waitForConnections: true,
+  //     multipleStatements: true,
+  //   });
+  // }
 
   // const dbConnect = await mysql.createConnection({
 

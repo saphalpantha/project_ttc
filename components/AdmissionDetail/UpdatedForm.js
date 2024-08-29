@@ -411,7 +411,7 @@ const UpdatedForm = () => {
       setLoading(false);
       alert("Form Submission SucessFully");
     } catch (err) {
-      console.log(err);
+      console.log(err, 'err msg');
       setLoading(false);
       alert(
         `${err?.response?.data?.errMsg?.message} \n\n Error! \n Please Try Again with Correct`
@@ -473,8 +473,6 @@ const UpdatedForm = () => {
                     <option>Select Faculty</option>
                     <option>Science</option>
                     <option>Management</option>
-                    <option>BBA</option>
-                    <option>MBA</option>
                   </select>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -506,34 +504,11 @@ const UpdatedForm = () => {
                     value={values.shift}
                   >
                     <option>Select Shift</option>
-                      {values.faculty === "BBA"  ? (
-                        <>
                                             <option>Morning</option>
                     <option>Day</option>
-                        </>
-
-                      ) :
-                      values.faculty === "MBA" ? (
-                        <option>Morning</option>
-                      ):
-                      values.faculty === "Select Faculty" ? null :
-                       (
-                      <>
-                        <option>Morning</option>
-                    <option>Day</option>
                     <option>Mid Day</option>
-                      </>)}
+                
                   </select>
-                  {/* <input
-                 onChange={handleChange}
-                 onBlur={handleBlur}
-                 onReset={handleReset}
-                 name="shift"
-                 required
-                 value={values.shift}
-                  className="w-full border-2  rounded-md border-[#DCDCDC] outline-none h-[2.2rem] bg-transparent  "
-                  type="text"
-                ></input> */}
                 </div>
               </div>
             </div>
@@ -710,10 +685,9 @@ const UpdatedForm = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-[1.2rem] text-[#494949]">
-                    +2 Board GPA/ Bachelor GPA <span className="text-red-700"> (Minimum 2.0)</span> {required}
+                    SEE Board GPA {required}
                   </label>
                   <input
-                  min={2}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     onReset={handleReset}
@@ -722,9 +696,6 @@ const UpdatedForm = () => {
                     className="w-full border-2  rounded-md border-[#DCDCDC] outline-none h-[2.2rem] bg-transparent  "
                     type="number"
                   ></input>
-                  <label className="text-[0.9rem] font-light italic text-[#807D7D]">
-                    Mention GPA of Bachelor if you’re admitting for MBA
-                  </label>
                 </div>
                 {/* <div className="flex flex-col gap-2">
                 <label className="text-[1.2rem] text-[#494949]">Faculty</label>

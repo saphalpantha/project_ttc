@@ -32,74 +32,90 @@ const MobileNav = ({isOpen,setIsOpen, linksData}) => {
 
   const courseData = [
   {
-    id: "i1",
-    title: "Science",
-    items: [
+    "id": "i1",
+    "title": "Science",
+    "items": [
       {
-        id: "s1",
-        link: "/courses/science/introduction",
-        subtitle: "Introduction",
+        "id": "s1",
+        "link": "https://tilottama.edu.np/courses/science/introduction",
+        "subtitle": "Introduction"
       },
       {
-        id: "s2",
-        link: "/courses/science/admission",
-        subtitle: "Admission Procedure",
+        "id": "s2",
+        "link": "https://tilottama.edu.np/courses/science/admission",
+        "subtitle": "Admission Procedure"
       },
       {
-        id: "s4",
-        link: "/courses/science/#faculty_science",
-        subtitle: "Faculty Members",
-      },
-    ],
+        "id": "s4",
+        "link": "https://tilottama.edu.np/courses/science/#faculty_science",
+        "subtitle": "Faculty Members"
+      }
+    ]
   },
   {
-    id: "i2",
-    title: "Management",
-    items: [
+    "id": "i2",
+    "title": "Management",
+    "items": [
       {
-        id: "m1",
-        link: "/courses/management/introduction",
-        subtitle: "Introduction",
+        "id": "m1",
+        "link": "https://tilottama.edu.np/courses/management/introduction",
+        "subtitle": "Introduction"
       },
       {
-        id: "m2",
-        link: "/courses/management/admission",
-        subtitle: "Admission Procedure",
+        "id": "m2",
+        "link": "https://tilottama.edu.np/courses/management/admission",
+        "subtitle": "Admission Procedure"
       },
       {
-        id: "m4",
-        link: "/courses/management/#faculty_management",
-        subtitle: "Faculty Members",
-      },
-    ],
+        "id": "m4",
+        "link": "https://tilottama.edu.np/courses/management/#faculty_management",
+        "subtitle": "Faculty Members"
+      }
+    ]
   },
   {
-    id: "bba",
-    title: "BBA",
-    items: [
-      { id: "bba1", link: "/courses/bba/introduction", subtitle: "Introduction" },
+    "id": "bba",
+    "title": "BBA",
+    "items": [
       {
-        id: "bba2",
-        link: "/courses/bba/admission",
-        subtitle: "Admission Procedure",
+        "id": "bba1",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/bba/introduction",
+        "subtitle": "Introduction"
       },
-      { id: "bba3", link: "", subtitle: "Faculty Members" },
-    ],
+      {
+        "id": "bba2",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/bba/admission",
+        "subtitle": "Admission Procedure"
+      },
+      {
+        "id": "bba3",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/bba/#faculty_bba",
+        "subtitle": "Faculty Members"
+      }
+    ]
   },
   {
-    id: "mba",
-    title: "MBA",
-    items: [
-      { id: "mba1", link: "/courses/mba/introduction", subtitle: "Introduction" },
+    "id": "mba",
+    "title": "MBA",
+    "items": [
       {
-        id: "mba2",
-        link: "/courses/mba/admission",
-        subtitle: "Admission Procedure",
+        "id": "mba1",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/mba/introduction",
+        "subtitle": "Introduction"
       },
-      { id: "b4", link: "", subtitle: "Faculty Members" },
-    ],
-  },
-];
+      {
+        "id": "mba2",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/mba/admission",
+        "subtitle": "Admission Procedure"
+      },
+      {
+        "id": "b4",
+        "link": "https://tilottamacampus.tilottama.edu.np/courses/mba/#faculty_mba",
+        "subtitle": "Faculty Members"
+      }
+    ]
+  }
+]
 
 
 const admissionData = [
@@ -162,29 +178,8 @@ const admissionData = [
   };
 
 
-  const host =
-        typeof window !== 'undefined' && window.location.host
-            ? window.location.host
-            : '';
 
-
-  const handleCourseRoute = (e, data) => {
-  setActiveCourse(data)
-
-  const { id, link } = data;
-
-  if (id.startsWith('bba') || id.startsWith('mba')) {
-    // Remove the subdomain prefix from the link if it exists
-    const updatedLink = link.replace('/bba', '').replace('/mba', '');
-
-    const subdomain = id.startsWith('bba') ? 'bba' : 'mba' ;
-
-    router.push(`https://${subdomain}.${host}${updatedLink}`);
-  } else {
-    router.push(link);
-  }
-};
-
+  
 
 
   
@@ -251,7 +246,7 @@ const updatedOthersData = [
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                { <a onClick={() => setIsOpen(false)} target="_blank" href={"https://tilottama.careerservicelab.com"}> <li className="cursor-pointer pl-[1rem] text-left">Carrier Service Center</li> </a>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
-               { <a onClick={() => setIsOpen(false)} target="_blank" href={`https://mba.${host}/pay`}> <li className="cursor-pointer pl-[1rem] text-left">Fee Payment</li> </a>}
+               { <a onClick={() => setIsOpen(false)} target="_blank" href={"https://tilottamacampus.tilottama.edu.np/pay"}> <li className="cursor-pointer pl-[1rem] text-left">Fee Payment</li> </a>}
                 <div className="w-[75%] translate-x-[10%]  h-[1px] mt-[0.1rem] bg-gray-300"></div>
                 <li
                   onClick={othersHandler}
@@ -277,7 +272,7 @@ const updatedOthersData = [
 
                       return (
                           <div>
-                            <Link onClick={() => setIsOpen(false)} href={`${(i.id === "bba" || i.id === "mba") ? `http://${i.id === 'bba' ? 'bba' : 'mba'}.${host}/admissions` : i.link  }`}>
+                            <Link onClick={() => setIsOpen(false)} href={i.link}>
                               <ScrollLayout duration={0.4} x={150} y={0} >
                           <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
                             {i.name}
@@ -318,7 +313,7 @@ const updatedOthersData = [
                           <div key={i.id}>
                              <ScrollLayout duration={0.4} x={150} y={0} >
 
-  {               <a onClick={(e) => handleCourseRoute(e,i)} >      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
+  {               <a href={i.link} >      <li className="cursor-pointer pl-[1rem] text-[0.9rem] font-light text-left">
                             {i.subtitle}
                           </li> </a> }
                              </ScrollLayout>
