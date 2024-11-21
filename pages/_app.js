@@ -13,6 +13,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
   const [loading, setLoading] = useState(true)
   const router  = useRouter()
   const path = router.asPath;
+  const isSiteInMaintenence = true;
   useEffect(() => {
 
     setTimeout(() => {
@@ -20,23 +21,28 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
     }, 3000); // Simulating a 2-second delay
         if(!session ){
             if(path.startsWith('/admin')){
-              router.push('/admin/login');
-              setIsAdminComp(false)
+              if(!isSiteInMaintenence){
+                router.push('/admin/login');
+                setIsAdminComp(false)
+              }
+              else{
+                router.push('/under-maintenance')
+                setIsAdminComp(false)
+              }
             }
-            if(path === '/admin/admisssion-forms' || path === '/admin/dashboard' || path === '/admin/login'){
+            if(path === '/admin/admisssion-forms' || path === '/admin/dashboard' || path === '/admin/login' && !isSiteInMaintenence){
               setIsAdminComp(true)
             }
           }
           else{
-            if(!path.startsWith('/admin/')){
+            if(!path.startsWith('/admin/' && !isSiteInMaintenence)){
               setIsAdminComp(false)
             }
             else{
               setIsAdminComp(true)
             }
           }
-   
-
+  
 
   },[path])
 
@@ -55,8 +61,8 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
         {loading ? <Preloader/> :  <div>
 
     <div>
-  {!isAdminComp  &&  <Header />} { isAdminComp ? <div className="flex justify-between w-[100vw]"> <Sidebar/>  <Component {...pageProps} /> </div> : <div>  <Component {...pageProps} /> </div> }
- {!isAdminComp &&  <Footer />}
+  {!isAdminComp && isSiteInMaintenence  &&  <Header />} { isAdminComp ? <div className="flex justify-between w-[100vw]"> <Sidebar/>  <Component {...pageProps} /> </div> : <div>  <Component {...pageProps} /> </div> }
+ {!isAdminComp &&  isSiteInMaintenence && <Footer />}
   </div>
 
   {/* <div className="text-4xl text-purple-700">Loading</div> */}
